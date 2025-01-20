@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import plotly.express as px
 
 import fastf1.plotting
 
@@ -154,3 +155,71 @@ def get_qualy_results(session):
     df[['Q1', 'Q2', 'Q3']] = df.loc[:, ['Q1', 'Q2', 'Q3']].apply(format_time)
 
     return df
+
+
+def plot_drivers_pace(session, kind='driver', threshold=None):
+    """
+    Plots the pace of drivers in a racing session, visualizing lap time distributions
+    for the top 10 drivers (point finishers). The visualization can be customized
+    to group data by driver or tire compound.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The session object containing data for a specific race session.
+    - kind (str, optional): Determines the grouping of the visualization. Acceptable values are:
+        - 'driver': Groups by driver (default).
+        - 'compound': Groups by tire compound.
+    - threshold (float, optional): A lap time threshold in seconds. Laps slower than this
+        threshold are excluded from the plot. Default is None (no threshold applied).
+
+    Returns
+    --------
+    - (None): Displays a Plotly violin plot of lap time distributions.
+    """
+
+    # Retrieve the top 10 drivers from the session (point finishers)
+    point_finishers = session.drivers[:10]
+    
+    # Filter fast laps of the top 10 drivers, applying an optional lap time threshold
+    driver_laps = session.laps.pick_drivers(point_finishers).pick_quicklaps(threshold=threshold).reset_index()
+
+    # Get the finishing order using driver abbreviations
+    finishing_order = [session.get_driver(i)["Abbreviation"] for i in point_finishers]
+
+    # Convert lap times to seconds for better visualization
+    driver_laps['LapTime(s)'] = driver_laps['LapTime'].dt.total_seconds()
+
+    # Determine coloring and title based on the `kind` argument
+    if kind.lower() == 'driver':
+        color = "Driver"
+        color_map = fastf1.plotting.get_driver_color_mapping(session=session)
+        title = f"{session.event.year} {session.event.EventName} Lap Time Distributions"
+
+    elif kind.lower() == 'compound':
+        color = 'Compound'
+        color_map = fastf1.plotting.get_compound_mapping(session)
+        title = f"{session.event.year} {session.event.EventName} Lap Time Distributions by compound"
+
+    # Create a violin plot
+    fig = px.violin(
+        driver_laps,
+        x="Driver",
+        y="LapTime(s)",
+        color=color,
+        box=False,
+        points='all',
+        hover_data=driver_laps.columns,
+        category_orders={"Driver": finishing_order},
+        color_discrete_map=color_map
+    )
+
+    # Customize the layout of the plot
+    fig.update_layout(
+        title=title,
+        xaxis_title="Driver",
+        yaxis_title="Lap Time (s)",
+        showlegend=True,
+        template='plotly_dark'
+    )
+
+    fig.show()

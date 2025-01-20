@@ -181,3 +181,169 @@ def plot_standings_chart(df):
     fig.update_layout(xaxis=dict(side='top'))
 
     show(fig)
+
+
+def plot_drivers_championship(df_results, session, top=None):
+    """
+    Plots the drivers' championship evolution over the course of a season.
+
+    This function calculates the cumulative points for each driver across all Grand Prix events (GPs) and plots their progression. The plot is styled using the `fastf1.plotting.get_driver_style` function if driver styles are available.
+
+    Parameters
+    ----------
+    - df_results (pd.DataFrame): DataFrame containing results data with drivers as rows and GPs as columns, where each cell contains the points scored by a driver in a GP.
+    - session (fastf1.core.Session): A FastF1 session object used to retrieve driver styles and session-specific information.
+    - top (int, optional): The number of top drivers to include in the plot. If None, all drivers are included.
+
+    Returns
+    -------
+    - None: This function displays the plot directly and does not return any value.
+    """
+
+    # We calculate the cumulative points per GP, filling NaN values with zeros (as drivers who did not participate score 0 points)
+    df_cumulative = df_results.fillna(0).cumsum(axis=1)
+
+    # We get the gp names from columns
+    gps = df_cumulative.columns
+
+    # We get the top X drivers, if None we get all
+    if top:
+        drivers = df_cumulative.index[:top]
+    else:
+        drivers = df_cumulative.index
+
+    fig = go.Figure()
+
+    for driver in drivers:
+        points = df_cumulative.loc[driver, gps]
+        
+        try:
+            style = fastf1.plotting.get_driver_style(driver, style=['color', 'linestyle'], session=session)
+            dash = 'solid' if style['linestyle'] == 'solid' else 'dash'
+            fig.add_trace(go.Scatter(
+                x=gps,
+                y=points,
+                mode='lines+markers',
+                name=driver,
+                line=dict(color=style['color'], dash=dash),
+                marker=dict(symbol='circle')
+            ))
+
+        except KeyError:
+            print(f"Style for driver {driver} not found")
+
+
+    fig.update_layout(
+        title=f'Championship Evolution of Drivers - {session.event.EventDate.year} Season',
+        xaxis_title='Round',
+        yaxis_title='Cumulative Points',
+        legend_title='Driver',
+        xaxis=dict(tickmode='array', tickvals=gps),
+        yaxis=dict(gridcolor='lightgray', zerolinecolor='lightgray', tickvals=[i for i in range(0, 500, 50)]),
+        template='plotly_dark',
+        width=1200,
+        height=800  
+    )
+
+    fig.show()
+
+
+def plot_constructors_championship(df_results, session, top=None):
+    """
+    Plots the constructors' championship evolution for a given season using cumulative points.
+
+    Parameters
+    -----------
+    - df_results (pd.DataFrame): DataFrame containing the constructors' results with teams as rows and race rounds as columns. Missing values are treated as zero points.
+    - session (fastf1.core.Session): The FastF1 session object used to retrieve specific season and event information.
+    - top (int, optional): The number of top constructors to include in the plot. If None, all constructors are included.
+
+    Returns
+    --------
+    - (None): Displays an interactive Plotly figure showing the championship progression for the selected constructors.
+    """
+
+    # We calculate the cumulative points per GP, filling NaN values with zeros (as teams who did not participate score 0 points)
+    df_cumulative = df_results.fillna(0).cumsum(axis=1)
+
+    # We get the gp names from columns
+    gps = df_cumulative.columns
+
+    # We get the top X constructors, if None we get all
+    if top:
+        constructors = df_cumulative.index[:top]
+    else:
+        constructors = df_cumulative.index
+
+    fig = go.Figure()
+
+    for team in constructors:
+        points = df_cumulative.loc[team, gps]
+        
+        try:
+            color = fastf1.plotting.get_team_color(team, session=session)
+
+            fig.add_trace(go.Scatter(
+                x=gps,
+                y=points,
+                mode='lines+markers',
+                name=team,
+                line=dict(color=color),
+                marker=dict(symbol='circle')
+            ))
+
+        except KeyError:
+            print(f"Style for constructor {team} not found")
+
+    fig.update_layout(
+        title=f'Championship Evolution of Teams - {session.event.EventDate.year} Season',
+        xaxis_title='Round',
+        yaxis_title='Cumulative Points',
+        legend_title='Team',
+        xaxis=dict(tickmode='array', tickvals=gps),
+        yaxis=dict(gridcolor='lightgray', zerolinecolor='lightgray'),
+        template='plotly_dark',
+        width=1200,
+        height=800  
+    )
+
+    fig.show()
+    
+
+def get_championship_table(df_results, values):
+    """
+    Generates a table with championship results organized by driver and race.
+
+    Parameters
+    -----------
+    - df_results (pd.DataFrame): DataFrame containing championship data. Must include the columns 'driverCode', 'points', 'round', 'race', and the column specified in `values`.
+    - values (str): Name of the column to use as values in the table. Can be 'delta', 'grid', 'position', 'delta_sprint', 'grid_sprint' or 'position_sprint'.
+
+    Returns
+    --------
+    - (pd.DataFrame): A pivot table with drivers as rows, races as columns, and the specified values as table entries. The table is sorted by championship position, and columns represent race names.
+    """
+
+    # Calculate the position in the championship
+    df_aux = (
+        df_results.groupby('driverCode')['points']
+        .sum()
+        .sort_values(ascending=False)
+        .reset_index()
+        .assign(championshipPosition=lambda x: range(1, x.shape[0] + 1))
+    )
+    
+    # Create the pivot table
+    df = (
+        df_results.pivot(index='driverCode', columns='round', values=values)
+        .merge(df_aux[['driverCode', 'championshipPosition']], on='driverCode')
+        .set_index('driverCode')
+        .sort_values(by='championshipPosition')
+        .drop(columns='championshipPosition')
+    )
+    
+    # Use race name, instead of round number, as column names
+    df.columns = df_results.drop_duplicates('round').set_index('round').loc[df.columns, 'race']
+    df.dropna(axis=1, how='all', inplace=True)
+
+    return df

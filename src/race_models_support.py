@@ -42,3 +42,37 @@ def get_weather_condition(compounds):
     
     else:
         return "dry"
+    
+
+def get_extra_info(session, info):
+    """
+    Extracts additional information from a FastF1 session object and updates the provided info dictionary with metrics such as weather conditions, yellow flags, red flags, and safety car deployments.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session object containing lap and track status data. Must include a 'laps' DataFrame with a 'Compound' column and a 'track_status' DataFrame with a 'Message' column.
+    - info (dict): A dictionary where the keys 'weather', 'yellows', 'reds', 'sc', and 'vsc' must be present. Each key should map to a list that will be updated with the corresponding session data.
+
+    Returns
+    --------
+    - None: Updates the `info` dictionary in place.
+    """
+
+    # Check keys
+    if not all(key in info for key in ['weather', 'yellows', 'reds', 'sc', 'vsc']):
+        raise ValueError("The 'info' dictionary must contain the following keys: 'weather', 'yellows', 'reds', 'sc', 'vsc'")
+    
+    # Check columns exists
+    if 'Compound' not in session.laps.columns or 'Message' not in session.track_status.columns:
+        raise KeyError("The columns 'Compound' or 'Message' are not available in the session data.")
+    
+    # Get compounds and track status
+    compounds = session.laps['Compound'].value_counts(normalize=True)
+    track_status_counts = session.track_status['Message'].value_counts()
+
+    # Get metrics
+    info['weather'].append(get_weather_condition(compounds))
+    info['yellows'].append(track_status_counts.get('Yellow', 0))
+    info['reds'].append(track_status_counts.get('Red', 0))
+    info['sc'].append(track_status_counts.get('SCDeployed', 0))
+    info['vsc'].append(track_status_counts.get('VSCDeployed', 0))

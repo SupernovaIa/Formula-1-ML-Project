@@ -1,5 +1,7 @@
 from scipy.interpolate import interp1d
 
+import fastf1
+
 
 def get_nearest_speed(curve_distance, car_data):
     """
@@ -39,7 +41,7 @@ def get_nearest_speed(curve_distance, car_data):
 
 def get_qualy_lap(session):
     """
-      Extracts and analyzes qualifying lap data from a FastF1 session, including car performance and circuit corner information.
+      Extracts pole position lap data from a FastF1 qualyfiyng session, including car performance and circuit corner information.
 
       Parameters
       -----------
@@ -80,3 +82,27 @@ def get_qualy_lap(session):
         }
 
     return dc, lap, car_data, corners
+
+
+def get_circuit_info(season, rnd):
+    """
+    Retrieves circuit information for a specific race round in a given season using qualifying session data.
+
+    Parameters
+    -----------
+    - season (int): The season (year) of the race.
+    - rnd (int): The round of the race in the specified season.
+
+    Returns
+    --------
+    - (dict): A dictionary containing circuit information derived from the pole position lap.
+    """
+
+    # Load session
+    session = fastf1.get_session(season, rnd, 'Q')
+    session.load(telemetry=True, weather=False)
+
+    # Get circuit info from the pole position lap
+    dc = get_qualy_lap(session)[0]
+
+    return dc

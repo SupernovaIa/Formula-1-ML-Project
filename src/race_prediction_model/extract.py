@@ -1,0 +1,230 @@
+import time
+from ratelimit import limits, RateLimitException
+import pandas as pd
+from fastf1.ergast import Ergast
+import os
+import fastf1
+
+
+# Call limit: [CALLS] every [PERIOD] seconds
+CALLS = 3
+PERIOD = 60
+
+@limits(calls=CALLS, period=PERIOD)
+def load_session(session, laps=True, telemetry=False, weather=False, messages=True):
+    session.load(laps=laps, telemetry=telemetry, weather=weather, messages=messages)
+
+
+def load_session_with_retry(session):
+    while True:
+        try:
+            load_session(session)
+            break
+
+        except RateLimitException:
+            print("Call limit reached. Waiting...")
+            time.sleep(PERIOD)
+
+
+def get_weather_condition(compounds):
+    """
+    Determine the race condition based on the proportion of tire compounds.
+
+    Parameters
+    -----------
+    - compounds (pd.Series): A pandas Series where keys represent tire types (e.g., 'WET', 'INTERMEDIATE', etc.), 
+    and values represent the proportions of each tire type.
+
+    Returns
+    --------
+    - (str): The classified race condition, which can be:
+    - "Wet" if more than 75% of tires are wet or intermediate.
+    - "Mixed" if the proportion of wet or intermediate tires is between 20% and 75%.
+    - "Dry" if the proportion of wet or intermediate tires is 20% or less.
+    """
+
+    # Thresholds to determine race conditions
+    wet_threshold = 0.75
+    mixed_threshold = 0.20
+
+    # Calculate the total sum of the Series
+    total = compounds.sum()
+
+    # Ensure the values are normalized
+    if total != 1:
+        compounds = compounds / total
+
+    # Proportion of wet tires
+    wet = compounds.get('WET', 0) + compounds.get('INTERMEDIATE', 0)
+
+    # Classify conditions based on the thresholds
+    if wet > wet_threshold:
+        return "wet"
+    
+    elif wet > mixed_threshold:
+        return "mixed"
+    
+    else:
+        return "dry"
+    
+
+def get_race_extra_info(session, dc):
+    """
+    Extracts additional information from a FastF1 session object and updates the provided info dictionary with metrics such as weather conditions, yellow flags, red flags, and safety car deployments.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session object containing lap and track status data. Must include a 'laps' DataFrame with a 'Compound' column and a 'track_status' DataFrame with a 'Message' column.
+    - dc (dict): A dictionary where the keys 'weather', 'yellows', 'reds', 'sc', and 'vsc' must be present. Each key should map to a list that will be updated with the corresponding session data.
+
+    Returns
+    --------
+    - None: Updates the `info` dictionary in place.
+    """
+
+    # Check keys
+    if not all(key in dc for key in ['weather', 'yellows', 'reds', 'sc', 'vsc']):
+        raise ValueError("The 'info' dictionary must contain the following keys: 'weather', 'yellows', 'reds', 'sc', 'vsc'")
+    
+    # Check columns exists
+    if 'Compound' not in session.laps.columns or 'Message' not in session.track_status.columns:
+        raise KeyError("The columns 'Compound' or 'Message' are not available in the session data.")
+    
+    # Get compounds and track status
+    compounds = session.laps['Compound'].value_counts(normalize=True)
+    track_status_counts = session.track_status['Message'].value_counts()
+
+    # Get metrics
+    dc['weather'].append(get_weather_condition(compounds))
+    dc['yellows'].append(track_status_counts.get('Yellow', 0))
+    dc['reds'].append(track_status_counts.get('Red', 0))
+    dc['sc'].append(track_status_counts.get('SCDeployed', 0))
+    dc['vsc'].append(track_status_counts.get('VSCDeployed', 0))
+
+
+def get_race_results(session, margin=100):
+    """
+    Retrieves race results and processes the data to standardize timing and statuses.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session object containing race data, including results.
+    - margin (int, optional): The time margin (in seconds) added to non-finishers' times. Defaults to 100.
+
+    Returns
+    --------
+    - (pd.DataFrame): A DataFrame containing processed race results with the following columns:
+        - 'DriverId': Identifier for the driver.
+        - 'TeamId': Identifier for the team.
+        - 'Position': Final position of the driver.
+        - 'GridPosition': Starting grid position of the driver.
+        - 'Time': Race time in seconds (adjusted for winners and non-finishers).
+        - 'Status': Status of the driver (e.g., 'Finished', 'Retired').
+        - 'Points': Points scored by the driver.
+    """
+
+    # Get results dataframe
+    results = session.results
+    results = results.loc[:, ['DriverId', 'TeamId', 'Position', 'GridPosition', 'Time', 'Status', 'Points']]
+
+    # Fix winner time to 0 and convert to seconds
+    results.iloc[0, results.columns.get_loc('Time')] = pd.Timedelta(0)
+    results['Time'] = results['Time'].dt.total_seconds()
+
+    # Fix non-finishers time to avoid NaT
+    max_finished_time = results.loc[results['Status'] == 'Finished', 'Time'].max()
+    results.loc[results['Status'] != 'Finished', 'Time'] = max_finished_time + margin
+
+    return results
+
+
+def extract_races_and_results_dataframes(start, end=None, save=True):
+    """
+    Extracts and processes dataframes for race results and race schedules from the Ergast API for a given range of seasons.
+
+    Parameters
+    -----------
+    - start (int): The starting season (year) for data extraction.
+    - end (int, optional): The ending season (year) for data extraction. Defaults to the same value as `start`.
+    - save (bool, optional): Whether to save the resulting dataframes to CSV files. Defaults to True.
+
+    Returns
+    --------
+    - (pd.DataFrame): A dataframe containing the consolidated race results.
+    - (pd.DataFrame): A dataframe containing the consolidated race schedules with additional race information.
+    - (dict): A dictionary mapping `(season, round)` to the corresponding FastF1 session objects.
+    """
+
+    if not end:
+        end = start
+
+    # Instancia de Ergast
+    ergast = Ergast()
+
+    # Dataframes that store races and results
+    results_final_df = pd.DataFrame()
+    races_final_df = pd.DataFrame()
+
+    # Dictionary that stores sessions
+    sessions = {}
+
+    # Iterate by seasons
+    for i in range(start, end + 1):
+
+        # Get season schedule
+        races = ergast.get_race_schedule(i)
+        races = races.loc[:, ['season', 'round', 'circuitId']]
+
+        # We add extra info for races
+        race_extra_info = {'weather': [], 'yellows': [], 'reds': [], 'sc': [], 'vsc': []}
+
+        # Iterate by round within a season
+        for season, rnd, circuit_id in races.itertuples(index=False):
+
+            try:
+                # Load session
+                print(f"Loading {season} season. Round: {rnd}...")
+                session = fastf1.get_session(season, rnd, 'R')
+                load_session_with_retry(session)
+
+                # Save session in sessions dictionary
+                sessions[(season, rnd)] = session
+
+                # Maybe here add a .pkl save for session(?)
+
+                # Get results dataframe
+                results = get_race_results(session)
+                results['season'] = season
+                results['round'] = rnd
+                results['circuitId'] = circuit_id
+
+                # Concatenate with previous results
+                results_final_df = pd.concat([results_final_df, results])
+
+                # Update info dictionary
+                get_race_extra_info(session, race_extra_info)
+
+            except Exception as e:
+                print(f"Failed to load season {season}, round {rnd}: {e}")
+
+    # Add extra info by columns
+    races = pd.concat([races, pd.DataFrame(race_extra_info)], axis=1)
+
+    # Concatenate with previous results
+    races_final_df = pd.concat([races_final_df, races], ignore_index=True)
+
+    # Saving dataframes
+    if save:
+        output_dir = os.path.join('..', 'data', 'output') if 'notebook' in os.getcwd() else os.path.join('data', 'output')
+        os.makedirs(output_dir, exist_ok=True)
+
+        path_results = os.path.join(output_dir, 'results.csv')
+        path_races = os.path.join(output_dir, 'races.csv')
+
+        print(f"Saving results in {path_results}")
+        results_final_df.to_csv(path_results, index=False)
+
+        print(f"Saving races in {path_races}")
+        races_final_df.to_csv(path_races, index=False)
+
+    return results_final_df, races_final_df, sessions

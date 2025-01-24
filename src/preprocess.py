@@ -13,6 +13,47 @@ warnings.filterwarnings("ignore")
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 from category_encoders import TargetEncoder
 
+from scipy.stats import chi2_contingency
+
+# Data scaling  
+# -----------------------------------------------------------------------  
+from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler  
+
+
+def chi2_test(df,  categories, target_variable, alpha=0.05, show=False):
+    """
+    Performs a chi-squared test of independence for multiple categorical variables against a target variable.
+
+    Parameters
+    ----------
+    - categories (list): A list of categorical variable names to test.
+    - target_variable (str): The name of the target variable for the chi-squared test.
+    - alpha (float, optional): The significance level for the test. Default is 0.05.
+    - show(bool, optional): Whether to display in a Jupyter Notebook environment or not. Default is False.
+
+    Returns
+    -------
+    - None: Prints results of the chi-squared test and displays contingency tables and expected frequencies.
+    """
+
+    for category in categories:
+
+        print(f"We are evaluating the variable {category.upper()}")
+        df_crosstab = pd.crosstab(df[category], df[target_variable])
+
+        if show:
+            display(df_crosstab)
+
+        chi2, p, dof, expected = chi2_contingency(df_crosstab)
+
+        if p < alpha:
+            print(f"For the category {category.upper()} there are significant differences, p = {p:.4f}")
+            if show:    
+                display(pd.DataFrame(expected, index=df_crosstab.index, columns=df_crosstab.columns).round())
+        else:
+            print(f"For the category {category.upper()} there are NO significant differences, p = {p:.4f}\n")
+        print("--------------------------")
+
 
 class Encoding:
     """
@@ -36,7 +77,8 @@ class Encoding:
         """
         Initializes the object with a DataFrame, encoding methods, and target variable.
 
-        Parameters:
+        Parameters
+        ----------
         - df (pd.DataFrame): The input DataFrame containing the data.
         - encoding_methods (dict): A dictionary specifying the encoding methods for different columns.
         - target_variable (str): The name of the target variable in the DataFrame.
@@ -50,10 +92,12 @@ class Encoding:
         """
         Applies one-hot encoding to specified columns in the DataFrame.
 
-        Parameters:
+        Parameters
+        ----------
         - None
 
-        Returns:
+        Returns
+        -------
         - (pd.DataFrame): The updated DataFrame with one-hot encoded columns added and the original columns removed.
         """
         # Get columns to one hot encode
@@ -81,10 +125,12 @@ class Encoding:
         """
         Applies target encoding to specified columns in the DataFrame.
 
-        Parameters:
+        Parameters
+        ----------
         - None
 
-        Returns:
+        Returns
+        -------
         - (pd.DataFrame): The updated DataFrame with target-encoded values replacing the original columns.
         """
         # Get columns to target encode
@@ -111,10 +157,12 @@ class Encoding:
         """
         Applies ordinal encoding to specified columns in the DataFrame based on defined category orders.
 
-        Parameters:
+        Parameters
+        ----------
         - None
 
-        Returns:
+        Returns
+        -------
         - (pd.DataFrame): The updated DataFrame with ordinal-encoded values replacing the original columns.
         """
         # Retrieve columns and their respective category orders
@@ -156,10 +204,12 @@ class Encoding:
         """
         Applies frequency encoding to specified columns in the DataFrame.
 
-        Parameters:
+        Parameters
+        ----------
         - None
 
-        Returns:
+        Returns
+        -------
         - (pd.DataFrame): The updated DataFrame with frequency-encoded values for the specified columns.
         """
         # Get columns to frequency encode
@@ -182,10 +232,12 @@ class Encoding:
 
         The method skips any encoding types not defined in `self.encoding_methods` and handles exceptions during the execution of each encoding type to ensure subsequent encodings are still performed.
 
-        Parameters:
+        Parameters
+        ----------
         - None
 
-        Returns:
+        Returns
+        -------
         - (pd.DataFrame): The updated DataFrame after applying all specified encoding methods.
         """
         # Check and execute One-Hot Encoding
@@ -218,3 +270,78 @@ class Encoding:
 
         # Return the updated DataFrame after all encodings
         return self.df
+    
+
+def scale_df(df, cols, method="robust", include_others=False):
+    """
+    Scale selected columns of a DataFrame using specified scaling method.
+    
+    Parameters
+    ----------
+        df (pd.DataFrame): Input DataFrame.
+        cols (list): List of columns to scale.
+        method (str): Scaling method, one of ["minmax", "robust", "standard"]. Defaults to "robust".
+        include_others (bool): If True, include non-scaled columns in the output. Defaults to False.
+    
+    Returns
+    -------
+        pd.DataFrame: DataFrame with scaled columns (and optionally unscaled columns).
+    """
+    if method not in ["minmax", "robust", "standard"]:
+        raise ValueError(f"Invalid method '{method}'. Choose from ['minmax', 'robust', 'standard'].")
+    
+    if not all(col in df.columns for col in cols):
+        missing = [col for col in cols if col not in df.columns]
+        raise ValueError(f"Columns not found in DataFrame: {missing}")
+    
+    # Select the scaler
+    scaler = {
+        "minmax": MinMaxScaler(),
+        "robust": RobustScaler(),
+        "standard": StandardScaler()
+    }[method]
+    
+    # Scale the selected columns
+    scaled_data = scaler.fit_transform(df[cols])
+    df_scaled = pd.DataFrame(scaled_data, columns=cols, index=df.index)
+    
+    # Include unscaled columns if requested
+    if include_others:
+        unscaled_cols = df.drop(columns=cols)
+        df_scaled = pd.concat([df_scaled, unscaled_cols], axis=1)
+    
+    return df_scaled
+
+
+def preprocess(df, encoding_methods, scaling_method, columns_drop=None):
+    """
+    Preprocesses a DataFrame by dropping specified columns, encoding categorical variables, and scaling numerical features.
+
+    Parameters
+    ----------
+        df (pd.DataFrame): The input DataFrame.
+        encoding_methods (List[str]): A list of encoding methods to apply to categorical columns.
+        scaling_method (str): The method to use for scaling numeric columns ("minmax", "robust" or "standard").
+        columns_drop (Optional[List[str]]): List of column names to drop from the DataFrame.
+
+    Returns
+    -------
+        Tuple[pd.DataFrame, pd.DataFrame]: A tuple containing:
+            - Encoded DataFrame (df_encoded).
+            - Scaled DataFrame (df_scaled).
+    """
+    # Create a copy of the DataFrame to avoid modifying the original.
+    df = df.copy()
+
+    # Drop specified columns if provided.
+    if columns_drop:
+        df.drop(columns=columns_drop, inplace=True)
+
+    # Encode categorical variables.
+    encoder = Encoding(df, encoding_methods, None)
+    df_encoded = encoder.execute_all_encodings()
+
+    # Scale the encoded DataFrame.
+    df_scaled = scale_df(df_encoded, df_encoded.columns.to_list(), method=scaling_method)
+
+    return df_encoded, df_scaled

@@ -18,24 +18,6 @@ from sklearn.ensemble import IsolationForest
 from sklearn.neighbors import LocalOutlierFactor
 
 
-def checker(df, col):
-    """
-    Provides summary statistics and insights about a specific column in a DataFrame.
-
-    Parameters:
-    - df (pd.DataFrame): The input DataFrame to analyze.
-    - col (str): The name of the column to check.
-
-    Returns:
-    - None: The function prints the summary statistics directly.
-    """
-
-    print(f"Number of entries: {df.shape[0]}.")
-    print(f"Number of {col} distinct entries: {df[col].nunique()}.")
-    print(f"Number of {col} duplicated: {df[col].duplicated().sum()}.")
-    print(f"Number of {col} null: {df[col].isna().sum()}.")
-
-
 def plot_numeric_distribution(df, first, last, col, n=1, size = (10, 5), rotation=45):
     """
     Plots the distribution of numeric values in a specified column within a given range, using aligned bins.

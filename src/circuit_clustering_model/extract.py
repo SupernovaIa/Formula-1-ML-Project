@@ -96,17 +96,20 @@ def get_circuit_info(season, rnd):
 
     Returns
     --------
-    - (dict): A dictionary containing circuit information derived from the pole position lap.
+    - (tuple): A tuple containing:
+    - dc (dict): A dictionary with key metrics such as compound, lap time, max speed, average speeds, and more.
+    - lap (fastf1.core.Lap): The fastest lap object from the session.
+    - car_data (pandas.DataFrame): The car data with added distance information.
+    - corners (pandas.DataFrame): DataFrame containing corner information with calculated speeds.
     """
 
     # Load session
     session = fastf1.get_session(season, rnd, 'Q')
     session.load(telemetry=True, weather=False)
 
-    # Get circuit info from the pole position lap
-    dc = get_qualy_lap(session)[0]
-
-    return dc
+    # Return circuit info from the pole position lap
+    dc, lap, car_data, corners = get_qualy_lap(session)
+    return dc, lap, car_data, corners
 
 
 def extract_races_and_results_dataframes(races):

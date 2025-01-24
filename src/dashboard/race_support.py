@@ -210,7 +210,7 @@ def plot_drivers_pace(session, kind='driver', threshold=None, box=False):
         color=color,
         box=box,
         points='all',
-        hover_data=driver_laps.columns,
+        hover_data=driver_laps,
         category_orders={"Driver": finishing_order},
         color_discrete_map=color_map
     )
@@ -286,7 +286,7 @@ def plot_teams_pace(session, kind='team', threshold=None, box=False):
         color=color,
         box=box,
         points='all',
-        hover_data=team_laps.columns,
+        hover_data=team_laps,
         category_orders={"Team": team_order},
         color_discrete_map=color_map
     )
@@ -294,10 +294,96 @@ def plot_teams_pace(session, kind='team', threshold=None, box=False):
     # Customize the layout of the plot
     fig.update_layout(
         title=title,
-        xaxis_title="Driver",
+        xaxis_title="Constructor",
         yaxis_title="Lap Time(s)",
         showlegend=True,
         template='plotly_dark'
     )
+
+    fig.show()
+
+
+def plot_tyre_strat(session):
+    """
+    Plots the tyre strategies for a given race session.
+
+    This function visualizes the stint lengths and compound choices for each driver in a race session,
+    using a horizontal bar chart. Each bar represents a stint, color-coded by the compound used.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The race session object containing event and lap data.
+
+    Returns
+    --------
+    - None: Displays an interactive plotly visualization of the tyre strategies.
+    """
+
+    title = f"{session.event.year} {session.event.EventName} Strategies"
+    shown_compounds = set()
+
+    # Get drivers
+    drivers = session.drivers
+    drivers = [session.get_driver(driver)["Abbreviation"] for driver in drivers]
+
+    # Get stints
+    laps = session.laps
+
+    stints = laps[["Driver", "Stint", "Compound", "LapNumber"]]
+    stints = stints.groupby(["Driver", "Stint", "Compound"])
+    stints = stints.count().reset_index()
+
+    stints = stints.rename(columns={"LapNumber": "StintLength"})
+
+    # Create plot
+    fig = go.Figure()
+
+    for driver in drivers:
+        driver_stints = stints.loc[stints["Driver"] == driver]
+        previous_stint_end = 0
+
+        for _, row in driver_stints.iterrows():
+
+            compound_color = fastf1.plotting.get_compound_color(row["Compound"], session=session)
+
+            # Show compound on legend only once
+            if row["Compound"] not in shown_compounds:
+                show_legend = True
+                # Flag compound as already shown
+                shown_compounds.add(row["Compound"])  
+
+            else:
+                show_legend = False
+
+            fig.add_trace(
+                go.Bar(
+                    y=[driver],
+                    x=[row["StintLength"]],
+                    base=previous_stint_end,
+                    orientation='h',
+                    marker=dict(color=compound_color, line=dict(color='black', width=1)),
+                    name=row["Compound"],
+                    legendgroup=row["Compound"],
+                    showlegend=show_legend,
+                    width=0.8
+                )
+            )
+            
+            previous_stint_end += row["StintLength"]
+
+    # Customize the layout of the plot
+    fig.update_layout(
+        title=title,
+        xaxis=dict(title="Lap Number"),
+        yaxis=dict(title="", autorange='reversed'),
+        plot_bgcolor='black',
+        template='plotly_dark',
+        margin=dict(t=40, b=40, l=40, r=40),
+        bargap=1,
+    )
+
+    # Hide grid lines
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False)
 
     fig.show()

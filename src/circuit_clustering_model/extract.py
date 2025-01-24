@@ -1,6 +1,7 @@
 from scipy.interpolate import interp1d
-
+import pandas as pd
 import fastf1
+from tqdm import tqdm
 
 
 def get_nearest_speed(curve_distance, car_data):
@@ -106,3 +107,43 @@ def get_circuit_info(season, rnd):
     dc = get_qualy_lap(session)[0]
 
     return dc
+
+
+def extract_races_and_results_dataframes(races):
+    """
+    Extract circuit information and create a DataFrame based on provided races data.
+
+    Parameters
+    -----------
+    - races (pd.DataFrame): A DataFrame containing race details with required columns: 'season', 'round', and 'circuitId'.
+
+    Returns
+    --------
+    - (pd.DataFrame): A DataFrame constructed from circuit information, indexed by circuit IDs.
+    """
+
+    # Verify if required columns exists
+    required_columns = {'season', 'round', 'circuitId'}
+
+    if not required_columns.issubset(races.columns):
+        raise ValueError(f"The 'races' DataFrame must contain the columns {required_columns}.")
+
+    # Select columns
+    races = races.loc[:, ['season', 'round', 'circuitId']]
+
+    # Dictionary to store circuit information
+    circuits = {}
+
+    # Iterate by races
+    for season, rnd, circuit_id in tqdm(races.itertuples(index=False), total=len(races), desc="Processing circuits."):
+        try:
+            # Get circuit info
+            circuits[circuit_id] = get_circuit_info(season, rnd)
+        except Exception as e:
+            print(f"Error processing circuit {circuit_id} (season {season}, round {rnd}): {e}")
+            circuits[circuit_id] = None
+
+    # Create dataframe from circuits
+    data = pd.DataFrame.from_dict(circuits, orient='index')
+
+    return data

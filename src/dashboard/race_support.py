@@ -371,7 +371,7 @@ def plot_tyre_strat(session):
             
             previous_stint_end += row["StintLength"]
 
-    # Customize the layout of the plot
+    # Customize plot layout
     fig.update_layout(
         title=title,
         xaxis=dict(title="Lap Number"),
@@ -380,6 +380,112 @@ def plot_tyre_strat(session):
         template='plotly_dark',
         margin=dict(t=40, b=40, l=40, r=40),
         bargap=1,
+    )
+
+    # Hide grid lines
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False)
+
+    fig.show()
+
+
+def plot_telemetry(session, mode='Speed', drivers=[]):
+    """
+    Plots telemetry data for a given race session.
+
+    This function visualizes telemetry data (Speed, Throttle, or RPM) along the track's distance 
+    for the fastest lap(s) of specified drivers. Vertical dashed lines and labels mark the corners 
+    on the circuit.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The race session object containing event, lap, and circuit data.
+    - mode (str, optional): The telemetry data to plot. Must be one of ['Speed', 'Throttle', 'RPM']. 
+    Defaults to 'Speed'.
+    - drivers (list of str, optional): List of driver abbreviations to include in the plot. 
+    If empty, only the session's fastest lap is plotted. Defaults to [].
+
+    Returns
+    --------
+    - None: Displays an interactive plotly visualization of the telemetry data.
+    """
+
+    valid_modes = ['Speed', 'Throttle', 'RPM']
+
+    if mode not in valid_modes:
+        raise ValueError(f"Invalid mode '{mode}'. Must be one of {valid_modes}.")
+
+
+    circuit_info = session.get_circuit_info()
+    title = f"{session.event.year} {session.event.EventName} Lap comparison"
+
+    # Create plot
+    fig = go.Figure()
+
+    # Add a trace for every driver
+    for driver in drivers:
+        fastest_lap = session.laps.pick_drivers([driver]).pick_fastest()
+        car_data = fastest_lap.get_car_data().add_distance()
+        team_color = fastf1.plotting.get_team_color(fastest_lap['Team'], session=session)
+
+        # Add main trace (speed, throttle or RPM vs distance)
+        fig.add_trace(go.Scatter(
+            x=car_data['Distance'],
+            y=car_data[mode],
+            mode='lines',
+            line=dict(color=team_color),
+            name=fastest_lap['Driver']
+        ))
+
+    # If no drivers, pick fastest
+    if drivers == []:
+        title = f"{session.event.year} {session.event.EventName} Pole Lap"
+        fastest_lap = session.laps.pick_fastest()
+        car_data = fastest_lap.get_car_data().add_distance()
+        team_color = fastf1.plotting.get_team_color(fastest_lap['Team'], session=session)
+
+        # Add main trace (speed, throttle or RPM vs distance)
+        fig.add_trace(go.Scatter(
+            x=car_data['Distance'],
+            y=car_data[mode],
+            mode='lines',
+            line=dict(color=team_color),
+            name=fastest_lap['Driver']
+        ))
+
+    # Vertical lines in corners
+    v_min = car_data[mode].min()
+    v_max = car_data[mode].max()
+
+    for _, corner in circuit_info.corners.iterrows():
+        # Add vertical line
+        fig.add_trace(go.Scatter(
+            x=[corner['Distance'], corner['Distance']],
+            y=[v_min - 20, v_max + 20],
+            mode='lines',
+            line=dict(dash='dot', color='grey'),
+            showlegend=False
+        ))
+        # Number of corner
+        txt = f"{corner['Number']}{corner['Letter']}"
+        fig.add_trace(go.Scatter(
+            x=[corner['Distance']],
+            y=[v_min - 30],
+            mode='text',
+            text=[txt],
+            textposition='top center',
+            showlegend=False
+        ))
+
+    # Customize plot layout
+    fig.update_layout(
+        title=title,
+        xaxis_title='Distance (m)',
+        yaxis_title=f'{mode} {"(km/h)" if mode == "Speed" else ""}',
+        yaxis=dict(range=[v_min - 40, v_max + 20]),
+        plot_bgcolor='black',
+        template='plotly_dark',
+        showlegend=True
     )
 
     # Hide grid lines

@@ -40,6 +40,15 @@ def get_nearest_speed(curve_distance, car_data):
     return interp_func(curve_distance)
 
 
+def categorize_speed(speed):
+    if speed < 120:
+        return "slow"
+    elif 120 <= speed <= 240:
+        return "medium"
+    else:
+        return "fast"
+    
+
 def get_qualy_lap(session):
     """
       Extracts pole position lap data from a FastF1 qualyfiyng session, including car performance and circuit corner information.
@@ -65,8 +74,12 @@ def get_qualy_lap(session):
     circuit_info = session.get_circuit_info()
     corners = circuit_info.corners[['Number', 'Distance']].copy()
 
-    # Aplicar la función al dataframe de curvas
+    # Add speed and kind of corner
     corners['Speed'] = corners['Distance'].apply(lambda x: get_nearest_speed(x, car_data))
+    corners['Category'] = corners['Speed'].apply(categorize_speed)
+
+    # Count number of corners of every kind
+    category_counts = corners["Category"].value_counts()
 
     # Build dictionary with relevant info
     dc = {
@@ -79,7 +92,10 @@ def get_qualy_lap(session):
         'avg_speed': car_data['Speed'].mean(),
         'throttle_perc': car_data['Throttle'].mean(),
         'brake_perc': car_data['Brake'].mean() * 100,
-        'gear_changes': car_data['nGear'].diff().abs().sum()
+        'gear_changes': car_data['nGear'].diff().abs().sum(),
+        'n_slow_corners': category_counts.get('slow', 0),
+        'n_medium_corners': category_counts.get('medium', 0),
+        'n_fast_corners': category_counts.get('fast', 0)
         }
 
     return dc, lap, car_data, corners
@@ -141,7 +157,7 @@ def extract_races_and_results_dataframes(races):
     for season, rnd, circuit_id in tqdm(races.itertuples(index=False), total=len(races), desc="Processing circuits."):
         try:
             # Get circuit info
-            circuits[circuit_id] = get_circuit_info(season, rnd)
+            circuits[circuit_id] = get_circuit_info(season, rnd)[0]
         except Exception as e:
             print(f"Error processing circuit {circuit_id} (season {season}, round {rnd}): {e}")
             circuits[circuit_id] = None

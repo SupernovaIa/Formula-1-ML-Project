@@ -4,6 +4,7 @@ import pandas as pd
 from fastf1.ergast import Ergast
 import os
 import fastf1
+from tqdm import tqdm
 
 
 # Call limit: [CALLS] every [PERIOD] seconds
@@ -26,7 +27,7 @@ def load_session_with_retry(session):
             time.sleep(PERIOD)
 
 
-def get_weather_condition(compounds):
+def _get_weather_condition(compounds):
     """
     Determine the race condition based on the proportion of tire compounds.
 
@@ -68,7 +69,7 @@ def get_weather_condition(compounds):
         return "dry"
     
 
-def get_race_extra_info(session, dc):
+def _get_race_extra_info(session, dc):
     """
     Extracts additional information from a FastF1 session object and updates the provided info dictionary with metrics such as weather conditions, yellow flags, red flags, and safety car deployments.
 
@@ -95,14 +96,14 @@ def get_race_extra_info(session, dc):
     track_status_counts = session.track_status['Message'].value_counts()
 
     # Get metrics
-    dc['weather'].append(get_weather_condition(compounds))
+    dc['weather'].append(_get_weather_condition(compounds))
     dc['yellows'].append(track_status_counts.get('Yellow', 0))
     dc['reds'].append(track_status_counts.get('Red', 0))
     dc['sc'].append(track_status_counts.get('SCDeployed', 0))
     dc['vsc'].append(track_status_counts.get('VSCDeployed', 0))
 
 
-def get_race_results(session, margin=100):
+def _get_race_results(session, margin=100):
     """
     Retrieves race results and processes the data to standardize timing and statuses.
 
@@ -138,93 +139,111 @@ def get_race_results(session, margin=100):
     return results
 
 
-def extract_races_and_results_dataframes(start, end=None, save=True):
+def extract_races_dataframe(start, end=None, save=True):
     """
-    Extracts and processes dataframes for race results and race schedules from the Ergast API for a given range of seasons.
+    Extracts race schedules for a range of seasons and optionally saves the data to a CSV file.
 
     Parameters
     -----------
-    - start (int): The starting season (year) for data extraction.
-    - end (int, optional): The ending season (year) for data extraction. Defaults to the same value as `start`.
-    - save (bool, optional): Whether to save the resulting dataframes to CSV files. Defaults to True.
+    - start (int): The starting season (year) for which race schedules will be extracted.
+    - end (int, optional): The ending season (year) for which race schedules will be extracted. Defaults to `start` if not provided.
+    - save (bool, optional): Whether to save the resulting dataframe as a CSV file. Defaults to `True`.
 
     Returns
     --------
-    - (pd.DataFrame): A dataframe containing the consolidated race results.
-    - (pd.DataFrame): A dataframe containing the consolidated race schedules with additional race information.
-    - (dict): A dictionary mapping `(season, round)` to the corresponding FastF1 session objects.
+    - (pd.DataFrame): A dataframe containing race schedules, including columns for season, round, and circuitId.
     """
 
+    # If end not provided, we only get one season
     if not end:
         end = start
 
-    # Instancia de Ergast
+    # Initialize an Ergast object
     ergast = Ergast()
 
-    # Dataframes that store races and results
-    results_final_df = pd.DataFrame()
+    # Dataframe to store races
     races_final_df = pd.DataFrame()
 
-    # Dictionary that stores sessions
-    sessions = {}
-
     # Iterate by seasons
-    for i in range(start, end + 1):
+    for i in tqdm(range(start, end + 1), desc='Loading seasons'):
 
         # Get season schedule
         races = ergast.get_race_schedule(i)
         races = races.loc[:, ['season', 'round', 'circuitId']]
 
-        # We add extra info for races
-        race_extra_info = {'weather': [], 'yellows': [], 'reds': [], 'sc': [], 'vsc': []}
+        # Concatenate with previous results
+        races_final_df = pd.concat([races_final_df, races], ignore_index=True)
 
-        # Iterate by round within a season
-        for season, rnd, circuit_id in races.itertuples(index=False):
+    # Saving dataframe
+    if save:
+        output_dir = os.path.join('..', 'data', 'output') if 'notebook' in os.getcwd() else os.path.join('data', 'output')
+        os.makedirs(output_dir, exist_ok=True)
 
-            try:
-                # Load session
-                print(f"Loading {season} season. Round: {rnd}...")
-                session = fastf1.get_session(season, rnd, 'R')
-                load_session_with_retry(session)
+        path_races = os.path.join(output_dir, 'races.csv')
 
-                # Save session in sessions dictionary
-                sessions[(season, rnd)] = session
+        print(f"Saving races in {path_races}")
+        races_final_df.to_csv(path_races, index=False)
 
-                # Maybe here add a .pkl save for session(?)
+    return races_final_df
 
-                # Get results dataframe
-                results = get_race_results(session)
-                results['season'] = season
-                results['round'] = rnd
-                results['circuitId'] = circuit_id
 
-                # Concatenate with previous results
-                results_final_df = pd.concat([results_final_df, results])
+def extract_results_dataframe(races_df, save=True):
+    """
+    Extracts race results from a dataframe of races and saves the results if specified.
 
-                # Update info dictionary
-                get_race_extra_info(session, race_extra_info)
+    This function iterates through a dataframe of races, loads race session data for each season and round, retrieves race results, and compiles them into a final dataframe. Optionally, the results can be saved as a CSV file.
 
-            except Exception as e:
-                print(f"Failed to load season {season}, round {rnd}: {e}")
+    Parameters
+    -----------
+    - races_df (pd.DataFrame): A dataframe containing race information, including season, round, and circuit ID.
+    - save (bool): A flag indicating whether to save the final results dataframe as a CSV file. Default is True.
 
-    # Add extra info by columns
-    races = pd.concat([races, pd.DataFrame(race_extra_info)], axis=1)
+    Returns
+    --------
+    - (pd.DataFrame): A dataframe containing the combined race results for all processed races.
+    - (dict): A dictionary of loaded race sessions, keyed by (season, round).
+    """
 
-    # Concatenate with previous results
-    races_final_df = pd.concat([races_final_df, races], ignore_index=True)
+    # Dataframe to store results
+    results_final_df = pd.DataFrame()
 
+    # Dictionary that stores sessions
+    sessions = {}
+
+    # Iterate by round within a season
+    for season, rnd, circuit_id in tqdm(races_df.itertuples(index=False), desc='Processing results.'):
+
+        try:
+            # Load session
+            print(f"Loading {season} season. Round: {rnd}...")
+            session = fastf1.get_session(season, rnd, 'R')
+            load_session_with_retry(session)
+
+            # Save session in sessions dictionary
+            sessions[(season, rnd)] = session
+
+            # Maybe here add a .pkl save for session(?)
+
+            # Get results dataframe
+            results = _get_race_results(session)
+            results['season'] = season
+            results['round'] = rnd
+            results['circuitId'] = circuit_id
+
+            # Concatenate with previous results
+            results_final_df = pd.concat([results_final_df, results])
+
+        except Exception as e:
+            print(f"Failed to load season {season}, round {rnd}: {e}")
+        
     # Saving dataframes
     if save:
         output_dir = os.path.join('..', 'data', 'output') if 'notebook' in os.getcwd() else os.path.join('data', 'output')
         os.makedirs(output_dir, exist_ok=True)
 
         path_results = os.path.join(output_dir, 'results.csv')
-        path_races = os.path.join(output_dir, 'races.csv')
 
         print(f"Saving results in {path_results}")
         results_final_df.to_csv(path_results, index=False)
 
-        print(f"Saving races in {path_races}")
-        races_final_df.to_csv(path_races, index=False)
-
-    return results_final_df, races_final_df, sessions
+    return results_final_df, sessions

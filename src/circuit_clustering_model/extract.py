@@ -40,6 +40,28 @@ def get_nearest_speed(curve_distance, car_data):
     return interp_func(curve_distance)
 
 
+# Test
+def get_nearest(curve_distance, car_data, column):
+
+    # Ensure there are no null values in the data
+    car_data = car_data.dropna(subset=['Distance', column])
+
+    # Validate that there is enough data
+    if car_data.empty:
+        raise ValueError(f"The car_data DataFrame does not contain valid data in 'Distance' or '{column}'.")
+
+    # Check if the curve distance is out of range
+    if curve_distance < car_data['Distance'].min() or curve_distance > car_data['Distance'].max():
+        print(f"Warning: The distance {curve_distance} is out of range of the 'Distance' data.")
+
+    # Create the interpolation function
+    interp_func = interp1d(car_data['Distance'], car_data[column], bounds_error=False, fill_value="extrapolate")
+
+    # Return the interpolated speed for the given distance
+    return interp_func(curve_distance)
+
+
+
 def categorize_speed(speed):
     if speed < 120:
         return "slow"

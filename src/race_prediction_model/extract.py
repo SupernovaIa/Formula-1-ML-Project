@@ -222,8 +222,6 @@ def extract_results_dataframe(races_df, save=True):
             # Save session in sessions dictionary
             sessions[(season, rnd)] = session
 
-            # Maybe here add a .pkl save for session(?)
-
             # Get results dataframe
             results = _get_race_results(session)
             results['season'] = season

@@ -4,44 +4,25 @@ import fastf1
 from tqdm import tqdm
 
 
-def get_nearest_speed(curve_distance, car_data):
-    """
-    Calculates the nearest interpolated speed at a given curve distance using car data.
 
-    Parameters
-    -----------
-    - curve_distance (float): The distance of the curve for which the speed is to be calculated.
-    - car_data (pandas.DataFrame): A DataFrame containing 'Distance' and 'Speed' columns, representing car telemetry data.
-
-    Returns
-    --------
-    - (float): The interpolated speed at the specified curve distance.
-
-    Raises
-    --------
-    - ValueError: If the car_data DataFrame does not contain valid data in 'Distance' or 'Speed'.
-    """
-    
-    # Ensure there are no null values in the data
-    car_data = car_data.dropna(subset=['Distance', 'Speed'])
-
-    # Validate that there is enough data
-    if car_data.empty:
-        raise ValueError("The car_data DataFrame does not contain valid data in 'Distance' or 'Speed'.")
-
-    # Check if the curve distance is out of range
-    if curve_distance < car_data['Distance'].min() or curve_distance > car_data['Distance'].max():
-        print(f"Warning: The distance {curve_distance} is out of range of the 'Distance' data.")
-
-    # Create the interpolation function
-    interp_func = interp1d(car_data['Distance'], car_data['Speed'], bounds_error=False, fill_value="extrapolate")
-
-    # Return the interpolated speed for the given distance
-    return interp_func(curve_distance)
-
-
-# Test
 def get_nearest(curve_distance, car_data, column):
+    """
+    Interpolates the value of a specified column in a DataFrame based on a given distance.
+
+    This function uses linear interpolation to estimate the value of a specified column 
+    at a given distance (`curve_distance`) using the data provided in the `car_data` DataFrame. 
+    It handles missing values and checks if the distance is within the range of available data.
+
+    Parameters:
+    -----------
+    curve_distance (float): The distance at which the value needs to be interpolated.
+    car_data (pandas.DataFrame): A DataFrame containing at least two columns: 'Distance' and the specified column for interpolation. Any rows with null values in these columns will be dropped before processing.
+    column (str): The name of the column whose value is to be interpolated.
+
+    Returns:
+    --------
+    -- (float): The interpolated value of the specified column at the given distance.
+    """
 
     # Ensure there are no null values in the data
     car_data = car_data.dropna(subset=['Distance', column])
@@ -59,7 +40,6 @@ def get_nearest(curve_distance, car_data, column):
 
     # Return the interpolated speed for the given distance
     return interp_func(curve_distance)
-
 
 
 def categorize_speed(speed):
@@ -96,12 +76,35 @@ def get_qualy_lap(session):
     circuit_info = session.get_circuit_info()
     corners = circuit_info.corners[['Number', 'Distance']].copy()
 
+    # If car data is empty, raise an error
+    if car_data.empty:
+        raise ValueError("Car telemetry data is empty.")
+
+    # If car data is empty, raise an error
+    elif corners.empty:
+        raise ValueError("Corner data is empty.")
+
     # Add speed and kind of corner
-    corners['Speed'] = corners['Distance'].apply(lambda x: get_nearest_speed(x, car_data))
+    corners['Speed'] = corners['Distance'].apply(lambda x: get_nearest(x, car_data, 'Speed'))
     corners['Category'] = corners['Speed'].apply(categorize_speed)
+    corners['nGear'] = corners['Distance'].apply(lambda x: get_nearest(x, car_data, 'nGear'))
 
     # Count number of corners of every kind
     category_counts = corners["Category"].value_counts()
+
+    # Add number of corners for each gear
+    gear_counts = corners['nGear'].value_counts().to_dict()
+    gear_counts_full = {f'n_gear{gear}_corners': gear_counts.get(gear, 0) for gear in range(1,9)}
+
+    # Add straights info
+    straights = corners['Distance'].diff()
+
+    # Fix main straight length
+    straights.iloc[0] = car_data['Distance'].max() - corners['Distance'].iloc[-1] + corners['Distance'].iloc[0]
+
+    # Get total straight length
+    st_threshold = 500 # 500 m for straight threshold
+    straight_length = straights[straights > st_threshold].sum()
 
     # Build dictionary with relevant info
     dc = {
@@ -114,11 +117,15 @@ def get_qualy_lap(session):
         'avg_speed': car_data['Speed'].mean(),
         'throttle_perc': car_data['Throttle'].mean(),
         'brake_perc': car_data['Brake'].mean() * 100,
+        'straight_lenght': straight_length,
         'gear_changes': car_data['nGear'].diff().abs().sum(),
         'n_slow_corners': category_counts.get('slow', 0),
         'n_medium_corners': category_counts.get('medium', 0),
         'n_fast_corners': category_counts.get('fast', 0)
         }
+    
+    # Add gear counts
+    dc.update(gear_counts_full)
 
     return dc, lap, car_data, corners
 
@@ -182,7 +189,6 @@ def extract_races_and_results_dataframes(races):
             circuits[circuit_id] = get_circuit_info(season, rnd)[0]
         except Exception as e:
             print(f"Error processing circuit {circuit_id} (season {season}, round {rnd}): {e}")
-            circuits[circuit_id] = None
 
     # Create dataframe from circuits
     data = pd.DataFrame.from_dict(circuits, orient='index')

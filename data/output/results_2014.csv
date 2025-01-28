@@ -1,0 +1,408 @@
+DriverNumber,DriverId,TeamId,Position,GridPosition,Time,Status,Points,season,round,circuitId
+6,rosberg,mercedes,1.0,3.0,0.0,Finished,25.0,2014,1,albert_park
+20,kevin_magnussen,mclaren,2.0,4.0,26.777,Finished,18.0,2014,1,albert_park
+22,button,mclaren,3.0,10.0,30.027,Finished,15.0,2014,1,albert_park
+14,alonso,ferrari,4.0,5.0,35.284,Finished,12.0,2014,1,albert_park
+77,bottas,williams,5.0,15.0,47.639,Finished,10.0,2014,1,albert_park
+27,hulkenberg,force_india,6.0,7.0,50.718,Finished,8.0,2014,1,albert_park
+7,raikkonen,ferrari,7.0,11.0,57.675,Finished,6.0,2014,1,albert_park
+25,vergne,toro_rosso,8.0,6.0,60.441,Finished,4.0,2014,1,albert_park
+26,kvyat,toro_rosso,9.0,8.0,63.585,Finished,2.0,2014,1,albert_park
+11,perez,force_india,10.0,16.0,85.916,Finished,1.0,2014,1,albert_park
+99,sutil,sauber,11.0,13.0,185.916,+1 Lap,0.0,2014,1,albert_park
+21,gutierrez,sauber,12.0,20.0,185.916,+1 Lap,0.0,2014,1,albert_park
+4,chilton,marussia,13.0,17.0,185.916,+2 Laps,0.0,2014,1,albert_park
+17,jules_bianchi,marussia,14.0,18.0,185.916,+8 Laps,0.0,2014,1,albert_park
+8,grosjean,lotus_f1,15.0,22.0,185.916,ERS,0.0,2014,1,albert_park
+13,maldonado,lotus_f1,16.0,21.0,185.916,ERS,0.0,2014,1,albert_park
+9,ericsson,caterham,17.0,19.0,185.916,Oil pressure,0.0,2014,1,albert_park
+1,vettel,red_bull,18.0,12.0,185.916,Engine,0.0,2014,1,albert_park
+44,hamilton,mercedes,19.0,1.0,185.916,Engine,0.0,2014,1,albert_park
+19,massa,williams,20.0,9.0,185.916,Collision,0.0,2014,1,albert_park
+10,kobayashi,caterham,21.0,14.0,185.916,Collision,0.0,2014,1,albert_park
+3,ricciardo,red_bull,22.0,2.0,185.916,Disqualified,0.0,2014,1,albert_park
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2014,2,sepang
+6,rosberg,mercedes,2.0,3.0,17.313,Finished,18.0,2014,2,sepang
+1,vettel,red_bull,3.0,2.0,24.534,Finished,15.0,2014,2,sepang
+14,alonso,ferrari,4.0,4.0,35.992,Finished,12.0,2014,2,sepang
+27,hulkenberg,force_india,5.0,7.0,47.199,Finished,10.0,2014,2,sepang
+22,button,mclaren,6.0,10.0,83.691,Finished,8.0,2014,2,sepang
+19,massa,williams,7.0,13.0,85.076,Finished,6.0,2014,2,sepang
+77,bottas,williams,8.0,18.0,85.537,Finished,4.0,2014,2,sepang
+20,kevin_magnussen,mclaren,9.0,8.0,185.537,+1 Lap,2.0,2014,2,sepang
+26,kvyat,toro_rosso,10.0,11.0,185.537,+1 Lap,1.0,2014,2,sepang
+8,grosjean,lotus_f1,11.0,15.0,185.537,+1 Lap,0.0,2014,2,sepang
+7,raikkonen,ferrari,12.0,6.0,185.537,+1 Lap,0.0,2014,2,sepang
+10,kobayashi,caterham,13.0,20.0,185.537,+1 Lap,0.0,2014,2,sepang
+9,ericsson,caterham,14.0,22.0,185.537,+2 Laps,0.0,2014,2,sepang
+4,chilton,marussia,15.0,21.0,185.537,+2 Laps,0.0,2014,2,sepang
+3,ricciardo,red_bull,16.0,5.0,185.537,Technical,0.0,2014,2,sepang
+21,gutierrez,sauber,17.0,12.0,185.537,Gearbox,0.0,2014,2,sepang
+99,sutil,sauber,18.0,17.0,185.537,Electrical,0.0,2014,2,sepang
+25,vergne,toro_rosso,19.0,9.0,185.537,Power Unit,0.0,2014,2,sepang
+17,jules_bianchi,marussia,20.0,19.0,185.537,Brakes,0.0,2014,2,sepang
+13,maldonado,lotus_f1,21.0,16.0,185.537,Engine,0.0,2014,2,sepang
+11,perez,force_india,22.0,14.0,185.537,Withdrew,0.0,2014,2,sepang
+44,hamilton,mercedes,1.0,2.0,0.0,Finished,25.0,2014,3,bahrain
+6,rosberg,mercedes,2.0,1.0,1.085,Finished,18.0,2014,3,bahrain
+11,perez,force_india,3.0,4.0,24.067,Finished,15.0,2014,3,bahrain
+3,ricciardo,red_bull,4.0,13.0,24.489,Finished,12.0,2014,3,bahrain
+27,hulkenberg,force_india,5.0,11.0,28.654,Finished,10.0,2014,3,bahrain
+1,vettel,red_bull,6.0,10.0,29.879,Finished,8.0,2014,3,bahrain
+19,massa,williams,7.0,7.0,31.265,Finished,6.0,2014,3,bahrain
+77,bottas,williams,8.0,3.0,31.876,Finished,4.0,2014,3,bahrain
+14,alonso,ferrari,9.0,9.0,32.595,Finished,2.0,2014,3,bahrain
+7,raikkonen,ferrari,10.0,5.0,33.462,Finished,1.0,2014,3,bahrain
+26,kvyat,toro_rosso,11.0,12.0,41.342,Finished,0.0,2014,3,bahrain
+8,grosjean,lotus_f1,12.0,16.0,43.143,Finished,0.0,2014,3,bahrain
+4,chilton,marussia,13.0,21.0,59.909,Finished,0.0,2014,3,bahrain
+13,maldonado,lotus_f1,14.0,17.0,62.803,Finished,0.0,2014,3,bahrain
+10,kobayashi,caterham,15.0,18.0,87.9,Finished,0.0,2014,3,bahrain
+17,jules_bianchi,marussia,16.0,19.0,187.9,+1 Lap,0.0,2014,3,bahrain
+22,button,mclaren,17.0,6.0,187.9,Clutch,0.0,2014,3,bahrain
+20,kevin_magnussen,mclaren,18.0,8.0,187.9,Clutch,0.0,2014,3,bahrain
+21,gutierrez,sauber,19.0,15.0,187.9,Collision,0.0,2014,3,bahrain
+9,ericsson,caterham,20.0,20.0,187.9,Retired,0.0,2014,3,bahrain
+25,vergne,toro_rosso,21.0,14.0,187.9,Retired,0.0,2014,3,bahrain
+99,sutil,sauber,22.0,22.0,187.9,Collision,0.0,2014,3,bahrain
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2014,4,shanghai
+6,rosberg,mercedes,2.0,4.0,18.062,Finished,18.0,2014,4,shanghai
+14,alonso,ferrari,3.0,5.0,23.604,Finished,15.0,2014,4,shanghai
+3,ricciardo,red_bull,4.0,2.0,27.136,Finished,12.0,2014,4,shanghai
+1,vettel,red_bull,5.0,3.0,47.778,Finished,10.0,2014,4,shanghai
+27,hulkenberg,force_india,6.0,8.0,54.295,Finished,8.0,2014,4,shanghai
+77,bottas,williams,7.0,7.0,55.697,Finished,6.0,2014,4,shanghai
+7,raikkonen,ferrari,8.0,11.0,76.335,Finished,4.0,2014,4,shanghai
+11,perez,force_india,9.0,16.0,82.647,Finished,2.0,2014,4,shanghai
+26,kvyat,toro_rosso,10.0,13.0,182.647,+1 Lap,1.0,2014,4,shanghai
+22,button,mclaren,11.0,12.0,182.647,+1 Lap,0.0,2014,4,shanghai
+25,vergne,toro_rosso,12.0,9.0,182.647,+1 Lap,0.0,2014,4,shanghai
+20,kevin_magnussen,mclaren,13.0,15.0,182.647,+1 Lap,0.0,2014,4,shanghai
+13,maldonado,lotus_f1,14.0,22.0,182.647,+1 Lap,0.0,2014,4,shanghai
+19,massa,williams,15.0,6.0,182.647,+1 Lap,0.0,2014,4,shanghai
+21,gutierrez,sauber,16.0,17.0,182.647,+1 Lap,0.0,2014,4,shanghai
+17,jules_bianchi,marussia,17.0,19.0,182.647,+1 Lap,0.0,2014,4,shanghai
+10,kobayashi,caterham,18.0,18.0,182.647,+1 Lap,0.0,2014,4,shanghai
+4,chilton,marussia,19.0,21.0,182.647,+2 Laps,0.0,2014,4,shanghai
+9,ericsson,caterham,20.0,20.0,182.647,+2 Laps,0.0,2014,4,shanghai
+8,grosjean,lotus_f1,21.0,10.0,182.647,Gearbox,0.0,2014,4,shanghai
+99,sutil,sauber,22.0,14.0,182.647,Engine,0.0,2014,4,shanghai
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2014,5,catalunya
+6,rosberg,mercedes,2.0,2.0,0.636,Finished,18.0,2014,5,catalunya
+3,ricciardo,red_bull,3.0,3.0,49.014,Finished,15.0,2014,5,catalunya
+1,vettel,red_bull,4.0,15.0,76.702,Finished,12.0,2014,5,catalunya
+77,bottas,williams,5.0,4.0,79.293,Finished,10.0,2014,5,catalunya
+14,alonso,ferrari,6.0,7.0,87.743,Finished,8.0,2014,5,catalunya
+7,raikkonen,ferrari,7.0,6.0,187.743,+1 Lap,6.0,2014,5,catalunya
+8,grosjean,lotus_f1,8.0,5.0,187.743,+1 Lap,4.0,2014,5,catalunya
+11,perez,force_india,9.0,11.0,187.743,+1 Lap,2.0,2014,5,catalunya
+27,hulkenberg,force_india,10.0,10.0,187.743,+1 Lap,1.0,2014,5,catalunya
+22,button,mclaren,11.0,8.0,187.743,+1 Lap,0.0,2014,5,catalunya
+20,kevin_magnussen,mclaren,12.0,14.0,187.743,+1 Lap,0.0,2014,5,catalunya
+19,massa,williams,13.0,9.0,187.743,+1 Lap,0.0,2014,5,catalunya
+26,kvyat,toro_rosso,14.0,12.0,187.743,+1 Lap,0.0,2014,5,catalunya
+13,maldonado,lotus_f1,15.0,22.0,187.743,+1 Lap,0.0,2014,5,catalunya
+21,gutierrez,sauber,16.0,13.0,187.743,+1 Lap,0.0,2014,5,catalunya
+99,sutil,sauber,17.0,16.0,187.743,+1 Lap,0.0,2014,5,catalunya
+17,jules_bianchi,marussia,18.0,18.0,187.743,+2 Laps,0.0,2014,5,catalunya
+4,chilton,marussia,19.0,17.0,187.743,+2 Laps,0.0,2014,5,catalunya
+9,ericsson,caterham,20.0,19.0,187.743,+2 Laps,0.0,2014,5,catalunya
+10,kobayashi,caterham,21.0,20.0,187.743,Brakes,0.0,2014,5,catalunya
+25,vergne,toro_rosso,22.0,21.0,187.743,Exhaust,0.0,2014,5,catalunya
+6,rosberg,mercedes,1.0,1.0,0.0,Finished,25.0,2014,6,monaco
+44,hamilton,mercedes,2.0,2.0,9.21,Finished,18.0,2014,6,monaco
+3,ricciardo,red_bull,3.0,3.0,9.614,Finished,15.0,2014,6,monaco
+14,alonso,ferrari,4.0,5.0,32.452,Finished,12.0,2014,6,monaco
+27,hulkenberg,force_india,5.0,11.0,132.452,+1 Lap,10.0,2014,6,monaco
+22,button,mclaren,6.0,12.0,132.452,+1 Lap,8.0,2014,6,monaco
+19,massa,williams,7.0,16.0,132.452,+1 Lap,6.0,2014,6,monaco
+8,grosjean,lotus_f1,8.0,14.0,132.452,+1 Lap,4.0,2014,6,monaco
+17,jules_bianchi,marussia,9.0,21.0,132.452,+1 Lap,2.0,2014,6,monaco
+20,kevin_magnussen,mclaren,10.0,8.0,132.452,+1 Lap,1.0,2014,6,monaco
+9,ericsson,caterham,11.0,22.0,132.452,+1 Lap,0.0,2014,6,monaco
+7,raikkonen,ferrari,12.0,6.0,132.452,+1 Lap,0.0,2014,6,monaco
+10,kobayashi,caterham,13.0,20.0,132.452,+2 Laps,0.0,2014,6,monaco
+4,chilton,marussia,14.0,19.0,132.452,+3 Laps,0.0,2014,6,monaco
+21,gutierrez,sauber,15.0,17.0,132.452,Accident,0.0,2014,6,monaco
+77,bottas,williams,16.0,13.0,132.452,Engine,0.0,2014,6,monaco
+25,vergne,toro_rosso,17.0,7.0,132.452,Engine,0.0,2014,6,monaco
+99,sutil,sauber,18.0,18.0,132.452,Accident,0.0,2014,6,monaco
+26,kvyat,toro_rosso,19.0,9.0,132.452,Mechanical,0.0,2014,6,monaco
+1,vettel,red_bull,20.0,4.0,132.452,Turbo,0.0,2014,6,monaco
+11,perez,force_india,21.0,10.0,132.452,Collision,0.0,2014,6,monaco
+13,maldonado,lotus_f1,22.0,15.0,132.452,Withdrew,0.0,2014,6,monaco
+3,ricciardo,red_bull,1.0,6.0,0.0,Finished,25.0,2014,7,villeneuve
+6,rosberg,mercedes,2.0,1.0,4.236,Finished,18.0,2014,7,villeneuve
+1,vettel,red_bull,3.0,3.0,5.247,Finished,15.0,2014,7,villeneuve
+22,button,mclaren,4.0,9.0,11.755,Finished,12.0,2014,7,villeneuve
+27,hulkenberg,force_india,5.0,11.0,12.843,Finished,10.0,2014,7,villeneuve
+14,alonso,ferrari,6.0,7.0,14.869,Finished,8.0,2014,7,villeneuve
+77,bottas,williams,7.0,4.0,23.578,Finished,6.0,2014,7,villeneuve
+25,vergne,toro_rosso,8.0,8.0,28.026,Finished,4.0,2014,7,villeneuve
+20,kevin_magnussen,mclaren,9.0,12.0,29.254,Finished,2.0,2014,7,villeneuve
+7,raikkonen,ferrari,10.0,10.0,53.678,Finished,1.0,2014,7,villeneuve
+11,perez,force_india,11.0,13.0,153.678,Collision,0.0,2014,7,villeneuve
+19,massa,williams,12.0,5.0,153.678,Collision,0.0,2014,7,villeneuve
+99,sutil,sauber,13.0,16.0,153.678,+1 Lap,0.0,2014,7,villeneuve
+21,gutierrez,sauber,14.0,22.0,153.678,ERS,0.0,2014,7,villeneuve
+8,grosjean,lotus_f1,15.0,14.0,153.678,Rear wing,0.0,2014,7,villeneuve
+26,kvyat,toro_rosso,16.0,15.0,153.678,Drivetrain,0.0,2014,7,villeneuve
+44,hamilton,mercedes,17.0,2.0,153.678,Brakes,0.0,2014,7,villeneuve
+10,kobayashi,caterham,18.0,21.0,153.678,Suspension,0.0,2014,7,villeneuve
+13,maldonado,lotus_f1,19.0,17.0,153.678,Power Unit,0.0,2014,7,villeneuve
+9,ericsson,caterham,20.0,20.0,153.678,Turbo,0.0,2014,7,villeneuve
+4,chilton,marussia,21.0,18.0,153.678,Collision,0.0,2014,7,villeneuve
+17,jules_bianchi,marussia,22.0,19.0,153.678,Collision,0.0,2014,7,villeneuve
+6,rosberg,mercedes,1.0,3.0,0.0,Finished,25.0,2014,8,red_bull_ring
+44,hamilton,mercedes,2.0,9.0,1.932,Finished,18.0,2014,8,red_bull_ring
+77,bottas,williams,3.0,2.0,8.172,Finished,15.0,2014,8,red_bull_ring
+19,massa,williams,4.0,1.0,17.358,Finished,12.0,2014,8,red_bull_ring
+14,alonso,ferrari,5.0,4.0,18.553,Finished,10.0,2014,8,red_bull_ring
+11,perez,force_india,6.0,15.0,28.546,Finished,8.0,2014,8,red_bull_ring
+20,kevin_magnussen,mclaren,7.0,6.0,32.031,Finished,6.0,2014,8,red_bull_ring
+3,ricciardo,red_bull,8.0,5.0,43.522,Finished,4.0,2014,8,red_bull_ring
+27,hulkenberg,force_india,9.0,10.0,44.137,Finished,2.0,2014,8,red_bull_ring
+7,raikkonen,ferrari,10.0,8.0,47.777,Finished,1.0,2014,8,red_bull_ring
+22,button,mclaren,11.0,11.0,50.966,Finished,0.0,2014,8,red_bull_ring
+13,maldonado,lotus_f1,12.0,13.0,150.966,+1 Lap,0.0,2014,8,red_bull_ring
+99,sutil,sauber,13.0,16.0,150.966,+1 Lap,0.0,2014,8,red_bull_ring
+8,grosjean,lotus_f1,14.0,22.0,150.966,+1 Lap,0.0,2014,8,red_bull_ring
+17,jules_bianchi,marussia,15.0,18.0,150.966,+2 Laps,0.0,2014,8,red_bull_ring
+10,kobayashi,caterham,16.0,19.0,150.966,+2 Laps,0.0,2014,8,red_bull_ring
+4,chilton,marussia,17.0,21.0,150.966,+2 Laps,0.0,2014,8,red_bull_ring
+9,ericsson,caterham,18.0,20.0,150.966,+2 Laps,0.0,2014,8,red_bull_ring
+21,gutierrez,sauber,19.0,17.0,150.966,+2 Laps,0.0,2014,8,red_bull_ring
+25,vergne,toro_rosso,20.0,14.0,150.966,Brakes,0.0,2014,8,red_bull_ring
+1,vettel,red_bull,21.0,12.0,150.966,Electrical,0.0,2014,8,red_bull_ring
+26,kvyat,toro_rosso,22.0,7.0,150.966,Suspension,0.0,2014,8,red_bull_ring
+44,hamilton,mercedes,1.0,6.0,0.0,Finished,25.0,2014,9,silverstone
+77,bottas,williams,2.0,14.0,30.135,Finished,18.0,2014,9,silverstone
+3,ricciardo,red_bull,3.0,8.0,46.495,Finished,15.0,2014,9,silverstone
+22,button,mclaren,4.0,3.0,47.39,Finished,12.0,2014,9,silverstone
+1,vettel,red_bull,5.0,2.0,53.864,Finished,10.0,2014,9,silverstone
+14,alonso,ferrari,6.0,16.0,59.946,Finished,8.0,2014,9,silverstone
+20,kevin_magnussen,mclaren,7.0,5.0,62.563,Finished,6.0,2014,9,silverstone
+27,hulkenberg,force_india,8.0,4.0,88.692,Finished,4.0,2014,9,silverstone
+26,kvyat,toro_rosso,9.0,9.0,89.34,Finished,2.0,2014,9,silverstone
+25,vergne,toro_rosso,10.0,10.0,189.34,+1 Lap,1.0,2014,9,silverstone
+11,perez,force_india,11.0,7.0,189.34,+1 Lap,0.0,2014,9,silverstone
+8,grosjean,lotus_f1,12.0,11.0,189.34,+1 Lap,0.0,2014,9,silverstone
+99,sutil,sauber,13.0,13.0,189.34,+1 Lap,0.0,2014,9,silverstone
+17,jules_bianchi,marussia,14.0,12.0,189.34,+1 Lap,0.0,2014,9,silverstone
+10,kobayashi,caterham,15.0,22.0,189.34,+2 Laps,0.0,2014,9,silverstone
+4,chilton,marussia,16.0,17.0,189.34,+2 Laps,0.0,2014,9,silverstone
+13,maldonado,lotus_f1,17.0,20.0,189.34,+3 Laps,0.0,2014,9,silverstone
+6,rosberg,mercedes,18.0,1.0,189.34,Gearbox,0.0,2014,9,silverstone
+9,ericsson,caterham,19.0,21.0,189.34,Suspension,0.0,2014,9,silverstone
+21,gutierrez,sauber,20.0,19.0,189.34,Collision,0.0,2014,9,silverstone
+19,massa,williams,21.0,15.0,189.34,Collision,0.0,2014,9,silverstone
+7,raikkonen,ferrari,22.0,18.0,189.34,Collision,0.0,2014,9,silverstone
+6,rosberg,mercedes,1.0,1.0,0.0,Finished,25.0,2014,10,hockenheimring
+77,bottas,williams,2.0,2.0,20.789,Finished,18.0,2014,10,hockenheimring
+44,hamilton,mercedes,3.0,20.0,22.53,Finished,15.0,2014,10,hockenheimring
+1,vettel,red_bull,4.0,6.0,44.014,Finished,12.0,2014,10,hockenheimring
+14,alonso,ferrari,5.0,7.0,52.467,Finished,10.0,2014,10,hockenheimring
+3,ricciardo,red_bull,6.0,5.0,52.549,Finished,8.0,2014,10,hockenheimring
+27,hulkenberg,force_india,7.0,9.0,64.178,Finished,6.0,2014,10,hockenheimring
+22,button,mclaren,8.0,11.0,84.711,Finished,4.0,2014,10,hockenheimring
+20,kevin_magnussen,mclaren,9.0,4.0,184.711,+1 Lap,2.0,2014,10,hockenheimring
+11,perez,force_india,10.0,10.0,184.711,+1 Lap,1.0,2014,10,hockenheimring
+7,raikkonen,ferrari,11.0,12.0,184.711,+1 Lap,0.0,2014,10,hockenheimring
+13,maldonado,lotus_f1,12.0,18.0,184.711,+1 Lap,0.0,2014,10,hockenheimring
+25,vergne,toro_rosso,13.0,13.0,184.711,+1 Lap,0.0,2014,10,hockenheimring
+21,gutierrez,sauber,14.0,16.0,184.711,+1 Lap,0.0,2014,10,hockenheimring
+17,jules_bianchi,marussia,15.0,17.0,184.711,+1 Lap,0.0,2014,10,hockenheimring
+10,kobayashi,caterham,16.0,19.0,184.711,+2 Laps,0.0,2014,10,hockenheimring
+4,chilton,marussia,17.0,21.0,184.711,+2 Laps,0.0,2014,10,hockenheimring
+9,ericsson,caterham,18.0,22.0,184.711,+2 Laps,0.0,2014,10,hockenheimring
+99,sutil,sauber,19.0,15.0,184.711,Brakes,0.0,2014,10,hockenheimring
+26,kvyat,toro_rosso,20.0,8.0,184.711,Oil leak,0.0,2014,10,hockenheimring
+8,grosjean,lotus_f1,21.0,14.0,184.711,Water leak,0.0,2014,10,hockenheimring
+19,massa,williams,22.0,3.0,184.711,Collision,0.0,2014,10,hockenheimring
+3,ricciardo,red_bull,1.0,4.0,0.0,Finished,25.0,2014,11,hungaroring
+14,alonso,ferrari,2.0,5.0,5.225,Finished,18.0,2014,11,hungaroring
+44,hamilton,mercedes,3.0,22.0,5.857,Finished,15.0,2014,11,hungaroring
+6,rosberg,mercedes,4.0,1.0,6.361,Finished,12.0,2014,11,hungaroring
+19,massa,williams,5.0,6.0,29.841,Finished,10.0,2014,11,hungaroring
+7,raikkonen,ferrari,6.0,16.0,31.491,Finished,8.0,2014,11,hungaroring
+1,vettel,red_bull,7.0,2.0,40.964,Finished,6.0,2014,11,hungaroring
+77,bottas,williams,8.0,3.0,41.344,Finished,4.0,2014,11,hungaroring
+25,vergne,toro_rosso,9.0,8.0,58.527,Finished,2.0,2014,11,hungaroring
+22,button,mclaren,10.0,7.0,67.28,Finished,1.0,2014,11,hungaroring
+99,sutil,sauber,11.0,11.0,68.169,Finished,0.0,2014,11,hungaroring
+20,kevin_magnussen,mclaren,12.0,21.0,78.465,Finished,0.0,2014,11,hungaroring
+13,maldonado,lotus_f1,13.0,20.0,84.024,Finished,0.0,2014,11,hungaroring
+26,kvyat,toro_rosso,14.0,10.0,184.024,+1 Lap,0.0,2014,11,hungaroring
+17,jules_bianchi,marussia,15.0,15.0,184.024,+1 Lap,0.0,2014,11,hungaroring
+4,chilton,marussia,16.0,18.0,184.024,+1 Lap,0.0,2014,11,hungaroring
+21,gutierrez,sauber,17.0,13.0,184.024,Retired,0.0,2014,11,hungaroring
+10,kobayashi,caterham,18.0,17.0,184.024,Retired,0.0,2014,11,hungaroring
+11,perez,force_india,19.0,12.0,184.024,Accident,0.0,2014,11,hungaroring
+27,hulkenberg,force_india,20.0,9.0,184.024,Accident,0.0,2014,11,hungaroring
+8,grosjean,lotus_f1,21.0,14.0,184.024,Accident,0.0,2014,11,hungaroring
+9,ericsson,caterham,22.0,19.0,184.024,Accident,0.0,2014,11,hungaroring
+3,ricciardo,red_bull,1.0,5.0,0.0,Finished,25.0,2014,12,spa
+6,rosberg,mercedes,2.0,1.0,3.383,Finished,18.0,2014,12,spa
+77,bottas,williams,3.0,6.0,28.032,Finished,15.0,2014,12,spa
+7,raikkonen,ferrari,4.0,8.0,36.815,Finished,12.0,2014,12,spa
+1,vettel,red_bull,5.0,3.0,52.196,Finished,10.0,2014,12,spa
+22,button,mclaren,6.0,10.0,54.58,Finished,8.0,2014,12,spa
+14,alonso,ferrari,7.0,4.0,61.162,Finished,6.0,2014,12,spa
+11,perez,force_india,8.0,13.0,64.293,Finished,4.0,2014,12,spa
+26,kvyat,toro_rosso,9.0,11.0,65.347,Finished,2.0,2014,12,spa
+27,hulkenberg,force_india,10.0,18.0,65.697,Finished,1.0,2014,12,spa
+25,vergne,toro_rosso,11.0,12.0,71.92,Finished,0.0,2014,12,spa
+20,kevin_magnussen,mclaren,12.0,7.0,74.262,Finished,0.0,2014,12,spa
+19,massa,williams,13.0,9.0,75.975,Finished,0.0,2014,12,spa
+99,sutil,sauber,14.0,14.0,82.447,Finished,0.0,2014,12,spa
+21,gutierrez,sauber,15.0,20.0,90.825,Finished,0.0,2014,12,spa
+4,chilton,marussia,16.0,19.0,190.825,+1 Lap,0.0,2014,12,spa
+9,ericsson,caterham,17.0,22.0,190.825,+1 Lap,0.0,2014,12,spa
+17,jules_bianchi,marussia,18.0,16.0,190.825,Gearbox,0.0,2014,12,spa
+44,hamilton,mercedes,19.0,2.0,190.825,Retired,0.0,2014,12,spa
+8,grosjean,lotus_f1,20.0,15.0,190.825,Retired,0.0,2014,12,spa
+13,maldonado,lotus_f1,21.0,17.0,190.825,Mechanical,0.0,2014,12,spa
+45,lotterer,caterham,22.0,21.0,190.825,Power Unit,0.0,2014,12,spa
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2014,13,monza
+6,rosberg,mercedes,2.0,2.0,3.175,Finished,18.0,2014,13,monza
+19,massa,williams,3.0,4.0,25.026,Finished,15.0,2014,13,monza
+77,bottas,williams,4.0,3.0,40.786,Finished,12.0,2014,13,monza
+3,ricciardo,red_bull,5.0,9.0,50.309,Finished,10.0,2014,13,monza
+1,vettel,red_bull,6.0,8.0,59.965,Finished,8.0,2014,13,monza
+11,perez,force_india,7.0,10.0,62.518,Finished,6.0,2014,13,monza
+22,button,mclaren,8.0,6.0,63.063,Finished,4.0,2014,13,monza
+7,raikkonen,ferrari,9.0,11.0,63.535,Finished,2.0,2014,13,monza
+20,kevin_magnussen,mclaren,10.0,5.0,66.171,Finished,1.0,2014,13,monza
+26,kvyat,toro_rosso,11.0,21.0,71.184,Finished,0.0,2014,13,monza
+27,hulkenberg,force_india,12.0,13.0,72.606,Finished,0.0,2014,13,monza
+25,vergne,toro_rosso,13.0,12.0,73.093,Finished,0.0,2014,13,monza
+13,maldonado,lotus_f1,14.0,16.0,173.09300000000002,+1 Lap,0.0,2014,13,monza
+99,sutil,sauber,15.0,14.0,173.09300000000002,+1 Lap,0.0,2014,13,monza
+8,grosjean,lotus_f1,16.0,17.0,173.09300000000002,+1 Lap,0.0,2014,13,monza
+10,kobayashi,caterham,17.0,18.0,173.09300000000002,+1 Lap,0.0,2014,13,monza
+17,jules_bianchi,marussia,18.0,19.0,173.09300000000002,+1 Lap,0.0,2014,13,monza
+21,gutierrez,sauber,19.0,15.0,173.09300000000002,+2 Laps,0.0,2014,13,monza
+9,ericsson,caterham,20.0,22.0,173.09300000000002,+2 Laps,0.0,2014,13,monza
+14,alonso,ferrari,21.0,7.0,173.09300000000002,Engine,0.0,2014,13,monza
+4,chilton,marussia,22.0,20.0,173.09300000000002,Accident,0.0,2014,13,monza
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2014,14,marina_bay
+1,vettel,red_bull,2.0,4.0,13.534,Finished,18.0,2014,14,marina_bay
+3,ricciardo,red_bull,3.0,3.0,14.273,Finished,15.0,2014,14,marina_bay
+14,alonso,ferrari,4.0,5.0,15.389,Finished,12.0,2014,14,marina_bay
+19,massa,williams,5.0,6.0,42.161,Finished,10.0,2014,14,marina_bay
+25,vergne,toro_rosso,6.0,12.0,56.801,Finished,8.0,2014,14,marina_bay
+11,perez,force_india,7.0,15.0,59.038,Finished,6.0,2014,14,marina_bay
+7,raikkonen,ferrari,8.0,7.0,60.641,Finished,4.0,2014,14,marina_bay
+27,hulkenberg,force_india,9.0,13.0,61.661,Finished,2.0,2014,14,marina_bay
+20,kevin_magnussen,mclaren,10.0,9.0,62.23,Finished,1.0,2014,14,marina_bay
+77,bottas,williams,11.0,8.0,65.065,Finished,0.0,2014,14,marina_bay
+13,maldonado,lotus_f1,12.0,18.0,66.915,Finished,0.0,2014,14,marina_bay
+8,grosjean,lotus_f1,13.0,16.0,68.029,Finished,0.0,2014,14,marina_bay
+26,kvyat,toro_rosso,14.0,10.0,72.008,Finished,0.0,2014,14,marina_bay
+9,ericsson,caterham,15.0,22.0,94.188,Finished,0.0,2014,14,marina_bay
+17,jules_bianchi,marussia,16.0,19.0,94.543,Finished,0.0,2014,14,marina_bay
+4,chilton,marussia,17.0,21.0,194.543,+1 Lap,0.0,2014,14,marina_bay
+22,button,mclaren,18.0,11.0,194.543,Retired,0.0,2014,14,marina_bay
+99,sutil,sauber,19.0,17.0,194.543,Water pressure,0.0,2014,14,marina_bay
+21,gutierrez,sauber,20.0,14.0,194.543,Electrical,0.0,2014,14,marina_bay
+6,rosberg,mercedes,21.0,2.0,194.543,Electrical,0.0,2014,14,marina_bay
+10,kobayashi,caterham,22.0,20.0,194.543,Power Unit,0.0,2014,14,marina_bay
+44,hamilton,mercedes,1.0,2.0,0.0,Finished,25.0,2014,15,suzuka
+6,rosberg,mercedes,2.0,1.0,9.18,Finished,18.0,2014,15,suzuka
+1,vettel,red_bull,3.0,9.0,29.122,Finished,15.0,2014,15,suzuka
+3,ricciardo,red_bull,4.0,6.0,38.818,Finished,12.0,2014,15,suzuka
+22,button,mclaren,5.0,8.0,67.55,Finished,10.0,2014,15,suzuka
+77,bottas,williams,6.0,3.0,113.773,Finished,8.0,2014,15,suzuka
+19,massa,williams,7.0,4.0,115.126,Finished,6.0,2014,15,suzuka
+27,hulkenberg,force_india,8.0,13.0,115.948,Finished,4.0,2014,15,suzuka
+25,vergne,toro_rosso,9.0,20.0,127.638,Finished,2.0,2014,15,suzuka
+11,perez,force_india,10.0,11.0,227.638,+1 Lap,1.0,2014,15,suzuka
+26,kvyat,toro_rosso,11.0,12.0,227.638,+1 Lap,0.0,2014,15,suzuka
+7,raikkonen,ferrari,12.0,10.0,227.638,+1 Lap,0.0,2014,15,suzuka
+21,gutierrez,sauber,13.0,15.0,227.638,+1 Lap,0.0,2014,15,suzuka
+20,kevin_magnussen,mclaren,14.0,7.0,227.638,+1 Lap,0.0,2014,15,suzuka
+8,grosjean,lotus_f1,15.0,16.0,227.638,+1 Lap,0.0,2014,15,suzuka
+13,maldonado,lotus_f1,16.0,22.0,227.638,+1 Lap,0.0,2014,15,suzuka
+9,ericsson,caterham,17.0,17.0,227.638,+1 Lap,0.0,2014,15,suzuka
+4,chilton,marussia,18.0,21.0,227.638,+1 Lap,0.0,2014,15,suzuka
+10,kobayashi,caterham,19.0,19.0,227.638,+1 Lap,0.0,2014,15,suzuka
+17,jules_bianchi,marussia,20.0,18.0,227.638,Accident,0.0,2014,15,suzuka
+99,sutil,sauber,21.0,14.0,227.638,Accident,0.0,2014,15,suzuka
+14,alonso,ferrari,22.0,5.0,227.638,Electronics,0.0,2014,15,suzuka
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2014,16,sochi
+6,rosberg,mercedes,2.0,2.0,13.657,Finished,18.0,2014,16,sochi
+77,bottas,williams,3.0,3.0,17.425,Finished,15.0,2014,16,sochi
+22,button,mclaren,4.0,4.0,30.234,Finished,12.0,2014,16,sochi
+20,kevin_magnussen,mclaren,5.0,11.0,53.616,Finished,10.0,2014,16,sochi
+14,alonso,ferrari,6.0,7.0,60.016,Finished,8.0,2014,16,sochi
+3,ricciardo,red_bull,7.0,6.0,61.812,Finished,6.0,2014,16,sochi
+1,vettel,red_bull,8.0,10.0,66.185,Finished,4.0,2014,16,sochi
+7,raikkonen,ferrari,9.0,8.0,78.877,Finished,2.0,2014,16,sochi
+11,perez,force_india,10.0,12.0,80.067,Finished,1.0,2014,16,sochi
+19,massa,williams,11.0,18.0,80.877,Finished,0.0,2014,16,sochi
+27,hulkenberg,force_india,12.0,17.0,81.309,Finished,0.0,2014,16,sochi
+25,vergne,toro_rosso,13.0,9.0,97.295,Finished,0.0,2014,16,sochi
+26,kvyat,toro_rosso,14.0,5.0,197.29500000000002,+1 Lap,0.0,2014,16,sochi
+21,gutierrez,sauber,15.0,13.0,197.29500000000002,+1 Lap,0.0,2014,16,sochi
+99,sutil,sauber,16.0,14.0,197.29500000000002,+1 Lap,0.0,2014,16,sochi
+8,grosjean,lotus_f1,17.0,15.0,197.29500000000002,+1 Lap,0.0,2014,16,sochi
+13,maldonado,lotus_f1,18.0,21.0,197.29500000000002,+1 Lap,0.0,2014,16,sochi
+9,ericsson,caterham,19.0,16.0,197.29500000000002,+2 Laps,0.0,2014,16,sochi
+10,kobayashi,caterham,20.0,19.0,197.29500000000002,Brakes,0.0,2014,16,sochi
+4,chilton,marussia,21.0,20.0,197.29500000000002,Suspension,0.0,2014,16,sochi
+44,hamilton,mercedes,1.0,2.0,0.0,Finished,25.0,2014,17,americas
+6,rosberg,mercedes,2.0,1.0,4.314,Finished,18.0,2014,17,americas
+3,ricciardo,red_bull,3.0,5.0,25.56,Finished,15.0,2014,17,americas
+19,massa,williams,4.0,4.0,26.924,Finished,12.0,2014,17,americas
+77,bottas,williams,5.0,3.0,30.992,Finished,10.0,2014,17,americas
+14,alonso,ferrari,6.0,6.0,95.231,Finished,8.0,2014,17,americas
+1,vettel,red_bull,7.0,18.0,95.734,Finished,6.0,2014,17,americas
+20,kevin_magnussen,mclaren,8.0,7.0,100.682,Finished,4.0,2014,17,americas
+13,maldonado,lotus_f1,9.0,10.0,107.87,Finished,2.0,2014,17,americas
+25,vergne,toro_rosso,10.0,14.0,108.863,Finished,1.0,2014,17,americas
+8,grosjean,lotus_f1,11.0,16.0,208.863,+1 Lap,0.0,2014,17,americas
+22,button,mclaren,12.0,12.0,208.863,+1 Lap,0.0,2014,17,americas
+7,raikkonen,ferrari,13.0,8.0,208.863,+1 Lap,0.0,2014,17,americas
+21,gutierrez,sauber,14.0,15.0,208.863,+1 Lap,0.0,2014,17,americas
+26,kvyat,toro_rosso,15.0,17.0,208.863,+1 Lap,0.0,2014,17,americas
+27,hulkenberg,force_india,16.0,13.0,208.863,Engine,0.0,2014,17,americas
+11,perez,force_india,17.0,11.0,208.863,Collision damage,0.0,2014,17,americas
+99,sutil,sauber,18.0,9.0,208.863,Collision,0.0,2014,17,americas
+6,rosberg,mercedes,1.0,1.0,0.0,Finished,25.0,2014,18,interlagos
+44,hamilton,mercedes,2.0,2.0,1.457,Finished,18.0,2014,18,interlagos
+19,massa,williams,3.0,3.0,41.031,Finished,15.0,2014,18,interlagos
+22,button,mclaren,4.0,5.0,48.658,Finished,12.0,2014,18,interlagos
+1,vettel,red_bull,5.0,6.0,51.42,Finished,10.0,2014,18,interlagos
+14,alonso,ferrari,6.0,8.0,61.906,Finished,8.0,2014,18,interlagos
+7,raikkonen,ferrari,7.0,10.0,63.73,Finished,6.0,2014,18,interlagos
+27,hulkenberg,force_india,8.0,12.0,63.934,Finished,4.0,2014,18,interlagos
+20,kevin_magnussen,mclaren,9.0,7.0,70.085,Finished,2.0,2014,18,interlagos
+77,bottas,williams,10.0,4.0,170.08499999999998,+1 Lap,1.0,2014,18,interlagos
+26,kvyat,toro_rosso,11.0,17.0,170.08499999999998,+1 Lap,0.0,2014,18,interlagos
+13,maldonado,lotus_f1,12.0,16.0,170.08499999999998,+1 Lap,0.0,2014,18,interlagos
+25,vergne,toro_rosso,13.0,15.0,170.08499999999998,+1 Lap,0.0,2014,18,interlagos
+21,gutierrez,sauber,14.0,11.0,170.08499999999998,+1 Lap,0.0,2014,18,interlagos
+11,perez,force_india,15.0,18.0,170.08499999999998,+1 Lap,0.0,2014,18,interlagos
+99,sutil,sauber,16.0,13.0,170.08499999999998,+1 Lap,0.0,2014,18,interlagos
+8,grosjean,lotus_f1,17.0,14.0,170.08499999999998,+8 Laps,0.0,2014,18,interlagos
+3,ricciardo,red_bull,18.0,9.0,170.08499999999998,Suspension,0.0,2014,18,interlagos
+44,hamilton,mercedes,1.0,2.0,0.0,Finished,50.0,2014,19,yas_marina
+19,massa,williams,2.0,4.0,2.576,Finished,36.0,2014,19,yas_marina
+77,bottas,williams,3.0,3.0,28.88,Finished,30.0,2014,19,yas_marina
+3,ricciardo,red_bull,4.0,20.0,37.237,Finished,24.0,2014,19,yas_marina
+22,button,mclaren,5.0,6.0,60.334,Finished,20.0,2014,19,yas_marina
+27,hulkenberg,force_india,6.0,12.0,62.148,Finished,16.0,2014,19,yas_marina
+11,perez,force_india,7.0,11.0,71.06,Finished,12.0,2014,19,yas_marina
+1,vettel,red_bull,8.0,19.0,72.045,Finished,8.0,2014,19,yas_marina
+14,alonso,ferrari,9.0,8.0,85.813,Finished,4.0,2014,19,yas_marina
+7,raikkonen,ferrari,10.0,7.0,87.82,Finished,2.0,2014,19,yas_marina
+20,kevin_magnussen,mclaren,11.0,9.0,90.376,Finished,0.0,2014,19,yas_marina
+25,vergne,toro_rosso,12.0,10.0,91.947,Finished,0.0,2014,19,yas_marina
+8,grosjean,lotus_f1,13.0,18.0,191.947,+1 Lap,0.0,2014,19,yas_marina
+6,rosberg,mercedes,14.0,1.0,191.947,+1 Lap,0.0,2014,19,yas_marina
+21,gutierrez,sauber,15.0,14.0,191.947,+1 Lap,0.0,2014,19,yas_marina
+99,sutil,sauber,16.0,13.0,191.947,+1 Lap,0.0,2014,19,yas_marina
+46,stevens,caterham,17.0,17.0,191.947,+1 Lap,0.0,2014,19,yas_marina
+10,kobayashi,caterham,18.0,16.0,191.947,Retired,0.0,2014,19,yas_marina
+13,maldonado,lotus_f1,19.0,15.0,191.947,Power Unit,0.0,2014,19,yas_marina
+26,kvyat,toro_rosso,20.0,5.0,191.947,Power Unit,0.0,2014,19,yas_marina

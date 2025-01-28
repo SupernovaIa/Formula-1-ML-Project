@@ -1,0 +1,401 @@
+DriverNumber,DriverId,TeamId,Position,GridPosition,Time,Status,Points,season,round,circuitId
+5,vettel,ferrari,1.0,2.0,0.0,Finished,25.0,2017,1,albert_park
+44,hamilton,mercedes,2.0,1.0,9.975,Finished,18.0,2017,1,albert_park
+77,bottas,mercedes,3.0,3.0,11.25,Finished,15.0,2017,1,albert_park
+7,raikkonen,ferrari,4.0,4.0,22.393,Finished,12.0,2017,1,albert_park
+33,max_verstappen,red_bull,5.0,5.0,28.827,Finished,10.0,2017,1,albert_park
+19,massa,williams,6.0,7.0,83.386,Finished,8.0,2017,1,albert_park
+11,perez,force_india,7.0,10.0,183.386,+1 Lap,6.0,2017,1,albert_park
+55,sainz,toro_rosso,8.0,8.0,183.386,+1 Lap,4.0,2017,1,albert_park
+26,kvyat,toro_rosso,9.0,9.0,183.386,+1 Lap,2.0,2017,1,albert_park
+31,ocon,force_india,10.0,13.0,183.386,+1 Lap,1.0,2017,1,albert_park
+27,hulkenberg,renault,11.0,11.0,183.386,+1 Lap,0.0,2017,1,albert_park
+36,giovinazzi,sauber,12.0,16.0,183.386,+2 Laps,0.0,2017,1,albert_park
+2,vandoorne,mclaren,13.0,18.0,183.386,+2 Laps,0.0,2017,1,albert_park
+14,alonso,mclaren,14.0,12.0,183.386,Vibrations,0.0,2017,1,albert_park
+20,kevin_magnussen,haas,15.0,17.0,183.386,Suspension,0.0,2017,1,albert_park
+18,stroll,williams,16.0,20.0,183.386,Brakes,0.0,2017,1,albert_park
+3,ricciardo,red_bull,17.0,0.0,183.386,Power Unit,0.0,2017,1,albert_park
+9,ericsson,sauber,18.0,14.0,183.386,Hydraulics,0.0,2017,1,albert_park
+30,jolyon_palmer,renault,19.0,19.0,183.386,Brakes,0.0,2017,1,albert_park
+8,grosjean,haas,20.0,6.0,183.386,Water leak,0.0,2017,1,albert_park
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,2,shanghai
+5,vettel,ferrari,2.0,2.0,6.25,Finished,18.0,2017,2,shanghai
+33,max_verstappen,red_bull,3.0,16.0,45.192,Finished,15.0,2017,2,shanghai
+3,ricciardo,red_bull,4.0,5.0,46.035,Finished,12.0,2017,2,shanghai
+7,raikkonen,ferrari,5.0,4.0,48.076,Finished,10.0,2017,2,shanghai
+77,bottas,mercedes,6.0,3.0,48.808,Finished,8.0,2017,2,shanghai
+55,sainz,toro_rosso,7.0,11.0,72.893,Finished,6.0,2017,2,shanghai
+20,kevin_magnussen,haas,8.0,12.0,172.893,+1 Lap,4.0,2017,2,shanghai
+11,perez,force_india,9.0,8.0,172.893,+1 Lap,2.0,2017,2,shanghai
+31,ocon,force_india,10.0,17.0,172.893,+1 Lap,1.0,2017,2,shanghai
+8,grosjean,haas,11.0,19.0,172.893,+1 Lap,0.0,2017,2,shanghai
+27,hulkenberg,renault,12.0,7.0,172.893,+1 Lap,0.0,2017,2,shanghai
+30,jolyon_palmer,renault,13.0,20.0,172.893,+1 Lap,0.0,2017,2,shanghai
+19,massa,williams,14.0,6.0,172.893,+1 Lap,0.0,2017,2,shanghai
+9,ericsson,sauber,15.0,14.0,172.893,+1 Lap,0.0,2017,2,shanghai
+14,alonso,mclaren,16.0,13.0,172.893,Driveshaft,0.0,2017,2,shanghai
+26,kvyat,toro_rosso,17.0,9.0,172.893,Hydraulics,0.0,2017,2,shanghai
+2,vandoorne,mclaren,18.0,15.0,172.893,Fuel pressure,0.0,2017,2,shanghai
+36,giovinazzi,sauber,19.0,18.0,172.893,Accident,0.0,2017,2,shanghai
+18,stroll,williams,20.0,10.0,172.893,Collision,0.0,2017,2,shanghai
+5,vettel,ferrari,1.0,3.0,0.0,Finished,25.0,2017,3,bahrain
+44,hamilton,mercedes,2.0,2.0,6.66,Finished,18.0,2017,3,bahrain
+77,bottas,mercedes,3.0,1.0,20.397,Finished,15.0,2017,3,bahrain
+7,raikkonen,ferrari,4.0,5.0,22.475,Finished,12.0,2017,3,bahrain
+3,ricciardo,red_bull,5.0,4.0,39.346,Finished,10.0,2017,3,bahrain
+19,massa,williams,6.0,8.0,54.326,Finished,8.0,2017,3,bahrain
+11,perez,force_india,7.0,18.0,62.606,Finished,6.0,2017,3,bahrain
+8,grosjean,haas,8.0,9.0,74.865,Finished,4.0,2017,3,bahrain
+27,hulkenberg,renault,9.0,7.0,80.188,Finished,2.0,2017,3,bahrain
+31,ocon,force_india,10.0,14.0,95.711,Finished,1.0,2017,3,bahrain
+94,wehrlein,sauber,11.0,13.0,195.711,+1 Lap,0.0,2017,3,bahrain
+26,kvyat,toro_rosso,12.0,11.0,195.711,+1 Lap,0.0,2017,3,bahrain
+30,jolyon_palmer,renault,13.0,10.0,195.711,+1 Lap,0.0,2017,3,bahrain
+14,alonso,mclaren,14.0,15.0,195.711,Power Unit,0.0,2017,3,bahrain
+9,ericsson,sauber,15.0,19.0,195.711,Gearbox,0.0,2017,3,bahrain
+55,sainz,toro_rosso,16.0,16.0,195.711,Collision,0.0,2017,3,bahrain
+18,stroll,williams,17.0,12.0,195.711,Collision,0.0,2017,3,bahrain
+33,max_verstappen,red_bull,18.0,6.0,195.711,Brakes,0.0,2017,3,bahrain
+20,kevin_magnussen,haas,19.0,20.0,195.711,Electrical,0.0,2017,3,bahrain
+2,vandoorne,mclaren,20.0,17.0,195.711,Power Unit,0.0,2017,3,bahrain
+77,bottas,mercedes,1.0,3.0,0.0,Finished,25.0,2017,4,sochi
+5,vettel,ferrari,2.0,1.0,0.617,Finished,18.0,2017,4,sochi
+7,raikkonen,ferrari,3.0,2.0,11.0,Finished,15.0,2017,4,sochi
+44,hamilton,mercedes,4.0,4.0,36.32,Finished,12.0,2017,4,sochi
+33,max_verstappen,red_bull,5.0,7.0,60.416,Finished,10.0,2017,4,sochi
+11,perez,force_india,6.0,9.0,86.788,Finished,8.0,2017,4,sochi
+31,ocon,force_india,7.0,10.0,95.004,Finished,6.0,2017,4,sochi
+27,hulkenberg,renault,8.0,8.0,96.188,Finished,4.0,2017,4,sochi
+19,massa,williams,9.0,6.0,196.188,+1 Lap,2.0,2017,4,sochi
+55,sainz,toro_rosso,10.0,14.0,196.188,+1 Lap,1.0,2017,4,sochi
+18,stroll,williams,11.0,11.0,196.188,+1 Lap,0.0,2017,4,sochi
+26,kvyat,toro_rosso,12.0,12.0,196.188,+1 Lap,0.0,2017,4,sochi
+20,kevin_magnussen,haas,13.0,13.0,196.188,+1 Lap,0.0,2017,4,sochi
+2,vandoorne,mclaren,14.0,20.0,196.188,+1 Lap,0.0,2017,4,sochi
+9,ericsson,sauber,15.0,18.0,196.188,+1 Lap,0.0,2017,4,sochi
+94,wehrlein,sauber,16.0,17.0,196.188,+2 Laps,0.0,2017,4,sochi
+3,ricciardo,red_bull,17.0,5.0,196.188,Brakes,0.0,2017,4,sochi
+30,jolyon_palmer,renault,18.0,16.0,196.188,Collision,0.0,2017,4,sochi
+8,grosjean,haas,19.0,19.0,196.188,Collision,0.0,2017,4,sochi
+14,alonso,mclaren,20.0,15.0,196.188,Power Unit,0.0,2017,4,sochi
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,5,catalunya
+5,vettel,ferrari,2.0,2.0,3.49,Finished,18.0,2017,5,catalunya
+3,ricciardo,red_bull,3.0,6.0,75.82,Finished,15.0,2017,5,catalunya
+11,perez,force_india,4.0,8.0,175.82,+1 Lap,12.0,2017,5,catalunya
+31,ocon,force_india,5.0,10.0,175.82,+1 Lap,10.0,2017,5,catalunya
+27,hulkenberg,renault,6.0,13.0,175.82,+1 Lap,8.0,2017,5,catalunya
+55,sainz,toro_rosso,7.0,12.0,175.82,+1 Lap,6.0,2017,5,catalunya
+94,wehrlein,sauber,8.0,15.0,175.82,+1 Lap,4.0,2017,5,catalunya
+26,kvyat,toro_rosso,9.0,19.0,175.82,+1 Lap,2.0,2017,5,catalunya
+8,grosjean,haas,10.0,14.0,175.82,+1 Lap,1.0,2017,5,catalunya
+9,ericsson,sauber,11.0,16.0,175.82,+2 Laps,0.0,2017,5,catalunya
+14,alonso,mclaren,12.0,7.0,175.82,+2 Laps,0.0,2017,5,catalunya
+19,massa,williams,13.0,9.0,175.82,+2 Laps,0.0,2017,5,catalunya
+20,kevin_magnussen,haas,14.0,11.0,175.82,+2 Laps,0.0,2017,5,catalunya
+30,jolyon_palmer,renault,15.0,17.0,175.82,+2 Laps,0.0,2017,5,catalunya
+18,stroll,williams,16.0,18.0,175.82,+2 Laps,0.0,2017,5,catalunya
+77,bottas,mercedes,17.0,3.0,175.82,Power Unit,0.0,2017,5,catalunya
+2,vandoorne,mclaren,18.0,20.0,175.82,Collision,0.0,2017,5,catalunya
+33,max_verstappen,red_bull,19.0,5.0,175.82,Collision damage,0.0,2017,5,catalunya
+7,raikkonen,ferrari,20.0,4.0,175.82,Collision damage,0.0,2017,5,catalunya
+5,vettel,ferrari,1.0,2.0,0.0,Finished,25.0,2017,6,monaco
+7,raikkonen,ferrari,2.0,1.0,3.145,Finished,18.0,2017,6,monaco
+3,ricciardo,red_bull,3.0,5.0,3.745,Finished,15.0,2017,6,monaco
+77,bottas,mercedes,4.0,3.0,5.517,Finished,12.0,2017,6,monaco
+33,max_verstappen,red_bull,5.0,4.0,6.199,Finished,10.0,2017,6,monaco
+55,sainz,toro_rosso,6.0,6.0,12.038,Finished,8.0,2017,6,monaco
+44,hamilton,mercedes,7.0,13.0,15.801,Finished,6.0,2017,6,monaco
+8,grosjean,haas,8.0,8.0,18.15,Finished,4.0,2017,6,monaco
+19,massa,williams,9.0,14.0,19.445,Finished,2.0,2017,6,monaco
+20,kevin_magnussen,haas,10.0,11.0,21.443,Finished,1.0,2017,6,monaco
+30,jolyon_palmer,renault,11.0,16.0,22.737,Finished,0.0,2017,6,monaco
+31,ocon,force_india,12.0,15.0,23.725,Finished,0.0,2017,6,monaco
+11,perez,force_india,13.0,7.0,39.089,Finished,0.0,2017,6,monaco
+26,kvyat,toro_rosso,14.0,9.0,139.089,Collision damage,0.0,2017,6,monaco
+18,stroll,williams,15.0,17.0,139.089,Brakes,0.0,2017,6,monaco
+2,vandoorne,mclaren,16.0,12.0,139.089,Accident,0.0,2017,6,monaco
+9,ericsson,sauber,17.0,19.0,139.089,Accident,0.0,2017,6,monaco
+22,button,mclaren,18.0,20.0,139.089,Collision damage,0.0,2017,6,monaco
+94,wehrlein,sauber,19.0,18.0,139.089,Collision,0.0,2017,6,monaco
+27,hulkenberg,renault,20.0,10.0,139.089,Gearbox,0.0,2017,6,monaco
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,7,villeneuve
+77,bottas,mercedes,2.0,3.0,19.783,Finished,18.0,2017,7,villeneuve
+3,ricciardo,red_bull,3.0,6.0,35.297,Finished,15.0,2017,7,villeneuve
+5,vettel,ferrari,4.0,2.0,35.907,Finished,12.0,2017,7,villeneuve
+11,perez,force_india,5.0,8.0,40.476,Finished,10.0,2017,7,villeneuve
+31,ocon,force_india,6.0,9.0,40.716,Finished,8.0,2017,7,villeneuve
+7,raikkonen,ferrari,7.0,4.0,58.632,Finished,6.0,2017,7,villeneuve
+27,hulkenberg,renault,8.0,10.0,60.374,Finished,4.0,2017,7,villeneuve
+18,stroll,williams,9.0,17.0,160.374,+1 Lap,2.0,2017,7,villeneuve
+8,grosjean,haas,10.0,14.0,160.374,+1 Lap,1.0,2017,7,villeneuve
+30,jolyon_palmer,renault,11.0,15.0,160.374,+1 Lap,0.0,2017,7,villeneuve
+20,kevin_magnussen,haas,12.0,18.0,160.374,+1 Lap,0.0,2017,7,villeneuve
+9,ericsson,sauber,13.0,19.0,160.374,+1 Lap,0.0,2017,7,villeneuve
+2,vandoorne,mclaren,14.0,16.0,160.374,+1 Lap,0.0,2017,7,villeneuve
+94,wehrlein,sauber,15.0,20.0,160.374,+2 Laps,0.0,2017,7,villeneuve
+14,alonso,mclaren,16.0,12.0,160.374,Power Unit,0.0,2017,7,villeneuve
+26,kvyat,toro_rosso,17.0,11.0,160.374,Power Unit,0.0,2017,7,villeneuve
+33,max_verstappen,red_bull,18.0,5.0,160.374,Electrical,0.0,2017,7,villeneuve
+19,massa,williams,19.0,7.0,160.374,Collision,0.0,2017,7,villeneuve
+55,sainz,toro_rosso,20.0,13.0,160.374,Collision,0.0,2017,7,villeneuve
+3,ricciardo,red_bull,1.0,10.0,0.0,Finished,25.0,2017,8,baku
+77,bottas,mercedes,2.0,2.0,3.904,Finished,18.0,2017,8,baku
+18,stroll,williams,3.0,8.0,4.009,Finished,15.0,2017,8,baku
+5,vettel,ferrari,4.0,4.0,5.976,Finished,12.0,2017,8,baku
+44,hamilton,mercedes,5.0,1.0,6.188,Finished,10.0,2017,8,baku
+31,ocon,force_india,6.0,7.0,30.298,Finished,8.0,2017,8,baku
+20,kevin_magnussen,haas,7.0,12.0,41.753,Finished,6.0,2017,8,baku
+55,sainz,toro_rosso,8.0,15.0,49.4,Finished,4.0,2017,8,baku
+14,alonso,mclaren,9.0,19.0,59.551,Finished,2.0,2017,8,baku
+94,wehrlein,sauber,10.0,14.0,89.093,Finished,1.0,2017,8,baku
+9,ericsson,sauber,11.0,17.0,91.794,Finished,0.0,2017,8,baku
+2,vandoorne,mclaren,12.0,18.0,92.16,Finished,0.0,2017,8,baku
+8,grosjean,haas,13.0,16.0,192.16,+1 Lap,0.0,2017,8,baku
+7,raikkonen,ferrari,14.0,3.0,192.16,Water pressure,0.0,2017,8,baku
+11,perez,force_india,15.0,6.0,192.16,Seat,0.0,2017,8,baku
+19,massa,williams,16.0,9.0,192.16,Suspension,0.0,2017,8,baku
+27,hulkenberg,renault,17.0,13.0,192.16,Accident,0.0,2017,8,baku
+33,max_verstappen,red_bull,18.0,5.0,192.16,Oil pressure,0.0,2017,8,baku
+26,kvyat,toro_rosso,19.0,11.0,192.16,Battery,0.0,2017,8,baku
+30,jolyon_palmer,renault,20.0,20.0,192.16,Power Unit,0.0,2017,8,baku
+77,bottas,mercedes,1.0,1.0,0.0,Finished,25.0,2017,9,red_bull_ring
+5,vettel,ferrari,2.0,2.0,0.658,Finished,18.0,2017,9,red_bull_ring
+3,ricciardo,red_bull,3.0,4.0,6.012,Finished,15.0,2017,9,red_bull_ring
+44,hamilton,mercedes,4.0,8.0,7.43,Finished,12.0,2017,9,red_bull_ring
+7,raikkonen,ferrari,5.0,3.0,20.37,Finished,10.0,2017,9,red_bull_ring
+8,grosjean,haas,6.0,6.0,73.16,Finished,8.0,2017,9,red_bull_ring
+11,perez,force_india,7.0,7.0,173.16,+1 Lap,6.0,2017,9,red_bull_ring
+31,ocon,force_india,8.0,9.0,173.16,+1 Lap,4.0,2017,9,red_bull_ring
+19,massa,williams,9.0,17.0,173.16,+1 Lap,2.0,2017,9,red_bull_ring
+18,stroll,williams,10.0,18.0,173.16,+1 Lap,1.0,2017,9,red_bull_ring
+30,jolyon_palmer,renault,11.0,16.0,173.16,+1 Lap,0.0,2017,9,red_bull_ring
+2,vandoorne,mclaren,12.0,13.0,173.16,+1 Lap,0.0,2017,9,red_bull_ring
+27,hulkenberg,renault,13.0,11.0,173.16,+1 Lap,0.0,2017,9,red_bull_ring
+94,wehrlein,sauber,14.0,20.0,173.16,+1 Lap,0.0,2017,9,red_bull_ring
+9,ericsson,sauber,15.0,19.0,173.16,+2 Laps,0.0,2017,9,red_bull_ring
+26,kvyat,toro_rosso,16.0,14.0,173.16,+3 Laps,0.0,2017,9,red_bull_ring
+55,sainz,toro_rosso,17.0,10.0,173.16,Engine,0.0,2017,9,red_bull_ring
+20,kevin_magnussen,haas,18.0,15.0,173.16,Hydraulics,0.0,2017,9,red_bull_ring
+14,alonso,mclaren,19.0,12.0,173.16,Collision damage,0.0,2017,9,red_bull_ring
+33,max_verstappen,red_bull,20.0,5.0,173.16,Collision damage,0.0,2017,9,red_bull_ring
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,10,silverstone
+77,bottas,mercedes,2.0,9.0,14.063,Finished,18.0,2017,10,silverstone
+7,raikkonen,ferrari,3.0,2.0,36.57,Finished,15.0,2017,10,silverstone
+33,max_verstappen,red_bull,4.0,4.0,52.125,Finished,12.0,2017,10,silverstone
+3,ricciardo,red_bull,5.0,19.0,65.955,Finished,10.0,2017,10,silverstone
+27,hulkenberg,renault,6.0,5.0,68.109,Finished,8.0,2017,10,silverstone
+5,vettel,ferrari,7.0,3.0,93.989,Finished,6.0,2017,10,silverstone
+31,ocon,force_india,8.0,7.0,193.989,+1 Lap,4.0,2017,10,silverstone
+11,perez,force_india,9.0,6.0,193.989,+1 Lap,2.0,2017,10,silverstone
+19,massa,williams,10.0,14.0,193.989,+1 Lap,1.0,2017,10,silverstone
+2,vandoorne,mclaren,11.0,8.0,193.989,+1 Lap,0.0,2017,10,silverstone
+20,kevin_magnussen,haas,12.0,16.0,193.989,+1 Lap,0.0,2017,10,silverstone
+8,grosjean,haas,13.0,10.0,193.989,+1 Lap,0.0,2017,10,silverstone
+9,ericsson,sauber,14.0,18.0,193.989,+1 Lap,0.0,2017,10,silverstone
+26,kvyat,toro_rosso,15.0,12.0,193.989,+1 Lap,0.0,2017,10,silverstone
+18,stroll,williams,16.0,15.0,193.989,+1 Lap,0.0,2017,10,silverstone
+94,wehrlein,sauber,17.0,17.0,193.989,+1 Lap,0.0,2017,10,silverstone
+14,alonso,mclaren,18.0,20.0,193.989,Power Unit,0.0,2017,10,silverstone
+55,sainz,toro_rosso,19.0,13.0,193.989,Collision damage,0.0,2017,10,silverstone
+30,jolyon_palmer,renault,20.0,11.0,193.989,Hydraulics,0.0,2017,10,silverstone
+5,vettel,ferrari,1.0,1.0,0.0,Finished,25.0,2017,11,hungaroring
+7,raikkonen,ferrari,2.0,2.0,0.908,Finished,18.0,2017,11,hungaroring
+77,bottas,mercedes,3.0,3.0,12.462,Finished,15.0,2017,11,hungaroring
+44,hamilton,mercedes,4.0,4.0,12.885,Finished,12.0,2017,11,hungaroring
+33,max_verstappen,red_bull,5.0,5.0,13.276,Finished,10.0,2017,11,hungaroring
+14,alonso,mclaren,6.0,7.0,71.223,Finished,8.0,2017,11,hungaroring
+55,sainz,toro_rosso,7.0,9.0,171.223,+1 Lap,6.0,2017,11,hungaroring
+11,perez,force_india,8.0,13.0,171.223,+1 Lap,4.0,2017,11,hungaroring
+31,ocon,force_india,9.0,11.0,171.223,+1 Lap,2.0,2017,11,hungaroring
+2,vandoorne,mclaren,10.0,8.0,171.223,+1 Lap,1.0,2017,11,hungaroring
+26,kvyat,toro_rosso,11.0,16.0,171.223,+1 Lap,0.0,2017,11,hungaroring
+30,jolyon_palmer,renault,12.0,10.0,171.223,+1 Lap,0.0,2017,11,hungaroring
+20,kevin_magnussen,haas,13.0,15.0,171.223,+1 Lap,0.0,2017,11,hungaroring
+18,stroll,williams,14.0,17.0,171.223,+1 Lap,0.0,2017,11,hungaroring
+94,wehrlein,sauber,15.0,18.0,171.223,+2 Laps,0.0,2017,11,hungaroring
+9,ericsson,sauber,16.0,20.0,171.223,+2 Laps,0.0,2017,11,hungaroring
+27,hulkenberg,renault,17.0,12.0,171.223,Brakes,0.0,2017,11,hungaroring
+40,resta,williams,18.0,19.0,171.223,Oil leak,0.0,2017,11,hungaroring
+8,grosjean,haas,19.0,14.0,171.223,Wheel nut,0.0,2017,11,hungaroring
+3,ricciardo,red_bull,20.0,6.0,171.223,Collision,0.0,2017,11,hungaroring
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,12,spa
+5,vettel,ferrari,2.0,2.0,2.358,Finished,18.0,2017,12,spa
+3,ricciardo,red_bull,3.0,6.0,10.791,Finished,15.0,2017,12,spa
+7,raikkonen,ferrari,4.0,4.0,14.471,Finished,12.0,2017,12,spa
+77,bottas,mercedes,5.0,3.0,16.456,Finished,10.0,2017,12,spa
+27,hulkenberg,renault,6.0,7.0,28.087,Finished,8.0,2017,12,spa
+8,grosjean,haas,7.0,11.0,31.553,Finished,6.0,2017,12,spa
+19,massa,williams,8.0,16.0,36.649,Finished,4.0,2017,12,spa
+31,ocon,force_india,9.0,9.0,38.154,Finished,2.0,2017,12,spa
+55,sainz,toro_rosso,10.0,13.0,39.447,Finished,1.0,2017,12,spa
+18,stroll,williams,11.0,15.0,48.999,Finished,0.0,2017,12,spa
+26,kvyat,toro_rosso,12.0,19.0,49.94,Finished,0.0,2017,12,spa
+30,jolyon_palmer,renault,13.0,14.0,53.239,Finished,0.0,2017,12,spa
+2,vandoorne,mclaren,14.0,20.0,57.078,Finished,0.0,2017,12,spa
+20,kevin_magnussen,haas,15.0,12.0,67.262,Finished,0.0,2017,12,spa
+9,ericsson,sauber,16.0,17.0,69.711,Finished,0.0,2017,12,spa
+11,perez,force_india,17.0,8.0,169.711,Gearbox,0.0,2017,12,spa
+14,alonso,mclaren,18.0,10.0,169.711,Engine,0.0,2017,12,spa
+33,max_verstappen,red_bull,19.0,5.0,169.711,Engine,0.0,2017,12,spa
+94,wehrlein,sauber,20.0,18.0,169.711,Collision,0.0,2017,12,spa
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,13,monza
+77,bottas,mercedes,2.0,4.0,4.471,Finished,18.0,2017,13,monza
+5,vettel,ferrari,3.0,6.0,36.317,Finished,15.0,2017,13,monza
+3,ricciardo,red_bull,4.0,16.0,40.335,Finished,12.0,2017,13,monza
+7,raikkonen,ferrari,5.0,5.0,60.082,Finished,10.0,2017,13,monza
+31,ocon,force_india,6.0,3.0,71.528,Finished,8.0,2017,13,monza
+18,stroll,williams,7.0,2.0,74.156,Finished,6.0,2017,13,monza
+19,massa,williams,8.0,7.0,74.834,Finished,4.0,2017,13,monza
+11,perez,force_india,9.0,10.0,75.276,Finished,2.0,2017,13,monza
+33,max_verstappen,red_bull,10.0,13.0,175.276,+1 Lap,1.0,2017,13,monza
+20,kevin_magnussen,haas,11.0,9.0,175.276,+1 Lap,0.0,2017,13,monza
+26,kvyat,toro_rosso,12.0,8.0,175.276,+1 Lap,0.0,2017,13,monza
+27,hulkenberg,renault,13.0,14.0,175.276,+1 Lap,0.0,2017,13,monza
+55,sainz,toro_rosso,14.0,15.0,175.276,+1 Lap,0.0,2017,13,monza
+8,grosjean,haas,15.0,20.0,175.276,+1 Lap,0.0,2017,13,monza
+94,wehrlein,sauber,16.0,12.0,175.276,+2 Laps,0.0,2017,13,monza
+14,alonso,mclaren,17.0,19.0,175.276,Gearbox,0.0,2017,13,monza
+9,ericsson,sauber,18.0,11.0,175.276,Gearbox,0.0,2017,13,monza
+2,vandoorne,mclaren,19.0,18.0,175.276,Engine,0.0,2017,13,monza
+30,jolyon_palmer,renault,20.0,17.0,175.276,Engine,0.0,2017,13,monza
+44,hamilton,mercedes,1.0,5.0,0.0,Finished,25.0,2017,14,marina_bay
+3,ricciardo,red_bull,2.0,3.0,4.507,Finished,18.0,2017,14,marina_bay
+77,bottas,mercedes,3.0,6.0,8.8,Finished,15.0,2017,14,marina_bay
+55,sainz,toro_rosso,4.0,10.0,22.822,Finished,12.0,2017,14,marina_bay
+11,perez,force_india,5.0,12.0,25.359,Finished,10.0,2017,14,marina_bay
+30,jolyon_palmer,renault,6.0,11.0,27.259,Finished,8.0,2017,14,marina_bay
+2,vandoorne,mclaren,7.0,9.0,30.388,Finished,6.0,2017,14,marina_bay
+18,stroll,williams,8.0,18.0,41.696,Finished,4.0,2017,14,marina_bay
+8,grosjean,haas,9.0,15.0,43.282,Finished,2.0,2017,14,marina_bay
+31,ocon,force_india,10.0,14.0,44.795,Finished,1.0,2017,14,marina_bay
+19,massa,williams,11.0,17.0,46.536,Finished,0.0,2017,14,marina_bay
+94,wehrlein,sauber,12.0,19.0,146.536,+2 Laps,0.0,2017,14,marina_bay
+20,kevin_magnussen,haas,13.0,16.0,146.536,Engine,0.0,2017,14,marina_bay
+27,hulkenberg,renault,14.0,7.0,146.536,Engine,0.0,2017,14,marina_bay
+9,ericsson,sauber,15.0,20.0,146.536,Accident,0.0,2017,14,marina_bay
+26,kvyat,toro_rosso,16.0,13.0,146.536,Accident,0.0,2017,14,marina_bay
+14,alonso,mclaren,17.0,8.0,146.536,Collision damage,0.0,2017,14,marina_bay
+5,vettel,ferrari,18.0,1.0,146.536,Accident,0.0,2017,14,marina_bay
+33,max_verstappen,red_bull,19.0,2.0,146.536,Accident,0.0,2017,14,marina_bay
+7,raikkonen,ferrari,20.0,4.0,146.536,Accident,0.0,2017,14,marina_bay
+33,max_verstappen,red_bull,1.0,3.0,0.0,Finished,25.0,2017,15,sepang
+44,hamilton,mercedes,2.0,1.0,12.77,Finished,18.0,2017,15,sepang
+3,ricciardo,red_bull,3.0,4.0,22.519,Finished,15.0,2017,15,sepang
+5,vettel,ferrari,4.0,20.0,37.362,Finished,12.0,2017,15,sepang
+77,bottas,mercedes,5.0,5.0,56.021,Finished,10.0,2017,15,sepang
+11,perez,force_india,6.0,9.0,78.63,Finished,8.0,2017,15,sepang
+2,vandoorne,mclaren,7.0,7.0,178.63,+1 Lap,6.0,2017,15,sepang
+18,stroll,williams,8.0,13.0,178.63,+1 Lap,4.0,2017,15,sepang
+19,massa,williams,9.0,11.0,178.63,+1 Lap,2.0,2017,15,sepang
+31,ocon,force_india,10.0,6.0,178.63,+1 Lap,1.0,2017,15,sepang
+14,alonso,mclaren,11.0,10.0,178.63,+1 Lap,0.0,2017,15,sepang
+20,kevin_magnussen,haas,12.0,17.0,178.63,+1 Lap,0.0,2017,15,sepang
+8,grosjean,haas,13.0,16.0,178.63,+1 Lap,0.0,2017,15,sepang
+10,gasly,toro_rosso,14.0,15.0,178.63,+1 Lap,0.0,2017,15,sepang
+30,jolyon_palmer,renault,15.0,12.0,178.63,+1 Lap,0.0,2017,15,sepang
+27,hulkenberg,renault,16.0,8.0,178.63,+1 Lap,0.0,2017,15,sepang
+94,wehrlein,sauber,17.0,18.0,178.63,+1 Lap,0.0,2017,15,sepang
+9,ericsson,sauber,18.0,19.0,178.63,+2 Laps,0.0,2017,15,sepang
+55,sainz,toro_rosso,19.0,14.0,178.63,Engine,0.0,2017,15,sepang
+7,raikkonen,ferrari,20.0,0.0,178.63,Battery,0.0,2017,15,sepang
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,16,suzuka
+33,max_verstappen,red_bull,2.0,4.0,1.211,Finished,18.0,2017,16,suzuka
+3,ricciardo,red_bull,3.0,3.0,9.679,Finished,15.0,2017,16,suzuka
+77,bottas,mercedes,4.0,6.0,10.58,Finished,12.0,2017,16,suzuka
+7,raikkonen,ferrari,5.0,10.0,32.622,Finished,10.0,2017,16,suzuka
+31,ocon,force_india,6.0,5.0,67.788,Finished,8.0,2017,16,suzuka
+11,perez,force_india,7.0,7.0,71.424,Finished,6.0,2017,16,suzuka
+20,kevin_magnussen,haas,8.0,12.0,88.953,Finished,4.0,2017,16,suzuka
+8,grosjean,haas,9.0,13.0,89.883,Finished,2.0,2017,16,suzuka
+19,massa,williams,10.0,8.0,189.88299999999998,+1 Lap,1.0,2017,16,suzuka
+14,alonso,mclaren,11.0,20.0,189.88299999999998,+1 Lap,0.0,2017,16,suzuka
+30,jolyon_palmer,renault,12.0,18.0,189.88299999999998,+1 Lap,0.0,2017,16,suzuka
+10,gasly,toro_rosso,13.0,14.0,189.88299999999998,+1 Lap,0.0,2017,16,suzuka
+2,vandoorne,mclaren,14.0,9.0,189.88299999999998,+1 Lap,0.0,2017,16,suzuka
+94,wehrlein,sauber,15.0,17.0,189.88299999999998,+2 Laps,0.0,2017,16,suzuka
+18,stroll,williams,16.0,15.0,189.88299999999998,Wheel,0.0,2017,16,suzuka
+27,hulkenberg,renault,17.0,11.0,189.88299999999998,Front wing,0.0,2017,16,suzuka
+9,ericsson,sauber,18.0,16.0,189.88299999999998,Accident,0.0,2017,16,suzuka
+5,vettel,ferrari,19.0,2.0,189.88299999999998,Spark plugs,0.0,2017,16,suzuka
+55,sainz,toro_rosso,20.0,19.0,189.88299999999998,Accident,0.0,2017,16,suzuka
+44,hamilton,mercedes,1.0,1.0,0.0,Finished,25.0,2017,17,americas
+5,vettel,ferrari,2.0,2.0,10.143,Finished,18.0,2017,17,americas
+7,raikkonen,ferrari,3.0,5.0,15.779,Finished,15.0,2017,17,americas
+33,max_verstappen,red_bull,4.0,16.0,16.768,Finished,12.0,2017,17,americas
+77,bottas,mercedes,5.0,3.0,34.967,Finished,10.0,2017,17,americas
+31,ocon,force_india,6.0,6.0,90.98,Finished,8.0,2017,17,americas
+55,sainz,renault,7.0,7.0,92.944,Finished,6.0,2017,17,americas
+11,perez,force_india,8.0,9.0,192.94400000000002,+1 Lap,4.0,2017,17,americas
+19,massa,williams,9.0,10.0,192.94400000000002,+1 Lap,2.0,2017,17,americas
+26,kvyat,toro_rosso,10.0,11.0,192.94400000000002,+1 Lap,1.0,2017,17,americas
+18,stroll,williams,11.0,15.0,192.94400000000002,+1 Lap,0.0,2017,17,americas
+2,vandoorne,mclaren,12.0,20.0,192.94400000000002,+1 Lap,0.0,2017,17,americas
+39,brendon_hartley,toro_rosso,13.0,19.0,192.94400000000002,+1 Lap,0.0,2017,17,americas
+8,grosjean,haas,14.0,12.0,192.94400000000002,+1 Lap,0.0,2017,17,americas
+9,ericsson,sauber,15.0,13.0,192.94400000000002,+1 Lap,0.0,2017,17,americas
+20,kevin_magnussen,haas,16.0,17.0,192.94400000000002,+1 Lap,0.0,2017,17,americas
+14,alonso,mclaren,17.0,8.0,192.94400000000002,Engine,0.0,2017,17,americas
+3,ricciardo,red_bull,18.0,4.0,192.94400000000002,Engine,0.0,2017,17,americas
+94,wehrlein,sauber,19.0,14.0,192.94400000000002,Collision,0.0,2017,17,americas
+27,hulkenberg,renault,20.0,18.0,192.94400000000002,Engine,0.0,2017,17,americas
+33,max_verstappen,red_bull,1.0,2.0,0.0,Finished,25.0,2017,18,rodriguez
+77,bottas,mercedes,2.0,4.0,19.678,Finished,18.0,2017,18,rodriguez
+7,raikkonen,ferrari,3.0,5.0,54.007,Finished,15.0,2017,18,rodriguez
+5,vettel,ferrari,4.0,1.0,70.078,Finished,12.0,2017,18,rodriguez
+31,ocon,force_india,5.0,6.0,170.078,+1 Lap,10.0,2017,18,rodriguez
+18,stroll,williams,6.0,11.0,170.078,+1 Lap,8.0,2017,18,rodriguez
+11,perez,force_india,7.0,9.0,170.078,+1 Lap,6.0,2017,18,rodriguez
+20,kevin_magnussen,haas,8.0,14.0,170.078,+1 Lap,4.0,2017,18,rodriguez
+44,hamilton,mercedes,9.0,3.0,170.078,+1 Lap,2.0,2017,18,rodriguez
+14,alonso,mclaren,10.0,18.0,170.078,+1 Lap,1.0,2017,18,rodriguez
+19,massa,williams,11.0,10.0,170.078,+1 Lap,0.0,2017,18,rodriguez
+2,vandoorne,mclaren,12.0,19.0,170.078,+1 Lap,0.0,2017,18,rodriguez
+10,gasly,toro_rosso,13.0,20.0,170.078,+1 Lap,0.0,2017,18,rodriguez
+94,wehrlein,sauber,14.0,13.0,170.078,+2 Laps,0.0,2017,18,rodriguez
+8,grosjean,haas,15.0,15.0,170.078,+2 Laps,0.0,2017,18,rodriguez
+55,sainz,renault,16.0,8.0,170.078,Engine,0.0,2017,18,rodriguez
+9,ericsson,sauber,17.0,12.0,170.078,Engine,0.0,2017,18,rodriguez
+28,brendon_hartley,toro_rosso,18.0,17.0,170.078,Engine,0.0,2017,18,rodriguez
+27,hulkenberg,renault,19.0,7.0,170.078,Electrical,0.0,2017,18,rodriguez
+3,ricciardo,red_bull,20.0,16.0,170.078,Engine,0.0,2017,18,rodriguez
+5,vettel,ferrari,1.0,2.0,0.0,Finished,25.0,2017,19,interlagos
+77,bottas,mercedes,2.0,1.0,2.762,Finished,18.0,2017,19,interlagos
+7,raikkonen,ferrari,3.0,3.0,4.6,Finished,15.0,2017,19,interlagos
+44,hamilton,mercedes,4.0,20.0,5.468,Finished,12.0,2017,19,interlagos
+33,max_verstappen,red_bull,5.0,4.0,32.94,Finished,10.0,2017,19,interlagos
+3,ricciardo,red_bull,6.0,14.0,48.691,Finished,8.0,2017,19,interlagos
+19,massa,williams,7.0,9.0,68.882,Finished,6.0,2017,19,interlagos
+14,alonso,mclaren,8.0,6.0,69.363,Finished,4.0,2017,19,interlagos
+11,perez,force_india,9.0,5.0,69.5,Finished,2.0,2017,19,interlagos
+27,hulkenberg,renault,10.0,7.0,169.5,+1 Lap,1.0,2017,19,interlagos
+55,sainz,renault,11.0,8.0,169.5,+1 Lap,0.0,2017,19,interlagos
+10,gasly,toro_rosso,12.0,19.0,169.5,+1 Lap,0.0,2017,19,interlagos
+9,ericsson,sauber,13.0,17.0,169.5,+1 Lap,0.0,2017,19,interlagos
+94,wehrlein,sauber,14.0,15.0,169.5,+1 Lap,0.0,2017,19,interlagos
+8,grosjean,haas,15.0,11.0,169.5,+2 Laps,0.0,2017,19,interlagos
+18,stroll,williams,16.0,16.0,169.5,+2 Laps,0.0,2017,19,interlagos
+28,brendon_hartley,toro_rosso,17.0,18.0,169.5,Engine,0.0,2017,19,interlagos
+31,ocon,force_india,18.0,10.0,169.5,Accident,0.0,2017,19,interlagos
+2,vandoorne,mclaren,19.0,12.0,169.5,Accident,0.0,2017,19,interlagos
+20,kevin_magnussen,haas,20.0,13.0,169.5,Accident,0.0,2017,19,interlagos
+77,bottas,mercedes,1.0,1.0,0.0,Finished,25.0,2017,20,yas_marina
+44,hamilton,mercedes,2.0,2.0,3.899,Finished,18.0,2017,20,yas_marina
+5,vettel,ferrari,3.0,3.0,19.33,Finished,15.0,2017,20,yas_marina
+7,raikkonen,ferrari,4.0,5.0,45.386,Finished,12.0,2017,20,yas_marina
+33,max_verstappen,red_bull,5.0,6.0,46.269,Finished,10.0,2017,20,yas_marina
+27,hulkenberg,renault,6.0,7.0,85.713,Finished,8.0,2017,20,yas_marina
+11,perez,force_india,7.0,8.0,92.062,Finished,6.0,2017,20,yas_marina
+31,ocon,force_india,8.0,9.0,98.911,Finished,4.0,2017,20,yas_marina
+14,alonso,mclaren,9.0,11.0,198.911,+1 Lap,2.0,2017,20,yas_marina
+19,massa,williams,10.0,10.0,198.911,+1 Lap,1.0,2017,20,yas_marina
+8,grosjean,haas,11.0,16.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+2,vandoorne,mclaren,12.0,13.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+20,kevin_magnussen,haas,13.0,14.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+94,wehrlein,sauber,14.0,18.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+28,brendon_hartley,toro_rosso,15.0,20.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+10,gasly,toro_rosso,16.0,17.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+9,ericsson,sauber,17.0,19.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+18,stroll,williams,18.0,15.0,198.911,+1 Lap,0.0,2017,20,yas_marina
+55,sainz,renault,19.0,12.0,198.911,Wheel,0.0,2017,20,yas_marina
+3,ricciardo,red_bull,20.0,4.0,198.911,Hydraulics,0.0,2017,20,yas_marina

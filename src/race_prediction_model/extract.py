@@ -8,8 +8,8 @@ from tqdm import tqdm
 
 
 # Call limit: [CALLS] every [PERIOD] seconds
-CALLS = 3
-PERIOD = 60
+CALLS = 200
+PERIOD = 3600
 
 @limits(calls=CALLS, period=PERIOD)
 def load_session(session, laps=True, telemetry=False, weather=False, messages=True):

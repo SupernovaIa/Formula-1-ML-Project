@@ -1,0 +1,457 @@
+DriverNumber,DriverId,TeamId,Position,GridPosition,Time,Status,Points,season,round,circuitId
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,1,albert_park
+3,hamilton,mclaren,2.0,2.0,22.297,Finished,18.0,2011,1,albert_park
+10,petrov,renault,3.0,6.0,30.56,Finished,15.0,2011,1,albert_park
+5,alonso,ferrari,4.0,5.0,31.772,Finished,12.0,2011,1,albert_park
+2,webber,red_bull,5.0,3.0,38.171,Finished,10.0,2011,1,albert_park
+4,button,mclaren,6.0,4.0,54.304,Finished,8.0,2011,1,albert_park
+6,massa,ferrari,7.0,8.0,85.186,Finished,6.0,2011,1,albert_park
+18,buemi,toro_rosso,8.0,10.0,185.186,+1 Lap,4.0,2011,1,albert_park
+14,sutil,force_india,9.0,16.0,185.186,+1 Lap,2.0,2011,1,albert_park
+15,resta,force_india,10.0,14.0,185.186,+1 Lap,1.0,2011,1,albert_park
+19,alguersuari,toro_rosso,11.0,12.0,185.186,+1 Lap,0.0,2011,1,albert_park
+9,heidfeld,renault,12.0,18.0,185.186,+1 Lap,0.0,2011,1,albert_park
+21,trulli,lotus_racing,13.0,20.0,185.186,+2 Laps,0.0,2011,1,albert_park
+25,ambrosio,virgin,14.0,22.0,185.186,+4 Laps,0.0,2011,1,albert_park
+24,glock,virgin,15.0,21.0,185.186,+9 Laps,0.0,2011,1,albert_park
+11,barrichello,williams,16.0,17.0,185.186,Transmission,0.0,2011,1,albert_park
+8,rosberg,mercedes,17.0,7.0,185.186,Collision,0.0,2011,1,albert_park
+20,kovalainen,lotus_racing,18.0,19.0,185.186,Water leak,0.0,2011,1,albert_park
+7,michael_schumacher,mercedes,19.0,11.0,185.186,Collision,0.0,2011,1,albert_park
+12,maldonado,williams,20.0,15.0,185.186,Transmission,0.0,2011,1,albert_park
+16,kobayashi,sauber,21.0,9.0,185.186,Disqualified,0.0,2011,1,albert_park
+17,perez,sauber,22.0,13.0,185.186,Disqualified,0.0,2011,1,albert_park
+23,liuzzi,hrt,23.0,0.0,185.186,Did not qualify,0.0,2011,1,albert_park
+22,karthikeyan,hrt,24.0,0.0,185.186,Did not qualify,0.0,2011,1,albert_park
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,2,sepang
+4,button,mclaren,2.0,4.0,3.261,Finished,18.0,2011,2,sepang
+9,heidfeld,renault,3.0,6.0,25.075,Finished,15.0,2011,2,sepang
+2,webber,red_bull,4.0,3.0,26.384,Finished,12.0,2011,2,sepang
+6,massa,ferrari,5.0,7.0,36.958,Finished,10.0,2011,2,sepang
+5,alonso,ferrari,6.0,5.0,37.248,Finished,8.0,2011,2,sepang
+16,kobayashi,sauber,7.0,10.0,66.439,Finished,6.0,2011,2,sepang
+3,hamilton,mclaren,8.0,2.0,69.957,Finished,4.0,2011,2,sepang
+7,michael_schumacher,mercedes,9.0,11.0,84.896,Finished,2.0,2011,2,sepang
+15,resta,force_india,10.0,14.0,91.563,Finished,1.0,2011,2,sepang
+14,sutil,force_india,11.0,17.0,191.563,+1 Lap,0.0,2011,2,sepang
+8,rosberg,mercedes,12.0,9.0,191.563,+1 Lap,0.0,2011,2,sepang
+18,buemi,toro_rosso,13.0,12.0,191.563,+1 Lap,0.0,2011,2,sepang
+19,alguersuari,toro_rosso,14.0,13.0,191.563,+1 Lap,0.0,2011,2,sepang
+20,kovalainen,lotus_racing,15.0,19.0,191.563,+1 Lap,0.0,2011,2,sepang
+24,glock,virgin,16.0,21.0,191.563,+2 Laps,0.0,2011,2,sepang
+10,petrov,renault,17.0,8.0,191.563,Accident,0.0,2011,2,sepang
+23,liuzzi,hrt,18.0,23.0,191.563,+10 Laps,0.0,2011,2,sepang
+25,ambrosio,virgin,19.0,22.0,191.563,Accident,0.0,2011,2,sepang
+21,trulli,lotus_racing,20.0,20.0,191.563,Clutch,0.0,2011,2,sepang
+17,perez,sauber,21.0,16.0,191.563,Accident,0.0,2011,2,sepang
+11,barrichello,williams,22.0,15.0,191.563,Gearbox,0.0,2011,2,sepang
+22,karthikeyan,hrt,23.0,24.0,191.563,+42 Laps,0.0,2011,2,sepang
+12,maldonado,williams,24.0,18.0,191.563,Engine misfire,0.0,2011,2,sepang
+3,hamilton,mclaren,1.0,3.0,0.0,Finished,25.0,2011,3,shanghai
+1,vettel,red_bull,2.0,1.0,5.198,Finished,18.0,2011,3,shanghai
+2,webber,red_bull,3.0,18.0,7.555,Finished,15.0,2011,3,shanghai
+4,button,mclaren,4.0,2.0,10.0,Finished,12.0,2011,3,shanghai
+8,rosberg,mercedes,5.0,4.0,13.448,Finished,10.0,2011,3,shanghai
+6,massa,ferrari,6.0,6.0,15.84,Finished,8.0,2011,3,shanghai
+5,alonso,ferrari,7.0,5.0,30.622,Finished,6.0,2011,3,shanghai
+7,michael_schumacher,mercedes,8.0,14.0,31.026,Finished,4.0,2011,3,shanghai
+10,petrov,renault,9.0,10.0,57.404,Finished,2.0,2011,3,shanghai
+16,kobayashi,sauber,10.0,13.0,63.273,Finished,1.0,2011,3,shanghai
+15,resta,force_india,11.0,8.0,68.757,Finished,0.0,2011,3,shanghai
+9,heidfeld,renault,12.0,16.0,72.739,Finished,0.0,2011,3,shanghai
+11,barrichello,williams,13.0,15.0,90.189,Finished,0.0,2011,3,shanghai
+18,buemi,toro_rosso,14.0,9.0,90.671,Finished,0.0,2011,3,shanghai
+14,sutil,force_india,15.0,11.0,190.671,+1 Lap,0.0,2011,3,shanghai
+20,kovalainen,lotus_racing,16.0,19.0,190.671,+1 Lap,0.0,2011,3,shanghai
+17,perez,sauber,17.0,12.0,190.671,+1 Lap,0.0,2011,3,shanghai
+12,maldonado,williams,18.0,17.0,190.671,+1 Lap,0.0,2011,3,shanghai
+21,trulli,lotus_racing,19.0,20.0,190.671,+1 Lap,0.0,2011,3,shanghai
+25,ambrosio,virgin,20.0,21.0,190.671,+2 Laps,0.0,2011,3,shanghai
+24,glock,virgin,21.0,22.0,190.671,+2 Laps,0.0,2011,3,shanghai
+23,liuzzi,hrt,22.0,23.0,190.671,+2 Laps,0.0,2011,3,shanghai
+22,karthikeyan,hrt,23.0,24.0,190.671,+2 Laps,0.0,2011,3,shanghai
+19,alguersuari,toro_rosso,24.0,7.0,190.671,Wheel,0.0,2011,3,shanghai
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,4,istanbul
+2,webber,red_bull,2.0,2.0,8.807,Finished,18.0,2011,4,istanbul
+5,alonso,ferrari,3.0,5.0,10.075,Finished,15.0,2011,4,istanbul
+3,hamilton,mclaren,4.0,4.0,40.232,Finished,12.0,2011,4,istanbul
+8,rosberg,mercedes,5.0,3.0,47.539,Finished,10.0,2011,4,istanbul
+4,button,mclaren,6.0,6.0,59.431,Finished,8.0,2011,4,istanbul
+9,heidfeld,renault,7.0,9.0,60.857,Finished,6.0,2011,4,istanbul
+10,petrov,renault,8.0,7.0,68.168,Finished,4.0,2011,4,istanbul
+18,buemi,toro_rosso,9.0,16.0,69.394,Finished,2.0,2011,4,istanbul
+16,kobayashi,sauber,10.0,24.0,78.021,Finished,1.0,2011,4,istanbul
+6,massa,ferrari,11.0,10.0,79.823,Finished,0.0,2011,4,istanbul
+7,michael_schumacher,mercedes,12.0,8.0,85.444,Finished,0.0,2011,4,istanbul
+14,sutil,force_india,13.0,12.0,185.44400000000002,+1 Lap,0.0,2011,4,istanbul
+17,perez,sauber,14.0,15.0,185.44400000000002,+1 Lap,0.0,2011,4,istanbul
+11,barrichello,williams,15.0,11.0,185.44400000000002,+1 Lap,0.0,2011,4,istanbul
+19,alguersuari,toro_rosso,16.0,17.0,185.44400000000002,+1 Lap,0.0,2011,4,istanbul
+12,maldonado,williams,17.0,14.0,185.44400000000002,+1 Lap,0.0,2011,4,istanbul
+21,trulli,lotus_racing,18.0,19.0,185.44400000000002,+1 Lap,0.0,2011,4,istanbul
+20,kovalainen,lotus_racing,19.0,18.0,185.44400000000002,+2 Laps,0.0,2011,4,istanbul
+25,ambrosio,virgin,20.0,23.0,185.44400000000002,+2 Laps,0.0,2011,4,istanbul
+22,karthikeyan,hrt,21.0,22.0,185.44400000000002,+3 Laps,0.0,2011,4,istanbul
+23,liuzzi,hrt,22.0,20.0,185.44400000000002,+5 Laps,0.0,2011,4,istanbul
+15,resta,force_india,23.0,13.0,185.44400000000002,Retired,0.0,2011,4,istanbul
+24,glock,virgin,24.0,21.0,185.44400000000002,Gearbox,0.0,2011,4,istanbul
+1,vettel,red_bull,1.0,2.0,0.0,Finished,25.0,2011,5,catalunya
+3,hamilton,mclaren,2.0,3.0,0.63,Finished,18.0,2011,5,catalunya
+4,button,mclaren,3.0,5.0,35.697,Finished,15.0,2011,5,catalunya
+2,webber,red_bull,4.0,1.0,47.966,Finished,12.0,2011,5,catalunya
+5,alonso,ferrari,5.0,4.0,147.966,+1 Lap,10.0,2011,5,catalunya
+7,michael_schumacher,mercedes,6.0,10.0,147.966,+1 Lap,8.0,2011,5,catalunya
+8,rosberg,mercedes,7.0,7.0,147.966,+1 Lap,6.0,2011,5,catalunya
+9,heidfeld,renault,8.0,24.0,147.966,+1 Lap,4.0,2011,5,catalunya
+17,perez,sauber,9.0,12.0,147.966,+1 Lap,2.0,2011,5,catalunya
+16,kobayashi,sauber,10.0,14.0,147.966,+1 Lap,1.0,2011,5,catalunya
+10,petrov,renault,11.0,6.0,147.966,+1 Lap,0.0,2011,5,catalunya
+15,resta,force_india,12.0,16.0,147.966,+1 Lap,0.0,2011,5,catalunya
+14,sutil,force_india,13.0,17.0,147.966,+1 Lap,0.0,2011,5,catalunya
+18,buemi,toro_rosso,14.0,11.0,147.966,+1 Lap,0.0,2011,5,catalunya
+12,maldonado,williams,15.0,9.0,147.966,+1 Lap,0.0,2011,5,catalunya
+19,alguersuari,toro_rosso,16.0,13.0,147.966,+2 Laps,0.0,2011,5,catalunya
+11,barrichello,williams,17.0,19.0,147.966,+2 Laps,0.0,2011,5,catalunya
+21,trulli,lotus_racing,18.0,18.0,147.966,+2 Laps,0.0,2011,5,catalunya
+24,glock,virgin,19.0,20.0,147.966,+3 Laps,0.0,2011,5,catalunya
+25,ambrosio,virgin,20.0,23.0,147.966,+4 Laps,0.0,2011,5,catalunya
+22,karthikeyan,hrt,21.0,22.0,147.966,+5 Laps,0.0,2011,5,catalunya
+6,massa,ferrari,22.0,8.0,147.966,Gearbox,0.0,2011,5,catalunya
+20,kovalainen,lotus_racing,23.0,15.0,147.966,Accident,0.0,2011,5,catalunya
+23,liuzzi,hrt,24.0,21.0,147.966,Gearbox,0.0,2011,5,catalunya
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,6,monaco
+5,alonso,ferrari,2.0,4.0,1.138,Finished,18.0,2011,6,monaco
+4,button,mclaren,3.0,2.0,2.378,Finished,15.0,2011,6,monaco
+2,webber,red_bull,4.0,3.0,23.101,Finished,12.0,2011,6,monaco
+16,kobayashi,sauber,5.0,12.0,26.916,Finished,10.0,2011,6,monaco
+3,hamilton,mclaren,6.0,9.0,27.21,Finished,8.0,2011,6,monaco
+14,sutil,force_india,7.0,14.0,127.21000000000001,+1 Lap,6.0,2011,6,monaco
+9,heidfeld,renault,8.0,15.0,127.21000000000001,+1 Lap,4.0,2011,6,monaco
+11,barrichello,williams,9.0,11.0,127.21000000000001,+1 Lap,2.0,2011,6,monaco
+18,buemi,toro_rosso,10.0,16.0,127.21000000000001,+1 Lap,1.0,2011,6,monaco
+8,rosberg,mercedes,11.0,7.0,127.21000000000001,+2 Laps,0.0,2011,6,monaco
+15,resta,force_india,12.0,13.0,127.21000000000001,+2 Laps,0.0,2011,6,monaco
+21,trulli,lotus_racing,13.0,18.0,127.21000000000001,+2 Laps,0.0,2011,6,monaco
+20,kovalainen,lotus_racing,14.0,17.0,127.21000000000001,+2 Laps,0.0,2011,6,monaco
+25,ambrosio,virgin,15.0,21.0,127.21000000000001,+3 Laps,0.0,2011,6,monaco
+23,liuzzi,hrt,16.0,23.0,127.21000000000001,+3 Laps,0.0,2011,6,monaco
+22,karthikeyan,hrt,17.0,22.0,127.21000000000001,+4 Laps,0.0,2011,6,monaco
+12,maldonado,williams,18.0,8.0,127.21000000000001,Accident,0.0,2011,6,monaco
+10,petrov,renault,19.0,10.0,127.21000000000001,Collision,0.0,2011,6,monaco
+19,alguersuari,toro_rosso,20.0,19.0,127.21000000000001,Collision,0.0,2011,6,monaco
+6,massa,ferrari,21.0,6.0,127.21000000000001,Accident,0.0,2011,6,monaco
+7,michael_schumacher,mercedes,22.0,5.0,127.21000000000001,Engine,0.0,2011,6,monaco
+24,glock,virgin,23.0,20.0,127.21000000000001,Suspension,0.0,2011,6,monaco
+17,perez,sauber,24.0,0.0,127.21000000000001,Injury,0.0,2011,6,monaco
+4,button,mclaren,1.0,7.0,0.0,Finished,25.0,2011,7,villeneuve
+1,vettel,red_bull,2.0,1.0,2.709,Finished,18.0,2011,7,villeneuve
+2,webber,red_bull,3.0,4.0,13.828,Finished,15.0,2011,7,villeneuve
+7,michael_schumacher,mercedes,4.0,8.0,14.219,Finished,12.0,2011,7,villeneuve
+10,petrov,renault,5.0,10.0,20.395,Finished,10.0,2011,7,villeneuve
+6,massa,ferrari,6.0,3.0,33.225,Finished,8.0,2011,7,villeneuve
+16,kobayashi,sauber,7.0,13.0,33.27,Finished,6.0,2011,7,villeneuve
+19,alguersuari,toro_rosso,8.0,24.0,35.964,Finished,4.0,2011,7,villeneuve
+11,barrichello,williams,9.0,16.0,45.117,Finished,2.0,2011,7,villeneuve
+18,buemi,toro_rosso,10.0,15.0,47.056,Finished,1.0,2011,7,villeneuve
+8,rosberg,mercedes,11.0,6.0,50.454,Finished,0.0,2011,7,villeneuve
+17,rosa,sauber,12.0,17.0,63.607,Finished,0.0,2011,7,villeneuve
+23,liuzzi,hrt,13.0,20.0,163.607,+1 Lap,0.0,2011,7,villeneuve
+22,karthikeyan,hrt,14.0,22.0,163.607,+1 Lap,0.0,2011,7,villeneuve
+25,ambrosio,virgin,15.0,23.0,163.607,+1 Lap,0.0,2011,7,villeneuve
+24,glock,virgin,16.0,21.0,163.607,+1 Lap,0.0,2011,7,villeneuve
+21,trulli,lotus_racing,17.0,18.0,163.607,+1 Lap,0.0,2011,7,villeneuve
+15,resta,force_india,18.0,11.0,163.607,Accident,0.0,2011,7,villeneuve
+12,maldonado,williams,19.0,12.0,163.607,Retired,0.0,2011,7,villeneuve
+9,heidfeld,renault,20.0,9.0,163.607,Accident,0.0,2011,7,villeneuve
+14,sutil,force_india,21.0,14.0,163.607,Accident,0.0,2011,7,villeneuve
+5,alonso,ferrari,22.0,2.0,163.607,Collision,0.0,2011,7,villeneuve
+20,kovalainen,lotus_racing,23.0,19.0,163.607,Transmission,0.0,2011,7,villeneuve
+3,hamilton,mclaren,24.0,5.0,163.607,Collision,0.0,2011,7,villeneuve
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,8,valencia
+5,alonso,ferrari,2.0,4.0,10.891,Finished,18.0,2011,8,valencia
+2,webber,red_bull,3.0,2.0,27.255,Finished,15.0,2011,8,valencia
+3,hamilton,mclaren,4.0,3.0,46.19,Finished,12.0,2011,8,valencia
+6,massa,ferrari,5.0,5.0,51.705,Finished,10.0,2011,8,valencia
+4,button,mclaren,6.0,6.0,60.065,Finished,8.0,2011,8,valencia
+8,rosberg,mercedes,7.0,7.0,98.09,Finished,6.0,2011,8,valencia
+19,alguersuari,toro_rosso,8.0,18.0,198.09,+1 Lap,4.0,2011,8,valencia
+14,sutil,force_india,9.0,10.0,198.09,+1 Lap,2.0,2011,8,valencia
+9,heidfeld,renault,10.0,9.0,198.09,+1 Lap,1.0,2011,8,valencia
+17,perez,sauber,11.0,16.0,198.09,+1 Lap,0.0,2011,8,valencia
+11,barrichello,williams,12.0,13.0,198.09,+1 Lap,0.0,2011,8,valencia
+18,buemi,toro_rosso,13.0,17.0,198.09,+1 Lap,0.0,2011,8,valencia
+15,resta,force_india,14.0,12.0,198.09,+1 Lap,0.0,2011,8,valencia
+10,petrov,renault,15.0,11.0,198.09,+1 Lap,0.0,2011,8,valencia
+16,kobayashi,sauber,16.0,14.0,198.09,+1 Lap,0.0,2011,8,valencia
+7,michael_schumacher,mercedes,17.0,8.0,198.09,+1 Lap,0.0,2011,8,valencia
+12,maldonado,williams,18.0,15.0,198.09,+1 Lap,0.0,2011,8,valencia
+20,kovalainen,lotus_racing,19.0,19.0,198.09,+2 Laps,0.0,2011,8,valencia
+21,trulli,lotus_racing,20.0,20.0,198.09,+2 Laps,0.0,2011,8,valencia
+24,glock,virgin,21.0,21.0,198.09,+2 Laps,0.0,2011,8,valencia
+25,ambrosio,virgin,22.0,23.0,198.09,+2 Laps,0.0,2011,8,valencia
+23,liuzzi,hrt,23.0,22.0,198.09,+3 Laps,0.0,2011,8,valencia
+22,karthikeyan,hrt,24.0,24.0,198.09,+3 Laps,0.0,2011,8,valencia
+5,alonso,ferrari,1.0,3.0,0.0,Finished,25.0,2011,9,silverstone
+1,vettel,red_bull,2.0,2.0,16.511,Finished,18.0,2011,9,silverstone
+2,webber,red_bull,3.0,1.0,16.947,Finished,15.0,2011,9,silverstone
+3,hamilton,mclaren,4.0,10.0,28.986,Finished,12.0,2011,9,silverstone
+6,massa,ferrari,5.0,4.0,29.01,Finished,10.0,2011,9,silverstone
+8,rosberg,mercedes,6.0,9.0,60.665,Finished,8.0,2011,9,silverstone
+17,perez,sauber,7.0,12.0,65.59,Finished,6.0,2011,9,silverstone
+9,heidfeld,renault,8.0,16.0,75.542,Finished,4.0,2011,9,silverstone
+7,michael_schumacher,mercedes,9.0,13.0,77.912,Finished,2.0,2011,9,silverstone
+19,alguersuari,toro_rosso,10.0,18.0,79.108,Finished,1.0,2011,9,silverstone
+14,sutil,force_india,11.0,11.0,79.712,Finished,0.0,2011,9,silverstone
+10,petrov,renault,12.0,14.0,80.681,Finished,0.0,2011,9,silverstone
+11,barrichello,williams,13.0,15.0,180.68099999999998,+1 Lap,0.0,2011,9,silverstone
+12,maldonado,williams,14.0,7.0,180.68099999999998,+1 Lap,0.0,2011,9,silverstone
+15,resta,force_india,15.0,6.0,180.68099999999998,+1 Lap,0.0,2011,9,silverstone
+24,glock,virgin,16.0,20.0,180.68099999999998,+2 Laps,0.0,2011,9,silverstone
+25,ambrosio,virgin,17.0,22.0,180.68099999999998,+2 Laps,0.0,2011,9,silverstone
+23,liuzzi,hrt,18.0,23.0,180.68099999999998,+2 Laps,0.0,2011,9,silverstone
+22,ricciardo,hrt,19.0,24.0,180.68099999999998,+3 Laps,0.0,2011,9,silverstone
+4,button,mclaren,20.0,5.0,180.68099999999998,Wheel nut,0.0,2011,9,silverstone
+18,buemi,toro_rosso,21.0,19.0,180.68099999999998,Accident,0.0,2011,9,silverstone
+16,kobayashi,sauber,22.0,8.0,180.68099999999998,Engine,0.0,2011,9,silverstone
+21,trulli,lotus_racing,23.0,21.0,180.68099999999998,Oil leak,0.0,2011,9,silverstone
+20,kovalainen,lotus_racing,24.0,17.0,180.68099999999998,Gearbox,0.0,2011,9,silverstone
+3,hamilton,mclaren,1.0,2.0,0.0,Finished,25.0,2011,10,nurburgring
+5,alonso,ferrari,2.0,4.0,3.98,Finished,18.0,2011,10,nurburgring
+2,webber,red_bull,3.0,1.0,9.788,Finished,15.0,2011,10,nurburgring
+1,vettel,red_bull,4.0,3.0,47.921,Finished,12.0,2011,10,nurburgring
+6,massa,ferrari,5.0,5.0,52.252,Finished,10.0,2011,10,nurburgring
+14,sutil,force_india,6.0,8.0,86.208,Finished,8.0,2011,10,nurburgring
+8,rosberg,mercedes,7.0,6.0,186.208,+1 Lap,6.0,2011,10,nurburgring
+7,michael_schumacher,mercedes,8.0,10.0,186.208,+1 Lap,4.0,2011,10,nurburgring
+16,kobayashi,sauber,9.0,17.0,186.208,+1 Lap,2.0,2011,10,nurburgring
+10,petrov,renault,10.0,9.0,186.208,+1 Lap,1.0,2011,10,nurburgring
+17,perez,sauber,11.0,15.0,186.208,+1 Lap,0.0,2011,10,nurburgring
+19,alguersuari,toro_rosso,12.0,16.0,186.208,+1 Lap,0.0,2011,10,nurburgring
+15,resta,force_india,13.0,12.0,186.208,+1 Lap,0.0,2011,10,nurburgring
+12,maldonado,williams,14.0,13.0,186.208,+1 Lap,0.0,2011,10,nurburgring
+18,buemi,toro_rosso,15.0,24.0,186.208,+1 Lap,0.0,2011,10,nurburgring
+20,kovalainen,lotus_racing,16.0,18.0,186.208,+2 Laps,0.0,2011,10,nurburgring
+24,glock,virgin,17.0,19.0,186.208,+3 Laps,0.0,2011,10,nurburgring
+25,ambrosio,virgin,18.0,21.0,186.208,+3 Laps,0.0,2011,10,nurburgring
+22,ricciardo,hrt,19.0,22.0,186.208,+3 Laps,0.0,2011,10,nurburgring
+21,chandhok,lotus_racing,20.0,20.0,186.208,+4 Laps,0.0,2011,10,nurburgring
+23,liuzzi,hrt,21.0,23.0,186.208,Electrical,0.0,2011,10,nurburgring
+4,button,mclaren,22.0,7.0,186.208,Hydraulics,0.0,2011,10,nurburgring
+11,barrichello,williams,23.0,14.0,186.208,Oil leak,0.0,2011,10,nurburgring
+9,heidfeld,renault,24.0,11.0,186.208,Collision,0.0,2011,10,nurburgring
+4,button,mclaren,1.0,3.0,0.0,Finished,25.0,2011,11,hungaroring
+1,vettel,red_bull,2.0,1.0,3.588,Finished,18.0,2011,11,hungaroring
+5,alonso,ferrari,3.0,5.0,19.819,Finished,15.0,2011,11,hungaroring
+3,hamilton,mclaren,4.0,2.0,48.338,Finished,12.0,2011,11,hungaroring
+2,webber,red_bull,5.0,6.0,49.742,Finished,10.0,2011,11,hungaroring
+6,massa,ferrari,6.0,4.0,83.176,Finished,8.0,2011,11,hungaroring
+15,resta,force_india,7.0,11.0,183.176,+1 Lap,6.0,2011,11,hungaroring
+18,buemi,toro_rosso,8.0,23.0,183.176,+1 Lap,4.0,2011,11,hungaroring
+8,rosberg,mercedes,9.0,7.0,183.176,+1 Lap,2.0,2011,11,hungaroring
+19,alguersuari,toro_rosso,10.0,16.0,183.176,+1 Lap,1.0,2011,11,hungaroring
+16,kobayashi,sauber,11.0,13.0,183.176,+1 Lap,0.0,2011,11,hungaroring
+10,petrov,renault,12.0,12.0,183.176,+1 Lap,0.0,2011,11,hungaroring
+11,barrichello,williams,13.0,15.0,183.176,+2 Laps,0.0,2011,11,hungaroring
+14,sutil,force_india,14.0,8.0,183.176,+2 Laps,0.0,2011,11,hungaroring
+17,perez,sauber,15.0,10.0,183.176,+2 Laps,0.0,2011,11,hungaroring
+12,maldonado,williams,16.0,17.0,183.176,+2 Laps,0.0,2011,11,hungaroring
+24,glock,virgin,17.0,20.0,183.176,+4 Laps,0.0,2011,11,hungaroring
+22,ricciardo,hrt,18.0,22.0,183.176,+4 Laps,0.0,2011,11,hungaroring
+25,ambrosio,virgin,19.0,24.0,183.176,+5 Laps,0.0,2011,11,hungaroring
+23,liuzzi,hrt,20.0,21.0,183.176,+5 Laps,0.0,2011,11,hungaroring
+20,kovalainen,lotus_racing,21.0,18.0,183.176,Water leak,0.0,2011,11,hungaroring
+7,michael_schumacher,mercedes,22.0,9.0,183.176,Gearbox,0.0,2011,11,hungaroring
+9,heidfeld,renault,23.0,14.0,183.176,Heat shield fire,0.0,2011,11,hungaroring
+21,trulli,lotus_racing,24.0,19.0,183.176,Oil leak,0.0,2011,11,hungaroring
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,12,spa
+2,webber,red_bull,2.0,3.0,3.741,Finished,18.0,2011,12,spa
+4,button,mclaren,3.0,13.0,9.669,Finished,15.0,2011,12,spa
+5,alonso,ferrari,4.0,8.0,13.022,Finished,12.0,2011,12,spa
+7,michael_schumacher,mercedes,5.0,24.0,47.464,Finished,10.0,2011,12,spa
+8,rosberg,mercedes,6.0,5.0,48.674,Finished,8.0,2011,12,spa
+14,sutil,force_india,7.0,15.0,59.713,Finished,6.0,2011,12,spa
+6,massa,ferrari,8.0,4.0,66.076,Finished,4.0,2011,12,spa
+10,petrov,renault,9.0,10.0,71.917,Finished,2.0,2011,12,spa
+12,maldonado,williams,10.0,21.0,77.615,Finished,1.0,2011,12,spa
+15,resta,force_india,11.0,17.0,83.994,Finished,0.0,2011,12,spa
+16,kobayashi,sauber,12.0,12.0,91.976,Finished,0.0,2011,12,spa
+9,bruno_senna,renault,13.0,7.0,92.985,Finished,0.0,2011,12,spa
+21,trulli,lotus_racing,14.0,18.0,192.985,+1 Lap,0.0,2011,12,spa
+20,kovalainen,lotus_racing,15.0,16.0,192.985,+1 Lap,0.0,2011,12,spa
+11,barrichello,williams,16.0,14.0,192.985,+1 Lap,0.0,2011,12,spa
+25,ambrosio,virgin,17.0,20.0,192.985,+1 Lap,0.0,2011,12,spa
+24,glock,virgin,18.0,19.0,192.985,+1 Lap,0.0,2011,12,spa
+23,liuzzi,hrt,19.0,22.0,192.985,+1 Lap,0.0,2011,12,spa
+17,perez,sauber,20.0,9.0,192.985,Suspension,0.0,2011,12,spa
+22,ricciardo,hrt,21.0,23.0,192.985,Engine,0.0,2011,12,spa
+3,hamilton,mclaren,22.0,2.0,192.985,Collision,0.0,2011,12,spa
+18,buemi,toro_rosso,23.0,11.0,192.985,Rear wing,0.0,2011,12,spa
+19,alguersuari,toro_rosso,24.0,6.0,192.985,Collision,0.0,2011,12,spa
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,13,monza
+4,button,mclaren,2.0,3.0,9.59,Finished,18.0,2011,13,monza
+5,alonso,ferrari,3.0,4.0,16.909,Finished,15.0,2011,13,monza
+3,hamilton,mclaren,4.0,2.0,17.417,Finished,12.0,2011,13,monza
+7,michael_schumacher,mercedes,5.0,8.0,32.677,Finished,10.0,2011,13,monza
+6,massa,ferrari,6.0,6.0,42.993,Finished,8.0,2011,13,monza
+19,alguersuari,toro_rosso,7.0,18.0,142.993,+1 Lap,6.0,2011,13,monza
+15,resta,force_india,8.0,11.0,142.993,+1 Lap,4.0,2011,13,monza
+9,bruno_senna,renault,9.0,10.0,142.993,+1 Lap,2.0,2011,13,monza
+18,buemi,toro_rosso,10.0,16.0,142.993,+1 Lap,1.0,2011,13,monza
+12,maldonado,williams,11.0,14.0,142.993,+1 Lap,0.0,2011,13,monza
+11,barrichello,williams,12.0,13.0,142.993,+1 Lap,0.0,2011,13,monza
+20,kovalainen,lotus_racing,13.0,20.0,142.993,+2 Laps,0.0,2011,13,monza
+21,trulli,lotus_racing,14.0,19.0,142.993,+2 Laps,0.0,2011,13,monza
+24,glock,virgin,15.0,21.0,142.993,+2 Laps,0.0,2011,13,monza
+22,ricciardo,hrt,16.0,23.0,142.993,+14 Laps,0.0,2011,13,monza
+17,perez,sauber,17.0,15.0,142.993,Gearbox,0.0,2011,13,monza
+16,kobayashi,sauber,18.0,17.0,142.993,Gearbox,0.0,2011,13,monza
+14,sutil,force_india,19.0,12.0,142.993,Hydraulics,0.0,2011,13,monza
+2,webber,red_bull,20.0,5.0,142.993,Accident,0.0,2011,13,monza
+25,ambrosio,virgin,21.0,22.0,142.993,Gearbox,0.0,2011,13,monza
+10,petrov,renault,22.0,7.0,142.993,Collision,0.0,2011,13,monza
+8,rosberg,mercedes,23.0,9.0,142.993,Collision,0.0,2011,13,monza
+23,liuzzi,hrt,24.0,24.0,142.993,Collision,0.0,2011,13,monza
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,14,marina_bay
+4,button,mclaren,2.0,3.0,1.737,Finished,18.0,2011,14,marina_bay
+2,webber,red_bull,3.0,2.0,29.279,Finished,15.0,2011,14,marina_bay
+5,alonso,ferrari,4.0,5.0,55.449,Finished,12.0,2011,14,marina_bay
+3,hamilton,mclaren,5.0,4.0,67.766,Finished,10.0,2011,14,marina_bay
+15,resta,force_india,6.0,10.0,111.067,Finished,8.0,2011,14,marina_bay
+8,rosberg,mercedes,7.0,7.0,211.067,+1 Lap,6.0,2011,14,marina_bay
+14,sutil,force_india,8.0,9.0,211.067,+1 Lap,4.0,2011,14,marina_bay
+6,massa,ferrari,9.0,6.0,211.067,+1 Lap,2.0,2011,14,marina_bay
+17,perez,sauber,10.0,11.0,211.067,+1 Lap,1.0,2011,14,marina_bay
+12,maldonado,williams,11.0,13.0,211.067,+1 Lap,0.0,2011,14,marina_bay
+18,buemi,toro_rosso,12.0,14.0,211.067,+1 Lap,0.0,2011,14,marina_bay
+11,barrichello,williams,13.0,12.0,211.067,+1 Lap,0.0,2011,14,marina_bay
+16,kobayashi,sauber,14.0,17.0,211.067,+2 Laps,0.0,2011,14,marina_bay
+9,bruno_senna,renault,15.0,15.0,211.067,+2 Laps,0.0,2011,14,marina_bay
+20,kovalainen,lotus_racing,16.0,19.0,211.067,+2 Laps,0.0,2011,14,marina_bay
+10,petrov,renault,17.0,18.0,211.067,+2 Laps,0.0,2011,14,marina_bay
+25,ambrosio,virgin,18.0,22.0,211.067,+2 Laps,0.0,2011,14,marina_bay
+22,ricciardo,hrt,19.0,23.0,211.067,+4 Laps,0.0,2011,14,marina_bay
+23,liuzzi,hrt,20.0,24.0,211.067,+4 Laps,0.0,2011,14,marina_bay
+19,alguersuari,toro_rosso,21.0,16.0,211.067,Accident,0.0,2011,14,marina_bay
+21,trulli,lotus_racing,22.0,20.0,211.067,Gearbox,0.0,2011,14,marina_bay
+7,michael_schumacher,mercedes,23.0,8.0,211.067,Accident,0.0,2011,14,marina_bay
+24,glock,virgin,24.0,21.0,211.067,Accident,0.0,2011,14,marina_bay
+4,button,mclaren,1.0,2.0,0.0,Finished,25.0,2011,15,suzuka
+5,alonso,ferrari,2.0,5.0,1.16,Finished,18.0,2011,15,suzuka
+1,vettel,red_bull,3.0,1.0,2.006,Finished,15.0,2011,15,suzuka
+2,webber,red_bull,4.0,6.0,8.071,Finished,12.0,2011,15,suzuka
+3,hamilton,mclaren,5.0,3.0,24.268,Finished,10.0,2011,15,suzuka
+7,michael_schumacher,mercedes,6.0,8.0,27.12,Finished,8.0,2011,15,suzuka
+6,massa,ferrari,7.0,4.0,28.24,Finished,6.0,2011,15,suzuka
+17,perez,sauber,8.0,17.0,39.377,Finished,4.0,2011,15,suzuka
+10,petrov,renault,9.0,10.0,42.607,Finished,2.0,2011,15,suzuka
+8,rosberg,mercedes,10.0,23.0,44.322,Finished,1.0,2011,15,suzuka
+14,sutil,force_india,11.0,11.0,54.447,Finished,0.0,2011,15,suzuka
+15,resta,force_india,12.0,12.0,62.326,Finished,0.0,2011,15,suzuka
+16,kobayashi,sauber,13.0,7.0,63.705,Finished,0.0,2011,15,suzuka
+12,maldonado,williams,14.0,14.0,64.194,Finished,0.0,2011,15,suzuka
+19,alguersuari,toro_rosso,15.0,16.0,66.623,Finished,0.0,2011,15,suzuka
+9,bruno_senna,renault,16.0,9.0,72.628,Finished,0.0,2011,15,suzuka
+11,barrichello,williams,17.0,13.0,74.191,Finished,0.0,2011,15,suzuka
+20,kovalainen,lotus_racing,18.0,18.0,87.824,Finished,0.0,2011,15,suzuka
+21,trulli,lotus_racing,19.0,19.0,96.14,Finished,0.0,2011,15,suzuka
+24,glock,virgin,20.0,21.0,196.14,+2 Laps,0.0,2011,15,suzuka
+25,ambrosio,virgin,21.0,20.0,196.14,+2 Laps,0.0,2011,15,suzuka
+22,ricciardo,hrt,22.0,22.0,196.14,+2 Laps,0.0,2011,15,suzuka
+23,liuzzi,hrt,23.0,24.0,196.14,+3 Laps,0.0,2011,15,suzuka
+18,buemi,toro_rosso,24.0,15.0,196.14,Wheel,0.0,2011,15,suzuka
+1,vettel,red_bull,1.0,2.0,0.0,Finished,25.0,2011,16,yeongam
+3,hamilton,mclaren,2.0,1.0,12.019,Finished,18.0,2011,16,yeongam
+2,webber,red_bull,3.0,4.0,12.477,Finished,15.0,2011,16,yeongam
+4,button,mclaren,4.0,3.0,14.694,Finished,12.0,2011,16,yeongam
+5,alonso,ferrari,5.0,6.0,15.689,Finished,10.0,2011,16,yeongam
+6,massa,ferrari,6.0,5.0,25.133,Finished,8.0,2011,16,yeongam
+19,alguersuari,toro_rosso,7.0,11.0,49.538,Finished,6.0,2011,16,yeongam
+8,rosberg,mercedes,8.0,7.0,54.053,Finished,4.0,2011,16,yeongam
+18,buemi,toro_rosso,9.0,13.0,62.762,Finished,2.0,2011,16,yeongam
+15,resta,force_india,10.0,9.0,68.602,Finished,1.0,2011,16,yeongam
+14,sutil,force_india,11.0,10.0,71.229,Finished,0.0,2011,16,yeongam
+11,barrichello,williams,12.0,18.0,93.068,Finished,0.0,2011,16,yeongam
+9,bruno_senna,renault,13.0,15.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+20,kovalainen,lotus_racing,14.0,19.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+16,kobayashi,sauber,15.0,14.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+17,perez,sauber,16.0,17.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+21,trulli,lotus_racing,17.0,20.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+24,glock,virgin,18.0,21.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+22,ricciardo,hrt,19.0,24.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+25,ambrosio,virgin,20.0,22.0,193.06799999999998,+1 Lap,0.0,2011,16,yeongam
+23,liuzzi,hrt,21.0,23.0,193.06799999999998,+3 Laps,0.0,2011,16,yeongam
+12,maldonado,williams,22.0,16.0,193.06799999999998,Clutch,0.0,2011,16,yeongam
+10,petrov,renault,23.0,8.0,193.06799999999998,Collision,0.0,2011,16,yeongam
+7,michael_schumacher,mercedes,24.0,12.0,193.06799999999998,Collision,0.0,2011,16,yeongam
+1,vettel,red_bull,1.0,1.0,0.0,Finished,25.0,2011,17,buddh
+4,button,mclaren,2.0,4.0,8.433,Finished,18.0,2011,17,buddh
+5,alonso,ferrari,3.0,3.0,24.301,Finished,15.0,2011,17,buddh
+2,webber,red_bull,4.0,2.0,25.529,Finished,12.0,2011,17,buddh
+7,michael_schumacher,mercedes,5.0,11.0,65.421,Finished,10.0,2011,17,buddh
+8,rosberg,mercedes,6.0,7.0,66.851,Finished,8.0,2011,17,buddh
+3,hamilton,mclaren,7.0,5.0,84.183,Finished,6.0,2011,17,buddh
+19,alguersuari,toro_rosso,8.0,10.0,184.183,+1 Lap,4.0,2011,17,buddh
+14,sutil,force_india,9.0,8.0,184.183,+1 Lap,2.0,2011,17,buddh
+17,perez,sauber,10.0,20.0,184.183,+1 Lap,1.0,2011,17,buddh
+10,petrov,renault,11.0,16.0,184.183,+1 Lap,0.0,2011,17,buddh
+9,bruno_senna,renault,12.0,14.0,184.183,+1 Lap,0.0,2011,17,buddh
+15,resta,force_india,13.0,12.0,184.183,+1 Lap,0.0,2011,17,buddh
+20,kovalainen,lotus_racing,14.0,18.0,184.183,+2 Laps,0.0,2011,17,buddh
+11,barrichello,williams,15.0,15.0,184.183,+2 Laps,0.0,2011,17,buddh
+25,ambrosio,virgin,16.0,21.0,184.183,+3 Laps,0.0,2011,17,buddh
+22,karthikeyan,hrt,17.0,24.0,184.183,+3 Laps,0.0,2011,17,buddh
+23,ricciardo,hrt,18.0,23.0,184.183,+3 Laps,0.0,2011,17,buddh
+21,trulli,lotus_racing,19.0,19.0,184.183,+5 Laps,0.0,2011,17,buddh
+6,massa,ferrari,20.0,6.0,184.183,Suspension,0.0,2011,17,buddh
+18,buemi,toro_rosso,21.0,9.0,184.183,Engine,0.0,2011,17,buddh
+12,maldonado,williams,22.0,13.0,184.183,Gearbox,0.0,2011,17,buddh
+24,glock,virgin,23.0,22.0,184.183,Collision,0.0,2011,17,buddh
+16,kobayashi,sauber,24.0,17.0,184.183,Collision,0.0,2011,17,buddh
+3,hamilton,mclaren,1.0,2.0,0.0,Finished,25.0,2011,18,yas_marina
+5,alonso,ferrari,2.0,5.0,8.457,Finished,18.0,2011,18,yas_marina
+4,button,mclaren,3.0,3.0,25.881,Finished,15.0,2011,18,yas_marina
+2,webber,red_bull,4.0,4.0,35.784,Finished,12.0,2011,18,yas_marina
+6,massa,ferrari,5.0,6.0,50.578,Finished,10.0,2011,18,yas_marina
+8,rosberg,mercedes,6.0,7.0,52.317,Finished,8.0,2011,18,yas_marina
+7,michael_schumacher,mercedes,7.0,8.0,75.964,Finished,6.0,2011,18,yas_marina
+14,sutil,force_india,8.0,9.0,77.122,Finished,4.0,2011,18,yas_marina
+15,resta,force_india,9.0,10.0,101.087,Finished,2.0,2011,18,yas_marina
+16,kobayashi,sauber,10.0,16.0,201.087,+1 Lap,1.0,2011,18,yas_marina
+17,perez,sauber,11.0,11.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+11,barrichello,williams,12.0,24.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+10,petrov,renault,13.0,12.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+12,maldonado,williams,14.0,23.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+19,alguersuari,toro_rosso,15.0,15.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+9,bruno_senna,renault,16.0,14.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+20,kovalainen,lotus_racing,17.0,17.0,201.087,+1 Lap,0.0,2011,18,yas_marina
+21,trulli,lotus_racing,18.0,18.0,201.087,+2 Laps,0.0,2011,18,yas_marina
+24,glock,virgin,19.0,19.0,201.087,+2 Laps,0.0,2011,18,yas_marina
+23,liuzzi,hrt,20.0,22.0,201.087,+2 Laps,0.0,2011,18,yas_marina
+22,ricciardo,hrt,21.0,20.0,201.087,Mechanical,0.0,2011,18,yas_marina
+18,buemi,toro_rosso,22.0,13.0,201.087,Hydraulics,0.0,2011,18,yas_marina
+25,ambrosio,virgin,23.0,21.0,201.087,Brakes,0.0,2011,18,yas_marina
+1,vettel,red_bull,24.0,1.0,201.087,Puncture,0.0,2011,18,yas_marina
+2,webber,red_bull,1.0,2.0,0.0,Finished,25.0,2011,19,interlagos
+1,vettel,red_bull,2.0,1.0,16.983,Finished,18.0,2011,19,interlagos
+4,button,mclaren,3.0,3.0,27.638,Finished,15.0,2011,19,interlagos
+5,alonso,ferrari,4.0,5.0,35.048,Finished,12.0,2011,19,interlagos
+6,massa,ferrari,5.0,7.0,66.733,Finished,10.0,2011,19,interlagos
+14,sutil,force_india,6.0,8.0,166.733,+1 Lap,8.0,2011,19,interlagos
+8,rosberg,mercedes,7.0,6.0,166.733,+1 Lap,6.0,2011,19,interlagos
+15,resta,force_india,8.0,11.0,166.733,+1 Lap,4.0,2011,19,interlagos
+16,kobayashi,sauber,9.0,16.0,166.733,+1 Lap,2.0,2011,19,interlagos
+10,petrov,renault,10.0,15.0,166.733,+1 Lap,1.0,2011,19,interlagos
+19,alguersuari,toro_rosso,11.0,13.0,166.733,+1 Lap,0.0,2011,19,interlagos
+18,buemi,toro_rosso,12.0,14.0,166.733,+1 Lap,0.0,2011,19,interlagos
+17,perez,sauber,13.0,17.0,166.733,+1 Lap,0.0,2011,19,interlagos
+11,barrichello,williams,14.0,12.0,166.733,+1 Lap,0.0,2011,19,interlagos
+7,michael_schumacher,mercedes,15.0,10.0,166.733,+1 Lap,0.0,2011,19,interlagos
+20,kovalainen,lotus_racing,16.0,19.0,166.733,+2 Laps,0.0,2011,19,interlagos
+9,bruno_senna,renault,17.0,9.0,166.733,+2 Laps,0.0,2011,19,interlagos
+21,trulli,lotus_racing,18.0,20.0,166.733,+2 Laps,0.0,2011,19,interlagos
+25,ambrosio,virgin,19.0,23.0,166.733,+3 Laps,0.0,2011,19,interlagos
+22,ricciardo,hrt,20.0,22.0,166.733,+3 Laps,0.0,2011,19,interlagos
+23,liuzzi,hrt,21.0,21.0,166.733,Retired,0.0,2011,19,interlagos
+3,hamilton,mclaren,22.0,4.0,166.733,Gearbox,0.0,2011,19,interlagos
+12,maldonado,williams,23.0,18.0,166.733,Retired,0.0,2011,19,interlagos
+24,glock,virgin,24.0,24.0,166.733,Retired,0.0,2011,19,interlagos

@@ -1,0 +1,441 @@
+,DriverId,TeamId,Position,GridPosition,Time,Status,Points,season,round,circuitId
+16,leclerc,ferrari,1.0,1.0,0.0,Finished,26.0,2022,1,bahrain
+55,sainz,ferrari,2.0,3.0,5.598,Finished,18.0,2022,1,bahrain
+44,hamilton,mercedes,3.0,5.0,9.675,Finished,15.0,2022,1,bahrain
+63,russell,mercedes,4.0,9.0,11.211,Finished,12.0,2022,1,bahrain
+20,kevin_magnussen,haas,5.0,7.0,14.754,Finished,10.0,2022,1,bahrain
+77,bottas,alfa,6.0,6.0,16.119,Finished,8.0,2022,1,bahrain
+31,ocon,alpine,7.0,11.0,19.423,Finished,6.0,2022,1,bahrain
+22,tsunoda,alphatauri,8.0,16.0,20.386,Finished,4.0,2022,1,bahrain
+14,alonso,alpine,9.0,8.0,22.39,Finished,2.0,2022,1,bahrain
+24,zhou,alfa,10.0,15.0,23.064,Finished,1.0,2022,1,bahrain
+47,mick_schumacher,haas,11.0,12.0,32.574,Finished,0.0,2022,1,bahrain
+18,stroll,aston_martin,12.0,19.0,45.873,Finished,0.0,2022,1,bahrain
+23,albon,williams,13.0,14.0,53.932,Finished,0.0,2022,1,bahrain
+3,ricciardo,mclaren,14.0,18.0,54.975,Finished,0.0,2022,1,bahrain
+4,norris,mclaren,15.0,13.0,56.335,Finished,0.0,2022,1,bahrain
+6,latifi,williams,16.0,20.0,61.795,Finished,0.0,2022,1,bahrain
+27,hulkenberg,aston_martin,17.0,17.0,63.829,Finished,0.0,2022,1,bahrain
+11,perez,red_bull,18.0,4.0,163.829,Fuel pressure,0.0,2022,1,bahrain
+1,max_verstappen,red_bull,19.0,2.0,163.829,Fuel pressure,0.0,2022,1,bahrain
+10,gasly,alphatauri,20.0,10.0,163.829,Power Unit,0.0,2022,1,bahrain
+1,max_verstappen,red_bull,1.0,4.0,0.0,Finished,25.0,2022,2,jeddah
+16,leclerc,ferrari,2.0,2.0,0.549,Finished,19.0,2022,2,jeddah
+55,sainz,ferrari,3.0,3.0,8.097,Finished,15.0,2022,2,jeddah
+11,perez,red_bull,4.0,1.0,10.8,Finished,12.0,2022,2,jeddah
+63,russell,mercedes,5.0,6.0,32.732,Finished,10.0,2022,2,jeddah
+31,ocon,alpine,6.0,5.0,56.017,Finished,8.0,2022,2,jeddah
+4,norris,mclaren,7.0,11.0,56.124,Finished,6.0,2022,2,jeddah
+10,gasly,alphatauri,8.0,9.0,62.946,Finished,4.0,2022,2,jeddah
+20,kevin_magnussen,haas,9.0,10.0,64.308,Finished,2.0,2022,2,jeddah
+44,hamilton,mercedes,10.0,15.0,73.948,Finished,1.0,2022,2,jeddah
+24,zhou,alfa,11.0,12.0,82.215,Finished,0.0,2022,2,jeddah
+27,hulkenberg,aston_martin,12.0,17.0,91.742,Finished,0.0,2022,2,jeddah
+18,stroll,aston_martin,13.0,13.0,191.74200000000002,+1 Lap,0.0,2022,2,jeddah
+23,albon,williams,14.0,16.0,191.74200000000002,Collision damage,0.0,2022,2,jeddah
+77,bottas,alfa,15.0,8.0,191.74200000000002,Cooling system,0.0,2022,2,jeddah
+14,alonso,alpine,16.0,7.0,191.74200000000002,Water pump,0.0,2022,2,jeddah
+3,ricciardo,mclaren,17.0,14.0,191.74200000000002,Gearbox,0.0,2022,2,jeddah
+6,latifi,williams,18.0,18.0,191.74200000000002,Accident,0.0,2022,2,jeddah
+22,tsunoda,alphatauri,19.0,19.0,191.74200000000002,Power Unit,0.0,2022,2,jeddah
+47,mick_schumacher,haas,,,191.74200000000002,Withdrew,0.0,2022,2,jeddah
+16,leclerc,ferrari,1.0,1.0,0.0,Finished,26.0,2022,3,albert_park
+11,perez,red_bull,2.0,3.0,20.524,Finished,18.0,2022,3,albert_park
+63,russell,mercedes,3.0,6.0,25.593,Finished,15.0,2022,3,albert_park
+44,hamilton,mercedes,4.0,5.0,28.543,Finished,12.0,2022,3,albert_park
+4,norris,mclaren,5.0,4.0,53.303,Finished,10.0,2022,3,albert_park
+3,ricciardo,mclaren,6.0,7.0,53.737,Finished,8.0,2022,3,albert_park
+31,ocon,alpine,7.0,8.0,61.683,Finished,6.0,2022,3,albert_park
+77,bottas,alfa,8.0,12.0,68.439,Finished,4.0,2022,3,albert_park
+10,gasly,alphatauri,9.0,11.0,76.221,Finished,2.0,2022,3,albert_park
+23,albon,williams,10.0,20.0,79.382,Finished,1.0,2022,3,albert_park
+24,zhou,alfa,11.0,14.0,81.695,Finished,0.0,2022,3,albert_park
+18,stroll,aston_martin,12.0,19.0,88.598,Finished,0.0,2022,3,albert_park
+47,mick_schumacher,haas,13.0,15.0,188.598,+1 Lap,0.0,2022,3,albert_park
+20,kevin_magnussen,haas,14.0,16.0,188.598,+1 Lap,0.0,2022,3,albert_park
+22,tsunoda,alphatauri,15.0,13.0,188.598,+1 Lap,0.0,2022,3,albert_park
+6,latifi,williams,16.0,18.0,188.598,+1 Lap,0.0,2022,3,albert_park
+14,alonso,alpine,17.0,10.0,188.598,+1 Lap,0.0,2022,3,albert_park
+1,max_verstappen,red_bull,18.0,2.0,188.598,Fuel leak,0.0,2022,3,albert_park
+5,vettel,aston_martin,19.0,17.0,188.598,Accident,0.0,2022,3,albert_park
+55,sainz,ferrari,20.0,9.0,188.598,Spun off,0.0,2022,3,albert_park
+1,max_verstappen,red_bull,1.0,1.0,0.0,Finished,26.0,2022,4,imola
+11,perez,red_bull,2.0,3.0,16.527,Finished,18.0,2022,4,imola
+4,norris,mclaren,3.0,5.0,34.834,Finished,15.0,2022,4,imola
+63,russell,mercedes,4.0,11.0,42.506,Finished,12.0,2022,4,imola
+77,bottas,alfa,5.0,7.0,43.181,Finished,10.0,2022,4,imola
+16,leclerc,ferrari,6.0,2.0,56.072,Finished,8.0,2022,4,imola
+22,tsunoda,alphatauri,7.0,12.0,61.11,Finished,6.0,2022,4,imola
+5,vettel,aston_martin,8.0,13.0,70.892,Finished,4.0,2022,4,imola
+20,kevin_magnussen,haas,9.0,8.0,75.26,Finished,2.0,2022,4,imola
+18,stroll,aston_martin,10.0,15.0,175.26,+1 Lap,1.0,2022,4,imola
+23,albon,williams,11.0,18.0,175.26,+1 Lap,0.0,2022,4,imola
+10,gasly,alphatauri,12.0,17.0,175.26,+1 Lap,0.0,2022,4,imola
+44,hamilton,mercedes,13.0,14.0,175.26,+1 Lap,0.0,2022,4,imola
+31,ocon,alpine,14.0,16.0,175.26,+1 Lap,0.0,2022,4,imola
+24,zhou,alfa,15.0,0.0,175.26,+1 Lap,0.0,2022,4,imola
+6,latifi,williams,16.0,19.0,175.26,+1 Lap,0.0,2022,4,imola
+47,mick_schumacher,haas,17.0,10.0,175.26,+1 Lap,0.0,2022,4,imola
+3,ricciardo,mclaren,18.0,6.0,175.26,+1 Lap,0.0,2022,4,imola
+14,alonso,alpine,19.0,9.0,175.26,Collision damage,0.0,2022,4,imola
+55,sainz,ferrari,20.0,4.0,175.26,Collision,0.0,2022,4,imola
+1,max_verstappen,red_bull,1.0,3.0,0.0,Finished,26.0,2022,5,miami
+16,leclerc,ferrari,2.0,1.0,3.786,Finished,18.0,2022,5,miami
+55,sainz,ferrari,3.0,2.0,8.229,Finished,15.0,2022,5,miami
+11,perez,red_bull,4.0,4.0,10.638,Finished,12.0,2022,5,miami
+63,russell,mercedes,5.0,12.0,18.582,Finished,10.0,2022,5,miami
+44,hamilton,mercedes,6.0,6.0,21.368,Finished,8.0,2022,5,miami
+77,bottas,alfa,7.0,5.0,25.073,Finished,6.0,2022,5,miami
+31,ocon,alpine,8.0,20.0,28.386,Finished,4.0,2022,5,miami
+23,albon,williams,9.0,18.0,32.365,Finished,2.0,2022,5,miami
+18,stroll,aston_martin,10.0,0.0,37.026,Finished,1.0,2022,5,miami
+14,alonso,alpine,11.0,11.0,37.128,Finished,0.0,2022,5,miami
+22,tsunoda,alphatauri,12.0,9.0,40.146,Finished,0.0,2022,5,miami
+3,ricciardo,mclaren,13.0,14.0,40.902,Finished,0.0,2022,5,miami
+6,latifi,williams,14.0,19.0,49.936,Finished,0.0,2022,5,miami
+47,mick_schumacher,haas,15.0,15.0,73.305,Finished,0.0,2022,5,miami
+20,kevin_magnussen,haas,16.0,16.0,173.305,Front wing,0.0,2022,5,miami
+5,vettel,aston_martin,17.0,0.0,173.305,Collision,0.0,2022,5,miami
+10,gasly,alphatauri,18.0,7.0,173.305,Suspension,0.0,2022,5,miami
+4,norris,mclaren,19.0,8.0,173.305,Collision,0.0,2022,5,miami
+24,zhou,alfa,20.0,17.0,173.305,Water leak,0.0,2022,5,miami
+1,max_verstappen,red_bull,1.0,2.0,0.0,Finished,25.0,2022,6,catalunya
+11,perez,red_bull,2.0,5.0,13.072,Finished,19.0,2022,6,catalunya
+63,russell,mercedes,3.0,4.0,32.927,Finished,15.0,2022,6,catalunya
+55,sainz,ferrari,4.0,3.0,45.208,Finished,12.0,2022,6,catalunya
+44,hamilton,mercedes,5.0,6.0,54.534,Finished,10.0,2022,6,catalunya
+77,bottas,alfa,6.0,7.0,59.976,Finished,8.0,2022,6,catalunya
+31,ocon,alpine,7.0,12.0,75.397,Finished,6.0,2022,6,catalunya
+4,norris,mclaren,8.0,11.0,83.235,Finished,4.0,2022,6,catalunya
+14,alonso,alpine,9.0,20.0,183.235,+1 Lap,2.0,2022,6,catalunya
+22,tsunoda,alphatauri,10.0,13.0,183.235,+1 Lap,1.0,2022,6,catalunya
+5,vettel,aston_martin,11.0,16.0,183.235,+1 Lap,0.0,2022,6,catalunya
+3,ricciardo,mclaren,12.0,9.0,183.235,+1 Lap,0.0,2022,6,catalunya
+10,gasly,alphatauri,13.0,14.0,183.235,+1 Lap,0.0,2022,6,catalunya
+47,mick_schumacher,haas,14.0,10.0,183.235,+1 Lap,0.0,2022,6,catalunya
+18,stroll,aston_martin,15.0,17.0,183.235,+1 Lap,0.0,2022,6,catalunya
+6,latifi,williams,16.0,19.0,183.235,+2 Laps,0.0,2022,6,catalunya
+20,kevin_magnussen,haas,17.0,8.0,183.235,+2 Laps,0.0,2022,6,catalunya
+23,albon,williams,18.0,18.0,183.235,+2 Laps,0.0,2022,6,catalunya
+24,zhou,alfa,19.0,15.0,183.235,Power loss,0.0,2022,6,catalunya
+16,leclerc,ferrari,20.0,1.0,183.235,Turbo,0.0,2022,6,catalunya
+11,perez,red_bull,1.0,3.0,0.0,Finished,25.0,2022,7,monaco
+55,sainz,ferrari,2.0,2.0,1.154,Finished,18.0,2022,7,monaco
+1,max_verstappen,red_bull,3.0,4.0,1.491,Finished,15.0,2022,7,monaco
+16,leclerc,ferrari,4.0,1.0,2.922,Finished,12.0,2022,7,monaco
+63,russell,mercedes,5.0,6.0,11.968,Finished,10.0,2022,7,monaco
+4,norris,mclaren,6.0,5.0,12.231,Finished,9.0,2022,7,monaco
+14,alonso,alpine,7.0,7.0,46.358,Finished,6.0,2022,7,monaco
+44,hamilton,mercedes,8.0,8.0,50.388,Finished,4.0,2022,7,monaco
+77,bottas,alfa,9.0,12.0,52.525,Finished,2.0,2022,7,monaco
+5,vettel,aston_martin,10.0,9.0,53.536,Finished,1.0,2022,7,monaco
+10,gasly,alphatauri,11.0,17.0,54.289,Finished,0.0,2022,7,monaco
+31,ocon,alpine,12.0,10.0,55.644,Finished,0.0,2022,7,monaco
+3,ricciardo,mclaren,13.0,14.0,57.635,Finished,0.0,2022,7,monaco
+18,stroll,aston_martin,14.0,18.0,60.802,Finished,0.0,2022,7,monaco
+6,latifi,williams,15.0,19.0,160.802,+1 Lap,0.0,2022,7,monaco
+24,zhou,alfa,16.0,20.0,160.802,+1 Lap,0.0,2022,7,monaco
+22,tsunoda,alphatauri,17.0,11.0,160.802,+1 Lap,0.0,2022,7,monaco
+23,albon,williams,18.0,16.0,160.802,Mechanical,0.0,2022,7,monaco
+47,mick_schumacher,haas,19.0,15.0,160.802,Accident,0.0,2022,7,monaco
+20,kevin_magnussen,haas,20.0,13.0,160.802,Water pressure,0.0,2022,7,monaco
+1,max_verstappen,red_bull,1.0,3.0,0.0,Finished,25.0,2022,8,baku
+11,perez,red_bull,2.0,2.0,20.823,Finished,19.0,2022,8,baku
+63,russell,mercedes,3.0,5.0,45.995,Finished,15.0,2022,8,baku
+44,hamilton,mercedes,4.0,7.0,71.679,Finished,12.0,2022,8,baku
+10,gasly,alphatauri,5.0,6.0,77.299,Finished,10.0,2022,8,baku
+5,vettel,aston_martin,6.0,9.0,84.099,Finished,8.0,2022,8,baku
+14,alonso,alpine,7.0,10.0,88.596,Finished,6.0,2022,8,baku
+3,ricciardo,mclaren,8.0,12.0,92.207,Finished,4.0,2022,8,baku
+4,norris,mclaren,9.0,11.0,92.556,Finished,2.0,2022,8,baku
+31,ocon,alpine,10.0,13.0,108.184,Finished,1.0,2022,8,baku
+77,bottas,alfa,11.0,15.0,208.184,+1 Lap,0.0,2022,8,baku
+23,albon,williams,12.0,17.0,208.184,+1 Lap,0.0,2022,8,baku
+22,tsunoda,alphatauri,13.0,8.0,208.184,+1 Lap,0.0,2022,8,baku
+47,mick_schumacher,haas,14.0,20.0,208.184,+1 Lap,0.0,2022,8,baku
+6,latifi,williams,15.0,18.0,208.184,+1 Lap,0.0,2022,8,baku
+18,stroll,aston_martin,16.0,19.0,208.184,Vibrations,0.0,2022,8,baku
+20,kevin_magnussen,haas,17.0,16.0,208.184,Power Unit,0.0,2022,8,baku
+24,zhou,alfa,18.0,14.0,208.184,Hydraulics,0.0,2022,8,baku
+16,leclerc,ferrari,19.0,1.0,208.184,Power Unit,0.0,2022,8,baku
+55,sainz,ferrari,20.0,4.0,208.184,Hydraulics,0.0,2022,8,baku
+1,max_verstappen,red_bull,1.0,1.0,0.0,Finished,25.0,2022,9,villeneuve
+55,sainz,ferrari,2.0,3.0,0.993,Finished,19.0,2022,9,villeneuve
+44,hamilton,mercedes,3.0,4.0,7.006,Finished,15.0,2022,9,villeneuve
+63,russell,mercedes,4.0,8.0,12.313,Finished,12.0,2022,9,villeneuve
+16,leclerc,ferrari,5.0,19.0,15.168,Finished,10.0,2022,9,villeneuve
+31,ocon,alpine,6.0,7.0,23.89,Finished,8.0,2022,9,villeneuve
+77,bottas,alfa,7.0,11.0,25.247,Finished,6.0,2022,9,villeneuve
+24,zhou,alfa,8.0,10.0,26.952,Finished,4.0,2022,9,villeneuve
+14,alonso,alpine,9.0,2.0,29.945,Finished,2.0,2022,9,villeneuve
+18,stroll,aston_martin,10.0,17.0,38.222,Finished,1.0,2022,9,villeneuve
+3,ricciardo,mclaren,11.0,9.0,43.047,Finished,0.0,2022,9,villeneuve
+5,vettel,aston_martin,12.0,16.0,44.245,Finished,0.0,2022,9,villeneuve
+23,albon,williams,13.0,12.0,44.893,Finished,0.0,2022,9,villeneuve
+10,gasly,alphatauri,14.0,15.0,45.183,Finished,0.0,2022,9,villeneuve
+4,norris,mclaren,15.0,14.0,52.145,Finished,0.0,2022,9,villeneuve
+6,latifi,williams,16.0,18.0,59.978,Finished,0.0,2022,9,villeneuve
+20,kevin_magnussen,haas,17.0,5.0,68.18,Finished,0.0,2022,9,villeneuve
+22,tsunoda,alphatauri,18.0,20.0,168.18,Accident,0.0,2022,9,villeneuve
+47,mick_schumacher,haas,19.0,6.0,168.18,Engine,0.0,2022,9,villeneuve
+11,perez,red_bull,20.0,13.0,168.18,Gearbox,0.0,2022,9,villeneuve
+55,sainz,ferrari,1.0,1.0,0.0,Finished,25.0,2022,10,silverstone
+11,perez,red_bull,2.0,4.0,3.779,Finished,18.0,2022,10,silverstone
+44,hamilton,mercedes,3.0,5.0,6.225,Finished,16.0,2022,10,silverstone
+16,leclerc,ferrari,4.0,3.0,8.546,Finished,12.0,2022,10,silverstone
+14,alonso,alpine,5.0,7.0,9.571,Finished,10.0,2022,10,silverstone
+4,norris,mclaren,6.0,6.0,11.943,Finished,8.0,2022,10,silverstone
+1,max_verstappen,red_bull,7.0,2.0,18.777,Finished,6.0,2022,10,silverstone
+47,mick_schumacher,haas,8.0,19.0,18.995,Finished,4.0,2022,10,silverstone
+5,vettel,aston_martin,9.0,18.0,22.356,Finished,2.0,2022,10,silverstone
+20,kevin_magnussen,haas,10.0,17.0,24.59,Finished,1.0,2022,10,silverstone
+18,stroll,aston_martin,11.0,20.0,26.147,Finished,0.0,2022,10,silverstone
+6,latifi,williams,12.0,10.0,32.511,Finished,0.0,2022,10,silverstone
+3,ricciardo,mclaren,13.0,14.0,32.817,Finished,0.0,2022,10,silverstone
+22,tsunoda,alphatauri,14.0,13.0,40.91,Finished,0.0,2022,10,silverstone
+31,ocon,alpine,15.0,15.0,140.91,Fuel pump,0.0,2022,10,silverstone
+10,gasly,alphatauri,16.0,11.0,140.91,Collision damage,0.0,2022,10,silverstone
+77,bottas,alfa,17.0,12.0,140.91,Gearbox,0.0,2022,10,silverstone
+63,russell,mercedes,18.0,8.0,140.91,Collision,0.0,2022,10,silverstone
+24,zhou,alfa,19.0,9.0,140.91,Collision,0.0,2022,10,silverstone
+23,albon,williams,20.0,16.0,140.91,Collision,0.0,2022,10,silverstone
+16,leclerc,ferrari,1.0,2.0,0.0,Finished,25.0,2022,11,red_bull_ring
+1,max_verstappen,red_bull,2.0,1.0,1.532,Finished,19.0,2022,11,red_bull_ring
+44,hamilton,mercedes,3.0,8.0,41.217,Finished,15.0,2022,11,red_bull_ring
+63,russell,mercedes,4.0,4.0,58.972,Finished,12.0,2022,11,red_bull_ring
+31,ocon,alpine,5.0,6.0,68.436,Finished,10.0,2022,11,red_bull_ring
+47,mick_schumacher,haas,6.0,9.0,168.436,+1 Lap,8.0,2022,11,red_bull_ring
+4,norris,mclaren,7.0,10.0,168.436,+1 Lap,6.0,2022,11,red_bull_ring
+20,kevin_magnussen,haas,8.0,7.0,168.436,+1 Lap,4.0,2022,11,red_bull_ring
+3,ricciardo,mclaren,9.0,11.0,168.436,+1 Lap,2.0,2022,11,red_bull_ring
+14,alonso,alpine,10.0,19.0,168.436,+1 Lap,1.0,2022,11,red_bull_ring
+77,bottas,alfa,11.0,0.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+23,albon,williams,12.0,15.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+18,stroll,aston_martin,13.0,12.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+24,zhou,alfa,14.0,13.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+10,gasly,alphatauri,15.0,14.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+22,tsunoda,alphatauri,16.0,16.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+5,vettel,aston_martin,17.0,18.0,168.436,+1 Lap,0.0,2022,11,red_bull_ring
+55,sainz,ferrari,18.0,3.0,168.436,Power Unit,0.0,2022,11,red_bull_ring
+6,latifi,williams,19.0,17.0,168.436,Undertray,0.0,2022,11,red_bull_ring
+11,perez,red_bull,20.0,5.0,168.436,Collision damage,0.0,2022,11,red_bull_ring
+1,max_verstappen,red_bull,1.0,2.0,0.0,Finished,25.0,2022,12,ricard
+44,hamilton,mercedes,2.0,4.0,10.587,Finished,18.0,2022,12,ricard
+63,russell,mercedes,3.0,6.0,16.495,Finished,15.0,2022,12,ricard
+11,perez,red_bull,4.0,3.0,17.31,Finished,12.0,2022,12,ricard
+55,sainz,ferrari,5.0,19.0,28.872,Finished,11.0,2022,12,ricard
+14,alonso,alpine,6.0,7.0,42.879,Finished,8.0,2022,12,ricard
+4,norris,mclaren,7.0,5.0,52.026,Finished,6.0,2022,12,ricard
+31,ocon,alpine,8.0,10.0,56.959,Finished,4.0,2022,12,ricard
+3,ricciardo,mclaren,9.0,9.0,60.372,Finished,2.0,2022,12,ricard
+18,stroll,aston_martin,10.0,15.0,62.549,Finished,1.0,2022,12,ricard
+5,vettel,aston_martin,11.0,12.0,64.494,Finished,0.0,2022,12,ricard
+10,gasly,alphatauri,12.0,14.0,65.448,Finished,0.0,2022,12,ricard
+23,albon,williams,13.0,13.0,68.565,Finished,0.0,2022,12,ricard
+77,bottas,alfa,14.0,11.0,76.666,Finished,0.0,2022,12,ricard
+47,mick_schumacher,haas,15.0,17.0,80.394,Finished,0.0,2022,12,ricard
+24,zhou,alfa,16.0,16.0,180.394,+6 Laps,0.0,2022,12,ricard
+6,latifi,williams,17.0,18.0,180.394,Collision damage,0.0,2022,12,ricard
+20,kevin_magnussen,haas,18.0,20.0,180.394,Collision damage,0.0,2022,12,ricard
+16,leclerc,ferrari,19.0,1.0,180.394,Accident,0.0,2022,12,ricard
+22,tsunoda,alphatauri,20.0,8.0,180.394,Undertray,0.0,2022,12,ricard
+1,max_verstappen,red_bull,1.0,10.0,0.0,Finished,25.0,2022,13,hungaroring
+44,hamilton,mercedes,2.0,7.0,7.834,Finished,19.0,2022,13,hungaroring
+63,russell,mercedes,3.0,1.0,12.337,Finished,15.0,2022,13,hungaroring
+55,sainz,ferrari,4.0,2.0,14.579,Finished,12.0,2022,13,hungaroring
+11,perez,red_bull,5.0,11.0,15.688,Finished,10.0,2022,13,hungaroring
+16,leclerc,ferrari,6.0,3.0,16.047,Finished,8.0,2022,13,hungaroring
+4,norris,mclaren,7.0,4.0,78.3,Finished,6.0,2022,13,hungaroring
+14,alonso,alpine,8.0,6.0,178.3,+1 Lap,4.0,2022,13,hungaroring
+31,ocon,alpine,9.0,5.0,178.3,+1 Lap,2.0,2022,13,hungaroring
+5,vettel,aston_martin,10.0,18.0,178.3,+1 Lap,1.0,2022,13,hungaroring
+18,stroll,aston_martin,11.0,14.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+10,gasly,alphatauri,12.0,0.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+24,zhou,alfa,13.0,12.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+47,mick_schumacher,haas,14.0,15.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+3,ricciardo,mclaren,15.0,9.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+20,kevin_magnussen,haas,16.0,13.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+23,albon,williams,17.0,17.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+6,latifi,williams,18.0,19.0,178.3,+1 Lap,0.0,2022,13,hungaroring
+22,tsunoda,alphatauri,19.0,16.0,178.3,+2 Laps,0.0,2022,13,hungaroring
+77,bottas,alfa,20.0,8.0,178.3,Power Unit,0.0,2022,13,hungaroring
+1,max_verstappen,red_bull,1.0,14.0,0.0,Finished,26.0,2022,14,spa
+11,perez,red_bull,2.0,2.0,17.841,Finished,18.0,2022,14,spa
+55,sainz,ferrari,3.0,1.0,26.886,Finished,15.0,2022,14,spa
+63,russell,mercedes,4.0,5.0,29.14,Finished,12.0,2022,14,spa
+14,alonso,alpine,5.0,3.0,73.256,Finished,10.0,2022,14,spa
+16,leclerc,ferrari,6.0,15.0,74.936,Finished,8.0,2022,14,spa
+31,ocon,alpine,7.0,16.0,75.64,Finished,6.0,2022,14,spa
+5,vettel,aston_martin,8.0,10.0,78.107,Finished,4.0,2022,14,spa
+10,gasly,alphatauri,9.0,0.0,92.181,Finished,2.0,2022,14,spa
+23,albon,williams,10.0,6.0,101.9,Finished,1.0,2022,14,spa
+18,stroll,aston_martin,11.0,9.0,103.078,Finished,0.0,2022,14,spa
+4,norris,mclaren,12.0,17.0,104.739,Finished,0.0,2022,14,spa
+22,tsunoda,alphatauri,13.0,0.0,105.217,Finished,0.0,2022,14,spa
+24,zhou,alfa,14.0,18.0,106.252,Finished,0.0,2022,14,spa
+3,ricciardo,mclaren,15.0,7.0,107.163,Finished,0.0,2022,14,spa
+20,kevin_magnussen,haas,16.0,12.0,207.163,+1 Lap,0.0,2022,14,spa
+47,mick_schumacher,haas,17.0,19.0,207.163,+1 Lap,0.0,2022,14,spa
+6,latifi,williams,18.0,11.0,207.163,+1 Lap,0.0,2022,14,spa
+77,bottas,alfa,19.0,13.0,207.163,Accident,0.0,2022,14,spa
+44,hamilton,mercedes,20.0,4.0,207.163,Collision damage,0.0,2022,14,spa
+1,max_verstappen,red_bull,1.0,1.0,0.0,Finished,26.0,2022,15,zandvoort
+63,russell,mercedes,2.0,6.0,4.071,Finished,18.0,2022,15,zandvoort
+16,leclerc,ferrari,3.0,2.0,10.929,Finished,15.0,2022,15,zandvoort
+44,hamilton,mercedes,4.0,4.0,13.016,Finished,12.0,2022,15,zandvoort
+11,perez,red_bull,5.0,5.0,18.168,Finished,10.0,2022,15,zandvoort
+14,alonso,alpine,6.0,13.0,18.754,Finished,8.0,2022,15,zandvoort
+4,norris,mclaren,7.0,7.0,19.306,Finished,6.0,2022,15,zandvoort
+55,sainz,ferrari,8.0,3.0,20.916,Finished,4.0,2022,15,zandvoort
+31,ocon,alpine,9.0,12.0,21.117,Finished,2.0,2022,15,zandvoort
+18,stroll,aston_martin,10.0,10.0,22.459,Finished,1.0,2022,15,zandvoort
+10,gasly,alphatauri,11.0,11.0,27.009,Finished,0.0,2022,15,zandvoort
+23,albon,williams,12.0,15.0,30.39,Finished,0.0,2022,15,zandvoort
+47,mick_schumacher,haas,13.0,8.0,32.995,Finished,0.0,2022,15,zandvoort
+5,vettel,aston_martin,14.0,19.0,36.007,Finished,0.0,2022,15,zandvoort
+20,kevin_magnussen,haas,15.0,18.0,36.869,Finished,0.0,2022,15,zandvoort
+24,zhou,alfa,16.0,14.0,37.32,Finished,0.0,2022,15,zandvoort
+3,ricciardo,mclaren,17.0,17.0,37.764,Finished,0.0,2022,15,zandvoort
+6,latifi,williams,18.0,20.0,137.764,+1 Lap,0.0,2022,15,zandvoort
+77,bottas,alfa,19.0,16.0,137.764,Engine,0.0,2022,15,zandvoort
+22,tsunoda,alphatauri,20.0,9.0,137.764,Differential,0.0,2022,15,zandvoort
+1,max_verstappen,red_bull,1.0,7.0,0.0,Finished,25.0,2022,16,monza
+16,leclerc,ferrari,2.0,1.0,2.446,Finished,18.0,2022,16,monza
+63,russell,mercedes,3.0,2.0,3.405,Finished,15.0,2022,16,monza
+55,sainz,ferrari,4.0,18.0,5.061,Finished,12.0,2022,16,monza
+44,hamilton,mercedes,5.0,19.0,5.38,Finished,10.0,2022,16,monza
+11,perez,red_bull,6.0,13.0,6.091,Finished,9.0,2022,16,monza
+4,norris,mclaren,7.0,3.0,6.207,Finished,6.0,2022,16,monza
+10,gasly,alphatauri,8.0,5.0,6.396,Finished,4.0,2022,16,monza
+45,de_vries,williams,9.0,8.0,7.122,Finished,2.0,2022,16,monza
+24,zhou,alfa,10.0,9.0,7.91,Finished,1.0,2022,16,monza
+31,ocon,alpine,11.0,14.0,8.323,Finished,0.0,2022,16,monza
+47,mick_schumacher,haas,12.0,17.0,8.549,Finished,0.0,2022,16,monza
+77,bottas,alfa,13.0,15.0,108.549,+1 Lap,0.0,2022,16,monza
+22,tsunoda,alphatauri,14.0,20.0,108.549,+1 Lap,0.0,2022,16,monza
+6,latifi,williams,15.0,10.0,108.549,+1 Lap,0.0,2022,16,monza
+20,kevin_magnussen,haas,16.0,16.0,108.549,+1 Lap,0.0,2022,16,monza
+3,ricciardo,mclaren,17.0,4.0,108.549,Oil leak,0.0,2022,16,monza
+18,stroll,aston_martin,18.0,12.0,108.549,Engine,0.0,2022,16,monza
+14,alonso,alpine,19.0,6.0,108.549,Water pressure,0.0,2022,16,monza
+5,vettel,aston_martin,20.0,11.0,108.549,Engine,0.0,2022,16,monza
+11,perez,red_bull,1.0,2.0,0.0,Finished,25.0,2022,17,marina_bay
+16,leclerc,ferrari,2.0,1.0,2.595,Finished,18.0,2022,17,marina_bay
+55,sainz,ferrari,3.0,4.0,10.305,Finished,15.0,2022,17,marina_bay
+4,norris,mclaren,4.0,6.0,21.133,Finished,12.0,2022,17,marina_bay
+3,ricciardo,mclaren,5.0,16.0,53.282,Finished,10.0,2022,17,marina_bay
+18,stroll,aston_martin,6.0,11.0,56.33,Finished,8.0,2022,17,marina_bay
+1,max_verstappen,red_bull,7.0,8.0,58.825,Finished,6.0,2022,17,marina_bay
+5,vettel,aston_martin,8.0,13.0,60.032,Finished,4.0,2022,17,marina_bay
+44,hamilton,mercedes,9.0,3.0,61.515,Finished,2.0,2022,17,marina_bay
+10,gasly,alphatauri,10.0,7.0,69.576,Finished,1.0,2022,17,marina_bay
+77,bottas,alfa,11.0,15.0,88.844,Finished,0.0,2022,17,marina_bay
+20,kevin_magnussen,haas,12.0,9.0,92.61,Finished,0.0,2022,17,marina_bay
+47,mick_schumacher,haas,13.0,12.0,192.61,+1 Lap,0.0,2022,17,marina_bay
+63,russell,mercedes,14.0,0.0,192.61,+2 Laps,0.0,2022,17,marina_bay
+22,tsunoda,alphatauri,15.0,10.0,192.61,Accident,0.0,2022,17,marina_bay
+31,ocon,alpine,16.0,17.0,192.61,Engine,0.0,2022,17,marina_bay
+23,albon,williams,17.0,18.0,192.61,Collision damage,0.0,2022,17,marina_bay
+14,alonso,alpine,18.0,5.0,192.61,Engine,0.0,2022,17,marina_bay
+6,latifi,williams,19.0,19.0,192.61,Collision damage,0.0,2022,17,marina_bay
+24,zhou,alfa,20.0,14.0,192.61,Collision,0.0,2022,17,marina_bay
+1,max_verstappen,red_bull,1.0,1.0,0.0,Finished,25.0,2022,18,suzuka
+11,perez,red_bull,2.0,4.0,27.066,Finished,18.0,2022,18,suzuka
+16,leclerc,ferrari,3.0,2.0,31.763,Finished,15.0,2022,18,suzuka
+31,ocon,alpine,4.0,5.0,39.685,Finished,12.0,2022,18,suzuka
+44,hamilton,mercedes,5.0,6.0,40.326,Finished,10.0,2022,18,suzuka
+5,vettel,aston_martin,6.0,9.0,46.358,Finished,8.0,2022,18,suzuka
+14,alonso,alpine,7.0,7.0,46.369,Finished,6.0,2022,18,suzuka
+63,russell,mercedes,8.0,8.0,47.661,Finished,4.0,2022,18,suzuka
+6,latifi,williams,9.0,20.0,70.143,Finished,2.0,2022,18,suzuka
+4,norris,mclaren,10.0,10.0,70.782,Finished,1.0,2022,18,suzuka
+3,ricciardo,mclaren,11.0,11.0,72.877,Finished,0.0,2022,18,suzuka
+18,stroll,aston_martin,12.0,19.0,73.904,Finished,0.0,2022,18,suzuka
+22,tsunoda,alphatauri,13.0,13.0,75.599,Finished,0.0,2022,18,suzuka
+20,kevin_magnussen,haas,14.0,18.0,86.016,Finished,0.0,2022,18,suzuka
+77,bottas,alfa,15.0,12.0,86.496,Finished,0.0,2022,18,suzuka
+24,zhou,alfa,16.0,14.0,87.043,Finished,0.0,2022,18,suzuka
+47,mick_schumacher,haas,17.0,15.0,92.523,Finished,0.0,2022,18,suzuka
+10,gasly,alphatauri,18.0,17.0,108.091,Finished,0.0,2022,18,suzuka
+55,sainz,ferrari,19.0,3.0,208.091,Accident,0.0,2022,18,suzuka
+23,albon,williams,20.0,16.0,208.091,Hydraulics,0.0,2022,18,suzuka
+1,max_verstappen,red_bull,1.0,2.0,0.0,Finished,25.0,2022,19,americas
+44,hamilton,mercedes,2.0,3.0,5.023,Finished,18.0,2022,19,americas
+16,leclerc,ferrari,3.0,12.0,7.501,Finished,15.0,2022,19,americas
+11,perez,red_bull,4.0,9.0,8.293,Finished,12.0,2022,19,americas
+63,russell,mercedes,5.0,4.0,44.815,Finished,11.0,2022,19,americas
+4,norris,mclaren,6.0,6.0,53.785,Finished,8.0,2022,19,americas
+14,alonso,alpine,7.0,14.0,55.078,Finished,6.0,2022,19,americas
+5,vettel,aston_martin,8.0,10.0,65.354,Finished,4.0,2022,19,americas
+20,kevin_magnussen,haas,9.0,13.0,65.834,Finished,2.0,2022,19,americas
+22,tsunoda,alphatauri,10.0,19.0,70.919,Finished,1.0,2022,19,americas
+31,ocon,alpine,11.0,0.0,72.875,Finished,0.0,2022,19,americas
+24,zhou,alfa,12.0,18.0,76.164,Finished,0.0,2022,19,americas
+23,albon,williams,13.0,8.0,80.057,Finished,0.0,2022,19,americas
+10,gasly,alphatauri,14.0,11.0,81.763,Finished,0.0,2022,19,americas
+47,mick_schumacher,haas,15.0,16.0,84.49,Finished,0.0,2022,19,americas
+3,ricciardo,mclaren,16.0,15.0,90.487,Finished,0.0,2022,19,americas
+6,latifi,williams,17.0,17.0,103.588,Finished,0.0,2022,19,americas
+18,stroll,aston_martin,18.0,5.0,203.588,Collision,0.0,2022,19,americas
+77,bottas,alfa,19.0,7.0,203.588,Spun off,0.0,2022,19,americas
+55,sainz,ferrari,20.0,1.0,203.588,Collision damage,0.0,2022,19,americas
+1,max_verstappen,red_bull,1.0,1.0,0.0,Finished,25.0,2022,20,rodriguez
+44,hamilton,mercedes,2.0,3.0,15.186,Finished,18.0,2022,20,rodriguez
+11,perez,red_bull,3.0,4.0,18.097,Finished,15.0,2022,20,rodriguez
+63,russell,mercedes,4.0,2.0,49.431,Finished,13.0,2022,20,rodriguez
+55,sainz,ferrari,5.0,5.0,58.123,Finished,10.0,2022,20,rodriguez
+16,leclerc,ferrari,6.0,7.0,68.774,Finished,8.0,2022,20,rodriguez
+3,ricciardo,mclaren,7.0,11.0,168.774,+1 Lap,6.0,2022,20,rodriguez
+31,ocon,alpine,8.0,10.0,168.774,+1 Lap,4.0,2022,20,rodriguez
+4,norris,mclaren,9.0,8.0,168.774,+1 Lap,2.0,2022,20,rodriguez
+77,bottas,alfa,10.0,6.0,168.774,+1 Lap,1.0,2022,20,rodriguez
+10,gasly,alphatauri,11.0,14.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+23,albon,williams,12.0,17.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+24,zhou,alfa,13.0,12.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+5,vettel,aston_martin,14.0,16.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+18,stroll,aston_martin,15.0,20.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+47,mick_schumacher,haas,16.0,15.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+20,kevin_magnussen,haas,17.0,19.0,168.774,+1 Lap,0.0,2022,20,rodriguez
+6,latifi,williams,18.0,18.0,168.774,+2 Laps,0.0,2022,20,rodriguez
+14,alonso,alpine,19.0,9.0,168.774,Engine,0.0,2022,20,rodriguez
+22,tsunoda,alphatauri,20.0,13.0,168.774,Collision damage,0.0,2022,20,rodriguez
+63,russell,mercedes,1.0,1.0,0.0,Finished,26.0,2022,21,interlagos
+44,hamilton,mercedes,2.0,2.0,1.529,Finished,18.0,2022,21,interlagos
+55,sainz,ferrari,3.0,7.0,4.051,Finished,15.0,2022,21,interlagos
+16,leclerc,ferrari,4.0,5.0,8.441,Finished,12.0,2022,21,interlagos
+14,alonso,alpine,5.0,17.0,9.561,Finished,10.0,2022,21,interlagos
+1,max_verstappen,red_bull,6.0,3.0,10.056,Finished,8.0,2022,21,interlagos
+11,perez,red_bull,7.0,4.0,14.08,Finished,6.0,2022,21,interlagos
+31,ocon,alpine,8.0,16.0,18.69,Finished,4.0,2022,21,interlagos
+77,bottas,alfa,9.0,14.0,22.552,Finished,2.0,2022,21,interlagos
+18,stroll,aston_martin,10.0,15.0,23.552,Finished,1.0,2022,21,interlagos
+5,vettel,aston_martin,11.0,9.0,26.183,Finished,0.0,2022,21,interlagos
+24,zhou,alfa,12.0,13.0,29.325,Finished,0.0,2022,21,interlagos
+47,mick_schumacher,haas,13.0,12.0,29.899,Finished,0.0,2022,21,interlagos
+10,gasly,alphatauri,14.0,10.0,31.867,Finished,0.0,2022,21,interlagos
+23,albon,williams,15.0,19.0,36.016,Finished,0.0,2022,21,interlagos
+6,latifi,williams,16.0,18.0,37.038,Finished,0.0,2022,21,interlagos
+22,tsunoda,alphatauri,17.0,0.0,137.038,+1 Lap,0.0,2022,21,interlagos
+4,norris,mclaren,18.0,6.0,137.038,Gearbox,0.0,2022,21,interlagos
+20,kevin_magnussen,haas,19.0,8.0,137.038,Collision,0.0,2022,21,interlagos
+3,ricciardo,mclaren,20.0,11.0,137.038,Collision,0.0,2022,21,interlagos
+1,max_verstappen,red_bull,1.0,1.0,0.0,Finished,25.0,2022,22,yas_marina
+16,leclerc,ferrari,2.0,3.0,8.771,Finished,18.0,2022,22,yas_marina
+11,perez,red_bull,3.0,2.0,10.093,Finished,15.0,2022,22,yas_marina
+55,sainz,ferrari,4.0,4.0,24.892,Finished,12.0,2022,22,yas_marina
+63,russell,mercedes,5.0,6.0,35.888,Finished,10.0,2022,22,yas_marina
+4,norris,mclaren,6.0,7.0,56.234,Finished,9.0,2022,22,yas_marina
+31,ocon,alpine,7.0,8.0,57.24,Finished,6.0,2022,22,yas_marina
+18,stroll,aston_martin,8.0,14.0,76.931,Finished,4.0,2022,22,yas_marina
+3,ricciardo,mclaren,9.0,13.0,83.268,Finished,2.0,2022,22,yas_marina
+5,vettel,aston_martin,10.0,9.0,83.898,Finished,1.0,2022,22,yas_marina
+22,tsunoda,alphatauri,11.0,11.0,89.371,Finished,0.0,2022,22,yas_marina
+24,zhou,alfa,12.0,15.0,189.37099999999998,+1 Lap,0.0,2022,22,yas_marina
+23,albon,williams,13.0,19.0,189.37099999999998,+1 Lap,0.0,2022,22,yas_marina
+10,gasly,alphatauri,14.0,17.0,189.37099999999998,+1 Lap,0.0,2022,22,yas_marina
+77,bottas,alfa,15.0,18.0,189.37099999999998,+1 Lap,0.0,2022,22,yas_marina
+47,mick_schumacher,haas,16.0,12.0,189.37099999999998,+1 Lap,0.0,2022,22,yas_marina
+20,kevin_magnussen,haas,17.0,16.0,189.37099999999998,+1 Lap,0.0,2022,22,yas_marina
+44,hamilton,mercedes,18.0,5.0,189.37099999999998,Hydraulics,0.0,2022,22,yas_marina
+6,latifi,williams,19.0,20.0,189.37099999999998,Collision damage,0.0,2022,22,yas_marina
+14,alonso,alpine,20.0,10.0,189.37099999999998,Water leak,0.0,2022,22,yas_marina

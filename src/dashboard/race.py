@@ -4,6 +4,8 @@ import seaborn as sns
 import numpy as np
 import plotly.express as px
 
+from fastf1.core import Laps
+
 import fastf1.plotting
 
 # Load FastF1's dark color scheme
@@ -491,5 +493,236 @@ def plot_telemetry(session, mode='Speed', drivers=[]):
     # Hide grid lines
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=False)
+
+    fig.show()
+
+
+def plot_fastest_laps(session):
+    """
+    Plots the fastest lap times for each driver in a given FastF1 session.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session object, which can be a practice, qualifying, or race session.
+
+    Returns
+    --------
+    - None: Displays a Plotly figure showing the lap time deltas of all drivers relative to the fastest lap.
+    """
+
+    # We get the list ofr drivers
+    drivers = session.laps['Driver'].unique()
+
+    list_fastest_laps = []
+
+    # We get the fastest lap for every driver
+    for drv in drivers:
+        drvs_fastest_lap = session.laps.pick_drivers([drv]).pick_fastest()
+        list_fastest_laps.append(drvs_fastest_lap)
+
+    fastest_laps = Laps(list_fastest_laps).sort_values(by='LapTime').reset_index(drop=True)
+
+    # Pole lap is the fastest
+    pole_lap = fastest_laps.pick_fastest()
+    fastest_laps['LapTimeDelta'] = fastest_laps['LapTime'] - pole_lap['LapTime']
+
+    team_colors = []
+
+    # Get color for every team
+    for _, lap in fastest_laps.iterlaps():
+        color = fastf1.plotting.get_team_color(lap['Team'], session=session)
+        team_colors.append(color)
+
+    # Create figure
+    fig = go.Figure()
+
+    # Add horizontal bars
+    fig.add_trace(go.Bar(
+        y=fastest_laps['Driver'],
+        x=fastest_laps['LapTimeDelta'].dt.total_seconds(),
+        orientation='h',
+        marker=dict(color=team_colors)
+    ))
+
+    # Reverse Y axis
+    fig.update_yaxes(autorange='reversed')
+
+    # Grid behind bars. Ticks rounded ms
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='white', tickformat='.3f')
+
+    fig.update_layout(
+        xaxis=dict(layer='below traces'),
+        yaxis=dict(tickmode='array', tickvals=fastest_laps['Driver']),
+        xaxis_title='Gap (s)',
+        title=f"{session.event['EventName']} {session.event.year} {session.name}<br>"
+            f"Fastest Lap: {str(pole_lap['LapTime']).replace('0 days 00:', '').removesuffix('000')} ({pole_lap['Driver']})",
+        template="plotly_dark",
+        height=600
+    )
+
+    fig.show()
+
+
+def draw_track(session):
+    """
+    Draws the track map for a given FastF1 session, including corner annotations.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session object containing lap and circuit data.
+
+    Returns
+    --------
+    - None: Displays an interactive Plotly figure of the track layout with corner annotations.
+    """
+
+    lap = session.laps.pick_fastest()
+    pos = lap.get_pos_data()
+
+    circuit_info = session.get_circuit_info()
+
+    # Get coordinates
+    track = pos.loc[:, ('X', 'Y')].to_numpy()
+
+    # Join last with first to avoid a gap
+    track = np.vstack([track, track[0]])
+
+    # Angle in deg to rad
+    track_angle = circuit_info.rotation / 180 * np.pi
+
+    # Rotate function
+    def rotate(points, angle):
+        rotation_matrix = np.array([[np.cos(angle), -np.sin(angle)],
+                                    [np.sin(angle),  np.cos(angle)]])
+        return np.dot(points, rotation_matrix.T)
+
+    # Rotate track
+    rotated_track = rotate(track, angle=track_angle)
+
+    # Create figure
+    fig = go.Figure()
+
+    # Add rotated track
+    fig.add_trace(go.Scatter(x=rotated_track[:, 0], y=rotated_track[:, 1],
+                            mode='lines',
+                            line=dict(color='blue'),
+                            name='Track'))
+
+    fig.add_trace(go.Scatter(x=rotated_track[0:2, 0], y=rotated_track[0:2, 1],
+                            mode='lines',
+                            line=dict(color='red'),
+                            name='Finish Line'))
+
+    # Offset vector
+    offset_vector = np.array([250, 0])
+
+    # Iterate by corners
+    for _, corner in circuit_info.corners.iterrows():
+        # Corner text
+        txt = f"{corner['Number']}{corner['Letter']}"
+
+        # Angle in deg to rad
+        offset_angle = corner['Angle'] / 180 * np.pi
+
+        # Rotate offset vector
+        offset_x, offset_y = rotate(offset_vector, angle=offset_angle)
+
+        # Add corner offset
+        text_x = corner['X'] + offset_x
+        text_y = corner['Y'] + offset_y
+
+        # Rotate corner text
+        text_x, text_y = rotate(np.array([text_x, text_y]), angle=track_angle)
+        track_x, track_y = rotate(np.array([corner['X'], corner['Y']]), angle=track_angle)
+
+        # Draw a circle
+        fig.add_trace(go.Scatter(x=[text_x], y=[text_y],
+                                mode='markers',
+                                marker=dict(color='rgba(0, 128, 255, 0.6)', size=18),
+                                name=f'Corner {txt}'))
+
+        # Draw a line
+        fig.add_trace(go.Scatter(x=[track_x, text_x], y=[track_y, text_y],
+                                mode='lines',
+                                line=dict(color='rgba(255, 255, 255, 0.2)', dash='dot'),
+                                showlegend=False))
+
+        # Add text for corner number
+        fig.add_trace(go.Scatter(x=[text_x], y=[text_y],
+                                mode='text',
+                                text=[txt],
+                                textfont=dict(size=12, color='white'),
+                                showlegend=False))
+
+    # Config layout
+    fig.update_layout(
+        xaxis=dict(showticklabels=False, showgrid=False, zeroline=False),
+        yaxis=dict(showticklabels=False, showgrid=False, zeroline=False),
+        title=session.event['Location'],
+        titlefont=dict(size=20, color='white'),
+        showlegend=False,
+        template='plotly_dark',
+        height=600
+    )
+
+    # Hide grid lines
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False)
+
+    fig.update_yaxes(scaleanchor="x", scaleratio=1)
+
+    fig.show()
+
+
+def plot_results(session):
+    """
+    Plots the race results using a horizontal bar chart.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session object containing race data.
+
+    Returns
+    --------
+    - None: Displays the Plotly figure with race results.
+    """
+
+    results = session.results
+    results = results[results['Time'].notna()].copy().reset_index(drop=True)
+
+    # Winner has a 0 delta time
+    results.loc[0, 'Time'] = pd.Timedelta(0)
+
+    team_colors = []
+
+    # Get color for every team
+    for _, lap in results.iterrows():
+        color = fastf1.plotting.get_team_color(lap['TeamName'], session=session)
+        team_colors.append(color)
+
+    # Create figure
+    fig = go.Figure()
+
+    # Add horizontal bars
+    fig.add_trace(go.Bar(
+        y=results['Abbreviation'],
+        x=results['Time'].dt.total_seconds(),
+        orientation='h',
+        marker=dict(color=team_colors)
+    ))
+
+    # Reverse Y axis
+    fig.update_yaxes(autorange='reversed')
+
+    # Grid behind bars. Ticks rounded ms
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='white', tickformat='.3f')
+
+    fig.update_layout(
+        xaxis=dict(layer='below traces'),
+        yaxis=dict(tickmode='array', tickvals=results['Abbreviation']),
+        xaxis_title='Gap (s)',
+        title=f"{session.event['EventName']} {session.event.year} {session.name} results",
+        template="plotly_dark"
+    )
 
     fig.show()

@@ -30,8 +30,7 @@ import xgboost as xgb
 # -----------------------------------------------------------------------  
 import pickle  
 import shap  
-import time  
-import psutil  
+import time
 
 
 def rows_colors_model(row):
@@ -223,8 +222,6 @@ class ClassificationModels:
         else:
             self.results[model_name]["prob_train"] = self.results[model_name]["prob_test"] = None
 
-        num_cores = getattr(model, "n_jobs", psutil.cpu_count(logical=True))
-
         # Training data metrics
         metrics_train = {
             "accuracy": accuracy_score(self.y_train, pred_train),
@@ -233,8 +230,7 @@ class ClassificationModels:
             "f1": f1_score(self.y_train, pred_train, average='weighted', zero_division=0),
             "kappa": cohen_kappa_score(self.y_train, pred_train),
             "auc": roc_auc_score(self.y_train, self.results[model_name]["prob_train"]) if self.results[model_name]["prob_train"] is not None else None,
-            "time_seconds": self.results[model_name]["time"],
-            "cores": num_cores
+            "time_seconds": self.results[model_name]["time"]
         }
 
         # Test data metrics
@@ -245,8 +241,7 @@ class ClassificationModels:
             "f1": f1_score(self.y_test, pred_test, average='weighted', zero_division=0),
             "kappa": cohen_kappa_score(self.y_test, pred_test),
             "auc": roc_auc_score(self.y_test, self.results[model_name]["prob_test"]) if self.results[model_name]["prob_test"] is not None else None,
-            "time_seconds": self.results[model_name]["time"],
-            "cores": num_cores
+            "time_seconds": self.results[model_name]["time"]
         }
 
         # Return metrics

@@ -726,3 +726,44 @@ def plot_results(session):
     )
 
     fig.show()
+
+
+def plot_driver_pace(session, driver, threshold=None):
+    """
+    Plots the lap times of a given driver in a race session.
+
+    Parameters
+    -----------
+    - session (fastf1.core.Session): The FastF1 session containing race data.
+    - driver (str): The driver's identifier (e.g., "VER" for Max Verstappen).
+    - threshold (float, optional): The lap time threshold to filter quick laps. Defaults to None.
+
+    Returns
+    --------
+    - None: Displays an interactive scatter plot of the driver's lap times.
+    """
+
+    driver_laps = session.laps.pick_drivers([driver]).pick_quicklaps(threshold=threshold).reset_index()
+
+    fig = px.scatter(
+        driver_laps, 
+        x="LapNumber", 
+        y=driver_laps['LapTime'].dt.total_seconds(),
+        symbol="Compound",
+        color="Compound", 
+        color_discrete_map=fastf1.plotting.get_compound_mapping(session=session),
+        title=f"{session.event['EventName']} {session.event.year} | {driver} {session.name} Pace"
+    )
+    
+    fig.update_traces(marker=dict(size=9))
+    fig.update_xaxes(title_text="Lap Number")
+    fig.update_yaxes(title_text="Lap Time (s)")
+
+    fig.update_layout(
+        template="plotly_dark",
+        xaxis=dict(showgrid=True, gridcolor='gray', gridwidth=0.1),
+        yaxis=dict(showgrid=True, gridcolor='gray', gridwidth=0.1),
+        height=600
+    )
+
+    fig.show()

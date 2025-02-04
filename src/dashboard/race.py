@@ -752,7 +752,7 @@ def plot_driver_pace(session, driver, threshold=None):
         symbol="Compound",
         color="Compound", 
         color_discrete_map=fastf1.plotting.get_compound_mapping(session=session),
-        title=f"{session.event['EventName']} {session.event.year} | {driver} {session.name} Pace"
+        title=f"{session.event['EventName']} {session.event.year} | {session.get_driver(driver)['FullName']} {session.name} Pace"
     )
     
     fig.update_traces(marker=dict(size=9))

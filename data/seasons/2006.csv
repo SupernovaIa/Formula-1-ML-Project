@@ -1,0 +1,397 @@
+,constructorName,driverCode,points,grid,position,grid_sprint,position_sprint,delta_sprint,round,race,delta
+0,Renault,ALO,10.0,4,1,,,,1,Bahrain,3
+1,Ferrari,MSC,8.0,1,2,,,,1,Bahrain,-1
+2,McLaren,RAI,6.0,22,3,,,,1,Bahrain,19
+3,Honda,BUT,5.0,3,4,,,,1,Bahrain,-1
+4,McLaren,MON,4.0,5,5,,,,1,Bahrain,0
+5,Williams,WEB,3.0,7,6,,,,1,Bahrain,1
+6,Williams,ROS,2.0,12,7,,,,1,Bahrain,5
+7,Red Bull,KLI,1.0,8,8,,,,1,Bahrain,0
+8,Ferrari,MAS,0.0,2,9,,,,1,Bahrain,-7
+9,Red Bull,COU,0.0,13,10,,,,1,Bahrain,3
+10,Toro Rosso,LIU,0.0,15,11,,,,1,Bahrain,4
+11,BMW Sauber,HEI,0.0,10,12,,,,1,Bahrain,-2
+12,Toro Rosso,SPE,0.0,16,13,,,,1,Bahrain,3
+13,Toyota,SCH,0.0,17,14,,,,1,Bahrain,3
+14,Honda,BAR,0.0,6,15,,,,1,Bahrain,-9
+15,Toyota,TRU,0.0,14,16,,,,1,Bahrain,-2
+16,MF1,TMO,0.0,19,17,,,,1,Bahrain,2
+17,Super Aguri,SAT,0.0,20,18,,,,1,Bahrain,2
+18,Super Aguri,IDE,0.0,21,19,,,,1,Bahrain,2
+19,BMW Sauber,VIL,0.0,11,20,,,,1,Bahrain,-9
+20,Renault,FIS,0.0,9,21,,,,1,Bahrain,-12
+21,MF1,ALB,0.0,18,22,,,,1,Bahrain,-4
+0,Renault,FIS,10.0,1,1,,,,2,Malaysian,0
+1,Renault,ALO,8.0,7,2,,,,2,Malaysian,5
+2,Honda,BUT,6.0,2,3,,,,2,Malaysian,-1
+3,McLaren,MON,5.0,5,4,,,,2,Malaysian,1
+4,Ferrari,MAS,4.0,21,5,,,,2,Malaysian,16
+5,Ferrari,MSC,3.0,14,6,,,,2,Malaysian,8
+6,BMW Sauber,VIL,2.0,10,7,,,,2,Malaysian,3
+7,Toyota,SCH,1.0,22,8,,,,2,Malaysian,14
+8,Toyota,TRU,0.0,9,9,,,,2,Malaysian,0
+9,Honda,BAR,0.0,20,10,,,,2,Malaysian,10
+10,Toro Rosso,LIU,0.0,13,11,,,,2,Malaysian,2
+11,MF1,ALB,0.0,15,12,,,,2,Malaysian,3
+12,MF1,TMO,0.0,16,13,,,,2,Malaysian,3
+13,Super Aguri,SAT,0.0,17,14,,,,2,Malaysian,3
+14,BMW Sauber,HEI,0.0,11,15,,,,2,Malaysian,-4
+15,Toro Rosso,SPE,0.0,12,16,,,,2,Malaysian,-4
+16,Super Aguri,IDE,0.0,18,17,,,,2,Malaysian,1
+17,Red Bull,KLI,0.0,8,18,,,,2,Malaysian,-10
+18,Williams,WEB,0.0,4,19,,,,2,Malaysian,-15
+19,Red Bull,COU,0.0,19,20,,,,2,Malaysian,-1
+20,Williams,ROS,0.0,3,21,,,,2,Malaysian,-18
+21,McLaren,RAI,0.0,6,22,,,,2,Malaysian,-16
+0,Renault,ALO,10.0,3,1,,,,3,Australian,2
+1,McLaren,RAI,8.0,4,2,,,,3,Australian,2
+2,Toyota,SCH,6.0,6,3,,,,3,Australian,3
+3,BMW Sauber,HEI,5.0,8,4,,,,3,Australian,4
+4,Renault,FIS,4.0,2,5,,,,3,Australian,-3
+5,BMW Sauber,VIL,3.0,19,6,,,,3,Australian,13
+6,Honda,BAR,2.0,16,7,,,,3,Australian,9
+7,Red Bull,COU,1.0,11,8,,,,3,Australian,3
+8,Toro Rosso,SPE,0.0,18,9,,,,3,Australian,9
+9,Honda,BUT,0.0,1,10,,,,3,Australian,-9
+10,MF1,ALB,0.0,17,11,,,,3,Australian,6
+11,Super Aguri,SAT,0.0,21,12,,,,3,Australian,9
+12,Super Aguri,IDE,0.0,22,13,,,,3,Australian,9
+13,McLaren,MON,0.0,5,14,,,,3,Australian,-9
+14,MF1,TMO,0.0,20,15,,,,3,Australian,5
+15,Toro Rosso,LIU,0.0,12,16,,,,3,Australian,-4
+16,Ferrari,MSC,0.0,10,17,,,,3,Australian,-7
+17,Williams,WEB,0.0,7,18,,,,3,Australian,-11
+18,Red Bull,KLI,0.0,13,19,,,,3,Australian,-6
+19,Toyota,TRU,0.0,9,20,,,,3,Australian,-11
+20,Williams,ROS,0.0,14,21,,,,3,Australian,-7
+21,Ferrari,MAS,0.0,15,22,,,,3,Australian,-7
+0,Ferrari,MSC,10.0,1,1,,,,4,San Marino,0
+1,Renault,ALO,8.0,5,2,,,,4,San Marino,3
+2,McLaren,MON,6.0,7,3,,,,4,San Marino,4
+3,Ferrari,MAS,5.0,4,4,,,,4,San Marino,0
+4,McLaren,RAI,4.0,8,5,,,,4,San Marino,3
+5,Williams,WEB,3.0,10,6,,,,4,San Marino,4
+6,Honda,BUT,2.0,2,7,,,,4,San Marino,-5
+7,Renault,FIS,1.0,11,8,,,,4,San Marino,3
+8,Toyota,SCH,0.0,6,9,,,,4,San Marino,-3
+9,Honda,BAR,0.0,3,10,,,,4,San Marino,-7
+10,Williams,ROS,0.0,13,11,,,,4,San Marino,2
+11,BMW Sauber,VIL,0.0,12,12,,,,4,San Marino,0
+12,BMW Sauber,HEI,0.0,15,13,,,,4,San Marino,2
+13,Toro Rosso,LIU,0.0,16,14,,,,4,San Marino,2
+14,Toro Rosso,SPE,0.0,18,15,,,,4,San Marino,3
+15,MF1,TMO,0.0,19,16,,,,4,San Marino,3
+16,Red Bull,COU,0.0,14,17,,,,4,San Marino,-3
+17,Super Aguri,SAT,0.0,21,18,,,,4,San Marino,3
+18,Red Bull,KLI,0.0,17,19,,,,4,San Marino,-2
+19,Super Aguri,IDE,0.0,22,20,,,,4,San Marino,2
+20,Toyota,TRU,0.0,9,21,,,,4,San Marino,-12
+21,MF1,ALB,0.0,20,22,,,,4,San Marino,-2
+0,Ferrari,MSC,10.0,2,1,,,,5,European,1
+1,Renault,ALO,8.0,1,2,,,,5,European,-1
+2,Ferrari,MAS,6.0,3,3,,,,5,European,0
+3,McLaren,RAI,5.0,5,4,,,,5,European,1
+4,Honda,BAR,4.0,4,5,,,,5,European,-1
+5,Renault,FIS,3.0,11,6,,,,5,European,5
+6,Williams,ROS,2.0,22,7,,,,5,European,15
+7,BMW Sauber,VIL,1.0,9,8,,,,5,European,1
+8,Toyota,TRU,0.0,7,9,,,,5,European,-2
+9,BMW Sauber,HEI,0.0,13,10,,,,5,European,3
+10,Toro Rosso,SPE,0.0,17,11,,,,5,European,6
+11,MF1,TMO,0.0,18,12,,,,5,European,6
+12,MF1,ALB,0.0,16,13,,,,5,European,3
+13,Toyota,SCH,0.0,10,14,,,,5,European,-4
+14,McLaren,MON,0.0,8,15,,,,5,European,-7
+15,Super Aguri,SAT,0.0,20,16,,,,5,European,4
+16,Super Aguri,FMO,0.0,21,17,,,,5,European,4
+17,Honda,BUT,0.0,6,18,,,,5,European,-12
+18,Red Bull,KLI,0.0,15,19,,,,5,European,-4
+19,Williams,WEB,0.0,19,20,,,,5,European,-1
+20,Red Bull,COU,0.0,12,21,,,,5,European,-9
+21,Toro Rosso,LIU,0.0,14,22,,,,5,European,-8
+0,Renault,ALO,10.0,1,1,,,,6,Spanish,0
+1,Ferrari,MSC,8.0,3,2,,,,6,Spanish,1
+2,Renault,FIS,6.0,2,3,,,,6,Spanish,-1
+3,Ferrari,MAS,5.0,4,4,,,,6,Spanish,0
+4,McLaren,RAI,4.0,9,5,,,,6,Spanish,4
+5,Honda,BUT,3.0,8,6,,,,6,Spanish,2
+6,Honda,BAR,2.0,5,7,,,,6,Spanish,-2
+7,BMW Sauber,HEI,1.0,10,8,,,,6,Spanish,2
+8,Williams,WEB,0.0,11,9,,,,6,Spanish,2
+9,Toyota,TRU,0.0,7,10,,,,6,Spanish,-3
+10,Williams,ROS,0.0,13,11,,,,6,Spanish,2
+11,BMW Sauber,VIL,0.0,22,12,,,,6,Spanish,10
+12,Red Bull,KLI,0.0,14,13,,,,6,Spanish,1
+13,Red Bull,COU,0.0,21,14,,,,6,Spanish,7
+14,Toro Rosso,LIU,0.0,15,15,,,,6,Spanish,0
+15,MF1,TMO,0.0,17,16,,,,6,Spanish,1
+16,Super Aguri,SAT,0.0,19,17,,,,6,Spanish,2
+17,MF1,ALB,0.0,18,18,,,,6,Spanish,0
+18,Toro Rosso,SPE,0.0,16,19,,,,6,Spanish,-3
+19,Toyota,SCH,0.0,6,20,,,,6,Spanish,-14
+20,McLaren,MON,0.0,12,21,,,,6,Spanish,-9
+21,Super Aguri,FMO,0.0,20,22,,,,6,Spanish,-2
+0,Renault,ALO,10.0,1,1,,,,7,Monaco,0
+1,McLaren,MON,8.0,4,2,,,,7,Monaco,2
+2,Red Bull,COU,6.0,7,3,,,,7,Monaco,4
+3,Honda,BAR,5.0,5,4,,,,7,Monaco,1
+4,Ferrari,MSC,4.0,22,5,,,,7,Monaco,17
+5,Renault,FIS,3.0,9,6,,,,7,Monaco,3
+6,BMW Sauber,HEI,2.0,15,7,,,,7,Monaco,8
+7,Toyota,SCH,1.0,10,8,,,,7,Monaco,2
+8,Ferrari,MAS,0.0,21,9,,,,7,Monaco,12
+9,Toro Rosso,LIU,0.0,12,10,,,,7,Monaco,2
+10,Honda,BUT,0.0,13,11,,,,7,Monaco,2
+11,MF1,ALB,0.0,16,12,,,,7,Monaco,4
+12,Toro Rosso,SPE,0.0,18,13,,,,7,Monaco,5
+13,BMW Sauber,VIL,0.0,14,14,,,,7,Monaco,0
+14,MF1,TMO,0.0,17,15,,,,7,Monaco,2
+15,Super Aguri,FMO,0.0,20,16,,,,7,Monaco,4
+16,Toyota,TRU,0.0,6,17,,,,7,Monaco,-11
+17,Red Bull,KLI,0.0,11,18,,,,7,Monaco,-7
+18,Williams,ROS,0.0,8,19,,,,7,Monaco,-11
+19,McLaren,RAI,0.0,3,20,,,,7,Monaco,-17
+20,Williams,WEB,0.0,2,21,,,,7,Monaco,-19
+21,Super Aguri,SAT,0.0,19,22,,,,7,Monaco,-3
+0,Renault,ALO,10.0,1,1,,,,8,British,0
+1,Ferrari,MSC,8.0,3,2,,,,8,British,1
+2,McLaren,RAI,6.0,2,3,,,,8,British,-1
+3,Renault,FIS,5.0,5,4,,,,8,British,1
+4,Ferrari,MAS,4.0,4,5,,,,8,British,-1
+5,McLaren,MON,3.0,8,6,,,,8,British,2
+6,BMW Sauber,HEI,2.0,9,7,,,,8,British,2
+7,BMW Sauber,VIL,1.0,10,8,,,,8,British,2
+8,Williams,ROS,0.0,12,9,,,,8,British,3
+9,Honda,BAR,0.0,6,10,,,,8,British,-4
+10,Toyota,TRU,0.0,22,11,,,,8,British,11
+11,Red Bull,COU,0.0,11,12,,,,8,British,-1
+12,Toro Rosso,LIU,0.0,13,13,,,,8,British,0
+13,Red Bull,KLI,0.0,14,14,,,,8,British,0
+14,MF1,ALB,0.0,18,15,,,,8,British,3
+15,MF1,TMO,0.0,16,16,,,,8,British,0
+16,Super Aguri,SAT,0.0,20,17,,,,8,British,3
+17,Super Aguri,FMO,0.0,21,18,,,,8,British,3
+18,Honda,BUT,0.0,19,19,,,,8,British,0
+19,Toro Rosso,SPE,0.0,15,20,,,,8,British,-5
+20,Toyota,SCH,0.0,7,21,,,,8,British,-14
+21,Williams,WEB,0.0,17,22,,,,8,British,-5
+0,Renault,ALO,10.0,1,1,,,,9,Canadian,0
+1,Ferrari,MSC,8.0,5,2,,,,9,Canadian,3
+2,McLaren,RAI,6.0,3,3,,,,9,Canadian,0
+3,Renault,FIS,5.0,2,4,,,,9,Canadian,-2
+4,Ferrari,MAS,4.0,10,5,,,,9,Canadian,5
+5,Toyota,TRU,3.0,4,6,,,,9,Canadian,-2
+6,BMW Sauber,HEI,2.0,13,7,,,,9,Canadian,6
+7,Red Bull,COU,1.0,22,8,,,,9,Canadian,14
+8,Honda,BUT,0.0,8,9,,,,9,Canadian,-1
+9,Toro Rosso,SPE,0.0,17,10,,,,9,Canadian,7
+10,Red Bull,KLI,0.0,12,11,,,,9,Canadian,1
+11,Williams,WEB,0.0,16,12,,,,9,Canadian,4
+12,Toro Rosso,LIU,0.0,15,13,,,,9,Canadian,2
+13,MF1,TMO,0.0,18,14,,,,9,Canadian,4
+14,Super Aguri,SAT,0.0,20,15,,,,9,Canadian,5
+15,BMW Sauber,VIL,0.0,11,16,,,,9,Canadian,-5
+16,Toyota,SCH,0.0,14,17,,,,9,Canadian,-3
+17,McLaren,MON,0.0,7,18,,,,9,Canadian,-11
+18,Honda,BAR,0.0,9,19,,,,9,Canadian,-10
+19,Super Aguri,FMO,0.0,21,20,,,,9,Canadian,1
+20,Williams,ROS,0.0,6,21,,,,9,Canadian,-15
+21,MF1,ALB,0.0,19,22,,,,9,Canadian,-3
+0,Ferrari,MSC,10.0,1,1,,,,10,United States,0
+1,Ferrari,MAS,8.0,2,2,,,,10,United States,0
+2,Renault,FIS,6.0,3,3,,,,10,United States,0
+3,Toyota,TRU,5.0,22,4,,,,10,United States,18
+4,Renault,ALO,4.0,5,5,,,,10,United States,0
+5,Honda,BAR,3.0,4,6,,,,10,United States,-2
+6,Red Bull,COU,2.0,17,7,,,,10,United States,10
+7,Toro Rosso,LIU,1.0,20,8,,,,10,United States,12
+8,Williams,ROS,0.0,21,9,,,,10,United States,12
+9,Toyota,SCH,0.0,8,10,,,,10,United States,-2
+10,MF1,ALB,0.0,14,11,,,,10,United States,3
+11,BMW Sauber,VIL,0.0,6,12,,,,10,United States,-6
+12,MF1,TMO,0.0,15,13,,,,10,United States,2
+13,Super Aguri,SAT,0.0,18,14,,,,10,United States,4
+14,Honda,BUT,0.0,7,15,,,,10,United States,-8
+15,McLaren,RAI,0.0,9,16,,,,10,United States,-7
+16,BMW Sauber,HEI,0.0,10,17,,,,10,United States,-7
+17,McLaren,MON,0.0,11,18,,,,10,United States,-7
+18,Williams,WEB,0.0,12,19,,,,10,United States,-7
+19,Toro Rosso,SPE,0.0,13,20,,,,10,United States,-7
+20,Red Bull,KLI,0.0,16,21,,,,10,United States,-5
+21,Super Aguri,FMO,0.0,19,22,,,,10,United States,-3
+0,Ferrari,MSC,10.0,1,1,,,,11,French,0
+1,Renault,ALO,8.0,3,2,,,,11,French,1
+2,Ferrari,MAS,6.0,2,3,,,,11,French,-1
+3,Toyota,SCH,5.0,5,4,,,,11,French,1
+4,McLaren,RAI,4.0,6,5,,,,11,French,1
+5,Renault,FIS,3.0,7,6,,,,11,French,1
+6,McLaren,DLR,2.0,8,7,,,,11,French,1
+7,BMW Sauber,HEI,1.0,11,8,,,,11,French,3
+8,Red Bull,COU,0.0,9,9,,,,11,French,0
+9,Toro Rosso,SPE,0.0,14,10,,,,11,French,4
+10,BMW Sauber,VIL,0.0,16,11,,,,11,French,5
+11,Red Bull,KLI,0.0,12,12,,,,11,French,0
+12,Toro Rosso,LIU,0.0,22,13,,,,11,French,9
+13,Williams,ROS,0.0,18,14,,,,11,French,4
+14,MF1,ALB,0.0,15,15,,,,11,French,0
+15,Super Aguri,FMO,0.0,20,16,,,,11,French,4
+16,Honda,BUT,0.0,17,17,,,,11,French,0
+17,Williams,WEB,0.0,10,18,,,,11,French,-8
+18,Toyota,TRU,0.0,4,19,,,,11,French,-15
+19,Honda,BAR,0.0,13,20,,,,11,French,-7
+20,MF1,TMO,0.0,19,21,,,,11,French,-2
+21,Super Aguri,SAT,0.0,21,22,,,,11,French,-1
+0,Ferrari,MSC,10.0,2,1,,,,12,German,1
+1,Ferrari,MAS,8.0,3,2,,,,12,German,1
+2,McLaren,RAI,6.0,1,3,,,,12,German,-2
+3,Honda,BUT,5.0,4,4,,,,12,German,0
+4,Renault,ALO,4.0,7,5,,,,12,German,2
+5,Renault,FIS,3.0,5,6,,,,12,German,-1
+6,Toyota,TRU,2.0,20,7,,,,12,German,13
+7,Red Bull,KLI,1.0,12,8,,,,12,German,4
+8,Toyota,SCH,0.0,8,9,,,,12,German,-1
+9,Toro Rosso,LIU,0.0,16,10,,,,12,German,6
+10,Red Bull,COU,0.0,10,11,,,,12,German,-1
+11,Toro Rosso,SPE,0.0,19,12,,,,12,German,7
+12,Williams,WEB,0.0,11,13,,,,12,German,-2
+13,Super Aguri,SAT,0.0,17,14,,,,12,German,3
+14,BMW Sauber,VIL,0.0,13,15,,,,12,German,-2
+15,Honda,BAR,0.0,6,16,,,,12,German,-10
+16,BMW Sauber,HEI,0.0,15,17,,,,12,German,-2
+17,McLaren,DLR,0.0,9,18,,,,12,German,-9
+18,Super Aguri,YAM,0.0,22,19,,,,12,German,3
+19,Williams,ROS,0.0,14,20,,,,12,German,-6
+20,MF1,ALB,0.0,21,21,,,,12,German,0
+21,MF1,TMO,0.0,18,22,,,,12,German,-4
+0,Honda,BUT,10.0,14,1,,,,13,Hungarian,13
+1,McLaren,DLR,8.0,4,2,,,,13,Hungarian,2
+2,BMW Sauber,HEI,6.0,10,3,,,,13,Hungarian,7
+3,Honda,BAR,5.0,3,4,,,,13,Hungarian,-1
+4,Red Bull,COU,4.0,12,5,,,,13,Hungarian,7
+5,Toyota,SCH,3.0,6,6,,,,13,Hungarian,0
+6,Ferrari,MAS,2.0,2,7,,,,13,Hungarian,-5
+7,Ferrari,MSC,1.0,11,8,,,,13,Hungarian,3
+8,MF1,TMO,0.0,16,9,,,,13,Hungarian,7
+9,MF1,ALB,0.0,22,10,,,,13,Hungarian,12
+10,Toro Rosso,SPE,0.0,20,11,,,,13,Hungarian,9
+11,Toyota,TRU,0.0,8,12,,,,13,Hungarian,-4
+12,Super Aguri,SAT,0.0,19,13,,,,13,Hungarian,6
+13,Renault,ALO,0.0,15,14,,,,13,Hungarian,1
+14,McLaren,RAI,0.0,1,15,,,,13,Hungarian,-14
+15,Toro Rosso,LIU,0.0,17,16,,,,13,Hungarian,1
+16,Williams,ROS,0.0,18,17,,,,13,Hungarian,1
+17,Renault,FIS,0.0,7,18,,,,13,Hungarian,-11
+18,Red Bull,KLI,0.0,13,19,,,,13,Hungarian,-6
+19,Williams,WEB,0.0,5,20,,,,13,Hungarian,-15
+20,Super Aguri,YAM,0.0,21,21,,,,13,Hungarian,0
+21,BMW Sauber,KUB,0.0,9,22,,,,13,Hungarian,-13
+0,Ferrari,MAS,10.0,1,1,,,,14,Turkish,0
+1,Renault,ALO,8.0,3,2,,,,14,Turkish,1
+2,Ferrari,MSC,6.0,2,3,,,,14,Turkish,-1
+3,Honda,BUT,5.0,6,4,,,,14,Turkish,2
+4,McLaren,DLR,4.0,11,5,,,,14,Turkish,6
+5,Renault,FIS,3.0,4,6,,,,14,Turkish,-2
+6,Toyota,SCH,2.0,15,7,,,,14,Turkish,8
+7,Honda,BAR,1.0,13,8,,,,14,Turkish,5
+8,Toyota,TRU,0.0,12,9,,,,14,Turkish,3
+9,Williams,WEB,0.0,9,10,,,,14,Turkish,-1
+10,Red Bull,KLI,0.0,10,11,,,,14,Turkish,-1
+11,BMW Sauber,KUB,0.0,8,12,,,,14,Turkish,-4
+12,Toro Rosso,SPE,0.0,17,13,,,,14,Turkish,4
+13,BMW Sauber,HEI,0.0,5,14,,,,14,Turkish,-9
+14,Red Bull,COU,0.0,16,15,,,,14,Turkish,1
+15,MF1,ALB,0.0,22,16,,,,14,Turkish,6
+16,Super Aguri,SAT,0.0,21,17,,,,14,Turkish,4
+17,Williams,ROS,0.0,14,18,,,,14,Turkish,-4
+18,Super Aguri,YAM,0.0,20,19,,,,14,Turkish,1
+19,Toro Rosso,LIU,0.0,18,20,,,,14,Turkish,-2
+20,McLaren,RAI,0.0,7,21,,,,14,Turkish,-14
+21,MF1,TMO,0.0,19,22,,,,14,Turkish,-3
+0,Ferrari,MSC,10.0,2,1,,,,15,Italian,1
+1,McLaren,RAI,8.0,1,2,,,,15,Italian,-1
+2,BMW Sauber,KUB,6.0,6,3,,,,15,Italian,3
+3,Renault,FIS,5.0,9,4,,,,15,Italian,5
+4,Honda,BUT,4.0,5,5,,,,15,Italian,0
+5,Honda,BAR,3.0,8,6,,,,15,Italian,2
+6,Toyota,TRU,2.0,11,7,,,,15,Italian,4
+7,BMW Sauber,HEI,1.0,3,8,,,,15,Italian,-5
+8,Ferrari,MAS,0.0,4,9,,,,15,Italian,-5
+9,Williams,WEB,0.0,19,10,,,,15,Italian,9
+10,Red Bull,KLI,0.0,16,11,,,,15,Italian,5
+11,Red Bull,COU,0.0,14,12,,,,15,Italian,2
+12,Toro Rosso,SPE,0.0,15,13,,,,15,Italian,2
+13,Toro Rosso,LIU,0.0,17,14,,,,15,Italian,3
+14,Toyota,SCH,0.0,13,15,,,,15,Italian,-2
+15,Super Aguri,SAT,0.0,21,16,,,,15,Italian,5
+16,Spyker MF1,ALB,0.0,18,17,,,,15,Italian,1
+17,Spyker MF1,TMO,0.0,20,18,,,,15,Italian,2
+18,Renault,ALO,0.0,10,19,,,,15,Italian,-9
+19,McLaren,DLR,0.0,7,20,,,,15,Italian,-13
+20,Super Aguri,YAM,0.0,22,21,,,,15,Italian,1
+21,Williams,ROS,0.0,12,22,,,,15,Italian,-10
+0,Ferrari,MSC,10.0,6,1,,,,16,Chinese,5
+1,Renault,ALO,8.0,1,2,,,,16,Chinese,-1
+2,Renault,FIS,6.0,2,3,,,,16,Chinese,-1
+3,Honda,BUT,5.0,4,4,,,,16,Chinese,0
+4,McLaren,DLR,4.0,7,5,,,,16,Chinese,2
+5,Honda,BAR,3.0,3,6,,,,16,Chinese,-3
+6,BMW Sauber,HEI,2.0,8,7,,,,16,Chinese,1
+7,Williams,WEB,1.0,14,8,,,,16,Chinese,6
+8,Red Bull,COU,0.0,12,9,,,,16,Chinese,3
+9,Toro Rosso,LIU,0.0,13,10,,,,16,Chinese,3
+10,Williams,ROS,0.0,15,11,,,,16,Chinese,4
+11,Red Bull,DOO,0.0,10,12,,,,16,Chinese,-2
+12,BMW Sauber,KUB,0.0,9,13,,,,16,Chinese,-4
+13,Toro Rosso,SPE,0.0,11,14,,,,16,Chinese,-3
+14,Spyker MF1,ALB,0.0,22,15,,,,16,Chinese,7
+15,Super Aguri,YAM,0.0,19,16,,,,16,Chinese,3
+16,Toyota,SCH,0.0,16,17,,,,16,Chinese,-1
+17,Ferrari,MAS,0.0,20,18,,,,16,Chinese,2
+18,Toyota,TRU,0.0,17,19,,,,16,Chinese,-2
+19,Spyker MF1,TMO,0.0,18,20,,,,16,Chinese,-2
+20,McLaren,RAI,0.0,5,21,,,,16,Chinese,-16
+21,Super Aguri,SAT,0.0,21,22,,,,16,Chinese,-1
+0,Renault,ALO,10.0,5,1,,,,17,Japanese,4
+1,Ferrari,MAS,8.0,1,2,,,,17,Japanese,-1
+2,Renault,FIS,6.0,6,3,,,,17,Japanese,3
+3,Honda,BUT,5.0,7,4,,,,17,Japanese,3
+4,McLaren,RAI,4.0,11,5,,,,17,Japanese,6
+5,Toyota,TRU,3.0,4,6,,,,17,Japanese,-2
+6,Toyota,SCH,2.0,3,7,,,,17,Japanese,-4
+7,BMW Sauber,HEI,1.0,9,8,,,,17,Japanese,1
+8,BMW Sauber,KUB,0.0,12,9,,,,17,Japanese,3
+9,Williams,ROS,0.0,10,10,,,,17,Japanese,0
+10,McLaren,DLR,0.0,13,11,,,,17,Japanese,2
+11,Honda,BAR,0.0,8,12,,,,17,Japanese,-4
+12,Red Bull,DOO,0.0,18,13,,,,17,Japanese,5
+13,Toro Rosso,LIU,0.0,15,14,,,,17,Japanese,1
+14,Super Aguri,SAT,0.0,20,15,,,,17,Japanese,5
+15,Spyker MF1,TMO,0.0,21,16,,,,17,Japanese,5
+16,Super Aguri,YAM,0.0,22,17,,,,17,Japanese,5
+17,Toro Rosso,SPE,0.0,19,18,,,,17,Japanese,1
+18,Williams,WEB,0.0,14,19,,,,17,Japanese,-5
+19,Ferrari,MSC,0.0,2,20,,,,17,Japanese,-18
+20,Red Bull,COU,0.0,17,21,,,,17,Japanese,-4
+21,Spyker MF1,ALB,0.0,16,22,,,,17,Japanese,-6
+0,Ferrari,MAS,10.0,1,1,,,,18,Brazilian,0
+1,Renault,ALO,8.0,4,2,,,,18,Brazilian,2
+2,Honda,BUT,6.0,14,3,,,,18,Brazilian,11
+3,Ferrari,MSC,5.0,10,4,,,,18,Brazilian,6
+4,McLaren,RAI,4.0,2,5,,,,18,Brazilian,-3
+5,Renault,FIS,3.0,6,6,,,,18,Brazilian,0
+6,Honda,BAR,2.0,5,7,,,,18,Brazilian,-2
+7,McLaren,DLR,1.0,12,8,,,,18,Brazilian,4
+8,BMW Sauber,KUB,0.0,9,9,,,,18,Brazilian,0
+9,Super Aguri,SAT,0.0,19,10,,,,18,Brazilian,9
+10,Toro Rosso,SPE,0.0,16,11,,,,18,Brazilian,5
+11,Red Bull,DOO,0.0,22,12,,,,18,Brazilian,10
+12,Toro Rosso,LIU,0.0,15,13,,,,18,Brazilian,2
+13,Spyker MF1,ALB,0.0,17,14,,,,18,Brazilian,3
+14,Spyker MF1,TMO,0.0,21,15,,,,18,Brazilian,6
+15,Super Aguri,YAM,0.0,20,16,,,,18,Brazilian,4
+16,BMW Sauber,HEI,0.0,8,17,,,,18,Brazilian,-9
+17,Red Bull,COU,0.0,18,18,,,,18,Brazilian,0
+18,Toyota,TRU,0.0,3,19,,,,18,Brazilian,-16
+19,Toyota,SCH,0.0,7,20,,,,18,Brazilian,-13
+20,Williams,WEB,0.0,11,21,,,,18,Brazilian,-10
+21,Williams,ROS,0.0,13,22,,,,18,Brazilian,-9

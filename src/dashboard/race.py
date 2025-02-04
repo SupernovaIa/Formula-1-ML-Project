@@ -1,17 +1,17 @@
+# Data processing
+# -----------------------------------------------------------------------
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
+
+# Visualization
+# -----------------------------------------------------------------------
 import plotly.express as px
-
-from fastf1.core import Laps
-
+import plotly.graph_objects as go
 import fastf1.plotting
 
-# Load FastF1's dark color scheme
-# fastf1.plotting.setup_mpl(mpl_timedelta_support=False, misc_mpl_mods=False, color_scheme='fastf1')
-
-import plotly.graph_objects as go
+# FastF1 data handling
+# -----------------------------------------------------------------------
+from fastf1.core import Laps
 import fastf1.plotting
 
 

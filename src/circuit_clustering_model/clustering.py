@@ -1,28 +1,27 @@
-# Tratamiento de datos
+# Data processing
 # -----------------------------------------------------------------------
 import numpy as np
 import pandas as pd
+import math
 
-# Para las visualizaciones
+# For visualizations
 # -----------------------------------------------------------------------
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import math
-
-# Sacar número de clusters y métricas
+# Extracting the number of clusters and metrics
 # -----------------------------------------------------------------------
 from yellowbrick.cluster import KElbowVisualizer
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 
-# Modelos de clustering
+# Clustering models
 # -----------------------------------------------------------------------
 from sklearn.cluster import KMeans
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import SpectralClustering
 
-# Para visualizar los dendrogramas
+# For visualizing dendrograms
 # -----------------------------------------------------------------------
 import scipy.cluster.hierarchy as sch
 

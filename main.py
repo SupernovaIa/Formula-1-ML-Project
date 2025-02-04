@@ -1,7 +1,7 @@
-from src.extraction import extract
+
 
 def main():
-    extract()
+    pass
     
 if __name__ == "__main__":
     main()

@@ -1,5 +1,3 @@
-
-
 def add_features_to_results(df, window=3):
     """
     Enhances a race results DataFrame by adding statistical features such as 

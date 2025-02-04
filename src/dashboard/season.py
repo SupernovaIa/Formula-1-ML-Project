@@ -1,14 +1,19 @@
+# Data processing
+# -----------------------------------------------------------------------
 import pandas as pd
-import plotly.express as px
-from plotly.io import show
-import matplotlib.pyplot as plt
-import seaborn as sns
-import plotly.graph_objects as go
 import numpy as np
 
-from fastf1.ergast import Ergast
+# Visualization
+# -----------------------------------------------------------------------
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.io import show
 import fastf1.plotting
+
+# FastF1 data handling
+# -----------------------------------------------------------------------
 import fastf1
+from fastf1.ergast import Ergast
 
 
 def get_results(season):
@@ -175,7 +180,7 @@ def plot_standings_chart(df):
     fig.update_layout(plot_bgcolor='black', paper_bgcolor='black', font=dict(color='white'))   
 
     # Remove legend
-    fig.update_layout(coloraxis_showscale=False)   
+    fig.update_layout(coloraxis_showscale=False, height=600)   
 
     # x-axis on top
     fig.update_layout(xaxis=dict(side='top'))

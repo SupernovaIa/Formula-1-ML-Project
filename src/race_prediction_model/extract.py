@@ -1,10 +1,27 @@
+# Time management
+# -----------------------------------------------------------------------
 import time
+
+# Rate limiting
+# -----------------------------------------------------------------------
 from ratelimit import limits, RateLimitException
+
+# Data processing
+# -----------------------------------------------------------------------
 import pandas as pd
-from fastf1.ergast import Ergast
-import os
+
+# FastF1 data handling
+# -----------------------------------------------------------------------
 import fastf1
+from fastf1.ergast import Ergast
+
+# Progress bar
+# -----------------------------------------------------------------------
 from tqdm import tqdm
+
+# Operating system utilities
+# -----------------------------------------------------------------------
+import os
 
 
 # Call limit: [CALLS] every [PERIOD] seconds

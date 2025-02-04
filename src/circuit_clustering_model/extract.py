@@ -1,11 +1,21 @@
-from scipy.interpolate import interp1d
+# Data processing
+# -----------------------------------------------------------------------
 import pandas as pd
+
+# Interpolation
+# -----------------------------------------------------------------------
+from scipy.interpolate import interp1d
+
+# FastF1 data handling
+# -----------------------------------------------------------------------
 import fastf1
+
+# Progress bar
+# -----------------------------------------------------------------------
 from tqdm import tqdm
 
 
-
-def get_nearest(curve_distance, car_data, column):
+def _get_nearest(curve_distance, car_data, column):
     """
     Interpolates the value of a specified column in a DataFrame based on a given distance.
 
@@ -42,7 +52,18 @@ def get_nearest(curve_distance, car_data, column):
     return interp_func(curve_distance)
 
 
-def categorize_speed(speed):
+def _categorize_speed(speed):
+    """
+    Categorizes a given speed into "slow", "medium", or "fast".
+
+    Parameters
+    -----------
+    - speed (int or float): The speed value to categorize.
+
+    Returns
+    --------
+    - (str): The category of the speed ("slow", "medium", or "fast").
+    """
     if speed < 120:
         return "slow"
     elif 120 <= speed <= 240:
@@ -85,9 +106,9 @@ def get_qualy_lap(session):
         raise ValueError("Corner data is empty.")
 
     # Add speed and kind of corner
-    corners['Speed'] = corners['Distance'].apply(lambda x: get_nearest(x, car_data, 'Speed'))
-    corners['Category'] = corners['Speed'].apply(categorize_speed)
-    corners['nGear'] = corners['Distance'].apply(lambda x: get_nearest(x, car_data, 'nGear'))
+    corners['Speed'] = corners['Distance'].apply(lambda x: _get_nearest(x, car_data, 'Speed'))
+    corners['Category'] = corners['Speed'].apply(_categorize_speed)
+    corners['nGear'] = corners['Distance'].apply(lambda x: _get_nearest(x, car_data, 'nGear'))
 
     # Count number of corners of every kind
     category_counts = corners["Category"].value_counts()

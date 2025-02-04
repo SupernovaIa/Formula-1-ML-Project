@@ -138,7 +138,7 @@ def get_qualy_lap(session):
         'avg_speed': car_data['Speed'].mean(),
         'throttle_perc': car_data['Throttle'].mean(),
         'brake_perc': car_data['Brake'].mean() * 100,
-        'straight_lenght': straight_length,
+        'straight_length': straight_length,
         'gear_changes': car_data['nGear'].diff().abs().sum(),
         'n_slow_corners': category_counts.get('slow', 0),
         'n_medium_corners': category_counts.get('medium', 0),

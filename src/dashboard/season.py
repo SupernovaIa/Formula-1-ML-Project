@@ -185,7 +185,7 @@ def plot_standings_chart(df):
     # x-axis on top
     fig.update_layout(xaxis=dict(side='top'))
 
-    show(fig)
+    return fig
 
 
 def plot_drivers_championship(df_results, session, top=None):
@@ -250,7 +250,7 @@ def plot_drivers_championship(df_results, session, top=None):
         height=800  
     )
 
-    fig.show()
+    return fig
 
 
 def plot_constructors_championship(df_results, session, top=None):
@@ -312,7 +312,7 @@ def plot_constructors_championship(df_results, session, top=None):
         height=800  
     )
 
-    fig.show()
+    return fig
     
 
 def get_championship_table(df_results, values):

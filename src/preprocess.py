@@ -313,7 +313,7 @@ def scale_df(df, cols, method="robust", include_others=False):
     return df_scaled
 
 
-def preprocess(df, encoding_methods, scaling_method, columns_drop=None):
+def preprocess(df, encoding_methods, scaling_method, columns_drop=None, target_variable=None):
     """
     Preprocesses a DataFrame by dropping specified columns, encoding categorical variables, and scaling numerical features.
 
@@ -323,6 +323,7 @@ def preprocess(df, encoding_methods, scaling_method, columns_drop=None):
         encoding_methods (List[str]): A list of encoding methods to apply to categorical columns.
         scaling_method (str): The method to use for scaling numeric columns ("minmax", "robust" or "standard").
         columns_drop (Optional[List[str]]): List of column names to drop from the DataFrame.
+        target_variable (Optional[str]): Column to apply target encoding if needed.
 
     Returns
     -------
@@ -338,7 +339,7 @@ def preprocess(df, encoding_methods, scaling_method, columns_drop=None):
         df.drop(columns=columns_drop, inplace=True)
 
     # Encode categorical variables.
-    encoder = Encoding(df, encoding_methods, None)
+    encoder = Encoding(df, encoding_methods, target_variable)
     df_encoded = encoder.execute_all_encodings()
 
     # Scale the encoded DataFrame.

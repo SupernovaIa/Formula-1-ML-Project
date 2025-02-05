@@ -12,7 +12,6 @@ import fastf1.plotting
 # FastF1 data handling
 # -----------------------------------------------------------------------
 from fastf1.core import Laps
-import fastf1.plotting
 
 
 def plot_position_changes(session):
@@ -94,7 +93,7 @@ def plot_position_changes(session):
         font=dict(color='white')
     )
 
-    fig.show()
+    return fig
 
 
 def get_race_results(session):
@@ -226,7 +225,7 @@ def plot_drivers_pace(session, kind='driver', threshold=None, box=False):
         template='plotly_dark'
     )
 
-    fig.show()
+    return fig
 
 
 def plot_teams_pace(session, kind='team', threshold=None, box=False):
@@ -302,7 +301,7 @@ def plot_teams_pace(session, kind='team', threshold=None, box=False):
         template='plotly_dark'
     )
 
-    fig.show()
+    return fig
 
 
 def plot_tyre_strat(session):
@@ -388,7 +387,7 @@ def plot_tyre_strat(session):
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=False)
 
-    fig.show()
+    return fig
 
 
 def plot_telemetry(session, mode='Speed', drivers=[]):
@@ -494,7 +493,7 @@ def plot_telemetry(session, mode='Speed', drivers=[]):
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=False)
 
-    fig.show()
+    return fig
 
 
 def plot_fastest_laps(session):
@@ -560,7 +559,7 @@ def plot_fastest_laps(session):
         height=600
     )
 
-    fig.show()
+    return fig
 
 
 def draw_track(session):
@@ -671,7 +670,7 @@ def draw_track(session):
 
     fig.update_yaxes(scaleanchor="x", scaleratio=1)
 
-    fig.show()
+    return fig
 
 
 def plot_results(session):
@@ -725,7 +724,7 @@ def plot_results(session):
         template="plotly_dark"
     )
 
-    fig.show()
+    return fig
 
 
 def plot_driver_pace(session, driver, threshold=None):
@@ -766,4 +765,4 @@ def plot_driver_pace(session, driver, threshold=None):
         height=600
     )
 
-    fig.show()
+    return fig

@@ -8,6 +8,8 @@ import math
 # -----------------------------------------------------------------------
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.graph_objects as go
+import plotly.express as px
 
 # Extracting the number of clusters and metrics
 # -----------------------------------------------------------------------
@@ -19,7 +21,10 @@ from sklearn.metrics import silhouette_score, davies_bouldin_score
 from sklearn.cluster import KMeans
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import DBSCAN
-from sklearn.cluster import SpectralClustering
+
+# For PCA analysis
+# -----------------------------------------------------------------------
+from sklearn.decomposition import PCA
 
 # For visualizing dendrograms
 # -----------------------------------------------------------------------
@@ -54,136 +59,194 @@ def clustering_metrics(df, labels):
     return df_metrics
 
 
-def plot_combined_target_distribution(df, target, feature, size=(10, 6)):
+def plot_cluster_scatter(df, col1, col2, marker_size=10):
     """
-    Plots the combined distribution of a feature and the proportion of a binary target variable.
-
-    This function creates a dual-axis histogram visualization. The primary axis shows the distribution of the specified feature, while the secondary axis overlays the proportion of the target variable.
-
-    Parameters:
-    - df (pd.DataFrame): The DataFrame containing the data to plot.
-    - target (str): The name of the binary target column in the DataFrame.
-    - feature (str): The name of the feature column to plot.
-    - figsize (tuple, optional): Figure size for the plot. Defaults to (10, 6).
-
-    Returns:
-    - None: The function displays the plot but does not return any value.
-    """
-
-    fig, ax = plt.subplots(figsize=size)
-
-    fig.suptitle(f"Proportion of '{target}' by '{feature}' distribution")
+    Plots a scatter plot for a clustering model using Plotly.
     
-    # Total count histogram
-    sns.histplot(data=df,
-                x=feature,
-                bins='auto',
-                ax=ax)
-
-    # Second histogram for positive class probability
-    ax2 = ax.twinx()
-
-    sns.histplot(data=df,
-             x=feature,
-             hue=target,  
-             stat="probability", # Normalize to show proportion
-             bins='auto',
-             multiple="fill", # Get maximum in the top
-             palette={1: "red", 0: "#FFFFFF"}, # Red for possitive, white for negative
-             ax=ax2,
-             alpha=0.25, # Transparency, important here
-             edgecolor=None)
-
-    # Set ylim for proportion
-    ax2.set_ylim(0, 1)
-
-    # Remove ax2 legend, we only want one
-    ax2.get_legend().remove()
-    fig.legend([f"{feature.capitalize()} distribution", f"{target.capitalize()} proportion"], loc="upper right")
-
-    plt.tight_layout()
-    plt.show()
-
-
-def plot_radar(df, columns):
-    """
-    Plots a radar chart to visualize the mean values of specified columns for each cluster.
-
-    The function calculates the mean values of the provided columns grouped by the 'cluster' column and creates a radar chart to compare these means across clusters.
-
     Parameters
     ----------
-        - df (pd.DataFrame): The DataFrame containing the data, including a 'cluster' column.
-        - columns (list of str): A list of column names to include in the radar plot.
-
+        - df (pd.DataFrame): DataFrame containing clustering results with a 'cluster' column.
+        - col1 (str): Column name for the x-axis.
+        - col2 (str): Column name for the y-axis.
+        - marker_size (int, optional): Size of markers. Default is 10.
+        
     Returns
     -------
-        - None: The function displays the radar plot but does not return any value.
+        - fig (plotly.graph_objects.Figure): The generated scatter plot.
+    """
+    
+    if 'cluster' not in df.columns or col1 not in df.columns or col2 not in df.columns:
+        raise ValueError("Ensure that 'cluster', '{}' and '{}' exist in the dataframe.".format(col1, col2))
+    
+    cluster_labels = sorted(df['cluster'].unique())  # Get unique cluster labels
+    
+    # Get Plotly color palette
+    cmap = px.colors.qualitative.Prism
+    n_colors = len(cmap)
+
+    fig = go.Figure()
+
+    # Iterate over unique clusters
+    for i, cluster_label in enumerate(cluster_labels):
+        cluster_data = df[df['cluster'] == cluster_label]
+        
+        fig.add_trace(go.Scatter(
+            x=cluster_data[col1], 
+            y=cluster_data[col2], 
+            mode='markers',
+            marker=dict(size=marker_size, color=cmap[i % n_colors], line=dict(width=1, color='black')),
+            name=f'Cluster {cluster_label}',
+            text=[f"Circuit: {idx}<br>Cluster: {cluster_label}<br>{col1}: {cluster_data[col1].iloc[j].round(4)}<br>{col2}: {cluster_data[col2].iloc[j].round(4)}"
+                  for j, idx in enumerate(cluster_data.index)],
+            hoverinfo="text"
+        ))
+
+    # Configure layout
+    fig.update_layout(
+        title="Clusters of Circuits (K-Means Clustering Model)",
+        xaxis_title=col1,
+        yaxis_title=col2,
+        template="plotly_dark",
+        legend_title="Clusters"
+    )
+
+    return fig
+
+
+def plot_radar(df, columns, opacity=0.5):
+    """
+    Generates a radar plot to visualize cluster profiles based on specified columns.
+
+    Parameters
+    -----------
+    - df (pd.DataFrame): The input DataFrame containing the data and cluster labels.
+    - columns (list of str): The list of column names to include in the radar plot.
+    - opacity (float, optional): The transparency level of the radar plot areas. Defaults to 0.5.
+
+    Returns
+    --------
+    - (plotly.graph_objects.Figure): A Plotly radar chart visualizing the cluster profiles.
     """
 
-    # Group by cluster and compute mean
+    # Get mean values for every column by cluster
     cluster_means = df.groupby('cluster')[columns].mean()
 
-    # Repeat first column at the end to close radar
-    cluster_means = pd.concat([cluster_means, cluster_means.iloc[:, 0:1]], axis=1)
+    # Close the radar chart by repeating the first column's values
+    cluster_means = cluster_means.T  # Transpose for easier manipulation
+    cluster_means.loc["first_column"] = cluster_means.iloc[0]  # Repeat first row
+    cluster_means = cluster_means.T  # Transpose back
 
-    # Angles for radarplot
+    # Define angles for the radar chart
     num_vars = len(columns)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    angles += angles[:1]  # Close radar
+    angles += angles[:1]  # Close the loop
 
-    _, ax = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
+    # Create figure
+    fig = go.Figure()
 
-    # A radar for each cluster
+    # Add each cluster to the plot
     for i, row in cluster_means.iterrows():
-        ax.plot(angles, row, label=f'Cluster {i}')
-        ax.fill(angles, row, alpha=0.25)
+        fig.add_trace(go.Scatterpolar(
+            r=row.values,
+            theta=columns + [columns[0]],  # Close loop
+            fill='toself',
+            name=f'Cluster {i}',
+            opacity=opacity
+        ))
 
-    # Axis tags
-    ax.set_theta_offset(np.pi / 2)
-    ax.set_theta_direction(-1)
-    ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(columns)
+    # Configure layout
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(visible=True)
+        ),
+        title="Cluster radar chart",
+        template="plotly_dark",
+        height=800
+    )
 
-    # Legend and title
-    plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
-    
-    plt.tight_layout()
-    plt.show()
+    return fig
 
 
-def plot_clusters(df):
+def plot_clusters(df, col):
     """
-    Plots bar charts showing the mean values of each feature grouped by clusters.
-
-    The function iterates through the features in the DataFrame (excluding the 'cluster' column) and creates a subplot for each, displaying the mean value of the feature per cluster.
+    Plots the mean value of a specified column for each cluster.
 
     Parameters
     ----------
-        - df (pd.DataFrame): The DataFrame containing the data, including a 'cluster' column and other feature columns.
+        - df (DataFrame): DataFrame containing the clustering results.
+        - col (str): Column name to compute mean values per cluster.
 
     Returns
     -------
-        - None: The function displays the bar chart plots but does not return any value.
+        - fig (plotly.graph_objects.Figure): Bar chart of mean values per cluster.
     """
+    if 'cluster' not in df.columns or col not in df.columns:
+        raise ValueError(f"Ensure 'cluster' and '{col}' exist in the DataFrame.")
 
-    cols = df.drop(columns='cluster').columns.to_list()
+    # Ensure column is numeric
+    if not pd.api.types.is_numeric_dtype(df[col]):
+        raise ValueError(f"Column '{col}' must be numeric.")
 
-    fig, axes = plt.subplots(nrows=2, ncols=math.ceil(len(cols)/2), figsize=(20, 8))
-    axes = axes.flat
+    # Compute mean values per cluster
+    df_group = df.groupby('cluster', as_index=False)[col].mean().sort_values('cluster')
 
-    for i, col in enumerate(cols):
+    # Define color palette
+    colors = px.colors.qualitative.Prism
+    num_colors = len(colors)
 
-        df_group = df.groupby('cluster')[col].mean().reset_index()
+    # Create figure
+    fig = go.Figure()
 
-        sns.barplot(x='cluster', y=col, data=df_group, ax=axes[i], palette='coolwarm')
-        axes[i].set_title(col, fontsize=18)
+    # Add a bar for each cluster
+    for i, row in df_group.iterrows():
+        fig.add_trace(go.Bar(
+            x=[f'Cluster {int(row["cluster"])}'],
+            y=[row[col]],  
+            name=f'Cluster {int(row["cluster"])}',  
+            marker_color=colors[i % num_colors]
+        ))
 
-    if len(cols) % 2 != 0:
-        fig.delaxes(axes[-1])
+    # Configure layout
+    fig.update_layout(
+        title=f"Cluster Comparison - {col}",
+        xaxis_title="Clusters",
+        yaxis_title="Mean Value",
+        template="plotly_dark",
+        showlegend=True,
+        legend_title_text="Clusters",
+        bargap=0.2  # Adjust bar spacing
+    )
 
-    plt.tight_layout()
+    return fig
 
+
+def get_pca(df, n=2, prefix="PC"):
+    """
+    Performs PCA transformation on a dataframe (assumes it's already scaled).
+    
+    Parameters:
+    - df (pd.DataFrame): Scaled numerical dataframe.
+    - n (int): Number of principal components to keep.
+    - prefix (str): Prefix for component column names (default: "PC").
+    
+    Returns:
+    - pca_df (pd.DataFrame): Dataframe with transformed principal components.
+    - explained_variance (list): Variance explained by each component.
+    """
+    
+    if n > df.shape[1]:
+        raise ValueError(f"n_components ({n}) cannot exceed the number of features ({df.shape[1]}).")
+    
+    # Apply PCA
+    pca = PCA(n_components=n)
+    pca_trained = pca.fit_transform(df)
+
+    # Create DataFrame
+    pca_df = pd.DataFrame(data=pca_trained, columns=[f'{prefix}{i+1}' for i in range(n)])
+
+    return pca_df, pca.explained_variance_ratio_
+
+# ---
 
 def plot_dendrogram(df, method_list=["average", "complete", "ward", "single"], size=(20, 8)):
     """

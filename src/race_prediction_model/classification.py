@@ -32,34 +32,9 @@ import pickle
 import shap  
 import time
 
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import average_precision_score
 
-def rows_colors_model(row):
-    """
-    Applies custom styling to rows in a DataFrame based on the value of the 'model' column.
-
-    Parameters:
-    - row (pd.Series): A row of the DataFrame being styled.
-
-    Returns:
-    - list: A list of CSS style strings for each cell in the row.
-    """
-
-    model_colors = {
-        'tree': 'background-color: lightblue; color: black',
-        'logistic_regression': 'background-color: lightgreen; color: black',
-        'random_forest': 'background-color: lightyellow; color: black',
-        'gradient_boosting': 'background-color: lightcoral; color: black',
-        'xgboost': 'background-color: lightpink; color: black'
-    }
-    
-    # Get the current row model
-    model = row['model']
-    
-    # Return the styles
-    if model in model_colors:
-        return [model_colors[model]] * len(row)
-    else:
-        return ['background-color: white; color: black'] * len(row)
 
 
 class ClassificationModels:
@@ -131,7 +106,7 @@ class ClassificationModels:
                 'penalty': ['l1', 'l2', 'elasticnet', None],
                 'C': [0.01, 0.1, 1, 10, 100],
                 'solver': ['liblinear', 'saga'],
-                'max_iter': [100, 200, 500]
+                'max_iter': [500, 1000]
             },
             "tree": {
                 'max_depth': [3, 5, 7, 10],
@@ -172,8 +147,8 @@ class ClassificationModels:
         # Model fit
         grid_search = GridSearchCV(estimator=model, 
                                    param_grid=param_grid, 
-                                   cv=cross_validation, 
-                                   scoring='accuracy')
+                                   cv=cross_validation,
+                                   n_jobs=-1)
         
         grid_search.fit(self.X_train, self.y_train)
 
@@ -225,22 +200,24 @@ class ClassificationModels:
         # Training data metrics
         metrics_train = {
             "accuracy": accuracy_score(self.y_train, pred_train),
-            "precision": precision_score(self.y_train, pred_train, average='weighted', zero_division=0),
-            "recall": recall_score(self.y_train, pred_train, average='weighted', zero_division=0),
-            "f1": f1_score(self.y_train, pred_train, average='weighted', zero_division=0),
+            "precision": precision_score(self.y_train, pred_train),
+            "recall": recall_score(self.y_train, pred_train),
+            "f1": f1_score(self.y_train, pred_train),
             "kappa": cohen_kappa_score(self.y_train, pred_train),
             "auc": roc_auc_score(self.y_train, self.results[model_name]["prob_train"]) if self.results[model_name]["prob_train"] is not None else None,
+            "average_precision": average_precision_score(self.y_train, self.results[model_name]["prob_train"]) if self.results[model_name]["prob_train"] is not None else None,
             "time_seconds": self.results[model_name]["time"]
         }
 
         # Test data metrics
         metrics_test = {
             "accuracy": accuracy_score(self.y_test, pred_test),
-            "precision": precision_score(self.y_test, pred_test, average='weighted', zero_division=0),
-            "recall": recall_score(self.y_test, pred_test, average='weighted', zero_division=0),
-            "f1": f1_score(self.y_test, pred_test, average='weighted', zero_division=0),
+            "precision": precision_score(self.y_test, pred_test),
+            "recall": recall_score(self.y_test, pred_test),
+            "f1": f1_score(self.y_test, pred_test),
             "kappa": cohen_kappa_score(self.y_test, pred_test),
             "auc": roc_auc_score(self.y_test, self.results[model_name]["prob_test"]) if self.results[model_name]["prob_test"] is not None else None,
+            "average_precision": average_precision_score(self.y_test, self.results[model_name]["prob_test"]) if self.results[model_name]["prob_test"] is not None else None,
             "time_seconds": self.results[model_name]["time"]
         }
 
@@ -407,5 +384,39 @@ class ClassificationModels:
         plt.ylabel("True Positive Ratio")
         plt.grid(ls = "--", lw = 0.6, alpha = 0.6)
         plt.title("ROC Curve")
+        plt.legend()
+        plt.show()
+
+
+
+
+    def plot_precision_recall_curve(self, model_name):
+        """
+        Plots the Precision-Recall curve for a specified model, comparing its performance.
+
+        Parameters:
+        - model_name (str): The name of the model for which the Precision-Recall curve will be plotted.
+                            It must match a key in `self.results`.
+
+        Returns:
+        - None: The function directly displays the Precision-Recall curve plot.
+        """
+
+        precision, recall, thresholds = precision_recall_curve(self.y_test, self.results[model_name]["prob_test"])
+        
+        plt.figure(figsize=(6,4))
+
+        sns.lineplot(x=recall, y=precision, color="deepskyblue", label="Precision-Recall Curve")
+
+        plt.fill_between(recall, precision, color="deepskyblue", alpha=0.2, interpolate=False, 
+                        label=f'AP : {self.get_metrics(model_name).loc["test"]["average_precision"]:.3f}')
+
+        plt.plot([0,1], [self.y_test.mean(), self.y_test.mean()], color="red", ls="--", 
+                label="Random Classifier (Baseline)")
+
+        plt.xlabel("Recall")
+        plt.ylabel("Precision")
+        plt.grid(ls="--", lw=0.6, alpha=0.6)
+        plt.title("Precision-Recall Curve")
         plt.legend()
         plt.show()

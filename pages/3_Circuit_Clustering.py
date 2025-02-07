@@ -91,8 +91,10 @@ if st.session_state.df is not None:
     for i, row in top_3.iterrows():
         st.write(f"🔹 k={int(row['Número de Clusters (k)'])} con Silhouette Score: {row['Puntuación Silhouette']:.4f}")
 
-
-    model_kmeans = KMeans(n_clusters=7, random_state=42)
+    with st.sidebar:
+        n_clusters = st.slider("Select number of clusters:", 2, 12, 7, 1)
+        
+    model_kmeans = KMeans(n_clusters=n_clusters, random_state=42)
 
     km_fit = model_kmeans.fit(st.session_state.df_kmeans)
     labels = km_fit.labels_
@@ -105,16 +107,14 @@ if st.session_state.df is not None:
     # Definir colores para los clusters
     import plotly.colors as pc
 
-    # Asegurar que df_kmeans está en session_state
-    if "df_kmeans" not in st.session_state:
-        st.error("🚨 Error: No se encontró `df_kmeans` en `st.session_state`. Asegúrate de cargar los datos antes.")
-    else:
+    with st.expander('Show clustering results'):
         # Obtener una paleta de colores de Plotly
         cmap = pc.qualitative.Prism  # Puedes cambiarlo por otra como "Dark24", "Set3", etc.
 
         # Mapear colores únicos para cada cluster
         unique_clusters = sorted(st.session_state.df_kmeans["cluster"].unique())
         cluster_colors = {cluster: cmap[i % len(cmap)] for i, cluster in enumerate(unique_clusters)}
+
 
         # Mostrar los circuitos por cluster con etiquetas de colores
         st.write("### 🏎️ Clasificación de circuitos por cluster")

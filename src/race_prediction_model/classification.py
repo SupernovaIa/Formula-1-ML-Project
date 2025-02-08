@@ -103,10 +103,10 @@ class ClassificationModels:
         # Default params
         default_params = {
             "logistic_regression": {
-                'penalty': ['l1', 'l2', 'elasticnet', None],
-                'C': [0.01, 0.1, 1, 10, 100],
+                'penalty': ['l1', 'l2', 'elasticnet'],
+                'C': [0.001, 0.01, 0.1, 1, 10, 100],
                 'solver': ['liblinear', 'saga'],
-                'max_iter': [500, 1000]
+                'max_iter': [1000]
             },
             "tree": {
                 'max_depth': [3, 5, 7, 10],
@@ -129,7 +129,7 @@ class ClassificationModels:
                 'subsample': [0.8, 1.0]
             },
             "xgboost": {
-                'n_estimators': [100, 200],
+                'n_estimators': [100, 200, 500],
                 'learning_rate': [0.01, 0.1, 0.2],
                 'max_depth': [3, 4, 5],
                 'min_child_weight': [1, 3, 5],

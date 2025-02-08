@@ -323,7 +323,7 @@ def preprocess(df, encoding_methods, scaling_method, columns_drop=None, target_v
     df_encoded = encoder.df
 
     # Scale the encoded DataFrame
-    df_scaled, scaler = scale_df(df_encoded, df_encoded.columns.to_list(), method=scaling_method)
+    df_scaled, scaler = scale_df(df_encoded, df_encoded.drop(columns=target_variable).columns.to_list(), method=scaling_method, include_others=True)
 
     # Save encoder & scaler
     if save_objects:

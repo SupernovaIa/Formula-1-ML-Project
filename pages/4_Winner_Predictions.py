@@ -81,13 +81,14 @@ df_scaled = pd.DataFrame(df_scaled, columns=df_encoded.columns, index=df_encoded
 
 st.dataframe(df_scaled)
 
-# Make predictions
-#predictions = model.predict(df_scaled_new)
 
 # Prediction
-if st.button("💡 Predict winner"):
+# if st.button("💡 Predict winner"):
 
-    # pred = get_prediction(model, *columns)
-    # Show results
-    st.success(f"💵 Expected winner is: {"Alonso"}")
-    st.balloons()
+# Make predictions
+predictions = model.predict(df_scaled)
+prob = model.predict_proba(df_scaled)
+st.write(predictions, prob)
+# Show results
+st.success(f"💵 Expected winner is: {"Alonso"}")
+# st.balloons()

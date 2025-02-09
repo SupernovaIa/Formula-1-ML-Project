@@ -25,7 +25,6 @@ from src.preprocess import preprocess # Remove this if not needed
 from src.circuit_clustering_model.clustering import *
 
 
-st.session_state.clear()
 
 st.set_page_config(page_title="F1 Season report", page_icon="🏎️", layout="wide")
 st.title("🏎️ Clustering de circuitos WEEEE")
@@ -34,6 +33,7 @@ st.title("🏎️ Clustering de circuitos WEEEE")
 with st.sidebar:
 
     if 'df' not in st.session_state:
+        st.session_state.clear()
         st.session_state.df = None
 
     if 'trained' not in st.session_state:

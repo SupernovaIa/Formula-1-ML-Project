@@ -164,6 +164,7 @@ Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1736243443
 pyparsing==3.2.1
 PyPika==0.48.9
 pyproject_hooks==1.2.0
+pysqlite3==0.5.4
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1733215673016/work
 python-dotenv==1.0.1
 python-json-logger==3.2.1

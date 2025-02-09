@@ -25,7 +25,7 @@ from src.preprocess import preprocess # Remove this if not needed
 from src.circuit_clustering_model.clustering import *
 
 
-
+st.session_state.clear()
 
 st.set_page_config(page_title="F1 Season report", page_icon="🏎️", layout="wide")
 st.title("🏎️ Clustering de circuitos WEEEE")

@@ -192,6 +192,9 @@ def plot_drivers_pace(session, kind='driver', threshold=None, box=False):
     # Convert lap times to seconds for better visualization
     driver_laps['LapTime'] = driver_laps['LapTime'].dt.total_seconds()
 
+    # Convert TimeDeltas to avoid Streamlit deployment issues
+    driver_laps = driver_laps.map(lambda x: x.total_seconds() if isinstance(x, pd.Timedelta) else x)
+
     # Determine coloring and title based on the `kind` argument
     if kind.lower() == 'driver':
         color = "Driver"

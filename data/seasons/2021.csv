@@ -1,0 +1,441 @@
+,constructorName,driverCode,points,grid,position,grid_sprint,position_sprint,delta_sprint,round,race,delta
+0,Mercedes,HAM,25.0,2,1,,,,1,Bahrain,1
+1,Red Bull,VER,18.0,1,2,,,,1,Bahrain,-1
+2,Mercedes,BOT,16.0,3,3,,,,1,Bahrain,0
+3,McLaren,NOR,12.0,7,4,,,,1,Bahrain,3
+4,Red Bull,PER,10.0,0,5,,,,1,Bahrain,-5
+5,Ferrari,LEC,8.0,4,6,,,,1,Bahrain,-2
+6,McLaren,RIC,6.0,6,7,,,,1,Bahrain,-1
+7,Ferrari,SAI,4.0,8,8,,,,1,Bahrain,0
+8,AlphaTauri,TSU,2.0,13,9,,,,1,Bahrain,4
+9,Aston Martin,STR,1.0,10,10,,,,1,Bahrain,0
+10,Alfa Romeo,RAI,0.0,14,11,,,,1,Bahrain,3
+11,Alfa Romeo,GIO,0.0,12,12,,,,1,Bahrain,0
+12,Alpine F1 Team,OCO,0.0,16,13,,,,1,Bahrain,3
+13,Williams,RUS,0.0,15,14,,,,1,Bahrain,1
+14,Aston Martin,VET,0.0,20,15,,,,1,Bahrain,5
+15,Haas F1 Team,MSC,0.0,18,16,,,,1,Bahrain,2
+16,AlphaTauri,GAS,0.0,5,17,,,,1,Bahrain,-12
+17,Williams,LAT,0.0,17,18,,,,1,Bahrain,-1
+18,Alpine F1 Team,ALO,0.0,9,19,,,,1,Bahrain,-10
+19,Haas F1 Team,MAZ,0.0,19,20,,,,1,Bahrain,-1
+0,Red Bull,VER,25.0,3,1,,,,2,Emilia Romagna,2
+1,Mercedes,HAM,19.0,1,2,,,,2,Emilia Romagna,-1
+2,McLaren,NOR,15.0,7,3,,,,2,Emilia Romagna,4
+3,Ferrari,LEC,12.0,4,4,,,,2,Emilia Romagna,0
+4,Ferrari,SAI,10.0,11,5,,,,2,Emilia Romagna,6
+5,McLaren,RIC,8.0,6,6,,,,2,Emilia Romagna,0
+6,AlphaTauri,GAS,6.0,5,7,,,,2,Emilia Romagna,-2
+7,Aston Martin,STR,4.0,10,8,,,,2,Emilia Romagna,2
+8,Alpine F1 Team,OCO,2.0,9,9,,,,2,Emilia Romagna,0
+9,Alpine F1 Team,ALO,1.0,15,10,,,,2,Emilia Romagna,5
+10,Red Bull,PER,0.0,2,11,,,,2,Emilia Romagna,-9
+11,AlphaTauri,TSU,0.0,20,12,,,,2,Emilia Romagna,8
+12,Alfa Romeo,RAI,0.0,16,13,,,,2,Emilia Romagna,3
+13,Alfa Romeo,GIO,0.0,17,14,,,,2,Emilia Romagna,3
+14,Aston Martin,VET,0.0,0,15,,,,2,Emilia Romagna,-15
+15,Haas F1 Team,MSC,0.0,18,16,,,,2,Emilia Romagna,2
+16,Haas F1 Team,MAZ,0.0,19,17,,,,2,Emilia Romagna,2
+17,Mercedes,BOT,0.0,8,18,,,,2,Emilia Romagna,-10
+18,Williams,RUS,0.0,12,19,,,,2,Emilia Romagna,-7
+19,Williams,LAT,0.0,14,20,,,,2,Emilia Romagna,-6
+0,Mercedes,HAM,25.0,2,1,,,,3,Portuguese,1
+1,Red Bull,VER,18.0,3,2,,,,3,Portuguese,1
+2,Mercedes,BOT,16.0,1,3,,,,3,Portuguese,-2
+3,Red Bull,PER,12.0,4,4,,,,3,Portuguese,0
+4,McLaren,NOR,10.0,7,5,,,,3,Portuguese,2
+5,Ferrari,LEC,8.0,8,6,,,,3,Portuguese,2
+6,Alpine F1 Team,OCO,6.0,6,7,,,,3,Portuguese,-1
+7,Alpine F1 Team,ALO,4.0,13,8,,,,3,Portuguese,5
+8,McLaren,RIC,2.0,16,9,,,,3,Portuguese,7
+9,AlphaTauri,GAS,1.0,9,10,,,,3,Portuguese,-1
+10,Ferrari,SAI,0.0,5,11,,,,3,Portuguese,-6
+11,Alfa Romeo,GIO,0.0,12,12,,,,3,Portuguese,0
+12,Aston Martin,VET,0.0,10,13,,,,3,Portuguese,-3
+13,Aston Martin,STR,0.0,17,14,,,,3,Portuguese,3
+14,AlphaTauri,TSU,0.0,14,15,,,,3,Portuguese,-1
+15,Williams,RUS,0.0,11,16,,,,3,Portuguese,-5
+16,Haas F1 Team,MSC,0.0,19,17,,,,3,Portuguese,2
+17,Williams,LAT,0.0,18,18,,,,3,Portuguese,0
+18,Haas F1 Team,MAZ,0.0,20,19,,,,3,Portuguese,1
+19,Alfa Romeo,RAI,0.0,15,20,,,,3,Portuguese,-5
+0,Mercedes,HAM,25.0,1,1,,,,4,Spanish,0
+1,Red Bull,VER,19.0,2,2,,,,4,Spanish,0
+2,Mercedes,BOT,15.0,3,3,,,,4,Spanish,0
+3,Ferrari,LEC,12.0,4,4,,,,4,Spanish,0
+4,Red Bull,PER,10.0,8,5,,,,4,Spanish,3
+5,McLaren,RIC,8.0,7,6,,,,4,Spanish,1
+6,Ferrari,SAI,6.0,6,7,,,,4,Spanish,-1
+7,McLaren,NOR,4.0,9,8,,,,4,Spanish,1
+8,Alpine F1 Team,OCO,2.0,5,9,,,,4,Spanish,-4
+9,AlphaTauri,GAS,1.0,12,10,,,,4,Spanish,2
+10,Aston Martin,STR,0.0,11,11,,,,4,Spanish,0
+11,Alfa Romeo,RAI,0.0,17,12,,,,4,Spanish,5
+12,Aston Martin,VET,0.0,13,13,,,,4,Spanish,0
+13,Williams,RUS,0.0,15,14,,,,4,Spanish,1
+14,Alfa Romeo,GIO,0.0,14,15,,,,4,Spanish,-1
+15,Williams,LAT,0.0,19,16,,,,4,Spanish,3
+16,Alpine F1 Team,ALO,0.0,10,17,,,,4,Spanish,-7
+17,Haas F1 Team,MSC,0.0,18,18,,,,4,Spanish,0
+18,Haas F1 Team,MAZ,0.0,20,19,,,,4,Spanish,1
+19,AlphaTauri,TSU,0.0,16,20,,,,4,Spanish,-4
+0,Red Bull,VER,25.0,2,1,,,,5,Monaco,1
+1,Ferrari,SAI,18.0,4,2,,,,5,Monaco,2
+2,McLaren,NOR,15.0,5,3,,,,5,Monaco,2
+3,Red Bull,PER,12.0,9,4,,,,5,Monaco,5
+4,Aston Martin,VET,10.0,8,5,,,,5,Monaco,3
+5,AlphaTauri,GAS,8.0,6,6,,,,5,Monaco,0
+6,Mercedes,HAM,7.0,7,7,,,,5,Monaco,0
+7,Aston Martin,STR,4.0,13,8,,,,5,Monaco,5
+8,Alpine F1 Team,OCO,2.0,11,9,,,,5,Monaco,2
+9,Alfa Romeo,GIO,1.0,10,10,,,,5,Monaco,0
+10,Alfa Romeo,RAI,0.0,14,11,,,,5,Monaco,3
+11,McLaren,RIC,0.0,12,12,,,,5,Monaco,0
+12,Alpine F1 Team,ALO,0.0,17,13,,,,5,Monaco,4
+13,Williams,RUS,0.0,15,14,,,,5,Monaco,1
+14,Williams,LAT,0.0,18,15,,,,5,Monaco,3
+15,AlphaTauri,TSU,0.0,16,16,,,,5,Monaco,0
+16,Haas F1 Team,MAZ,0.0,19,17,,,,5,Monaco,2
+17,Haas F1 Team,MSC,0.0,20,18,,,,5,Monaco,2
+18,Mercedes,BOT,0.0,3,19,,,,5,Monaco,-16
+19,Ferrari,LEC,0.0,1,20,,,,5,Monaco,-19
+0,Red Bull,PER,25.0,6,1,,,,6,Azerbaijan,5
+1,Aston Martin,VET,18.0,11,2,,,,6,Azerbaijan,9
+2,AlphaTauri,GAS,15.0,4,3,,,,6,Azerbaijan,1
+3,Ferrari,LEC,12.0,1,4,,,,6,Azerbaijan,-3
+4,McLaren,NOR,10.0,9,5,,,,6,Azerbaijan,4
+5,Alpine F1 Team,ALO,8.0,8,6,,,,6,Azerbaijan,2
+6,AlphaTauri,TSU,6.0,7,7,,,,6,Azerbaijan,0
+7,Ferrari,SAI,4.0,5,8,,,,6,Azerbaijan,-3
+8,McLaren,RIC,2.0,13,9,,,,6,Azerbaijan,4
+9,Alfa Romeo,RAI,1.0,14,10,,,,6,Azerbaijan,4
+10,Alfa Romeo,GIO,0.0,20,11,,,,6,Azerbaijan,9
+11,Mercedes,BOT,0.0,10,12,,,,6,Azerbaijan,-2
+12,Haas F1 Team,MSC,0.0,17,13,,,,6,Azerbaijan,4
+13,Haas F1 Team,MAZ,0.0,18,14,,,,6,Azerbaijan,4
+14,Mercedes,HAM,0.0,2,15,,,,6,Azerbaijan,-13
+15,Williams,LAT,0.0,16,16,,,,6,Azerbaijan,0
+16,Williams,RUS,0.0,15,17,,,,6,Azerbaijan,-2
+17,Red Bull,VER,0.0,3,18,,,,6,Azerbaijan,-15
+18,Aston Martin,STR,0.0,19,19,,,,6,Azerbaijan,0
+19,Alpine F1 Team,OCO,0.0,12,20,,,,6,Azerbaijan,-8
+0,Red Bull,VER,26.0,1,1,,,,7,French,0
+1,Mercedes,HAM,18.0,2,2,,,,7,French,0
+2,Red Bull,PER,15.0,4,3,,,,7,French,1
+3,Mercedes,BOT,12.0,3,4,,,,7,French,-1
+4,McLaren,NOR,10.0,8,5,,,,7,French,3
+5,McLaren,RIC,8.0,10,6,,,,7,French,4
+6,AlphaTauri,GAS,6.0,6,7,,,,7,French,-1
+7,Alpine F1 Team,ALO,4.0,9,8,,,,7,French,1
+8,Aston Martin,VET,2.0,12,9,,,,7,French,3
+9,Aston Martin,STR,1.0,19,10,,,,7,French,9
+10,Ferrari,SAI,0.0,5,11,,,,7,French,-6
+11,Williams,RUS,0.0,14,12,,,,7,French,2
+12,AlphaTauri,TSU,0.0,0,13,,,,7,French,-13
+13,Alpine F1 Team,OCO,0.0,11,14,,,,7,French,-3
+14,Alfa Romeo,GIO,0.0,13,15,,,,7,French,-2
+15,Ferrari,LEC,0.0,7,16,,,,7,French,-9
+16,Alfa Romeo,RAI,0.0,17,17,,,,7,French,0
+17,Williams,LAT,0.0,16,18,,,,7,French,-2
+18,Haas F1 Team,MSC,0.0,15,19,,,,7,French,-4
+19,Haas F1 Team,MAZ,0.0,18,20,,,,7,French,-2
+0,Red Bull,VER,25.0,1,1,,,,8,Styrian,0
+1,Mercedes,HAM,19.0,2,2,,,,8,Styrian,0
+2,Mercedes,BOT,15.0,5,3,,,,8,Styrian,2
+3,Red Bull,PER,12.0,4,4,,,,8,Styrian,0
+4,McLaren,NOR,10.0,3,5,,,,8,Styrian,-2
+5,Ferrari,SAI,8.0,12,6,,,,8,Styrian,6
+6,Ferrari,LEC,6.0,7,7,,,,8,Styrian,0
+7,Aston Martin,STR,4.0,9,8,,,,8,Styrian,1
+8,Alpine F1 Team,ALO,2.0,8,9,,,,8,Styrian,-1
+9,AlphaTauri,TSU,1.0,11,10,,,,8,Styrian,1
+10,Alfa Romeo,RAI,0.0,18,11,,,,8,Styrian,7
+11,Aston Martin,VET,0.0,14,12,,,,8,Styrian,2
+12,McLaren,RIC,0.0,13,13,,,,8,Styrian,0
+13,Alpine F1 Team,OCO,0.0,17,14,,,,8,Styrian,3
+14,Alfa Romeo,GIO,0.0,15,15,,,,8,Styrian,0
+15,Haas F1 Team,MSC,0.0,19,16,,,,8,Styrian,3
+16,Williams,LAT,0.0,16,17,,,,8,Styrian,-1
+17,Haas F1 Team,MAZ,0.0,20,18,,,,8,Styrian,2
+18,Williams,RUS,0.0,10,19,,,,8,Styrian,-9
+19,AlphaTauri,GAS,0.0,6,20,,,,8,Styrian,-14
+0,Red Bull,VER,26.0,1,1,,,,9,Austrian,0
+1,Mercedes,BOT,18.0,5,2,,,,9,Austrian,3
+2,McLaren,NOR,15.0,2,3,,,,9,Austrian,-1
+3,Mercedes,HAM,12.0,4,4,,,,9,Austrian,0
+4,Ferrari,SAI,10.0,10,5,,,,9,Austrian,5
+5,Red Bull,PER,8.0,3,6,,,,9,Austrian,-3
+6,McLaren,RIC,6.0,13,7,,,,9,Austrian,6
+7,Ferrari,LEC,4.0,12,8,,,,9,Austrian,4
+8,AlphaTauri,GAS,2.0,6,9,,,,9,Austrian,-3
+9,Alpine F1 Team,ALO,1.0,14,10,,,,9,Austrian,4
+10,Williams,RUS,0.0,8,11,,,,9,Austrian,-3
+11,AlphaTauri,TSU,0.0,7,12,,,,9,Austrian,-5
+12,Aston Martin,STR,0.0,9,13,,,,9,Austrian,-4
+13,Alfa Romeo,GIO,0.0,15,14,,,,9,Austrian,1
+14,Alfa Romeo,RAI,0.0,16,15,,,,9,Austrian,1
+15,Williams,LAT,0.0,18,16,,,,9,Austrian,2
+16,Aston Martin,VET,0.0,11,17,,,,9,Austrian,-6
+17,Haas F1 Team,MSC,0.0,19,18,,,,9,Austrian,1
+18,Haas F1 Team,MAZ,0.0,20,19,,,,9,Austrian,1
+19,Alpine F1 Team,OCO,0.0,17,20,,,,9,Austrian,-3
+0,Mercedes,HAM,27.0,2,1,1.0,2.0,-1.0,10,British,1
+1,Ferrari,LEC,18.0,4,2,4.0,4.0,0.0,10,British,2
+2,Mercedes,BOT,16.0,3,3,3.0,3.0,0.0,10,British,0
+3,McLaren,NOR,12.0,5,4,6.0,5.0,1.0,10,British,1
+4,McLaren,RIC,10.0,6,5,7.0,6.0,1.0,10,British,1
+5,Ferrari,SAI,8.0,10,6,9.0,11.0,-2.0,10,British,4
+6,Alpine F1 Team,ALO,6.0,7,7,11.0,7.0,4.0,10,British,0
+7,Aston Martin,STR,4.0,14,8,15.0,14.0,1.0,10,British,6
+8,Alpine F1 Team,OCO,2.0,9,9,13.0,10.0,3.0,10,British,0
+9,AlphaTauri,TSU,1.0,16,10,16.0,16.0,0.0,10,British,6
+10,AlphaTauri,GAS,0.0,11,11,12.0,12.0,0.0,10,British,0
+11,Williams,RUS,0.0,12,12,8.0,9.0,-1.0,10,British,0
+12,Alfa Romeo,GIO,0.0,15,13,14.0,15.0,-1.0,10,British,2
+13,Williams,LAT,0.0,17,14,18.0,17.0,1.0,10,British,3
+14,Alfa Romeo,RAI,0.0,13,15,17.0,13.0,4.0,10,British,-2
+15,Red Bull,PER,0.0,0,16,5.0,20.0,-15.0,10,British,-16
+16,Haas F1 Team,MAZ,0.0,19,17,20.0,19.0,1.0,10,British,2
+17,Haas F1 Team,MSC,0.0,18,18,19.0,18.0,1.0,10,British,0
+18,Aston Martin,VET,0.0,8,19,10.0,8.0,2.0,10,British,-11
+19,Red Bull,VER,3.0,1,20,2.0,1.0,1.0,10,British,-19
+0,Alpine F1 Team,OCO,25.0,8,1,,,,11,Hungarian,7
+1,Mercedes,HAM,18.0,1,2,,,,11,Hungarian,-1
+2,Ferrari,SAI,15.0,15,3,,,,11,Hungarian,12
+3,Alpine F1 Team,ALO,12.0,9,4,,,,11,Hungarian,5
+4,AlphaTauri,GAS,11.0,5,5,,,,11,Hungarian,0
+5,AlphaTauri,TSU,8.0,16,6,,,,11,Hungarian,10
+6,Williams,LAT,6.0,18,7,,,,11,Hungarian,11
+7,Williams,RUS,4.0,17,8,,,,11,Hungarian,9
+8,Red Bull,VER,2.0,3,9,,,,11,Hungarian,-6
+9,Alfa Romeo,RAI,1.0,13,10,,,,11,Hungarian,3
+10,McLaren,RIC,0.0,11,11,,,,11,Hungarian,0
+11,Haas F1 Team,MSC,0.0,20,12,,,,11,Hungarian,8
+12,Alfa Romeo,GIO,0.0,0,13,,,,11,Hungarian,-13
+13,Haas F1 Team,MAZ,0.0,19,14,,,,11,Hungarian,5
+14,McLaren,NOR,0.0,6,15,,,,11,Hungarian,-9
+15,Mercedes,BOT,0.0,2,16,,,,11,Hungarian,-14
+16,Red Bull,PER,0.0,4,17,,,,11,Hungarian,-13
+17,Ferrari,LEC,0.0,7,18,,,,11,Hungarian,-11
+18,Aston Martin,STR,0.0,12,19,,,,11,Hungarian,-7
+19,Aston Martin,VET,0.0,10,20,,,,11,Hungarian,-10
+0,Red Bull,VER,12.5,1,1,,,,12,Belgian,0
+1,Williams,RUS,9.0,2,2,,,,12,Belgian,0
+2,Mercedes,HAM,7.5,3,3,,,,12,Belgian,0
+3,McLaren,RIC,6.0,4,4,,,,12,Belgian,0
+4,Aston Martin,VET,5.0,5,5,,,,12,Belgian,0
+5,AlphaTauri,GAS,4.0,6,6,,,,12,Belgian,0
+6,Alpine F1 Team,OCO,3.0,8,7,,,,12,Belgian,1
+7,Ferrari,LEC,2.0,9,8,,,,12,Belgian,1
+8,Williams,LAT,1.0,10,9,,,,12,Belgian,1
+9,Ferrari,SAI,0.5,11,10,,,,12,Belgian,1
+10,Alpine F1 Team,ALO,0.0,12,11,,,,12,Belgian,1
+11,Mercedes,BOT,0.0,13,12,,,,12,Belgian,1
+12,Alfa Romeo,GIO,0.0,14,13,,,,12,Belgian,1
+13,McLaren,NOR,0.0,15,14,,,,12,Belgian,1
+14,AlphaTauri,TSU,0.0,16,15,,,,12,Belgian,1
+15,Haas F1 Team,MSC,0.0,17,16,,,,12,Belgian,1
+16,Haas F1 Team,MAZ,0.0,18,17,,,,12,Belgian,1
+17,Alfa Romeo,RAI,0.0,0,18,,,,12,Belgian,-18
+18,Red Bull,PER,0.0,0,19,,,,12,Belgian,-19
+19,Aston Martin,STR,0.0,19,20,,,,12,Belgian,-1
+0,Red Bull,VER,25.0,1,1,,,,13,Dutch,0
+1,Mercedes,HAM,19.0,2,2,,,,13,Dutch,0
+2,Mercedes,BOT,15.0,3,3,,,,13,Dutch,0
+3,AlphaTauri,GAS,12.0,4,4,,,,13,Dutch,0
+4,Ferrari,LEC,10.0,5,5,,,,13,Dutch,0
+5,Alpine F1 Team,ALO,8.0,9,6,,,,13,Dutch,3
+6,Ferrari,SAI,6.0,6,7,,,,13,Dutch,-1
+7,Red Bull,PER,4.0,0,8,,,,13,Dutch,-8
+8,Alpine F1 Team,OCO,2.0,8,9,,,,13,Dutch,-1
+9,McLaren,NOR,1.0,13,10,,,,13,Dutch,3
+10,McLaren,RIC,0.0,10,11,,,,13,Dutch,-1
+11,Aston Martin,STR,0.0,12,12,,,,13,Dutch,0
+12,Aston Martin,VET,0.0,15,13,,,,13,Dutch,2
+13,Alfa Romeo,GIO,0.0,7,14,,,,13,Dutch,-7
+14,Alfa Romeo,KUB,0.0,16,15,,,,13,Dutch,1
+15,Williams,LAT,0.0,0,16,,,,13,Dutch,-16
+16,Williams,RUS,0.0,11,17,,,,13,Dutch,-6
+17,Haas F1 Team,MSC,0.0,17,18,,,,13,Dutch,-1
+18,AlphaTauri,TSU,0.0,14,19,,,,13,Dutch,-5
+19,Haas F1 Team,MAZ,0.0,18,20,,,,13,Dutch,-2
+0,McLaren,RIC,27.0,2,1,5.0,3.0,2.0,14,Italian,1
+1,McLaren,NOR,18.0,3,2,4.0,4.0,0.0,14,Italian,1
+2,Mercedes,BOT,18.0,19,3,1.0,1.0,0.0,14,Italian,16
+3,Ferrari,LEC,12.0,5,4,8.0,6.0,2.0,14,Italian,1
+4,Red Bull,PER,10.0,8,5,9.0,9.0,0.0,14,Italian,3
+5,Ferrari,SAI,8.0,6,6,7.0,7.0,0.0,14,Italian,0
+6,Aston Martin,STR,6.0,9,7,12.0,10.0,2.0,14,Italian,2
+7,Alpine F1 Team,ALO,4.0,10,8,13.0,11.0,2.0,14,Italian,2
+8,Williams,RUS,2.0,14,9,15.0,15.0,0.0,14,Italian,5
+9,Alpine F1 Team,OCO,1.0,12,10,14.0,13.0,1.0,14,Italian,2
+10,Williams,LAT,0.0,13,11,16.0,14.0,2.0,14,Italian,2
+11,Aston Martin,VET,0.0,11,12,11.0,12.0,-1.0,14,Italian,-1
+12,Alfa Romeo,GIO,0.0,7,13,10.0,8.0,2.0,14,Italian,-6
+13,Alfa Romeo,KUB,0.0,17,14,19.0,18.0,1.0,14,Italian,3
+14,Haas F1 Team,MSC,0.0,18,15,18.0,19.0,-1.0,14,Italian,3
+15,Haas F1 Team,MAZ,0.0,16,16,20.0,17.0,3.0,14,Italian,0
+16,Mercedes,HAM,0.0,4,17,2.0,5.0,-3.0,14,Italian,-13
+17,Red Bull,VER,2.0,1,18,3.0,2.0,1.0,14,Italian,-17
+18,AlphaTauri,GAS,0.0,0,19,6.0,20.0,-14.0,14,Italian,-19
+19,AlphaTauri,TSU,0.0,0,20,17.0,16.0,1.0,14,Italian,-20
+0,Mercedes,HAM,25.0,4,1,,,,15,Russian,3
+1,Red Bull,VER,18.0,20,2,,,,15,Russian,18
+2,Ferrari,SAI,15.0,2,3,,,,15,Russian,-1
+3,McLaren,RIC,12.0,5,4,,,,15,Russian,1
+4,Mercedes,BOT,10.0,16,5,,,,15,Russian,11
+5,Alpine F1 Team,ALO,8.0,6,6,,,,15,Russian,0
+6,McLaren,NOR,7.0,1,7,,,,15,Russian,-6
+7,Alfa Romeo,RAI,4.0,13,8,,,,15,Russian,5
+8,Red Bull,PER,2.0,8,9,,,,15,Russian,-1
+9,Williams,RUS,1.0,3,10,,,,15,Russian,-7
+10,Aston Martin,STR,0.0,7,11,,,,15,Russian,-4
+11,Aston Martin,VET,0.0,10,12,,,,15,Russian,-2
+12,AlphaTauri,GAS,0.0,11,13,,,,15,Russian,-2
+13,Alpine F1 Team,OCO,0.0,9,14,,,,15,Russian,-5
+14,Ferrari,LEC,0.0,19,15,,,,15,Russian,4
+15,Alfa Romeo,GIO,0.0,17,16,,,,15,Russian,1
+16,AlphaTauri,TSU,0.0,12,17,,,,15,Russian,-5
+17,Haas F1 Team,MAZ,0.0,15,18,,,,15,Russian,-3
+18,Williams,LAT,0.0,18,19,,,,15,Russian,-1
+19,Haas F1 Team,MSC,0.0,14,20,,,,15,Russian,-6
+0,Mercedes,BOT,26.0,1,1,,,,16,Turkish,0
+1,Red Bull,VER,18.0,2,2,,,,16,Turkish,0
+2,Red Bull,PER,15.0,6,3,,,,16,Turkish,3
+3,Ferrari,LEC,12.0,3,4,,,,16,Turkish,-1
+4,Mercedes,HAM,10.0,11,5,,,,16,Turkish,6
+5,AlphaTauri,GAS,8.0,4,6,,,,16,Turkish,-2
+6,McLaren,NOR,6.0,7,7,,,,16,Turkish,0
+7,Ferrari,SAI,4.0,19,8,,,,16,Turkish,11
+8,Aston Martin,STR,2.0,8,9,,,,16,Turkish,-1
+9,Alpine F1 Team,OCO,1.0,12,10,,,,16,Turkish,2
+10,Alfa Romeo,GIO,0.0,16,11,,,,16,Turkish,5
+11,Alfa Romeo,RAI,0.0,17,12,,,,16,Turkish,5
+12,McLaren,RIC,0.0,20,13,,,,16,Turkish,7
+13,AlphaTauri,TSU,0.0,9,14,,,,16,Turkish,-5
+14,Williams,RUS,0.0,13,15,,,,16,Turkish,-2
+15,Alpine F1 Team,ALO,0.0,5,16,,,,16,Turkish,-11
+16,Williams,LAT,0.0,15,17,,,,16,Turkish,-2
+17,Aston Martin,VET,0.0,10,18,,,,16,Turkish,-8
+18,Haas F1 Team,MSC,0.0,14,19,,,,16,Turkish,-5
+19,Haas F1 Team,MAZ,0.0,18,20,,,,16,Turkish,-2
+0,Red Bull,VER,25.0,1,1,,,,17,United States,0
+1,Mercedes,HAM,19.0,2,2,,,,17,United States,0
+2,Red Bull,PER,15.0,3,3,,,,17,United States,0
+3,Ferrari,LEC,12.0,4,4,,,,17,United States,0
+4,McLaren,RIC,10.0,6,5,,,,17,United States,1
+5,Mercedes,BOT,8.0,9,6,,,,17,United States,3
+6,Ferrari,SAI,6.0,5,7,,,,17,United States,-2
+7,McLaren,NOR,4.0,7,8,,,,17,United States,-1
+8,AlphaTauri,TSU,2.0,10,9,,,,17,United States,1
+9,Aston Martin,VET,1.0,18,10,,,,17,United States,8
+10,Alfa Romeo,GIO,0.0,12,11,,,,17,United States,1
+11,Aston Martin,STR,0.0,13,12,,,,17,United States,1
+12,Alfa Romeo,RAI,0.0,15,13,,,,17,United States,2
+13,Williams,RUS,0.0,20,14,,,,17,United States,6
+14,Williams,LAT,0.0,14,15,,,,17,United States,-1
+15,Haas F1 Team,MSC,0.0,16,16,,,,17,United States,0
+16,Haas F1 Team,MAZ,0.0,17,17,,,,17,United States,0
+17,Alpine F1 Team,ALO,0.0,19,18,,,,17,United States,1
+18,Alpine F1 Team,OCO,0.0,11,19,,,,17,United States,-8
+19,AlphaTauri,GAS,0.0,8,20,,,,17,United States,-12
+0,Red Bull,VER,25.0,3,1,,,,18,Mexico City,2
+1,Mercedes,HAM,18.0,2,2,,,,18,Mexico City,0
+2,Red Bull,PER,15.0,4,3,,,,18,Mexico City,1
+3,AlphaTauri,GAS,12.0,5,4,,,,18,Mexico City,1
+4,Ferrari,LEC,10.0,8,5,,,,18,Mexico City,3
+5,Ferrari,SAI,8.0,6,6,,,,18,Mexico City,0
+6,Aston Martin,VET,6.0,9,7,,,,18,Mexico City,2
+7,Alfa Romeo,RAI,4.0,10,8,,,,18,Mexico City,2
+8,Alpine F1 Team,ALO,2.0,12,9,,,,18,Mexico City,3
+9,McLaren,NOR,1.0,18,10,,,,18,Mexico City,8
+10,Alfa Romeo,GIO,0.0,11,11,,,,18,Mexico City,0
+11,McLaren,RIC,0.0,7,12,,,,18,Mexico City,-5
+12,Alpine F1 Team,OCO,0.0,19,13,,,,18,Mexico City,6
+13,Aston Martin,STR,0.0,20,14,,,,18,Mexico City,6
+14,Mercedes,BOT,0.0,1,15,,,,18,Mexico City,-14
+15,Williams,RUS,0.0,16,16,,,,18,Mexico City,0
+16,Williams,LAT,0.0,13,17,,,,18,Mexico City,-4
+17,Haas F1 Team,MAZ,0.0,15,18,,,,18,Mexico City,-3
+18,Haas F1 Team,MSC,0.0,14,19,,,,18,Mexico City,-5
+19,AlphaTauri,TSU,0.0,17,20,,,,18,Mexico City,-3
+0,Mercedes,HAM,25.0,10,1,20.0,5.0,15.0,19,São Paulo,9
+1,Red Bull,VER,20.0,2,2,1.0,2.0,-1.0,19,São Paulo,0
+2,Mercedes,BOT,18.0,1,3,2.0,1.0,1.0,19,São Paulo,-2
+3,Red Bull,PER,13.0,4,4,3.0,4.0,-1.0,19,São Paulo,0
+4,Ferrari,LEC,10.0,6,5,6.0,7.0,-1.0,19,São Paulo,1
+5,Ferrari,SAI,9.0,3,6,5.0,3.0,2.0,19,São Paulo,-3
+6,AlphaTauri,GAS,6.0,7,7,4.0,8.0,-4.0,19,São Paulo,0
+7,Alpine F1 Team,OCO,4.0,8,8,10.0,9.0,1.0,19,São Paulo,0
+8,Alpine F1 Team,ALO,2.0,12,9,9.0,12.0,-3.0,19,São Paulo,3
+9,McLaren,NOR,1.0,5,10,7.0,6.0,1.0,19,São Paulo,-5
+10,Aston Martin,VET,0.0,9,11,11.0,10.0,1.0,19,São Paulo,-2
+11,Alfa Romeo,RAI,0.0,0,12,13.0,18.0,-5.0,19,São Paulo,-12
+12,Williams,RUS,0.0,17,13,17.0,17.0,0.0,19,São Paulo,4
+13,Alfa Romeo,GIO,0.0,13,14,14.0,13.0,1.0,19,São Paulo,-1
+14,AlphaTauri,TSU,0.0,15,15,12.0,15.0,-3.0,19,São Paulo,0
+15,Williams,LAT,0.0,16,16,16.0,16.0,0.0,19,São Paulo,0
+16,Haas F1 Team,MAZ,0.0,19,17,19.0,20.0,-1.0,19,São Paulo,2
+17,Haas F1 Team,MSC,0.0,18,18,18.0,19.0,-1.0,19,São Paulo,0
+18,McLaren,RIC,0.0,11,19,8.0,11.0,-3.0,19,São Paulo,-8
+19,Aston Martin,STR,0.0,14,20,15.0,14.0,1.0,19,São Paulo,-6
+0,Mercedes,HAM,25.0,1,1,,,,20,Qatar,0
+1,Red Bull,VER,19.0,7,2,,,,20,Qatar,5
+2,Alpine F1 Team,ALO,15.0,3,3,,,,20,Qatar,0
+3,Red Bull,PER,12.0,11,4,,,,20,Qatar,7
+4,Alpine F1 Team,OCO,10.0,9,5,,,,20,Qatar,4
+5,Aston Martin,STR,8.0,12,6,,,,20,Qatar,6
+6,Ferrari,SAI,6.0,5,7,,,,20,Qatar,-2
+7,Ferrari,LEC,4.0,13,8,,,,20,Qatar,5
+8,McLaren,NOR,2.0,4,9,,,,20,Qatar,-5
+9,Aston Martin,VET,1.0,10,10,,,,20,Qatar,0
+10,AlphaTauri,GAS,0.0,2,11,,,,20,Qatar,-9
+11,McLaren,RIC,0.0,14,12,,,,20,Qatar,2
+12,AlphaTauri,TSU,0.0,8,13,,,,20,Qatar,-5
+13,Alfa Romeo,RAI,0.0,16,14,,,,20,Qatar,2
+14,Alfa Romeo,GIO,0.0,18,15,,,,20,Qatar,3
+15,Haas F1 Team,MSC,0.0,19,16,,,,20,Qatar,3
+16,Williams,RUS,0.0,15,17,,,,20,Qatar,-2
+17,Haas F1 Team,MAZ,0.0,20,18,,,,20,Qatar,2
+18,Williams,LAT,0.0,17,19,,,,20,Qatar,-2
+19,Mercedes,BOT,0.0,6,20,,,,20,Qatar,-14
+0,Mercedes,HAM,26.0,1,1,,,,21,Saudi Arabian,0
+1,Red Bull,VER,18.0,3,2,,,,21,Saudi Arabian,1
+2,Mercedes,BOT,15.0,2,3,,,,21,Saudi Arabian,-1
+3,Alpine F1 Team,OCO,12.0,9,4,,,,21,Saudi Arabian,5
+4,McLaren,RIC,10.0,11,5,,,,21,Saudi Arabian,6
+5,AlphaTauri,GAS,8.0,6,6,,,,21,Saudi Arabian,0
+6,Ferrari,LEC,6.0,4,7,,,,21,Saudi Arabian,-3
+7,Ferrari,SAI,4.0,15,8,,,,21,Saudi Arabian,7
+8,Alfa Romeo,GIO,2.0,10,9,,,,21,Saudi Arabian,1
+9,McLaren,NOR,1.0,7,10,,,,21,Saudi Arabian,-3
+10,Aston Martin,STR,0.0,18,11,,,,21,Saudi Arabian,7
+11,Williams,LAT,0.0,16,12,,,,21,Saudi Arabian,4
+12,Alpine F1 Team,ALO,0.0,13,13,,,,21,Saudi Arabian,0
+13,AlphaTauri,TSU,0.0,8,14,,,,21,Saudi Arabian,-6
+14,Alfa Romeo,RAI,0.0,12,15,,,,21,Saudi Arabian,-3
+15,Aston Martin,VET,0.0,17,16,,,,21,Saudi Arabian,1
+16,Red Bull,PER,0.0,5,17,,,,21,Saudi Arabian,-12
+17,Haas F1 Team,MAZ,0.0,20,18,,,,21,Saudi Arabian,2
+18,Williams,RUS,0.0,14,19,,,,21,Saudi Arabian,-5
+19,Haas F1 Team,MSC,0.0,19,20,,,,21,Saudi Arabian,-1
+0,Red Bull,VER,26.0,1,1,,,,22,Abu Dhabi,0
+1,Mercedes,HAM,18.0,2,2,,,,22,Abu Dhabi,0
+2,Ferrari,SAI,15.0,5,3,,,,22,Abu Dhabi,2
+3,AlphaTauri,TSU,12.0,8,4,,,,22,Abu Dhabi,4
+4,AlphaTauri,GAS,10.0,12,5,,,,22,Abu Dhabi,7
+5,Mercedes,BOT,8.0,6,6,,,,22,Abu Dhabi,0
+6,McLaren,NOR,6.0,3,7,,,,22,Abu Dhabi,-4
+7,Alpine F1 Team,ALO,4.0,11,8,,,,22,Abu Dhabi,3
+8,Alpine F1 Team,OCO,2.0,9,9,,,,22,Abu Dhabi,0
+9,Ferrari,LEC,1.0,7,10,,,,22,Abu Dhabi,-3
+10,Aston Martin,VET,0.0,15,11,,,,22,Abu Dhabi,4
+11,McLaren,RIC,0.0,10,12,,,,22,Abu Dhabi,-2
+12,Aston Martin,STR,0.0,13,13,,,,22,Abu Dhabi,0
+13,Haas F1 Team,MSC,0.0,19,14,,,,22,Abu Dhabi,5
+14,Red Bull,PER,0.0,4,15,,,,22,Abu Dhabi,-11
+15,Williams,LAT,0.0,16,16,,,,22,Abu Dhabi,0
+16,Alfa Romeo,GIO,0.0,14,17,,,,22,Abu Dhabi,-3
+17,Williams,RUS,0.0,17,18,,,,22,Abu Dhabi,-1
+18,Alfa Romeo,RAI,0.0,18,19,,,,22,Abu Dhabi,-1
+19,Haas F1 Team,MAZ,0.0,20,20,,,,22,Abu Dhabi,0

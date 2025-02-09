@@ -244,7 +244,7 @@ def plot_drivers_championship(df_results, session, top=None):
         yaxis_title='Cumulative Points',
         legend_title='Driver',
         xaxis=dict(tickmode='array', tickvals=gps),
-        yaxis=dict(gridcolor='lightgray', zerolinecolor='lightgray', tickvals=[i for i in range(0, 500, 50)]),
+        yaxis=dict(gridcolor='lightgray', zerolinecolor='lightgray'),
         template='plotly_dark',
         width=1200,
         height=800  

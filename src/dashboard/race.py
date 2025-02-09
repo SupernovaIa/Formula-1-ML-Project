@@ -190,7 +190,7 @@ def plot_drivers_pace(session, kind='driver', threshold=None, box=False):
     finishing_order = [session.get_driver(i)["Abbreviation"] for i in point_finishers]
 
     # Convert lap times to seconds for better visualization
-    driver_laps['LapTime(s)'] = driver_laps['LapTime'].dt.total_seconds()
+    driver_laps['LapTime'] = driver_laps['LapTime'].dt.total_seconds()
 
     # Determine coloring and title based on the `kind` argument
     if kind.lower() == 'driver':
@@ -207,7 +207,7 @@ def plot_drivers_pace(session, kind='driver', threshold=None, box=False):
     fig = px.violin(
         driver_laps,
         x="Driver",
-        y="LapTime(s)",
+        y="LapTime",
         color=color,
         box=box,
         points='all',

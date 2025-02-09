@@ -1,19 +1,29 @@
+# Web application framework
+# -----------------------------------------------------------------------
 import streamlit as st
+
+# FastF1 data handling
+# -----------------------------------------------------------------------
 import fastf1
-import plotly.express as px
+
+# Data processing
+# -----------------------------------------------------------------------
 import pandas as pd
 
+# Custom modules
+# -----------------------------------------------------------------------
 from src.dashboard.season import *
 
-st.set_page_config(page_title="F1 Season report", page_icon="🏎️", layout="wide")
-st.title("🏎️ Visualizaciones de Carreras de F1 con FastF1 y Plotly")
 
+st.set_page_config(page_title="F1 Season report", page_icon="🏁", layout="wide")
+st.title("🏎️ F1 Season Dashboard")
 
 # Season selection
 with st.sidebar:
     season = st.selectbox("Select a season", list(range(2018, 2025)))
 
     if 'df' not in st.session_state:
+        st.session_state.clear()
         st.session_state.df = None
 
     if 'session' not in st.session_state:
@@ -47,7 +57,6 @@ if st.session_state.df is not None:
         fig = plot_drivers_championship(df_drivers, st.session_state.session, top=10)
         # fig = plot_standings_chart(df_drivers)
         st.plotly_chart(fig)
-
 
     elif viz_type == "Constructors championship":
         df_constructors = get_constructor_championship(st.session_state.df)

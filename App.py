@@ -8,6 +8,12 @@ import os
 import dotenv
 import uuid
 
+# check if it's linux so it works on Streamlit Cloud
+if os.name == 'posix':
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 # LangChain models and schemas
 # -----------------------------------------------------------------------
 from langchain_openai import ChatOpenAI
@@ -42,7 +48,10 @@ if "rag_sources" not in st.session_state:
     st.session_state.rag_sources = []
 
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = [
+        {"role": "user", "content": "Hello"},
+        {"role": "assistant", "content": "Hi there! How can I assist you today?"}
+]
 
 # API Key
 with st.sidebar:

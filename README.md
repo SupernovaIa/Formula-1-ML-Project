@@ -1,6 +1,6 @@
 # Formula 1 Data Analysis and AI Chatbot
 
-## 📜 Project Overview
+## 📜 Project overview
 
 Formula 1 is one of the most competitive and technologically advanced sports in the world. Teams invest millions in collecting, analyzing, and applying detailed data on car performance, driver strategies, and race telemetry. 
 
@@ -34,7 +34,7 @@ Formula 1 is one of the most competitive and technologically advanced sports in 
 
 However, much of this technical information is not effectively communicated to the general public, sports analysts, or potential sponsors, limiting their ability to understand performance insights and justify investments.
 
-## 🔧️ Project Structure
+## 🏛️ Project Structure
 
 ```
 Formula-1-ML-Project
@@ -50,7 +50,7 @@ Formula-1-ML-Project
 ├── README.md   # Project documentation
 ```
 
-## 🔧 Installation and Requirements
+## ⚙ Installation and requirements
 
 This project was developed in Python 3.12. To set it up, follow these steps:
 
@@ -72,7 +72,7 @@ This project was developed in Python 3.12. To set it up, follow these steps:
    streamlit run App.py
    ```
 
-### Required Libraries:
+### Required libraries:
 
 - **OpenAI API Key:** Required for chatbot functionality. ([Documentation](https://platform.openai.com/))
 - **ChromaDB:** Vector database for storing chatbot-related data ([Documentation](https://github.com/chroma-core/chroma)).
@@ -87,7 +87,7 @@ This project was developed in Python 3.12. To set it up, follow these steps:
 - **LangChain:** AI chatbot integration ([Documentation](https://python.langchain.com/))
 - **Streamlit:** Web application framework ([Documentation](https://streamlit.io/))
 
-## 🧬 Next Steps
+## 🚀 Next steps
 
 - Develop a **SQL database** to reduce dependency on FastF1 for data extraction.
 - Improve clustering and classification models with additional data and feature selection.

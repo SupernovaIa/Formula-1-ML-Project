@@ -58,8 +58,13 @@ with col3:
     MeanPreviousPosition = st.number_input("Previous position", min_value=1, max_value=20, value=5, step=1, help="Select the starting position.")
 
 with col4:
-    CurrentDriverWins = st.slider("Current wins", min_value=0, max_value=round_number, value=0, step=1, help="Select the starting position.")
-    CurrentDriverPodiums = st.slider("Current podium", min_value=CurrentDriverWins, max_value=round_number, value=CurrentDriverWins, step=1, help="Select the starting position.")
+    if round_number == 1:
+        CurrentDriverWins, CurrentDriverPodiums = 0, 0
+        st.warning("Current driver wins and podiums are set to 0 in round 1.")
+
+    else:
+        CurrentDriverWins = st.slider("Current wins", min_value=0, max_value=round_number, value=0, step=1, help="Select the starting position.")
+        CurrentDriverPodiums = st.slider("Current podium", min_value=CurrentDriverWins, max_value=round_number, value=CurrentDriverWins, step=1, help="Select the starting position.")
 
 
 new_data = pd.DataFrame({
@@ -90,5 +95,5 @@ predictions = model.predict(df_scaled)
 prob = model.predict_proba(df_scaled)
 st.write(predictions, prob)
 # Show results
-st.success(f"💵 Expected winner is: {"Alonso"}")
+st.success(f"Expected winner is: {"Alonso"}")
 # st.balloons()

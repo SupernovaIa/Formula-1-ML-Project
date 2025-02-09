@@ -1,27 +1,39 @@
+# Web application framework
+# -----------------------------------------------------------------------
 import streamlit as st
+
+# FastF1 data handling
+# -----------------------------------------------------------------------
 import fastf1
-import plotly.express as px
+
+# Data processing
+# -----------------------------------------------------------------------
 import pandas as pd
 
+# Custom modules
+# -----------------------------------------------------------------------
 from src.dashboard.race import *
 
-st.set_page_config(page_title="F1 Race report", page_icon="🏎️", layout="wide")
-st.title("🏎️ Visualizaciones de Carreras de F1 con FastF1 y Plotly")
+
+st.set_page_config(page_title="F1 Race report", page_icon="🏁", layout="wide")
+st.title("🏎️ F1 Grand Prix Dashboard")
 
 # Load available data
-df = pd.read_csv('data/output/races.csv')
+if 'df' not in st.session_state:
+    st.session_state.clear()
+    st.session_state.df = pd.read_csv('data/output/races.csv')
 
 # Season and round selection
 with st.sidebar:
     year = st.selectbox("Select a season", list(range(2018, 2025)))
 
     # Set a maximum
-    max_ = df[df['season'] == year]['round'].max()
+    max_ = st.session_state.df[st.session_state.df['season'] == year]['round'].max()
 
     round_number = st.number_input(f"Round number", min_value=1, max_value=max_, step=1)
 
     # Display circuit id
-    circuit_id = df[(df['season'] == year) & (df['round'] == round_number)]['circuitId'].values[0]
+    circuit_id = st.session_state.df[(st.session_state.df['season'] == year) & (st.session_state.df['round'] == round_number)]['circuitId'].values[0]
     st.write("You selected:", circuit_id)
 
     # Session selection (either race or qualy)
@@ -41,28 +53,25 @@ if st.session_state.session is not None:
     if session == 'Qualifying':
 
         with st.sidebar:
-            options = ["Qualy results", "Telemetry", "Lap comparison"]
-            viz_type = st.selectbox("Selecciona el tipo de visualización", options)
+            options = ["Qualy results", "Pole lap telemetry", "Lap comparison"]
+            viz_type = st.selectbox("Select the type of visualization.", options)
 
         if viz_type == "Qualy results":
-
             df = get_qualy_results(st.session_state.session)
             st.dataframe(df)
 
             fig = plot_fastest_laps(st.session_state.session)
             st.plotly_chart(fig)
 
-        elif viz_type == "Telemetry":
+        elif viz_type == "Pole lap telemetry":
             st.plotly_chart(draw_track(st.session_state.session))
             fig = plot_telemetry(st.session_state.session)
             st.plotly_chart(fig)
 
         elif viz_type == "Lap comparison":
             res = st.session_state.session.results
-            mode = st.selectbox("Select visualization type", ['Speed', 'RPM', 'Throttle'])
+            mode = st.selectbox("Select visualization type", ['Speed', 'Throttle'])
             st.plotly_chart(plot_telemetry(st.session_state.session, mode, drivers=res['Abbreviation'].to_list()))
-
-        
 
     elif session == 'Race':
 
@@ -71,7 +80,6 @@ if st.session_state.session is not None:
             viz_type = st.selectbox("Selecciona el tipo de visualización", options)
 
         if viz_type == "Results":
-
             df = get_race_results(st.session_state.session).reset_index(drop=True)
             st.dataframe(df)
 
@@ -98,6 +106,5 @@ if st.session_state.session is not None:
             st.plotly_chart(fig)
 
         elif viz_type == "Tyre strategies":
-        
             fig = plot_tyre_strat(st.session_state.session)
             st.plotly_chart(fig)

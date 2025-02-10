@@ -19,21 +19,21 @@ st.set_page_config(page_title="F1 Race report", page_icon="🏁", layout="wide")
 st.title("🏎️ F1 Grand Prix Dashboard")
 
 # Load available data
-if 'df' not in st.session_state:
+if 'df_race' not in st.session_state:
     st.session_state.clear()
-    st.session_state.df = pd.read_csv('data/output/races.csv')
+    st.session_state.df_race = pd.read_csv('data/output/races.csv')
 
 # Season and round selection
 with st.sidebar:
     year = st.selectbox("Select a season", list(range(2018, 2025)))
 
     # Set a maximum
-    max_ = st.session_state.df[st.session_state.df['season'] == year]['round'].max()
+    max_ = st.session_state.df_race[st.session_state.df_race['season'] == year]['round'].max()
 
     round_number = st.number_input(f"Round number", min_value=1, max_value=max_, step=1)
 
     # Display circuit id
-    circuit_id = st.session_state.df[(st.session_state.df['season'] == year) & (st.session_state.df['round'] == round_number)]['circuitId'].values[0]
+    circuit_id = st.session_state.df_race[(st.session_state.df_race['season'] == year) & (st.session_state.df_race['round'] == round_number)]['circuitId'].values[0]
     st.write("You selected:", circuit_id)
 
     # Session selection (either race or qualy)

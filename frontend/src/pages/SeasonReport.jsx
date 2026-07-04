@@ -1,7 +1,8 @@
 import { useState } from "react";
 import AsyncSection from "../components/AsyncSection";
-import PlotlyChart from "../components/PlotlyChart";
+import EChart from "../components/EChart";
 import { useAsync } from "../hooks/useAsync";
+import { multiLineOption } from "../lib/plotlyAdapters";
 import { getConstructorsChampionship, getDriversChampionship } from "../api/client";
 
 const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i);
@@ -56,12 +57,12 @@ export default function SeasonReport() {
 
           {vizType === "Drivers championship" && (
             <AsyncSection loading={drivers.loading} error={drivers.error}>
-              <PlotlyChart figure={drivers.data} />
+              <EChart option={drivers.data && multiLineOption(drivers.data)} />
             </AsyncSection>
           )}
           {vizType === "Constructors championship" && (
             <AsyncSection loading={constructors.loading} error={constructors.error}>
-              <PlotlyChart figure={constructors.data} />
+              <EChart option={constructors.data && multiLineOption(constructors.data)} />
             </AsyncSection>
           )}
         </>

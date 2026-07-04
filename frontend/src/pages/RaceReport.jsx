@@ -1,8 +1,17 @@
 import { useState } from "react";
 import AsyncSection from "../components/AsyncSection";
-import PlotlyChart from "../components/PlotlyChart";
+import EChart from "../components/EChart";
 import { useAsync } from "../hooks/useAsync";
 import { humanizeHeader, humanizeSlug } from "../utils/format";
+import {
+  barOption,
+  multiLineOption,
+  paceBoxplotOption,
+  scatterGroupsOption,
+  telemetryOption,
+  trackOption,
+  tyreStrategyOption,
+} from "../lib/plotlyAdapters";
 import {
   getDriverPace,
   getFastestLaps,
@@ -166,22 +175,32 @@ export default function RaceReport() {
 
           {loaded.sessionType === "Race" && vizType === "Results" && <RaceResults loaded={loaded} />}
           {loaded.sessionType === "Race" && vizType === "Position changes" && (
-            <SingleChart fetcher={() => getPositionChanges(loaded.year, loaded.round, loaded.sessionType)} deps={[loaded]} />
+            <SingleChart
+              fetcher={() => getPositionChanges(loaded.year, loaded.round, loaded.sessionType)}
+              deps={[loaded]}
+              adapter={multiLineOption}
+            />
           )}
           {loaded.sessionType === "Race" && vizType === "Driver Pace" && selectedDriver && (
             <SingleChart
               fetcher={() => getDriverPace(loaded.year, loaded.round, loaded.sessionType, selectedDriver, threshold)}
               deps={[loaded, selectedDriver, threshold]}
+              adapter={scatterGroupsOption}
             />
           )}
           {loaded.sessionType === "Race" && vizType === "Pace" && (
             <SingleChart
               fetcher={() => getPace(loaded.year, loaded.round, loaded.sessionType, paceKind, threshold, box)}
               deps={[loaded, paceKind, threshold, box]}
+              adapter={paceBoxplotOption}
             />
           )}
           {loaded.sessionType === "Race" && vizType === "Tyre strategies" && (
-            <SingleChart fetcher={() => getTyreStrategy(loaded.year, loaded.round, loaded.sessionType)} deps={[loaded]} />
+            <SingleChart
+              fetcher={() => getTyreStrategy(loaded.year, loaded.round, loaded.sessionType)}
+              deps={[loaded]}
+              adapter={tyreStrategyOption}
+            />
           )}
         </>
       )}
@@ -189,11 +208,11 @@ export default function RaceReport() {
   );
 }
 
-function SingleChart({ fetcher, deps }) {
+function SingleChart({ fetcher, deps, adapter }) {
   const { data, loading, error } = useAsync(fetcher, deps);
   return (
     <AsyncSection loading={loading} error={error}>
-      <PlotlyChart figure={data} />
+      <EChart option={data && adapter(data)} />
     </AsyncSection>
   );
 }
@@ -226,7 +245,7 @@ function QualyResults({ loaded }) {
         <ResultsTable rows={results.data} />
       </AsyncSection>
       <AsyncSection loading={chart.loading} error={chart.error}>
-        <PlotlyChart figure={chart.data} />
+        <EChart option={chart.data && barOption(chart.data)} />
       </AsyncSection>
     </>
   );
@@ -238,10 +257,10 @@ function PoleLapTelemetry({ loaded }) {
   return (
     <>
       <AsyncSection loading={track.loading} error={track.error}>
-        <PlotlyChart figure={track.data} />
+        <EChart option={track.data && trackOption(track.data)} />
       </AsyncSection>
       <AsyncSection loading={telemetry.loading} error={telemetry.error}>
-        <PlotlyChart figure={telemetry.data} />
+        <EChart option={telemetry.data && telemetryOption(telemetry.data)} />
       </AsyncSection>
     </>
   );
@@ -255,7 +274,7 @@ function LapComparison({ loaded, mode, drivers }) {
   );
   return (
     <AsyncSection loading={loading} error={error}>
-      <PlotlyChart figure={data} />
+      <EChart option={data && telemetryOption(data)} />
     </AsyncSection>
   );
 }
@@ -269,7 +288,7 @@ function RaceResults({ loaded }) {
         <ResultsTable rows={results.data} />
       </AsyncSection>
       <AsyncSection loading={chart.loading} error={chart.error}>
-        <PlotlyChart figure={chart.data} />
+        <EChart option={chart.data && barOption(chart.data)} />
       </AsyncSection>
     </>
   );

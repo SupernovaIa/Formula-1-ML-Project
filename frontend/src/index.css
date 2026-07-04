@@ -357,7 +357,7 @@ button:active {
 }
 
 /* Charts always sit in a dark telemetry-style panel, independent of the
-   site theme — see PlotlyChart.jsx. */
+   site theme — see EChart.jsx. */
 .chart-panel {
   position: relative;
   background: var(--header-bg);

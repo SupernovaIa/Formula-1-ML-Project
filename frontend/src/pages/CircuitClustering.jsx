@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
 import AsyncSection from "../components/AsyncSection";
-import PlotlyChart from "../components/PlotlyChart";
+import EChart from "../components/EChart";
 import { useAsync } from "../hooks/useAsync";
+import { axis } from "../lib/echartsTheme";
+import { categoryBarOption, radarOption, scatterGroupsOption } from "../lib/plotlyAdapters";
 import {
   getClusterAssignments,
   getClusterMeanPlot,
@@ -33,27 +35,25 @@ export default function CircuitClustering() {
     return [...silhouette.data].sort((a, b) => b.silhouette_score - a.silhouette_score).slice(0, 3);
   }, [silhouette.data]);
 
-  const silhouetteFigure = useMemo(() => {
+  const silhouetteOption = useMemo(() => {
     if (!silhouette.data) return null;
+    const topKs = new Set(top3.map((d) => d.k));
     return {
-      data: [
+      title: { text: "Selection of the Top 3 k by Silhouette Score" },
+      legend: false,
+      grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
+      xAxis: axis({ type: "category", data: silhouette.data.map((d) => d.k), name: "Number of clusters (k)" }),
+      yAxis: axis({ type: "value", name: "Silhouette Score" }),
+      series: [
         {
-          x: silhouette.data.map((d) => d.k),
-          y: silhouette.data.map((d) => d.silhouette_score),
-          type: "scatter",
-          mode: "lines+markers",
-          name: "Silhouette Score",
-        },
-        {
-          x: top3.map((d) => d.k),
-          y: top3.map((d) => d.silhouette_score),
-          type: "scatter",
-          mode: "markers",
-          marker: { size: 10, color: "red" },
-          name: "Top 3",
+          type: "line",
+          data: silhouette.data.map((d) => ({
+            value: d.silhouette_score,
+            itemStyle: topKs.has(d.k) ? { color: "#ff5a52" } : undefined,
+            symbolSize: topKs.has(d.k) ? 12 : 6,
+          })),
         },
       ],
-      layout: { title: "Selection of the Top 3 k by Silhouette Score." },
     };
   }, [silhouette.data, top3]);
 
@@ -91,7 +91,7 @@ export default function CircuitClustering() {
       {started && (
         <>
           <AsyncSection loading={silhouette.loading} error={silhouette.error}>
-            <PlotlyChart figure={silhouetteFigure} />
+            <EChart option={silhouetteOption} />
             <div className="top-k-strip">
               {top3.map((t, i) => (
                 <div className="top-k-card" key={t.k}>
@@ -189,22 +189,22 @@ export default function CircuitClustering() {
 
           {vizType === "Clusters" && (
             <AsyncSection loading={meanPlot.loading} error={meanPlot.error}>
-              <PlotlyChart figure={meanPlot.data} />
+              <EChart option={meanPlot.data && categoryBarOption(meanPlot.data)} />
             </AsyncSection>
           )}
           {vizType === "Scatter" && (
             <AsyncSection loading={scatterPlot.loading} error={scatterPlot.error}>
-              <PlotlyChart figure={scatterPlot.data} />
+              <EChart option={scatterPlot.data && scatterGroupsOption(scatterPlot.data)} />
             </AsyncSection>
           )}
           {vizType === "Radar" && (
             <AsyncSection loading={radarPlot.loading} error={radarPlot.error}>
-              <PlotlyChart figure={radarPlot.data} />
+              <EChart option={radarPlot.data && radarOption(radarPlot.data)} />
             </AsyncSection>
           )}
           {vizType === "PCA" && (
             <AsyncSection loading={pcaPlot.loading} error={pcaPlot.error}>
-              <PlotlyChart figure={pcaPlot.data} />
+              <EChart option={pcaPlot.data && scatterGroupsOption(pcaPlot.data)} />
             </AsyncSection>
           )}
         </>

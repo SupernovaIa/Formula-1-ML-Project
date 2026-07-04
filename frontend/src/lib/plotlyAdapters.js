@@ -275,6 +275,7 @@ export function paceBoxplotOption(figure, { showPoints = false } = {}) {
 
   const boxSeries = {
     type: "boxplot",
+    z: 2,
     data: boxData.map((d, i) => ({
       value: d,
       // Solid color for both fill and border made the box/whiskers/median
@@ -288,12 +289,18 @@ export function paceBoxplotOption(figure, { showPoints = false } = {}) {
     ? figure.data.map((trace, i) => ({
         type: "scatter",
         name: `${drivers[i]} laps`,
-        symbolSize: 6,
-        itemStyle: { color: colors[i], opacity: 0.6 },
+        symbolSize: 7,
+        itemStyle: {
+          color: colors[i],
+          opacity: 0.85,
+          borderColor: "rgba(255,255,255,0.7)",
+          borderWidth: 1,
+        },
+        emphasis: { itemStyle: { opacity: 1, borderColor: "#fff", borderWidth: 1.5 } },
         tooltip: { show: false },
-        z: 3,
+        z: 4,
         // jitter around the category so overlapping laps don't stack in a line
-        data: trace.y.map((v) => [i + (Math.random() - 0.5) * 0.5, v]),
+        data: trace.y.map((v) => [i + (Math.random() - 0.5) * 0.3, v]),
       }))
     : [];
 

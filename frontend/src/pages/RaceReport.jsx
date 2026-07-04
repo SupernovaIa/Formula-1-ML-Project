@@ -69,7 +69,7 @@ export default function RaceReport() {
             min={1}
             max={maxRound}
             value={roundNumber}
-            onChange={(e) => setRoundNumber(Number(e.target.value))}
+            onChange={(e) => setRoundNumber(Math.max(1, Number(e.target.value) || 1))}
           />
         </label>
 

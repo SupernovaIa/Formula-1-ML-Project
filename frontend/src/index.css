@@ -4,7 +4,7 @@
   --surface-alt: #eae9e5;
   --border: #dcdad4;
   --text: #14151a;
-  --text-muted: #6b6d76;
+  --text-muted: #595b64;
 
   --accent: #6c3ce9;
   --accent-strong: #501fc7;
@@ -67,7 +67,7 @@
   --surface-alt: #eae9e5;
   --border: #dcdad4;
   --text: #14151a;
-  --text-muted: #6b6d76;
+  --text-muted: #595b64;
 
   --accent: #6c3ce9;
   --accent-strong: #501fc7;
@@ -238,6 +238,17 @@ label {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-muted);
+}
+
+/* Checkbox labels read "[x] Boxplot" inline, not stacked like a field label. */
+label:has(> input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
 select,
@@ -510,6 +521,10 @@ tbody tr:hover {
   font-size: 1rem;
 }
 
+.result-body {
+  flex: 1;
+}
+
 .result::before {
   font-family: var(--font-mono);
   font-weight: 700;
@@ -573,26 +588,21 @@ tbody tr:hover {
 }
 
 .stat-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  background: var(--header-bg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: color-mix(in srgb, var(--header-text) 12%, var(--header-bg));
   border-radius: 4px;
   margin-bottom: 28px;
   overflow: hidden;
 }
 
 .stat {
-  flex: 1 1 140px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 18px 22px;
-  border-right: 1px solid color-mix(in srgb, var(--header-text) 12%, transparent);
-}
-
-.stat:last-child {
-  border-right: none;
+  background: var(--header-bg);
 }
 
 .stat-value {

@@ -100,7 +100,7 @@ export default function WinnerPrediction() {
             min={1}
             max={maxRound}
             value={roundNumber}
-            onChange={(e) => setRoundNumber(Number(e.target.value))}
+            onChange={(e) => setRoundNumber(Math.max(1, Number(e.target.value) || 1))}
           />
         </label>
         {entrants?.circuit_id && <span className="chip">{humanizeSlug(entrants.circuit_id)}</span>}
@@ -201,7 +201,7 @@ export default function WinnerPrediction() {
           const outcome = prediction.data.predicted_winner ? "success" : "failure";
           return (
             <div className={`result ${outcome}`}>
-              <div style={{ flex: 1 }}>
+              <div className="result-body">
                 <span>
                   {prediction.data.predicted_winner
                     ? "Expected victory"

@@ -11,6 +11,7 @@ import {
   getClusteringColumns,
   getSilhouetteScores,
 } from "../api/client";
+import { humanizeSlug } from "../utils/format";
 
 const VIZ_OPTIONS = ["Clusters", "Scatter", "Radar", "PCA"];
 
@@ -91,12 +92,15 @@ export default function CircuitClustering() {
         <>
           <AsyncSection loading={silhouette.loading} error={silhouette.error}>
             <PlotlyChart figure={silhouetteFigure} />
-            <p>📌 Top 3 k values by Silhouette Score:</p>
-            <ul>
-              {top3.map((t) => (
-                <li key={t.k}>k={t.k} — Silhouette Score: {t.silhouette_score.toFixed(3)}</li>
+            <div className="top-k-strip">
+              {top3.map((t, i) => (
+                <div className="top-k-card" key={t.k}>
+                  <span className="top-k-rank">#{i + 1}</span>
+                  <span className="top-k-value">k = {t.k}</span>
+                  <span className="top-k-score">{t.silhouette_score.toFixed(3)}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </AsyncSection>
 
           <div className="controls-row">
@@ -120,7 +124,7 @@ export default function CircuitClustering() {
                 .sort((a, b) => a.cluster - b.cluster)
                 .map((row) => (
                   <span key={row.index} className={`badge cluster-${row.cluster % 10}`}>
-                    {row.index.replaceAll("_", " ")} (Cluster {row.cluster})
+                    {humanizeSlug(row.index)} (Cluster {row.cluster})
                   </span>
                 ))}
             </div>

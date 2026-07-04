@@ -3,6 +3,7 @@ import AsyncSection from "../components/AsyncSection";
 import { useAsync } from "../hooks/useAsync";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { getRoundEntrants, getSeasonRounds, predictWinner } from "../api/client";
+import { humanizeSlug } from "../utils/format";
 
 const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i);
 
@@ -102,7 +103,7 @@ export default function WinnerPrediction() {
             onChange={(e) => setRoundNumber(Number(e.target.value))}
           />
         </label>
-        {entrants?.circuit_id && <span className="hint">Circuit: {entrants.circuit_id}</span>}
+        {entrants?.circuit_id && <span className="chip">{humanizeSlug(entrants.circuit_id)}</span>}
       </div>
 
       <h2>🔧 Features</h2>
@@ -195,13 +196,25 @@ export default function WinnerPrediction() {
       </div>
 
       <AsyncSection loading={prediction.loading} error={prediction.error}>
-        {prediction.data && (
-          <p className={prediction.data.predicted_winner ? "result success" : "result failure"}>
-            {prediction.data.predicted_winner
-              ? `Expected victory with a probability of ${(prediction.data.win_probability * 100).toFixed(2)}%!`
-              : `The probability of winning is only ${(prediction.data.win_probability * 100).toFixed(2)}%`}
-          </p>
-        )}
+        {prediction.data && (() => {
+          const pct = prediction.data.win_probability * 100;
+          const outcome = prediction.data.predicted_winner ? "success" : "failure";
+          return (
+            <div className={`result ${outcome}`}>
+              <div style={{ flex: 1 }}>
+                <span>
+                  {prediction.data.predicted_winner
+                    ? "Expected victory"
+                    : "Unlikely to win"}
+                </span>
+                <div className="probability-track">
+                  <div className={`probability-fill ${outcome}`} style={{ width: `${pct}%` }} />
+                </div>
+              </div>
+              <span className="result-value">{pct.toFixed(1)}%</span>
+            </div>
+          );
+        })()}
       </AsyncSection>
     </div>
   );

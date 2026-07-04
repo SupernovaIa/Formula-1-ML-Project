@@ -2,7 +2,7 @@ import { useState } from "react";
 import AsyncSection from "../components/AsyncSection";
 import PlotlyChart from "../components/PlotlyChart";
 import { useAsync } from "../hooks/useAsync";
-import { humanizeHeader } from "../utils/format";
+import { humanizeHeader, humanizeSlug } from "../utils/format";
 import {
   getDriverPace,
   getFastestLaps,
@@ -73,7 +73,7 @@ export default function RaceReport() {
           />
         </label>
 
-        {circuitId && <span className="hint">Circuit: {circuitId}</span>}
+        {circuitId && <span className="chip">{humanizeSlug(circuitId)}</span>}
 
         <label>
           Session

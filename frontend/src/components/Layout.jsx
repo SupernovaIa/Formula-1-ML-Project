@@ -1,28 +1,32 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const NAV_ITEMS = [
-  { to: "/race-report", label: "Race Report" },
-  { to: "/season-report", label: "Season Report" },
-  { to: "/circuit-clustering", label: "Circuit Clustering" },
-  { to: "/winner-prediction", label: "Winner Prediction" },
+  { to: "/race-report", icon: "🏁", label: "Race Report" },
+  { to: "/season-report", icon: "🏆", label: "Season Report" },
+  { to: "/circuit-clustering", icon: "🧭", label: "Circuit Clustering" },
+  { to: "/winner-prediction", icon: "🔮", label: "Winner Prediction" },
 ];
 
 export default function Layout() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <span className="app-title">🏎️ Formula 1 ML Project</span>
-        <nav className="app-nav">
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+        <div className="app-header-inner">
+          <NavLink to="/" className="app-title" end>
+            🏎️ Formula 1 ML
+          </NavLink>
+          <nav className="app-nav">
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+              >
+                <span aria-hidden="true">{item.icon}</span> {item.label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
       </header>
       <main className="app-content">
         <Outlet />

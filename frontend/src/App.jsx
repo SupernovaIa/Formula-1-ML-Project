@@ -1,5 +1,6 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
+import Home from "./pages/Home";
 import RaceReport from "./pages/RaceReport";
 import SeasonReport from "./pages/SeasonReport";
 import CircuitClustering from "./pages/CircuitClustering";
@@ -10,7 +11,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Navigate to="/race-report" replace />} />
+          <Route index element={<Home />} />
           <Route path="/race-report" element={<RaceReport />} />
           <Route path="/season-report" element={<SeasonReport />} />
           <Route path="/circuit-clustering" element={<CircuitClustering />} />

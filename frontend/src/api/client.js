@@ -3,8 +3,14 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
 async function request(path, options) {
   const response = await fetch(`${BASE_URL}${path}`, options);
   if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`${response.status} ${response.statusText}: ${detail}`);
+    let message = response.statusText;
+    try {
+      const body = await response.json();
+      message = body.detail ?? message;
+    } catch {
+      // Non-JSON error body (e.g. network-level failure) — fall back to statusText.
+    }
+    throw new Error(message);
   }
   return response.json();
 }

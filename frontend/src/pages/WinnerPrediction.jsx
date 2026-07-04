@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AsyncSection from "../components/AsyncSection";
 import { useAsync } from "../hooks/useAsync";
+import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { getRoundEntrants, getSeasonRounds, predictWinner } from "../api/client";
 
 const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i);
@@ -41,29 +42,38 @@ export default function WinnerPrediction() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roundNumber, currentDriverWins]);
 
+  // Debounce the continuous inputs (sliders/number fields) so dragging doesn't
+  // fire a request per pixel — the UI itself stays responsive, only the API
+  // call waits for things to settle.
+  const debouncedGridPosition = useDebouncedValue(gridPosition);
+  const debouncedMeanPreviousGrid = useDebouncedValue(meanPreviousGrid);
+  const debouncedMeanPreviousPosition = useDebouncedValue(meanPreviousPosition);
+  const debouncedCurrentDriverWins = useDebouncedValue(currentDriverWins);
+  const debouncedCurrentDriverPodiums = useDebouncedValue(currentDriverPodiums);
+
   const prediction = useAsync(
     () =>
       predictWinner({
         driver_id: driverId,
         team_id: teamId,
         circuit_id: entrants?.circuit_id,
-        grid_position: gridPosition,
+        grid_position: debouncedGridPosition,
         round_number: roundNumber,
-        mean_previous_grid: meanPreviousGrid,
-        mean_previous_position: meanPreviousPosition,
-        current_driver_wins: currentDriverWins,
-        current_driver_podiums: currentDriverPodiums,
+        mean_previous_grid: debouncedMeanPreviousGrid,
+        mean_previous_position: debouncedMeanPreviousPosition,
+        current_driver_wins: debouncedCurrentDriverWins,
+        current_driver_podiums: debouncedCurrentDriverPodiums,
       }),
     [
       driverId,
       teamId,
       entrants,
-      gridPosition,
+      debouncedGridPosition,
       roundNumber,
-      meanPreviousGrid,
-      meanPreviousPosition,
-      currentDriverWins,
-      currentDriverPodiums,
+      debouncedMeanPreviousGrid,
+      debouncedMeanPreviousPosition,
+      debouncedCurrentDriverWins,
+      debouncedCurrentDriverPodiums,
     ],
     Boolean(driverId && teamId && entrants?.circuit_id)
   );

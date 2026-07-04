@@ -692,6 +692,9 @@ def plot_results(session):
     results = session.results
     results = results[results['Time'].notna()].copy().reset_index(drop=True)
 
+    if results.empty:
+        raise ValueError("No classified results with recorded time deltas for this session.")
+
     # Winner has a 0 delta time
     results.loc[0, 'Time'] = pd.Timedelta(0)
 

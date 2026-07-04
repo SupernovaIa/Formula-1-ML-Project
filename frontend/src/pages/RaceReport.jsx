@@ -2,6 +2,7 @@ import { useState } from "react";
 import AsyncSection from "../components/AsyncSection";
 import PlotlyChart from "../components/PlotlyChart";
 import { useAsync } from "../hooks/useAsync";
+import { humanizeHeader } from "../utils/format";
 import {
   getDriverPace,
   getFastestLaps,
@@ -84,6 +85,8 @@ export default function RaceReport() {
 
         <button onClick={handleLoad}>Load Data</button>
       </div>
+
+      {!loaded && <p className="status-text">Pick a season, round and session, then load the data.</p>}
 
       {loaded && (
         <>
@@ -202,7 +205,7 @@ function ResultsTable({ rows }) {
     <div className="table-wrap">
       <table>
         <thead>
-          <tr>{columns.map((c) => <th key={c}>{c}</th>)}</tr>
+          <tr>{columns.map((c) => <th key={c}>{humanizeHeader(c)}</th>)}</tr>
         </thead>
         <tbody>
           {rows.map((row, i) => (

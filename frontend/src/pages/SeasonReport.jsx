@@ -39,6 +39,8 @@ export default function SeasonReport() {
         <button onClick={() => setLoadedSeason(season)}>Load Data</button>
       </div>
 
+      {!loadedSeason && <p className="status-text">Pick a season, then load the data.</p>}
+
       {loadedSeason && (
         <>
           <div className="controls-row">

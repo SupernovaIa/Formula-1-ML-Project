@@ -32,6 +32,13 @@ def results(year: int, round_number: int, session_type: str):
     return df_to_records(df)
 
 
+@router.get("/drivers")
+def drivers(year: int, round_number: int, session_type: str):
+    session = get_session(year, round_number, session_type)
+    df = session.results[["Abbreviation", "FullName"]].reset_index(drop=True)
+    return df_to_records(df)
+
+
 @router.get("/fastest-laps")
 def fastest_laps(year: int, round_number: int, session_type: str):
     session = get_session(year, round_number, session_type)

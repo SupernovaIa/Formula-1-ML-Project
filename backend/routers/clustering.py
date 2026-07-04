@@ -31,6 +31,12 @@ def _fit(n_clusters: int) -> tuple[pd.DataFrame, pd.DataFrame]:
     return df, df_kmeans
 
 
+@router.get("/columns")
+def columns():
+    df, _ = _load_data()
+    return {"all": df.columns.tolist(), "clustering_features": FEATURES}
+
+
 @router.get("/silhouette-scores")
 def silhouette_scores(k_min: int = 2, k_max: int = 12):
     _, df_kmeans = _load_data()

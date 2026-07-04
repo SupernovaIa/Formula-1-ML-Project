@@ -30,10 +30,6 @@ This will help engage fans and enrich sports narratives by providing a clearer u
 - Retrieves information from transcribed F1-related videos to answer user queries.
 - Currently supports data from the **2024 Australian Grand Prix** as a proof of concept.
 
-Formula 1 is one of the most competitive and technologically advanced sports in the world. Teams invest millions in collecting, analyzing, and applying detailed data on car performance, driver strategies, and race telemetry. 
-
-However, much of this technical information is not effectively communicated to the general public, sports analysts, or potential sponsors, limiting their ability to understand performance insights and justify investments.
-
 ## 🏛️ Project Structure
 
 ```
@@ -44,15 +40,18 @@ Formula-1-ML-Project
 ├── notebook/   # Jupyter Notebooks for EDA and modeling
 ├── pages/      # Streamlit application pages
 ├── src/        # Source code for data processing and model execution
-├── .env        # Environment variables
+├── .env        # Environment variables (not tracked, see .env.example)
+├── .env.example  # Template for required environment variables
 ├── .gitignore  # Git ignore file
-├── App.py      # Main entry point for the Streamlit application
+├── app.py      # Main entry point for the Streamlit application
+├── pyproject.toml  # Project metadata and dependencies (uv)
 ├── README.md   # Project documentation
 ```
 
 ## ⚙ Installation and requirements
 
-This project was developed in Python 3.12. To set it up, follow these steps:
+This project was developed in Python 3.12 and uses [`uv`](https://docs.astral.sh/uv/)
+for dependency management. To set it up, follow these steps:
 
 1. Clone the repository:
    ```bash
@@ -60,17 +59,20 @@ This project was developed in Python 3.12. To set it up, follow these steps:
    ```
 2. Navigate to the project directory:
    ```bash
-   cd F1-Data-Analysis-Project
+   cd Formula-1-ML-Project
    ```
-3. Install the required dependencies:
+3. Install the dependencies:
    ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
 4. Run the notebooks for data extraction, data analysis and machine learning models.
 5. Launch the Streamlit dashboard:
    ```bash
-   streamlit run App.py
+   uv run streamlit run app.py
    ```
+
+> **macOS note:** `xgboost` needs the OpenMP runtime, which doesn't ship with the
+> Python package. Install it once with `brew install libomp`.
 
 ### Required libraries:
 

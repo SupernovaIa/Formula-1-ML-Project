@@ -1,0 +1,35 @@
+[project]
+name = "formula-1-ml-project"
+version = "0.1.0"
+description = "Formula 1 data analysis, ML models and AI chatbot"
+requires-python = "==3.12.*"
+dependencies = [
+    "category_encoders==2.8.0",
+    "chromadb==0.5.3",
+    "fastf1==3.4.4",
+    "joblib==1.4.2",
+    "langchain==0.3.18",
+    "langchain-community==0.3.17",
+    "langchain-core==0.3.34",
+    "langchain-openai==0.3.4",
+    "matplotlib==3.10.0",
+    "numpy==1.26.4",
+    "pandas==2.2.3",
+    "plotly==5.24.1",
+    "pysqlite3-binary; sys_platform == 'linux'",
+    "python-dotenv==1.0.1",
+    "ratelimit==2.2.1",
+    "scikit-learn==1.6.1",
+    "scipy==1.15.1",
+    "seaborn==0.13.2",
+    "shap==0.46.0",
+    "streamlit==1.42.0",
+    "tqdm==4.67.1",
+    "xgboost==2.1.4",
+    "yellowbrick==1.5",
+]
+
+[dependency-groups]
+dev = [
+    "jupyterlab==4.3.4",
+]

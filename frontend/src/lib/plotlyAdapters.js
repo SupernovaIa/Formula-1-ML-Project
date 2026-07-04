@@ -94,8 +94,8 @@ export function scatterGroupsOption(figure) {
   return {
     title: { text: titleOf(figure) },
     grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
-    xAxis: axis({ type: "value", name: figure.layout?.xaxis?.title?.text }),
-    yAxis: axis({ type: "value", name: figure.layout?.yaxis?.title?.text }),
+    xAxis: axis({ type: "value", scale: true, name: figure.layout?.xaxis?.title?.text }),
+    yAxis: axis({ type: "value", scale: true, name: figure.layout?.yaxis?.title?.text }),
     series,
   };
 }
@@ -139,8 +139,8 @@ export function trackOption(figure) {
     title: { text: titleOf(figure) },
     legend: false,
     grid: { top: 56, right: 24, bottom: 24, left: 24, containLabel: true },
-    xAxis: axis({ type: "value", show: false }),
-    yAxis: axis({ type: "value", show: false }),
+    xAxis: axis({ type: "value", scale: true, show: false }),
+    yAxis: axis({ type: "value", scale: true, show: false }),
     series: [
       {
         type: "line",
@@ -182,8 +182,8 @@ export function telemetryOption(figure) {
   return {
     title: { text: titleOf(figure) },
     grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
-    xAxis: axis({ type: "value", name: "Distance" }),
-    yAxis: axis({ type: "value" }),
+    xAxis: axis({ type: "value", scale: true, name: "Distance" }),
+    yAxis: axis({ type: "value", scale: true }),
     series: driverLines.map((trace, i) => ({
       type: "line",
       name: trace.name,
@@ -254,8 +254,10 @@ export function tyreStrategyOption(figure) {
 
 // px.violin(..., box=True): approximate as an ECharts boxplot (median/
 // quartiles/whiskers) — the density silhouette itself is dropped since
-// ECharts has no built-in violin series.
-export function paceBoxplotOption(figure) {
+// ECharts has no built-in violin series. Optionally overlay every raw lap
+// time as a jittered point per category, which is what the violin's
+// `points: 'all'` gave you for free.
+export function paceBoxplotOption(figure, { showPoints = false } = {}) {
   function quartiles(values) {
     const sorted = [...values].sort((a, b) => a - b);
     const q = (p) => {
@@ -271,17 +273,36 @@ export function paceBoxplotOption(figure) {
   const boxData = figure.data.map((t) => quartiles(t.y));
   const colors = figure.data.map((t) => t.marker?.color);
 
+  const boxSeries = {
+    type: "boxplot",
+    data: boxData.map((d, i) => ({
+      value: d,
+      // Solid color for both fill and border made the box/whiskers/median
+      // invisible against their own fill — translucent fill + solid
+      // border of the same color keeps the internal structure visible.
+      itemStyle: { color: `${colors[i]}33`, borderColor: colors[i], borderWidth: 2 },
+    })),
+  };
+
+  const pointSeries = showPoints
+    ? figure.data.map((trace, i) => ({
+        type: "scatter",
+        name: `${drivers[i]} laps`,
+        symbolSize: 6,
+        itemStyle: { color: colors[i], opacity: 0.6 },
+        tooltip: { show: false },
+        z: 3,
+        // jitter around the category so overlapping laps don't stack in a line
+        data: trace.y.map((v) => [i + (Math.random() - 0.5) * 0.5, v]),
+      }))
+    : [];
+
   return {
     title: { text: titleOf(figure) },
     legend: false,
     grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
-    xAxis: axis({ type: "category", data: drivers }),
-    yAxis: axis({ type: "value", name: "Lap time (s)" }),
-    series: [
-      {
-        type: "boxplot",
-        data: boxData.map((d, i) => ({ value: d, itemStyle: { color: colors[i], borderColor: colors[i] } })),
-      },
-    ],
+    xAxis: axis({ type: "category", data: drivers, boundaryGap: true }),
+    yAxis: axis({ type: "value", scale: true, name: "Lap time (s)" }),
+    series: [boxSeries, ...pointSeries],
   };
 }

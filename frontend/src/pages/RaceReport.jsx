@@ -40,7 +40,7 @@ export default function RaceReport() {
   const [selectedDriver, setSelectedDriver] = useState("");
   const [paceKind, setPaceKind] = useState("driver");
   const [threshold, setThreshold] = useState(1.07);
-  const [box, setBox] = useState(false);
+  const [showPoints, setShowPoints] = useState(false);
 
   const { data: rounds } = useAsync(() => getSeasonRounds(year), [year]);
   const circuitId = rounds?.find((r) => r.round === roundNumber)?.circuit_id;
@@ -156,8 +156,8 @@ export default function RaceReport() {
                   </select>
                 </label>
                 <label>
-                  <input type="checkbox" checked={box} onChange={(e) => setBox(e.target.checked)} />
-                  Boxplot
+                  <input type="checkbox" checked={showPoints} onChange={(e) => setShowPoints(e.target.checked)} />
+                  Show individual laps
                 </label>
               </>
             )}
@@ -190,9 +190,9 @@ export default function RaceReport() {
           )}
           {loaded.sessionType === "Race" && vizType === "Pace" && (
             <SingleChart
-              fetcher={() => getPace(loaded.year, loaded.round, loaded.sessionType, paceKind, threshold, box)}
-              deps={[loaded, paceKind, threshold, box]}
-              adapter={paceBoxplotOption}
+              fetcher={() => getPace(loaded.year, loaded.round, loaded.sessionType, paceKind, threshold)}
+              deps={[loaded, paceKind, threshold]}
+              adapter={(data) => paceBoxplotOption(data, { showPoints })}
             />
           )}
           {loaded.sessionType === "Race" && vizType === "Tyre strategies" && (

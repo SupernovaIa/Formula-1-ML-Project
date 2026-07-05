@@ -37,8 +37,12 @@ tests against the real committed `data/`/`model/` artifacts, no mocks). It
 deliberately excludes anything marked `integration` (see `pyproject.toml`) -
 those hit live FastF1/Ergast and can be slow or flaky by nature of depending
 on an external service; run them explicitly with `pytest -m integration`.
-GitHub Actions (`.github/workflows/ci.yml`) runs the default suite plus the
-frontend build/lint on every push/PR to `main`.
+`uv run ruff check .` lints `src/`/`backend/`/`scripts/`/`tests/` (pyflakes +
+basic pycodestyle - real bugs, not style/formatting); `notebook/` is excluded
+since it's exploratory by design (star imports and execution-order-dependent
+names ruff can't make sense of). GitHub Actions (`.github/workflows/ci.yml`)
+runs ruff + the default pytest suite, plus the frontend build/lint, on every
+push/PR to `main`.
 
 When you change something:
 

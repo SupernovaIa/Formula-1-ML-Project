@@ -42,12 +42,13 @@ Notebooks for data extraction, EDA and model training live in `notebook/`
 ## Testing
 
 ```bash
+uv run ruff check .          # lint src/ + backend/ + scripts/ + tests/
 uv run pytest                # src/ + backend unit/API tests, no network needed
 uv run pytest -m integration # also exercises live FastF1/Ergast-backed routes
 ```
 
-CI (GitHub Actions) runs the default suite plus `npm run build`/`npm run lint`
-on every push/PR to `main`.
+CI (GitHub Actions) runs ruff + the default pytest suite, plus
+`npm run build`/`npm run lint`, on every push/PR to `main`.
 
 ## Author
 

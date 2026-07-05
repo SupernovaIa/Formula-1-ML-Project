@@ -32,13 +32,29 @@ macOS: `xgboost` needs `brew install libomp` (not a Python package).
 
 ## Verifying changes
 
-There's no test suite yet. When you change something:
+`uv run pytest` runs the suite in `tests/` (`src/` unit tests + backend API
+tests against the real committed `data/`/`model/` artifacts, no mocks). It
+deliberately excludes anything marked `integration` (see `pyproject.toml`) -
+those hit live FastF1/Ergast and can be slow or flaky by nature of depending
+on an external service; run them explicitly with `pytest -m integration`.
+GitHub Actions (`.github/workflows/ci.yml`) runs the default suite plus the
+frontend build/lint on every push/PR to `main`.
 
-- **Backend/`src/` logic**: smoke-test with `curl` against the running
-  server using real data (a specific year/round that's known to work, e.g.
-  `2023`/`1`), not mocks — this codebase has real data-quality gaps (missing
-  fields for some sessions, circuits absent from the clustering dataset,
-  etc.) that only show up against actual FastF1 responses.
+When you change something:
+
+- **`src/` logic**: add/update a unit test in `tests/` with small synthetic
+  data (see `tests/test_preprocess.py` for the pattern) - fast, deterministic,
+  no network.
+- **Backend routes that don't touch live FastF1** (`clustering`, `predictions`,
+  `reference`, `chat`'s error paths): add a `TestClient` test in
+  `tests/backend/`, same idea.
+- **Backend routes that do** (`races`, `seasons`, `chat`'s happy path): these
+  stay manual/`integration`-marked. Smoke-test with `curl` against the
+  running server using real data (a specific year/round that's known to
+  work, e.g. `2023`/`1`), not mocks — this codebase has real data-quality
+  gaps (missing fields for some sessions, circuits absent from the
+  clustering dataset, etc.) that only show up against actual FastF1
+  responses.
 - **Frontend**: `npm run build` (catches import/syntax errors) and
   `npm run lint`. There's no browser automation available in this
   environment — after a UI change, say so explicitly and ask for a visual

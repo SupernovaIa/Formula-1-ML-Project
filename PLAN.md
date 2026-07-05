@@ -29,6 +29,19 @@ with a working UI again. Dependency management runs on `uv`.
   Winner Prediction), talking to the backend over HTTP. `streamlit` is no longer
   a dependency.
 
+**Testing & CI.** ✅ Done — added a `pytest` suite (`tests/`) covering `src/`
+business logic (encoding, scaling, feature engineering, classifier
+determinism) with small synthetic data, plus `TestClient` tests for the
+backend routes that don't need live network (`clustering`, `predictions`,
+`reference`, `chat`'s error paths) against the real committed
+`data/`/`model/` artifacts — no mocks. Routes that do need live FastF1/Ergast
+(`races`, `seasons`) are covered too, but marked `integration` and excluded
+by default (`pytest -m integration` to run them) since Ergast itself is
+observed to intermittently time out independent of which race is requested —
+not something a CI gate should depend on. Added `.github/workflows/ci.yml`:
+runs the default suite plus `npm run build`/`npm run lint` on every push/PR
+to `main`.
+
 **Reproducible data/model pipeline.** ✅ Done — added `scripts/build_pipeline.py`,
 a staged, idempotent CLI that codifies the sequence that used to live only in
 the order of the `A1`/`A2`/`B1`/`B2` notebooks (extraction → feature

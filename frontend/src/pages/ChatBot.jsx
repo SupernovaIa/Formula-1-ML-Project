@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { streamChat } from "../api/client";
 
-const MODELS = ["gpt-4o-mini", "gpt-4o"];
+const MODEL = "gpt-5.4-mini";
 
 const WELCOME = {
   role: "assistant",
@@ -11,7 +11,6 @@ const WELCOME = {
 export default function ChatBot() {
   const [messages, setMessages] = useState([WELCOME]);
   const [input, setInput] = useState("");
-  const [model, setModel] = useState(MODELS[0]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const bottomRef = useRef(null);
@@ -32,7 +31,7 @@ export default function ChatBot() {
     setError(null);
 
     try {
-      const stream = await streamChat(history, model);
+      const stream = await streamChat(history, MODEL);
       const reader = stream.getReader();
       const decoder = new TextDecoder();
 
@@ -59,17 +58,6 @@ export default function ChatBot() {
   return (
     <div className="page">
       <h1>🏎️ F1 Chatbot</h1>
-
-      <div className="controls-row">
-        <label>
-          Model
-          <select value={model} onChange={(e) => setModel(e.target.value)}>
-            {MODELS.map((m) => (
-              <option key={m} value={m}>{m}</option>
-            ))}
-          </select>
-        </label>
-      </div>
 
       <div className="chat-window">
         {messages.map((m, i) => (

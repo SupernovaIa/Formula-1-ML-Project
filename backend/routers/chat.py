@@ -29,7 +29,7 @@ class ChatMessage(BaseModel):
 
 class ChatRequest(BaseModel):
     messages: list[ChatMessage]
-    model: str = "gpt-4o-mini"
+    model: str = "gpt-5.4-mini"
 
 
 @router.post("")

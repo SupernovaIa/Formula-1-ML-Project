@@ -64,11 +64,11 @@ class ClassificationModels:
 
         # Models and results
         self.models = {
-            "logistic_regression": LogisticRegression(),
-            "tree": DecisionTreeClassifier(),
-            "random_forest": RandomForestClassifier(),
-            "gradient_boosting": GradientBoostingClassifier(),
-            "xgboost": xgb.XGBClassifier()
+            "logistic_regression": LogisticRegression(random_state=seed),
+            "tree": DecisionTreeClassifier(random_state=seed),
+            "random_forest": RandomForestClassifier(random_state=seed),
+            "gradient_boosting": GradientBoostingClassifier(random_state=seed),
+            "xgboost": xgb.XGBClassifier(random_state=seed)
         }
         self.results = {model_name: {"best_model": None, "pred_train": None, "pred_test": None, "time": None} for model_name in self.models}
    

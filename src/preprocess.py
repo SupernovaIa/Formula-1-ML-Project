@@ -1,5 +1,6 @@
-# Data processing  
+# Data processing
 # -----------------------------------------------------------------------
+import os
 import pandas as pd
 import numpy as np
 
@@ -322,12 +323,15 @@ def preprocess(df, encoding_methods, scaling_method, columns_drop=None, target_v
 
     df_encoded = encoder.df
 
-    # Scale the encoded DataFrame
-    df_scaled, scaler = scale_df(df_encoded, df_encoded.drop(columns=target_variable).columns.to_list(), method=scaling_method, include_others=True)
+    # Scale the encoded DataFrame (every column except the target, if any)
+    scale_cols = df_encoded.columns.drop(target_variable) if target_variable else df_encoded.columns
+    df_scaled, scaler = scale_df(df_encoded, scale_cols.to_list(), method=scaling_method, include_others=True)
 
     # Save encoder & scaler
     if save_objects:
-        joblib.dump(encoder, "../model/encoder.pkl")
-        joblib.dump(scaler, "../model/scaler.pkl")
+        model_dir = os.path.join('..', 'model') if 'notebook' in os.getcwd() else 'model'
+        os.makedirs(model_dir, exist_ok=True)
+        joblib.dump(encoder, os.path.join(model_dir, 'encoder.pkl'))
+        joblib.dump(scaler, os.path.join(model_dir, 'scaler.pkl'))
 
     return df_encoded, df_scaled

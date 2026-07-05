@@ -29,6 +29,40 @@ with a working UI again. Dependency management runs on `uv`.
   Winner Prediction), talking to the backend over HTTP. `streamlit` is no longer
   a dependency.
 
+**Reproducible data/model pipeline.** ✅ Done — added `scripts/build_pipeline.py`,
+a staged, idempotent CLI that codifies the sequence that used to live only in
+the order of the `A1`/`A2`/`B1`/`B2` notebooks (extraction → feature
+engineering → preprocessing → training). Each stage skips if its output file
+already exists, so running it doesn't silently re-hit FastF1/Ergast; raw
+extraction only runs on a missing file or `--force-extract`, while
+`--force` alone recomputes just the cheap, deterministic stages (feature
+engineering, preprocessing, training). The notebooks stay as-is for EDA and
+model comparison — the script only encodes the choices already made there
+(7-cluster K-Means features, minmax scaling, final XGBoost). Verified by
+running it for real: the clustering stages reproduce the committed
+`featured_circuits_complete.csv`/`circuits_scaled.csv` bit-for-bit (floating
+point noise aside), and the classification stages reproduce
+`featured_results.csv` exactly and train a working model end to end
+(confirmed via a live `/predictions/winner` call).
+
+Fixed two related bugs found while building this: `src/preprocess.py`'s
+`save_objects` and `src/race_prediction_model/classification.py`'s
+`fit_model` both hardcoded `../model/...` paths that only worked when run
+from inside `notebook/` — now they use the same cwd-aware pattern already
+used in `src/*/extract.py`. Also fixed a `preprocess()` crash when called
+without a `target_variable` (the clustering pipeline's exact call pattern) —
+`df.drop(columns=None)` raises in the installed pandas version instead of
+being a no-op.
+
+**Known caveat:** a full retrain via the script's `classification-train`
+stage doesn't reproduce the exact same hyperparameters as the currently
+committed `model/best_model.pkl` — `ClassificationModels`'s `XGBClassifier()`
+has no fixed `random_state`, so its own internal randomness (not the
+train/test split, which is seeded) makes `GridSearchCV` pick slightly
+different "best" hyperparameters across runs even on identical data.
+Pre-existing behavior, not something this change introduced; worth a
+`random_state` fix later if bit-for-bit model reproducibility ever matters.
+
 **Trade-off from dropping Streamlit (resolved):** the chatbot (`src/rag.py`) only
 ever had a Streamlit UI (`app.py`, now removed) and was tightly coupled to
 `st.session_state`. It wasn't ported at the time — that rework is now done, see

@@ -1,3 +1,29 @@
+def team_id_replacement(df):
+    """
+    Normalizes historical team IDs to their current successor entity, so a
+    team's results carry over across rebrands/buyouts (e.g. Renault -> Alpine).
+
+    Parameters
+    -----------
+    - df (pd.DataFrame): DataFrame containing a 'TeamId' column. Modified in place.
+    """
+
+    replacements = {
+        'sauber': 'alfa',
+        'alfa': 'alfa',
+        'force_india': 'aston_martin',
+        'racing_point': 'aston_martin',
+        'renault': 'alpine',
+        'lotus_f1': 'alpine',
+        'lotus_racing': 'caterham',
+        'virgin': 'manor',
+        'marussia': 'manor',
+        'toro_rosso': 'rb',
+        'alphatauri': 'rb',
+    }
+    df['TeamId'] = df['TeamId'].replace(replacements)
+
+
 def add_features_to_results(df, window=3):
     """
     Enhances a race results DataFrame by adding statistical features such as 

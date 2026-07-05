@@ -1,7 +1,8 @@
-# Data processing  
-# -----------------------------------------------------------------------  
-import pandas as pd  
-import numpy as np  
+# Data processing
+# -----------------------------------------------------------------------
+import os
+import pandas as pd
+import numpy as np
 
 # Visualization  
 # -----------------------------------------------------------------------  
@@ -162,7 +163,9 @@ class ClassificationModels:
         self.results[model_name]["pred_test"] = grid_search.best_estimator_.predict(self.X_test)
 
         # Save model
-        with open(f'../model/{file_name}.pkl', 'wb') as f:
+        model_dir = os.path.join('..', 'model') if 'notebook' in os.getcwd() else 'model'
+        os.makedirs(model_dir, exist_ok=True)
+        with open(os.path.join(model_dir, f'{file_name}.pkl'), 'wb') as f:
             pickle.dump(grid_search.best_estimator_, f)
 
 

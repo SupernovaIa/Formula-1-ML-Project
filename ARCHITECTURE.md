@@ -32,6 +32,24 @@ Plotly `Figure` objects — written for the original notebooks and reused as-is.
 If you're improving models or features, this is the only place to touch —
 `backend/` should never grow business logic of its own.
 
+### `scripts/` — reproducing the data and models
+
+`notebook/`'s `A1`→`A2` (clustering) and `B1`→`B2` (classification) pairs are
+real EDA/model-comparison notebooks — they call into `src/`, not the other
+way around (see `notebook/README.md`) — but the *order* to run them in, and
+which choices from that exploration actually made it into production data,
+used to live only in the notebook filenames and a human's memory.
+`scripts/build_pipeline.py` codifies that: a staged CLI
+(extract → engineer features → preprocess → train) that reproduces
+`data/output/*.csv`, `data/preprocessed/circuits_scaled.csv` and
+`model/*.pkl` from scratch. Each stage is idempotent (skipped if its output
+file already exists) since raw extraction hits FastF1/Ergast over the
+network and can be slow — `--force` recomputes only the cheap deterministic
+stages, `--force-extract` opts into re-extracting from the network too. The
+notebooks remain the right place for anything exploratory (trying other
+clustering algorithms, comparing classifiers); the script only encodes the
+winning choices already made there.
+
 ## `backend/` — REST API
 
 FastAPI app that imports `src/` functions and exposes them over HTTP. Rule of

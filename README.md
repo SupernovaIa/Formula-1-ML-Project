@@ -31,6 +31,11 @@ Open `http://localhost:5173`.
 Everything works without any further setup except the chatbot, which needs an
 OpenAI API key: `cp .env.example .env` and fill in `OPENAI_API_KEY`.
 
+The data and models the dashboard reads (`data/output/`, `data/preprocessed/`,
+`model/`) are checked in, so none of the above regenerates them. To rebuild
+them from scratch (or after a feature-engineering change), see
+`scripts/build_pipeline.py`.
+
 Notebooks for data extraction, EDA and model training live in `notebook/`
 (see `notebook/README.md` for methodology).
 

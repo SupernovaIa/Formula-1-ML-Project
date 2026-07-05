@@ -25,8 +25,11 @@ export function useAsync(fetcher, deps, enabled = true) {
     return () => {
       cancelled = true;
     };
+    // `enabled` has to be in the dep array too, not just `deps` - otherwise
+    // flipping enabled from false to true (e.g. switching tabs) without any
+    // of `deps` also changing never re-runs the fetch.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, [...deps, enabled]);
 
   return state;
 }

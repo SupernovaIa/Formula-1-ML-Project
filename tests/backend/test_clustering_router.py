@@ -31,6 +31,20 @@ def test_assignments_returns_a_cluster_label_per_circuit():
     assert {row["cluster"] for row in rows} <= set(range(7))
 
 
+def test_assignments_returns_raw_feature_values_not_scaled():
+    # Regression test: this endpoint used to return the MinMax-scaled
+    # (0-1) features used for fitting instead of real km/h/proportions,
+    # which is misleading for anything displaying them (e.g. the frontend's
+    # circuit cards). avg_speed for a real F1 circuit is in the low
+    # hundreds of km/h, never <= 1.
+    response = client.get("/clustering/assignments", params={"n_clusters": 7})
+
+    rows = response.json()
+    assert all(row["avg_speed"] > 100 for row in rows)
+    assert all(0.0 <= row["straight_prop"] <= 1.0 for row in rows)
+    assert all(0.0 <= row["slow_corners_prop"] <= 1.0 for row in rows)
+
+
 def test_assignments_is_deterministic_for_a_given_n_clusters():
     first = client.get("/clustering/assignments", params={"n_clusters": 7}).json()
     second = client.get("/clustering/assignments", params={"n_clusters": 7}).json()

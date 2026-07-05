@@ -49,8 +49,11 @@ def silhouette_scores(k_min: int = 2, k_max: int = 12):
 
 @router.get("/assignments")
 def assignments(n_clusters: int = 7):
-    _, df_kmeans = _fit(n_clusters)
-    return df_to_records(df_kmeans.reset_index())
+    # Raw (unscaled) feature values - the model itself still fits on the
+    # scaled ones (see _fit), but callers displaying these want real
+    # km/h and proportions, not MinMax-scaled 0-1 ranks.
+    df, _ = _fit(n_clusters)
+    return df_to_records(df[FEATURES + ["cluster"]].reset_index())
 
 
 @router.get("/plot/mean-by-cluster")

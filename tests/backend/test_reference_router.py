@@ -41,3 +41,29 @@ def test_entrants_unknown_round_returns_none_circuit_and_empty_lists():
     assert body["circuit_id"] is None
     assert body["drivers"] == []
     assert body["teams"] == []
+
+
+def test_driver_form_returns_engineered_features_for_a_known_race():
+    # 2023 round 1: Verstappen started and won from pole, fresh season so
+    # current wins/podiums reset to 0 - a good fixed point to assert against.
+    response = client.get("/reference/seasons/2023/rounds/1/drivers/max_verstappen/form")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["team_id"] == "red_bull"
+    assert body["grid_position"] == 1
+    assert body["current_driver_wins"] == 0
+    assert body["current_driver_podiums"] == 0
+    assert body["actual_position"] == 1
+    assert body["actual_winner"] is True
+    assert isinstance(body["mean_previous_grid"], float)
+
+
+def test_driver_form_unknown_driver_is_404():
+    response = client.get("/reference/seasons/2023/rounds/1/drivers/not_a_real_driver/form")
+    assert response.status_code == 404
+
+
+def test_driver_form_unknown_round_is_404():
+    response = client.get("/reference/seasons/2023/rounds/999/drivers/max_verstappen/form")
+    assert response.status_code == 404

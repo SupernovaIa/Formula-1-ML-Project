@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from backend.routers import clustering, predictions, races, reference, seasons
+from backend.routers import chat, clustering, predictions, races, reference, seasons
 
 app = FastAPI(title="Formula 1 ML Project API")
 
@@ -26,6 +26,7 @@ app.include_router(seasons.router)
 app.include_router(clustering.router)
 app.include_router(predictions.router)
 app.include_router(reference.router)
+app.include_router(chat.router)
 
 
 @app.get("/health")

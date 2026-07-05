@@ -4,8 +4,8 @@
 
 Working pipeline covering EDA, circuit clustering (K-Means, 7 clusters), race-winner
 classification (XGBoost, 97.4% accuracy), a React + Vite dashboard on top of a
-FastAPI backend, and a RAG chatbot (proof of concept, 2024 Australian GP only,
-currently **without a UI** — see below). Dependency management runs on `uv`.
+FastAPI backend, and a RAG chatbot (proof of concept, 2024 Australian GP only)
+with a working UI again. Dependency management runs on `uv`.
 
 ## Priorities
 
@@ -15,7 +15,7 @@ currently **without a UI** — see below). Dependency management runs on `uv`.
 | 2 | Replace the dashboard: new frontend, drop Streamlit | **High** | ✅ Done |
 | 3 | SQL database layer (stop depending on live FastF1 calls) | Medium | Not started |
 | 4 | Expand prediction to more race variables | Medium | Not started |
-| 5 | Chatbot: new pass on scope and architecture (not just "add more docs") | Medium | Not started — no UI right now |
+| 5 | Chatbot: new pass on scope and architecture (not just "add more docs") | Medium | ✅ Done — see below |
 | 6 | Refresh data with 2025 / 2026 seasons | Low | Not started |
 
 ## Cross-cutting architecture work
@@ -29,12 +29,32 @@ currently **without a UI** — see below). Dependency management runs on `uv`.
   Winner Prediction), talking to the backend over HTTP. `streamlit` is no longer
   a dependency.
 
-**Trade-off from dropping Streamlit:** the chatbot (`src/rag.py`) only ever had a
-Streamlit UI (`app.py`, now removed) and is tightly coupled to
-`st.session_state`. It wasn't ported — it needs the scope/architecture rework
-from item 5 regardless, so porting it as-is would've been throwaway work. The
-logic stays in `src/rag.py` as a reference for that rework; there's no working
-chatbot UI until then.
+**Trade-off from dropping Streamlit (resolved):** the chatbot (`src/rag.py`) only
+ever had a Streamlit UI (`app.py`, now removed) and was tightly coupled to
+`st.session_state`. It wasn't ported at the time — that rework is now done, see
+below.
+
+**Chatbot rework (item 5), done:** rewrote `src/rag.py` to drop all Streamlit
+coupling. Key simplification: the vector DB is the same for every user (one
+fixed document corpus), so there's no need for per-session state at all — it's
+built once (lazily, on first request) and reused, and conversation history is
+stateless (the frontend sends the full message array each turn, like the
+OpenAI chat API, instead of a server-side session). Added `backend/routers/chat.py`
+(`POST /chat`, streaming response, backend's own `OPENAI_API_KEY`) and a new
+`frontend/src/pages/ChatBot.jsx`. Verified end-to-end with a real API key:
+correct answers grounded in the doc, correctly declines out-of-scope questions
+instead of hallucinating, follow-up questions resolve via conversation history.
+Scope unchanged — still just the 2024 Australian GP doc; adding more races is
+now purely a data task (drop more `.txt`/`.md` files in `docs/`), no code changes
+needed.
+
+**Known rough edge:** the system prompt instructs the model to reply in the
+question's language, which works reliably for in-scope answers, but for
+out-of-scope questions the model's "I don't have information on that" reply
+sometimes mirrors the context document's language (Spanish) instead of the
+question's language, even after two rounds of strengthening the prompt
+instruction. Cosmetic only — it still correctly declines to fabricate an
+answer — not worth chasing further for a single-document proof of concept.
 
 **Bug fixed during the backend port:** `/races/.../standings`
 (→ `src/dashboard/race.py::plot_results`) used to crash with a `TypeError` when a
@@ -60,7 +80,6 @@ actually help with and this test didn't cover it.
 
 ## Open decisions
 
-- Chatbot: new scope — how many GPs/documents, same RAG approach or revisit it.
 - Whether backend + frontend live in this repo or get split into separate repos.
 
 ## Suggested phased order
@@ -70,7 +89,7 @@ actually help with and this test didn't cover it.
 3. **High priority (models)** — ~~fix `circuitId` encoding~~ investigated, no
    change shipped (see above); ~~fix the `plot_results` NaN bug~~ done. Still
    open: add more features / feature selection to clustering & classification.
-4. **Medium priority** — SQL layer, expanded prediction targets, chatbot
-   rework.
+4. **Medium priority** — SQL layer, expanded prediction targets;
+   ~~chatbot rework~~ ✅ done (see above).
 5. **Low priority** — refresh data with 2025/2026 seasons once the above is
    stable (avoids re-doing model/feature work twice).

@@ -6,7 +6,8 @@ prediction, and a dashboard built on top of FastF1 data.
 - **EDA & clustering** — circuits grouped by technical profile (K-Means).
 - **Race-winner prediction** — XGBoost classifier from grid position and form.
 - **Dashboard** — React frontend, FastAPI backend, both consuming `src/`.
-- **AI chatbot** — RAG proof of concept (currently no UI, see `PLAN.md`).
+- **AI chatbot** — RAG proof of concept over race documents (needs an
+  `OPENAI_API_KEY` in `.env`).
 
 For how it's put together, see [`ARCHITECTURE.md`](./ARCHITECTURE.md). For
 current priorities and status, see [`PLAN.md`](./PLAN.md).
@@ -26,6 +27,9 @@ cd frontend && npm install && npm run dev   # frontend on :5173, separate termin
 Open `http://localhost:5173`.
 
 > **macOS:** `xgboost` needs the OpenMP runtime: `brew install libomp`.
+
+Everything works without any further setup except the chatbot, which needs an
+OpenAI API key: `cp .env.example .env` and fill in `OPENAI_API_KEY`.
 
 Notebooks for data extraction, EDA and model training live in `notebook/`
 (see `notebook/README.md` for methodology).

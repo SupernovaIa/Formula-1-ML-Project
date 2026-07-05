@@ -52,9 +52,12 @@ There's no test suite yet. When you change something:
 
 ## Known dormant/incomplete pieces
 
-- `src/rag.py` (chatbot): no UI, coupled to old Streamlit session state.
-  Needs its own scope/architecture pass — don't wire it into the backend
-  as-is (see `PLAN.md` item 5).
+- The chatbot (`src/rag.py` + `backend/routers/chat.py` +
+  `frontend/src/pages/ChatBot.jsx`) needs a real `OPENAI_API_KEY` in `.env` to
+  work — without one, `/chat` returns a clean 500, the rest of the app is
+  unaffected. It's stateless (see `ARCHITECTURE.md`) and scoped to a single
+  document (`docs/AUS_2024_SUM.txt`, the 2024 Australian GP) — adding more
+  races is a data task (drop more files in `docs/`), not a code change.
 - `circuitId` is ordinal-encoded in the classification model, which is a
   known modeling smell — deliberately left as-is after testing showed
   clustering-based alternatives don't improve XGBoost's metrics (see

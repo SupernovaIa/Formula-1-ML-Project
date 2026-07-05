@@ -5,6 +5,7 @@ const NAV_ITEMS = [
   { to: "/season-report", icon: "🏆", label: "Season Report" },
   { to: "/circuit-clustering", icon: "🧭", label: "Circuit Clustering" },
   { to: "/winner-prediction", icon: "🔮", label: "Winner Prediction" },
+  { to: "/chatbot", icon: "💬", label: "Chatbot" },
 ];
 
 export default function Layout() {

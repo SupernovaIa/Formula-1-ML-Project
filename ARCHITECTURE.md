@@ -23,9 +23,11 @@ Plotly `Figure` objects — written for the original notebooks and reused as-is.
 - `circuit_clustering_model/` — K-Means clustering of circuits by technical profile.
 - `race_prediction_model/` — feature engineering + classifier training (XGBoost).
 - `preprocess.py` — the `Encoding` class (target/ordinal/onehot/frequency) and `scale_df`.
-- `rag.py` — chatbot logic. **Dormant**: tightly coupled to Streamlit's
-  `st.session_state`, no UI since Streamlit was removed. Kept as reference for
-  the rework tracked in `PLAN.md` (item 5), not imported by anything currently.
+- `rag.py` — chatbot logic (RAG over a small doc corpus in `docs/`, via
+  LangChain + Chroma). No Streamlit coupling — `build_vector_db()` builds the
+  (single, shared) vector store once, and `stream_rag_response()` takes the
+  full conversation history as a plain argument instead of reading
+  `st.session_state`.
 
 If you're improving models or features, this is the only place to touch —
 `backend/` should never grow business logic of its own.
@@ -45,9 +47,23 @@ computation, that computation belongs in `src/` instead.
   `(year, round, session_type)` rather than round-tripped to the frontend.
 - `core/serialization.py` — DataFrame/Plotly-Figure → JSON-safe dict.
 - `routers/` — one file per resource (`races`, `seasons`, `clustering`,
-  `predictions`, `reference`). Endpoints return whatever `src/`'s Plotly
-  functions produce, JSON-encoded as-is (`fig.to_json()` shape) — the backend
-  does not know or care that the frontend renders with ECharts, not Plotly.
+  `predictions`, `reference`, `chat`). Most endpoints return whatever `src/`'s
+  Plotly functions produce, JSON-encoded as-is (`fig.to_json()` shape) — the
+  backend does not know or care that the frontend renders with ECharts, not
+  Plotly. `chat` is the exception: it returns a plain streamed text response,
+  not JSON — see below.
+
+### The chatbot is stateless by design
+
+`POST /chat` takes the *entire* conversation history in the request body
+(like the OpenAI chat API) and streams back plain text — there's no
+server-side session, no session ID, nothing keyed per user. This works
+because the one thing that would normally need session state — the vector
+DB — is the same for every user (one fixed document corpus in `docs/`), so
+it's built once lazily on first request (`backend/routers/chat.py`'s
+`_get_vector_db()`) and reused for everyone, instead of per-session like the
+old Streamlit version did. If the docs ever became per-user (e.g. uploaded
+files), this would need to change; for a shared reference corpus, it doesn't.
 
 ## `frontend/` — dashboard
 
@@ -55,7 +71,7 @@ React + Vite SPA. Talks to `backend/` exclusively through
 `src/api/client.js` — no component calls `fetch` directly.
 
 - `pages/` — one per dashboard section (Home, Race Report, Season Report,
-  Circuit Clustering, Winner Prediction), mirroring the old Streamlit pages.
+  Circuit Clustering, Winner Prediction, Chatbot).
 - `lib/plotlyAdapters.js` — **this is the one place that knows the backend
   still speaks Plotly's JSON shape.** Each function takes a raw Plotly figure
   and returns an ECharts `option` object for one specific trace shape (bar,
@@ -75,6 +91,11 @@ React + Vite SPA. Talks to `backend/` exclusively through
 - **Tyre strategy**: Plotly's floating bars (`base` + `x` offset) have no
   ECharts equivalent, so it's drawn with a hand-rolled `custom` series
   (`renderItem` + `api.coord`).
+- **Chatbot language mirroring**: the system prompt asks the model to answer
+  in the question's language, which holds for in-scope answers, but for
+  out-of-scope questions its decline message sometimes mirrors the (Spanish)
+  source document's language instead. Cosmetic, not a correctness issue — see
+  `PLAN.md`.
 
 ## Why this shape
 

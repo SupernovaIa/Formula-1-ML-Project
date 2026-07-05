@@ -25,6 +25,12 @@ const SECTIONS = [
     title: "Winner Prediction",
     description: "XGBoost model estimating win probability from grid position and form.",
   },
+  {
+    to: "/chatbot",
+    icon: "💬",
+    title: "Chatbot",
+    description: "RAG assistant answering questions grounded in the reference race documents.",
+  },
 ];
 
 const STATS = [

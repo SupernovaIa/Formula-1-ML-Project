@@ -103,3 +103,27 @@ export const getSeasonRounds = (year) => request(`/reference/seasons/${year}/rou
 
 export const getRoundEntrants = (year, round) =>
   request(`/reference/seasons/${year}/rounds/${round}/entrants`);
+
+// Chat — streaming, so it bypasses the JSON `request()` helper and hands
+// back the raw response body stream for the caller to read incrementally.
+export async function streamChat(messages, model, { signal } = {}) {
+  const response = await fetch(`${BASE_URL}/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages, model }),
+    signal,
+  });
+
+  if (!response.ok) {
+    let message = response.statusText;
+    try {
+      const body = await response.json();
+      message = body.detail ?? message;
+    } catch {
+      // Non-JSON error body — fall back to statusText.
+    }
+    throw new Error(message);
+  }
+
+  return response.body;
+}

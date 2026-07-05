@@ -5,6 +5,7 @@ import RaceReport from "./pages/RaceReport";
 import SeasonReport from "./pages/SeasonReport";
 import CircuitClustering from "./pages/CircuitClustering";
 import WinnerPrediction from "./pages/WinnerPrediction";
+import ChatBot from "./pages/ChatBot";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/season-report" element={<SeasonReport />} />
           <Route path="/circuit-clustering" element={<CircuitClustering />} />
           <Route path="/winner-prediction" element={<WinnerPrediction />} />
+          <Route path="/chatbot" element={<ChatBot />} />
         </Route>
       </Routes>
     </BrowserRouter>

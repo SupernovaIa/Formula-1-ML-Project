@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AsyncSection from "../components/AsyncSection";
 import EChart from "../components/EChart";
+import RoundSelect from "../components/RoundSelect";
 import { useAsync } from "../hooks/useAsync";
 import { humanizeHeader, humanizeSlug } from "../utils/format";
 import {
@@ -26,9 +27,11 @@ import {
   getTyreStrategy,
 } from "../api/client";
 
-const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i);
-const QUALY_VIZ = ["Qualy results", "Pole lap telemetry", "Lap comparison"];
-const RACE_VIZ = ["Results", "Position changes", "Driver Pace", "Pace", "Tyre strategies"];
+const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i).reverse();
+const QUALY_VIZ = ["Results", "Pole lap analysis", "Compare fastest laps"];
+const RACE_VIZ = ["Results", "How the race unfolded", "Driver pace", "Pace comparison", "Tyre strategy"];
+const OUTLIER_THRESHOLD = 1.07; // F1's own "107% rule" for slow-lap cutoffs
+const NO_THRESHOLD = 3.0; // effectively unfiltered
 
 export default function RaceReport() {
   const [year, setYear] = useState(2023);
@@ -39,12 +42,13 @@ export default function RaceReport() {
   const [telemetryMode, setTelemetryMode] = useState("Speed");
   const [selectedDriver, setSelectedDriver] = useState("");
   const [paceKind, setPaceKind] = useState("driver");
-  const [threshold, setThreshold] = useState(1.07);
+  const [excludeOutliers, setExcludeOutliers] = useState(true);
   const [showPoints, setShowPoints] = useState(false);
+
+  const threshold = excludeOutliers ? OUTLIER_THRESHOLD : NO_THRESHOLD;
 
   const { data: rounds } = useAsync(() => getSeasonRounds(year), [year]);
   const circuitId = rounds?.find((r) => r.round === roundNumber)?.circuit_id;
-  const maxRound = rounds?.length ? Math.max(...rounds.map((r) => r.round)) : 1;
 
   const { data: sessionDrivers } = useAsync(
     () => getSessionDrivers(loaded.year, loaded.round, loaded.sessionType),
@@ -53,13 +57,14 @@ export default function RaceReport() {
   );
 
   function handleLoad() {
-    setLoaded({ year, round: roundNumber, sessionType });
+    setLoaded({ year, round: roundNumber, sessionType, circuitId });
     setVizType(sessionType === "Qualifying" ? QUALY_VIZ[0] : RACE_VIZ[0]);
   }
 
   return (
     <div className="page">
-      <h1>🏁 F1 Grand Prix Dashboard</h1>
+      <h1>{loaded ? `🏁 ${humanizeSlug(loaded.circuitId)} — Round ${loaded.round}, ${loaded.year}` : "🏁 Race Weekend"}</h1>
+      {!loaded && <p className="page-intro">Pick a season and race to explore its qualifying and race sessions.</p>}
 
       <div className="controls-row">
         <label>
@@ -71,18 +76,7 @@ export default function RaceReport() {
           </select>
         </label>
 
-        <label>
-          Round
-          <input
-            type="number"
-            min={1}
-            max={maxRound}
-            value={roundNumber}
-            onChange={(e) => setRoundNumber(Math.max(1, Number(e.target.value) || 1))}
-          />
-        </label>
-
-        {circuitId && <span className="chip">{humanizeSlug(circuitId)}</span>}
+        <RoundSelect year={year} value={roundNumber} onChange={setRoundNumber} />
 
         <label>
           Session
@@ -92,16 +86,14 @@ export default function RaceReport() {
           </select>
         </label>
 
-        <button onClick={handleLoad}>Load Data</button>
+        <button onClick={handleLoad}>Load</button>
       </div>
-
-      {!loaded && <p className="status-text">Pick a season, round and session, then load the data.</p>}
 
       {loaded && (
         <>
           <div className="controls-row">
             <label>
-              Visualization
+              View
               <select value={vizType} onChange={(e) => setVizType(e.target.value)}>
                 {(loaded.sessionType === "Qualifying" ? QUALY_VIZ : RACE_VIZ).map((v) => (
                   <option key={v} value={v}>{v}</option>
@@ -109,7 +101,7 @@ export default function RaceReport() {
               </select>
             </label>
 
-            {vizType === "Lap comparison" && (
+            {vizType === "Compare fastest laps" && (
               <label>
                 Mode
                 <select value={telemetryMode} onChange={(e) => setTelemetryMode(e.target.value)}>
@@ -119,7 +111,7 @@ export default function RaceReport() {
               </label>
             )}
 
-            {(vizType === "Driver Pace") && (
+            {(vizType === "Driver pace") && (
               <label>
                 Driver
                 <select value={selectedDriver} onChange={(e) => setSelectedDriver(e.target.value)}>
@@ -131,28 +123,24 @@ export default function RaceReport() {
               </label>
             )}
 
-            {(vizType === "Driver Pace" || vizType === "Pace") && (
+            {(vizType === "Driver pace" || vizType === "Pace comparison") && (
               <label>
-                Threshold
                 <input
-                  type="range"
-                  min={1.0}
-                  max={2.0}
-                  step={0.01}
-                  value={threshold}
-                  onChange={(e) => setThreshold(Number(e.target.value))}
+                  type="checkbox"
+                  checked={excludeOutliers}
+                  onChange={(e) => setExcludeOutliers(e.target.checked)}
                 />
-                {threshold.toFixed(2)}
+                Exclude outlier laps (pit stops, safety car)
               </label>
             )}
 
-            {vizType === "Pace" && (
+            {vizType === "Pace comparison" && (
               <>
                 <label>
-                  Kind
+                  Group by
                   <select value={paceKind} onChange={(e) => setPaceKind(e.target.value)}>
-                    <option value="driver">driver</option>
-                    <option value="compound">compound</option>
+                    <option value="driver">Driver</option>
+                    <option value="compound">Tyre compound</option>
                   </select>
                 </label>
                 <label>
@@ -163,39 +151,39 @@ export default function RaceReport() {
             )}
           </div>
 
-          {loaded.sessionType === "Qualifying" && vizType === "Qualy results" && (
+          {loaded.sessionType === "Qualifying" && vizType === "Results" && (
             <QualyResults loaded={loaded} />
           )}
-          {loaded.sessionType === "Qualifying" && vizType === "Pole lap telemetry" && (
+          {loaded.sessionType === "Qualifying" && vizType === "Pole lap analysis" && (
             <PoleLapTelemetry loaded={loaded} />
           )}
-          {loaded.sessionType === "Qualifying" && vizType === "Lap comparison" && (
+          {loaded.sessionType === "Qualifying" && vizType === "Compare fastest laps" && (
             <LapComparison loaded={loaded} mode={telemetryMode} drivers={sessionDrivers} />
           )}
 
           {loaded.sessionType === "Race" && vizType === "Results" && <RaceResults loaded={loaded} />}
-          {loaded.sessionType === "Race" && vizType === "Position changes" && (
+          {loaded.sessionType === "Race" && vizType === "How the race unfolded" && (
             <SingleChart
               fetcher={() => getPositionChanges(loaded.year, loaded.round, loaded.sessionType)}
               deps={[loaded]}
               adapter={multiLineOption}
             />
           )}
-          {loaded.sessionType === "Race" && vizType === "Driver Pace" && selectedDriver && (
+          {loaded.sessionType === "Race" && vizType === "Driver pace" && selectedDriver && (
             <SingleChart
               fetcher={() => getDriverPace(loaded.year, loaded.round, loaded.sessionType, selectedDriver, threshold)}
               deps={[loaded, selectedDriver, threshold]}
               adapter={scatterGroupsOption}
             />
           )}
-          {loaded.sessionType === "Race" && vizType === "Pace" && (
+          {loaded.sessionType === "Race" && vizType === "Pace comparison" && (
             <SingleChart
               fetcher={() => getPace(loaded.year, loaded.round, loaded.sessionType, paceKind, threshold)}
               deps={[loaded, paceKind, threshold]}
               adapter={(data) => paceBoxplotOption(data, { showPoints })}
             />
           )}
-          {loaded.sessionType === "Race" && vizType === "Tyre strategies" && (
+          {loaded.sessionType === "Race" && vizType === "Tyre strategy" && (
             <SingleChart
               fetcher={() => getTyreStrategy(loaded.year, loaded.round, loaded.sessionType)}
               deps={[loaded]}

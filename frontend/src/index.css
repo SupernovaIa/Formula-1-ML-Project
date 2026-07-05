@@ -728,3 +728,148 @@ tbody tr:hover {
   background: var(--surface);
   color: var(--text);
 }
+
+/* Page intro copy — sits under the h1, before the controls. */
+.page-intro {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: -8px 0 20px;
+}
+
+/* Segmented toggle — an alternative to a <select> for 2-3 mutually
+   exclusive views (e.g. Drivers/Constructors championship). */
+.segment-group {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.segment-btn {
+  font: 600 0.82rem/1 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 9px 18px;
+  border: none;
+  clip-path: none;
+  background: var(--surface);
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+}
+
+.segment-btn:last-child {
+  border-right: none;
+}
+
+.segment-btn:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.segment-btn.active {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Read-only stat readout — a driver's real historical form on the Race
+   Predictor page. Deliberately not editable inputs: the point is that the
+   user didn't have to know or type any of this. */
+.form-snapshot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.form-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  background: var(--surface);
+}
+
+.form-stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.form-stat-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Circuit cards on the Circuits page. */
+.circuit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.circuit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+}
+
+.circuit-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.circuit-card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.circuit-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Collapsible "for the curious" sections — how clusters are chosen, raw
+   visual comparisons — kept out of the primary flow but not hidden away. */
+.disclosure {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.disclosure summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.disclosure summary::marker {
+  color: var(--accent);
+}
+
+.disclosure[open] summary {
+  margin-bottom: 14px;
+}

@@ -5,8 +5,8 @@ import { useAsync } from "../hooks/useAsync";
 import { multiLineOption } from "../lib/plotlyAdapters";
 import { getConstructorsChampionship, getDriversChampionship } from "../api/client";
 
-const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i);
-const VIZ_OPTIONS = ["Drivers championship", "Constructors championship"];
+const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i).reverse();
+const VIZ_OPTIONS = ["Drivers", "Constructors"];
 
 export default function SeasonReport() {
   const [season, setSeason] = useState(2023);
@@ -16,17 +16,18 @@ export default function SeasonReport() {
   const drivers = useAsync(
     () => getDriversChampionship(loadedSeason, 10),
     [loadedSeason],
-    Boolean(loadedSeason) && vizType === "Drivers championship"
+    Boolean(loadedSeason) && vizType === "Drivers"
   );
   const constructors = useAsync(
     () => getConstructorsChampionship(loadedSeason, null),
     [loadedSeason],
-    Boolean(loadedSeason) && vizType === "Constructors championship"
+    Boolean(loadedSeason) && vizType === "Constructors"
   );
 
   return (
     <div className="page">
-      <h1>🏁 F1 Season Dashboard</h1>
+      <h1>🏆 Championship</h1>
+      {!loadedSeason && <p className="page-intro">See how the title battle played out, race by race.</p>}
 
       <div className="controls-row">
         <label>
@@ -37,30 +38,34 @@ export default function SeasonReport() {
             ))}
           </select>
         </label>
-        <button onClick={() => setLoadedSeason(season)}>Load Data</button>
+        <button onClick={() => setLoadedSeason(season)}>Load</button>
       </div>
-
-      {!loadedSeason && <p className="status-text">Pick a season, then load the data.</p>}
 
       {loadedSeason && (
         <>
           <div className="controls-row">
-            <label>
-              Visualization
-              <select value={vizType} onChange={(e) => setVizType(e.target.value)}>
-                {VIZ_OPTIONS.map((v) => (
-                  <option key={v} value={v}>{v}</option>
-                ))}
-              </select>
-            </label>
+            <div className="segment-group" role="tablist" aria-label="Championship">
+              {VIZ_OPTIONS.map((v) => (
+                <button
+                  key={v}
+                  type="button"
+                  role="tab"
+                  aria-selected={vizType === v}
+                  className={`segment-btn ${vizType === v ? "active" : ""}`}
+                  onClick={() => setVizType(v)}
+                >
+                  {v}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {vizType === "Drivers championship" && (
+          {vizType === "Drivers" && (
             <AsyncSection loading={drivers.loading} error={drivers.error}>
               <EChart option={drivers.data && multiLineOption(drivers.data)} />
             </AsyncSection>
           )}
-          {vizType === "Constructors championship" && (
+          {vizType === "Constructors" && (
             <AsyncSection loading={constructors.loading} error={constructors.error}>
               <EChart option={constructors.data && multiLineOption(constructors.data)} />
             </AsyncSection>

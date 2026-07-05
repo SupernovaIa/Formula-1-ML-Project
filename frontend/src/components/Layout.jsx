@@ -1,10 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const NAV_ITEMS = [
-  { to: "/race-report", icon: "🏁", label: "Race Report" },
-  { to: "/season-report", icon: "🏆", label: "Season Report" },
-  { to: "/circuit-clustering", icon: "🧭", label: "Circuit Clustering" },
-  { to: "/winner-prediction", icon: "🔮", label: "Winner Prediction" },
+  { to: "/race-report", icon: "🏁", label: "Race Weekend" },
+  { to: "/season-report", icon: "🏆", label: "Championship" },
+  { to: "/circuit-clustering", icon: "🧭", label: "Circuits" },
+  { to: "/winner-prediction", icon: "🔮", label: "Race Predictor" },
   { to: "/chatbot", icon: "💬", label: "Chatbot" },
 ];
 

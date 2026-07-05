@@ -5,7 +5,7 @@ const MODEL = "gpt-5.4-mini";
 
 const WELCOME = {
   role: "assistant",
-  content: "Hi! Ask me anything about the races covered in my reference documents.",
+  content: "Hi! Ask me about the 2024 Australian Grand Prix — who won, how it played out, key moments.",
 };
 
 export default function ChatBot() {
@@ -57,7 +57,8 @@ export default function ChatBot() {
 
   return (
     <div className="page">
-      <h1>🏎️ F1 Chatbot</h1>
+      <h1>💬 Chatbot</h1>
+      <p className="page-intro">Ask about the 2024 Australian Grand Prix in your own words.</p>
 
       <div className="chat-window">
         {messages.map((m, i) => (
@@ -75,7 +76,7 @@ export default function ChatBot() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask about the races in the knowledge base…"
+          placeholder="e.g. Who won the race?"
           disabled={loading}
         />
         <button type="submit" disabled={loading || !input.trim()}>Send</button>

@@ -1,25 +1,18 @@
 import { useEffect, useState } from "react";
 import AsyncSection from "../components/AsyncSection";
+import RoundSelect from "../components/RoundSelect";
 import { useAsync } from "../hooks/useAsync";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
-import { getRoundEntrants, getSeasonRounds, predictWinner } from "../api/client";
+import { getDriverForm, getRoundEntrants, predictWinner } from "../api/client";
 import { humanizeSlug } from "../utils/format";
 
-const YEARS = Array.from({ length: 2024 - 2018 + 1 }, (_, i) => 2018 + i);
+const YEARS = Array.from({ length: 2024 - 2010 + 1 }, (_, i) => 2010 + i).reverse();
 
 export default function WinnerPrediction() {
   const [year, setYear] = useState(2023);
   const [roundNumber, setRoundNumber] = useState(1);
   const [driverId, setDriverId] = useState("");
-  const [teamId, setTeamId] = useState("");
-  const [meanPreviousGrid, setMeanPreviousGrid] = useState(5);
-  const [meanPreviousPosition, setMeanPreviousPosition] = useState(5);
-  const [gridPosition, setGridPosition] = useState(5);
-  const [currentDriverWins, setCurrentDriverWins] = useState(0);
-  const [currentDriverPodiums, setCurrentDriverPodiums] = useState(0);
-
-  const { data: rounds } = useAsync(() => getSeasonRounds(year), [year]);
-  const maxRound = rounds?.length ? Math.max(...rounds.map((r) => r.round)) : 1;
+  const [gridPosition, setGridPosition] = useState(null);
 
   const { data: entrants } = useAsync(() => getRoundEntrants(year, roundNumber), [year, roundNumber]);
 
@@ -27,62 +20,51 @@ export default function WinnerPrediction() {
     if (entrants?.drivers?.length && !entrants.drivers.includes(driverId)) {
       setDriverId(entrants.drivers[0]);
     }
-    if (entrants?.teams?.length && !entrants.teams.includes(teamId)) {
-      setTeamId(entrants.teams[0]);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entrants]);
 
-  useEffect(() => {
-    if (roundNumber === 1) {
-      setCurrentDriverWins(0);
-      setCurrentDriverPodiums(0);
-    } else if (currentDriverWins === roundNumber - 1) {
-      setCurrentDriverPodiums(currentDriverWins);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roundNumber, currentDriverWins]);
+  const form = useAsync(
+    () => getDriverForm(year, roundNumber, driverId),
+    [year, roundNumber, driverId],
+    Boolean(driverId)
+  );
 
-  // Debounce the continuous inputs (sliders/number fields) so dragging doesn't
-  // fire a request per pixel — the UI itself stays responsive, only the API
-  // call waits for things to settle.
-  const debouncedGridPosition = useDebouncedValue(gridPosition);
-  const debouncedMeanPreviousGrid = useDebouncedValue(meanPreviousGrid);
-  const debouncedMeanPreviousPosition = useDebouncedValue(meanPreviousPosition);
-  const debouncedCurrentDriverWins = useDebouncedValue(currentDriverWins);
-  const debouncedCurrentDriverPodiums = useDebouncedValue(currentDriverPodiums);
+  // Reset the "what if" grid slot to the driver's real one whenever the
+  // race/driver picked changes - but not while the user is dragging it.
+  useEffect(() => {
+    if (form.data) setGridPosition(form.data.grid_position);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.data]);
+
+  const debouncedGridPosition = useDebouncedValue(gridPosition ?? 1);
 
   const prediction = useAsync(
     () =>
       predictWinner({
         driver_id: driverId,
-        team_id: teamId,
+        team_id: form.data.team_id,
         circuit_id: entrants?.circuit_id,
         grid_position: debouncedGridPosition,
         round_number: roundNumber,
-        mean_previous_grid: debouncedMeanPreviousGrid,
-        mean_previous_position: debouncedMeanPreviousPosition,
-        current_driver_wins: debouncedCurrentDriverWins,
-        current_driver_podiums: debouncedCurrentDriverPodiums,
+        mean_previous_grid: form.data.mean_previous_grid,
+        mean_previous_position: form.data.mean_previous_position ?? form.data.mean_previous_grid,
+        current_driver_wins: form.data.current_driver_wins,
+        current_driver_podiums: form.data.current_driver_podiums,
       }),
-    [
-      driverId,
-      teamId,
-      entrants,
-      debouncedGridPosition,
-      roundNumber,
-      debouncedMeanPreviousGrid,
-      debouncedMeanPreviousPosition,
-      debouncedCurrentDriverWins,
-      debouncedCurrentDriverPodiums,
-    ],
-    Boolean(driverId && teamId && entrants?.circuit_id)
+    [driverId, roundNumber, entrants, form.data, debouncedGridPosition],
+    Boolean(form.data && entrants?.circuit_id)
   );
+
+  const gridChanged = form.data && gridPosition !== form.data.grid_position;
 
   return (
     <div className="page">
-      <h1>🏠 Race winner prediction using ML 🔮</h1>
-      <p>Use this app to predict future 🚀</p>
+      <h1>🔮 Race Predictor</h1>
+      <p className="page-intro">
+        Pick a real race and driver — we pull their actual recent form and let
+        our model call it. Move the grid slot to try a "what if they'd
+        started elsewhere".
+      </p>
 
       <div className="controls-row">
         <label>
@@ -93,126 +75,89 @@ export default function WinnerPrediction() {
             ))}
           </select>
         </label>
-        <label>
-          Round
-          <input
-            type="number"
-            min={1}
-            max={maxRound}
-            value={roundNumber}
-            onChange={(e) => setRoundNumber(Math.max(1, Number(e.target.value) || 1))}
-          />
-        </label>
-        {entrants?.circuit_id && <span className="chip">{humanizeSlug(entrants.circuit_id)}</span>}
-      </div>
 
-      <h2>🔧 Features</h2>
-      <div className="controls-grid">
+        <RoundSelect year={year} value={roundNumber} onChange={setRoundNumber} />
+
         <label>
           Driver
           <select value={driverId} onChange={(e) => setDriverId(e.target.value)}>
             {entrants?.drivers?.map((d) => (
-              <option key={d} value={d}>{d}</option>
+              <option key={d} value={d}>{humanizeSlug(d)}</option>
             ))}
           </select>
         </label>
+      </div>
 
-        <label>
-          Team
-          <select value={teamId} onChange={(e) => setTeamId(e.target.value)}>
-            {entrants?.teams?.map((t) => (
-              <option key={t} value={t}>{t}</option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          Previous grid position (mean, last 3 races)
-          <input
-            type="number"
-            min={1}
-            max={20}
-            value={meanPreviousGrid}
-            onChange={(e) => setMeanPreviousGrid(Number(e.target.value))}
-          />
-        </label>
-
-        <label>
-          Previous position (mean, last 3 races)
-          <input
-            type="number"
-            min={1}
-            max={20}
-            value={meanPreviousPosition}
-            onChange={(e) => setMeanPreviousPosition(Number(e.target.value))}
-          />
-        </label>
-
-        <label>
-          Grid position
-          <input
-            type="range"
-            min={1}
-            max={20}
-            value={gridPosition}
-            onChange={(e) => setGridPosition(Number(e.target.value))}
-          />
-          {gridPosition}
-        </label>
-
-        {roundNumber === 1 ? (
-          <p className="hint">Current driver wins and podiums are set to 0 in round 1.</p>
-        ) : (
+      <AsyncSection loading={form.loading} error={form.error}>
+        {form.data && (
           <>
-            <label>
-              Current wins
-              <input
-                type="range"
-                min={0}
-                max={roundNumber - 1}
-                value={currentDriverWins}
-                onChange={(e) => setCurrentDriverWins(Number(e.target.value))}
-              />
-              {currentDriverWins}
-            </label>
+            <div className="form-snapshot">
+              <div className="form-stat">
+                <span className="form-stat-label">Team</span>
+                <span className="form-stat-value">{humanizeSlug(form.data.team_id)}</span>
+              </div>
+              <div className="form-stat">
+                <span className="form-stat-label">Avg. grid, last 3 races</span>
+                <span className="form-stat-value">P{form.data.mean_previous_grid.toFixed(1)}</span>
+              </div>
+              <div className="form-stat">
+                <span className="form-stat-label">Avg. finish, last 3 races</span>
+                <span className="form-stat-value">
+                  {form.data.mean_previous_position != null ? `P${form.data.mean_previous_position.toFixed(1)}` : "—"}
+                </span>
+              </div>
+              <div className="form-stat">
+                <span className="form-stat-label">Wins / podiums this season</span>
+                <span className="form-stat-value">
+                  {form.data.current_driver_wins} / {form.data.current_driver_podiums}
+                </span>
+              </div>
+            </div>
 
-            {currentDriverWins === roundNumber - 1 ? (
-              <p className="hint">Current driver podiums is set to {currentDriverPodiums}.</p>
-            ) : (
+            <div className="controls-grid">
               <label>
-                Current podiums
+                Grid position{gridChanged ? " (hypothetical)" : ""}
                 <input
                   type="range"
-                  min={currentDriverWins}
-                  max={roundNumber - 1}
-                  value={currentDriverPodiums}
-                  onChange={(e) => setCurrentDriverPodiums(Number(e.target.value))}
+                  min={1}
+                  max={20}
+                  value={gridPosition ?? form.data.grid_position}
+                  onChange={(e) => setGridPosition(Number(e.target.value))}
                 />
-                {currentDriverPodiums}
+                {gridPosition ?? form.data.grid_position}
               </label>
-            )}
+              {gridChanged && (
+                <p className="hint">Actually started P{form.data.grid_position}.</p>
+              )}
+            </div>
           </>
         )}
-      </div>
+      </AsyncSection>
 
       <AsyncSection loading={prediction.loading} error={prediction.error}>
         {prediction.data && (() => {
           const pct = prediction.data.win_probability * 100;
           const outcome = prediction.data.predicted_winner ? "success" : "failure";
           return (
-            <div className={`result ${outcome}`}>
-              <div className="result-body">
-                <span>
-                  {prediction.data.predicted_winner
-                    ? "Expected victory"
-                    : "Unlikely to win"}
-                </span>
-                <div className="probability-track">
-                  <div className={`probability-fill ${outcome}`} style={{ width: `${pct}%` }} />
+            <>
+              <div className={`result ${outcome}`}>
+                <div className="result-body">
+                  <span>
+                    {prediction.data.predicted_winner ? "Expected victory" : "Unlikely to win"}
+                  </span>
+                  <div className="probability-track">
+                    <div className={`probability-fill ${outcome}`} style={{ width: `${pct}%` }} />
+                  </div>
                 </div>
+                <span className="result-value">{pct.toFixed(1)}%</span>
               </div>
-              <span className="result-value">{pct.toFixed(1)}%</span>
-            </div>
+              {form.data?.actual_position && (
+                <p className="hint">
+                  What actually happened: finished{" "}
+                  {form.data.actual_winner ? "P1 — won the race" : `P${form.data.actual_position}`}.
+                </p>
+              )}
+            </>
           );
         })()}
       </AsyncSection>

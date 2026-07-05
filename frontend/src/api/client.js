@@ -104,6 +104,9 @@ export const getSeasonRounds = (year) => request(`/reference/seasons/${year}/rou
 export const getRoundEntrants = (year, round) =>
   request(`/reference/seasons/${year}/rounds/${round}/entrants`);
 
+export const getDriverForm = (year, round, driverId) =>
+  request(`/reference/seasons/${year}/rounds/${round}/drivers/${driverId}/form`);
+
 // Chat — streaming, so it bypasses the JSON `request()` helper and hands
 // back the raw response body stream for the caller to read incrementally.
 export async function streamChat(messages, model, { signal } = {}) {

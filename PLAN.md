@@ -5,7 +5,12 @@
 Working pipeline covering EDA, circuit clustering (K-Means, 7 clusters), race-winner
 classification (XGBoost, 97.4% accuracy), a React + Vite dashboard on top of a
 FastAPI backend, and a RAG chatbot (proof of concept, 2024 Australian GP only)
-with a working UI again. Dependency management runs on `uv`.
+with a working UI again. Dependency management runs on `uv`; a `pytest` suite,
+ruff, and GitHub Actions CI are in place.
+
+**Direction:** the goal is a single deployed public web app (dashboard +
+chatbot) rather than a local-only collection of features — see "Product
+direction" below for what that changes.
 
 ## Priorities
 
@@ -13,10 +18,11 @@ with a working UI again. Dependency management runs on `uv`.
 |---|------|----------|--------|
 | 1 | Rework clustering & classification models (more features, encode `circuitId` from clustering into the predictive model) | **High** | Partially investigated — see below |
 | 2 | Replace the dashboard: new frontend, drop Streamlit | **High** | ✅ Done |
-| 3 | SQL database layer (stop depending on live FastF1 calls) | Medium | Not started |
+| 3 | SQL database layer for summary data (results, standings, reference) | Medium | Not started — see below for scope |
 | 4 | Expand prediction to more race variables | Medium | Not started |
 | 5 | Chatbot: new pass on scope and architecture (not just "add more docs") | Medium | ✅ Done — see below |
 | 6 | Refresh data with 2025 / 2026 seasons | Low | Not started |
+| 7 | Deploy as a real public web app | Medium | Not started — see below |
 
 ## Cross-cutting architecture work
 
@@ -125,9 +131,48 @@ shipped.** Worth revisiting if the model ever needs to generalize to circuits
 with little/no race history, since that's the scenario clustering would
 actually help with and this test didn't cover it.
 
+**Product direction: one deployed app, not a portfolio of disconnected demos.**
+The goal going forward is a single public F1 analytics web app (dashboard +
+chatbot) rather than several loosely related local-only pieces. Two concrete
+decisions/findings from scoping this out:
+
+- **SQL layer (item 3), scope clarified:** a database only makes sense for
+  the *summary* data that's already mostly static (`data/output/*.csv`,
+  `data/seasons/*.csv`) — race results, season standings, reference lookups.
+  It does **not** replace FastF1 for the telemetry-heavy `races.py` endpoints
+  (track map, lap pace, tyre strategy, position changes) — those pull
+  per-lap/per-sample data live for whatever year/round is requested, and
+  pre-loading that into SQL for "any race" would mean re-implementing
+  FastF1's own telemetry cache. If the deployed app ever needs to drop the
+  live FastF1 dependency for those views too, the real fix is scoping the
+  app to a fixed set of supported races, not a bigger database.
+  **Found while scoping this:** `data/seasons/` only has 2010, 2011 and
+  2018–2024 — **2012–2017 (6 seasons) are missing** and silently fall back to
+  a live `get_results(year)` call today. Worth fixing regardless of whether
+  the SQL layer happens, since it's a real gap in the existing CSV cache.
+- **Chatbot will be BYOK (bring your own key)** once public — each user
+  supplies their own `OPENAI_API_KEY` client-side instead of the backend
+  owning one, which sidesteps the cost/abuse problem of a shared server key
+  for a public chat feature. Open question not yet decided: whether the
+  one-time embeddings step for the shared vector DB (`build_vector_db()`)
+  keeps using a server-side key (cheap, done once) or also requires the
+  user's key.
+- **Deployment shape (item 7):** frontend is a static Vite build, trivial on
+  any static host (Vercel/Netlify/Cloudflare Pages). Backend is *not*
+  stateless-friendly for serverless — it relies on FastF1's own on-disk
+  session cache and an in-process Chroma vector store, so a cold-start
+  serverless function would re-hit FastF1/Ergast on every cold start. Needs
+  a host with a persistent process + persistent disk (Render/Railway-style),
+  not a Lambda-style function. Concrete changes deployment forces (not just
+  "deploy what exists"): `backend/main.py`'s `CORSMiddleware` has
+  `allow_origins=["http://localhost:5173"]` hardcoded and needs to read the
+  real frontend origin from an env var; the chat router's BYOK rework above.
+
 ## Open decisions
 
 - Whether backend + frontend live in this repo or get split into separate repos.
+- Whether `build_vector_db()`'s embeddings step keeps a server-side OpenAI
+  key even after the chat itself goes BYOK (see above).
 
 ## Suggested phased order
 
@@ -136,7 +181,8 @@ actually help with and this test didn't cover it.
 3. **High priority (models)** — ~~fix `circuitId` encoding~~ investigated, no
    change shipped (see above); ~~fix the `plot_results` NaN bug~~ done. Still
    open: add more features / feature selection to clustering & classification.
-4. **Medium priority** — SQL layer, expanded prediction targets;
-   ~~chatbot rework~~ ✅ done (see above).
+4. **Medium priority** — SQL layer (summary data only, see above), expanded
+   prediction targets, deployment (BYOK chat + CORS env var + a
+   persistent-disk host); ~~chatbot rework~~ ✅ done (see above).
 5. **Low priority** — refresh data with 2025/2026 seasons once the above is
    stable (avoids re-doing model/feature work twice).

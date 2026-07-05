@@ -59,10 +59,19 @@ export function categoryBarOption(figure) {
 // Multiple line traces sharing an x-axis (championship standings, position
 // changes over laps).
 export function multiLineOption(figure) {
+  // The backend's Plotly JSON doesn't always declare an explicit
+  // layout.xaxis.type - infer it from the data instead (string x values,
+  // e.g. race names for a championship, mean a category axis; numbers,
+  // e.g. lap number, mean a value axis). A category axis needs its own
+  // labels on xAxis.data, with series data as plain values indexed against
+  // it - [x, y] pairs (which work for a value axis) silently fail to plot.
+  const isCategory = typeof figure.data[0]?.x?.[0] === "string";
+  const categories = isCategory ? figure.data[0].x : undefined;
+
   const series = figure.data.map((trace) => ({
     type: "line",
     name: trace.name,
-    data: trace.x.map((x, i) => [x, trace.y[i]]),
+    data: isCategory ? trace.y : trace.x.map((x, i) => [x, trace.y[i]]),
     showSymbol: trace.mode?.includes("markers") ?? false,
     symbolSize: 6,
     lineStyle: {
@@ -75,7 +84,7 @@ export function multiLineOption(figure) {
   return {
     title: { text: titleOf(figure) },
     grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
-    xAxis: axis({ type: figure.layout?.xaxis?.type === "category" ? "category" : "value" }),
+    xAxis: axis({ type: isCategory ? "category" : "value", data: categories }),
     yAxis: axis({ type: "value" }),
     series,
   };

@@ -2,23 +2,19 @@
 # -----------------------------------------------------------------------
 import numpy as np
 import pandas as pd
-import math
 
 # For visualizations
 # -----------------------------------------------------------------------
 import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.graph_objects as go
 import plotly.express as px
 
 # Extracting the number of clusters and metrics
 # -----------------------------------------------------------------------
-from yellowbrick.cluster import KElbowVisualizer
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 
 # Clustering models
 # -----------------------------------------------------------------------
-from sklearn.cluster import KMeans
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import DBSCAN
 

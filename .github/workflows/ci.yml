@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
+      - name: Lint
+        run: uv run ruff check .
+
       # Runs everything except tests/backend/test_races_seasons_integration.py
       # (the "integration" marker, see pyproject.toml) - those need live
       # FastF1/Ergast network access and aren't suited to a CI gate.

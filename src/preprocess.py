@@ -1,24 +1,22 @@
 # Data processing
 # -----------------------------------------------------------------------
 import os
+import warnings
+
+import joblib
 import pandas as pd
 import numpy as np
-
-# Ignore warnings  
-# -----------------------------------------------------------------------
-import warnings  
-warnings.filterwarnings("ignore") 
 
 # Machine learning imports
 # -----------------------------------------------------------------------
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 from category_encoders import TargetEncoder
 
-# Data scaling  
-# -----------------------------------------------------------------------  
-from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler  
+# Data scaling
+# -----------------------------------------------------------------------
+from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
 
-import joblib
+warnings.filterwarnings("ignore")
 
 class Encoding:
     """

@@ -152,7 +152,9 @@ def get_qualy_results(session):
     df = df.loc[:, ['Position', 'FullName', 'DriverNumber', 'CountryCode', 'TeamName', 'Q1', 'Q2', 'Q3']]
 
     # Time formatting
-    format_time = lambda col: col.astype(str).str.replace('0 days ', '').str.replace(r'(00:)+', '', regex=True).str.removesuffix('000')
+    def format_time(col):
+        return col.astype(str).str.replace('0 days ', '').str.replace(r'(00:)+', '', regex=True).str.removesuffix('000')
+
     df[['Q1', 'Q2', 'Q3']] = df.loc[:, ['Q1', 'Q2', 'Q3']].apply(format_time)
 
     return df

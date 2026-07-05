@@ -7,7 +7,6 @@ import numpy as np
 # -----------------------------------------------------------------------
 import plotly.express as px
 import plotly.graph_objects as go
-from plotly.io import show
 import fastf1.plotting
 
 # FastF1 data handling

@@ -1,0 +1,176 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Atlas — tokens · mundo "Blueprint"
+   Hoja editorial sobre rejilla de ingeniería. Serif de display con cursiva en
+   teal, Geist para el texto, Geist Mono para etiquetas y cifras. El color de
+   señal dice a qué capa pertenece algo; discontinuo = aún no existe.
+   Fuente única: los generadores lo inlinean y design/build_ds.py lo exporta al
+   Design System de claude.ai. Ver design/DESIGN.md.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+
+  /* Superficies y tinta */
+  --page: oklch(0.975 0.004 240);
+  --page-2: oklch(0.955 0.006 240);
+  --card: oklch(1 0 0);
+  --sunken: oklch(0.965 0.005 240);
+  --ink: oklch(0.21 0.02 248);
+  --ink-soft: oklch(0.45 0.02 242);
+  --ink-faint: oklch(0.53 0.016 242);
+  --hairline: oklch(0.88 0.008 240);
+  --hairline-strong: oklch(0.8 0.01 240);
+
+  /* Señal: cada tono es una capa o un estado, nunca una serie de datos */
+  --teal: oklch(0.52 0.1 200);     --teal-soft: oklch(0.52 0.1 200 / .10);
+  --indigo: oklch(0.48 0.18 278);  --indigo-soft: oklch(0.48 0.18 278 / .09);
+  --amber: oklch(0.54 0.14 58);    --amber-soft: oklch(0.75 0.14 70 / .16);
+  --slate: oklch(0.37 0.03 255);   --slate-soft: oklch(0.37 0.03 255 / .08);
+  --green: oklch(0.5 0.13 150);    --green-soft: oklch(0.55 0.13 150 / .12);
+  --red: oklch(0.53 0.19 25);      --red-soft: oklch(0.53 0.19 25 / .09);
+  --gate: oklch(0.97 0.035 85);
+  --later: oklch(0.55 0.02 245);
+
+  /* La costura: el único elemento encendido de la página, en tinta invertida */
+  --seam: oklch(0.26 0.03 255);
+  --on-seam: oklch(0.98 0.005 240);
+  --seam-glow: oklch(0.52 0.1 200 / .28);
+
+  /* Roles (alias). Los generadores usan estos nombres */
+  --accent: var(--teal);
+  --accent-wash: var(--teal-soft);
+  --on-accent: var(--page);
+  --focus: var(--teal);
+  --saved: var(--green);
+  --positive: var(--teal);
+  --negative: var(--red);
+
+  /* Atmósfera */
+  --grid: oklch(0.21 0.02 248 / .045);
+  --glow-a: oklch(0.52 0.1 200 / .10);
+  --glow-b: oklch(0.48 0.18 278 / .08);
+  --glow: radial-gradient(40% 50% at 20% 30%, var(--glow-a), transparent 70%),
+          radial-gradient(35% 45% at 85% 10%, var(--glow-b), transparent 70%);
+  --shadow: 0 1px 0 oklch(0.21 0.02 248 / .04), 0 12px 32px -16px oklch(0.21 0.02 248 / .18);
+
+  /* Escala categórica de datos (orden fijo, ver DESIGN.md · Color de datos) */
+  --cat-1: #0e7490;
+  --cat-2: #be185d;
+  --cat-3: #15803d;
+  --cat-4: #6d28d9;
+  --cat-5: #a16207;
+  --cat-6: #1d4ed8;
+  --cat-7: #c2410c;
+  --cat-none: #64748b;
+  --group-fijos: var(--cat-2); --group-inversion: var(--cat-3);
+  --group-compras: var(--cat-4); --group-ocio: var(--cat-5);
+  --group-regalos: var(--cat-6, var(--cat-none)); --group-otros: var(--cat-none);
+
+  /* Tipografía */
+  --display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --t-hero: clamp(3.4rem, 10vw, 7rem);
+  --t-chapter: clamp(2.4rem, 6vw, 4.4rem);
+  --t-display: 40px;
+  --t-title: 28px;
+  --t-section: 18px;
+  --t-lede: clamp(1.05rem, 1.7vw, 1.25rem);
+  --t-body: 16px;
+  --t-small: 14px;
+  --t-data: 13px;
+  --t-label: 11px;
+  --track-label: .14em;
+
+  /* Espacio y geometría */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 136px;
+  --radius-lg: 18px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-tight: 6px;
+  --radius-pill: 999px;
+  --measure: 760px;
+  --wide: 1120px;
+
+  /* Movimiento */
+  --easing: cubic-bezier(.22, 1, .36, 1);
+  --spring: linear(0, 0.0439, 0.1461, 0.2736, 0.4054, 0.5291, 0.6382, 0.73, 0.8046, 0.8633, 0.908, 0.9412, 0.965, 0.9815, 0.9925, 0.9994, 1.0035, 1.0055, 1.0062, 1.0062, 1.0056, 1.0049, 1.004, 1.0032, 1.0025, 1.0019, 1.0014, 1.001, 1, 1);
+  /* Iluminación: entra en --dur-lit, sale en --dur-lit-out. Asimétrico a
+     propósito: la luz tarda más en irse que en venir. */
+  --dur-lit: 320ms; --dur-lit-out: 480ms;
+  --dur-reveal: 700ms; --stagger: 70ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: oklch(0.155 0.01 245);
+    --page-2: oklch(0.18 0.012 245);
+    --card: oklch(0.2 0.013 245);
+    --sunken: oklch(0.235 0.014 245);
+    --ink: oklch(0.955 0.006 240);
+    --ink-soft: oklch(0.76 0.018 240);
+    --ink-faint: oklch(0.66 0.016 242);
+    --hairline: oklch(0.3 0.014 245);
+    --hairline-strong: oklch(0.4 0.016 245);
+    --teal: oklch(0.8 0.12 192);     --teal-soft: oklch(0.8 0.12 192 / .11);
+    --indigo: oklch(0.75 0.13 280);  --indigo-soft: oklch(0.75 0.13 280 / .12);
+    --amber: oklch(0.83 0.14 75);    --amber-soft: oklch(0.83 0.14 75 / .11);
+    --slate: oklch(0.82 0.03 250);   --slate-soft: oklch(0.82 0.03 250 / .08);
+    --green: oklch(0.8 0.15 150);    --green-soft: oklch(0.8 0.15 150 / .12);
+    --red: oklch(0.74 0.15 18);      --red-soft: oklch(0.74 0.15 18 / .12);
+    --gate: oklch(0.83 0.14 75 / .10);
+    --later: oklch(0.64 0.02 245);
+    --seam: oklch(0.93 0.02 245);
+    --on-seam: oklch(0.17 0.015 250);
+    --seam-glow: oklch(0.8 0.12 192 / .35);
+    --grid: oklch(0.955 0.006 240 / .04);
+    --glow-a: oklch(0.8 0.12 192 / .10);
+    --glow-b: oklch(0.75 0.13 280 / .10);
+    --shadow: 0 1px 0 oklch(1 0 0 / .03) inset, 0 20px 40px -24px oklch(0 0 0 / .6);
+    --cat-1: #0e9fbc;
+    --cat-2: #d94f92;
+    --cat-3: #2ba85c;
+    --cat-4: #7c5fe0;
+    --cat-5: #b8850c;
+    --cat-6: #3d7fd6;
+    --cat-7: #e07a3e;
+    --cat-none: #64748b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: oklch(0.155 0.01 245);
+  --page-2: oklch(0.18 0.012 245);
+  --card: oklch(0.2 0.013 245);
+  --sunken: oklch(0.235 0.014 245);
+  --ink: oklch(0.955 0.006 240);
+  --ink-soft: oklch(0.76 0.018 240);
+  --ink-faint: oklch(0.66 0.016 242);
+  --hairline: oklch(0.3 0.014 245);
+  --hairline-strong: oklch(0.4 0.016 245);
+  --teal: oklch(0.8 0.12 192);     --teal-soft: oklch(0.8 0.12 192 / .11);
+  --indigo: oklch(0.75 0.13 280);  --indigo-soft: oklch(0.75 0.13 280 / .12);
+  --amber: oklch(0.83 0.14 75);    --amber-soft: oklch(0.83 0.14 75 / .11);
+  --slate: oklch(0.82 0.03 250);   --slate-soft: oklch(0.82 0.03 250 / .08);
+  --green: oklch(0.8 0.15 150);    --green-soft: oklch(0.8 0.15 150 / .12);
+  --red: oklch(0.74 0.15 18);      --red-soft: oklch(0.74 0.15 18 / .12);
+  --gate: oklch(0.83 0.14 75 / .10);
+  --later: oklch(0.64 0.02 245);
+  --seam: oklch(0.93 0.02 245);
+  --on-seam: oklch(0.17 0.015 250);
+  --seam-glow: oklch(0.8 0.12 192 / .35);
+  --grid: oklch(0.955 0.006 240 / .04);
+  --glow-a: oklch(0.8 0.12 192 / .10);
+  --glow-b: oklch(0.75 0.13 280 / .10);
+  --shadow: 0 1px 0 oklch(1 0 0 / .03) inset, 0 20px 40px -24px oklch(0 0 0 / .6);
+  --cat-1: #0e9fbc;
+  --cat-2: #d94f92;
+  --cat-3: #2ba85c;
+  --cat-4: #7c5fe0;
+  --cat-5: #b8850c;
+  --cat-6: #3d7fd6;
+  --cat-7: #e07a3e;
+  --cat-none: #64748b;
+}

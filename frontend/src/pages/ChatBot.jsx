@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import Icon from "../components/Icon";
+import PageHead from "../components/PageHead";
 import { streamChat } from "../api/client";
 
 const MODEL = "gpt-5.4-mini";
+
+const SUGGESTIONS = ["Who won the race?", "How did the race unfold?", "What were the key moments?"];
 
 const WELCOME = {
   role: "assistant",
@@ -19,9 +23,13 @@ export default function ChatBot() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  async function sendMessage(e) {
+  function sendMessage(e) {
     e.preventDefault();
-    const text = input.trim();
+    ask(input);
+  }
+
+  async function ask(question) {
+    const text = question.trim();
     if (!text || loading) return;
 
     const history = [...messages, { role: "user", content: text }];
@@ -57,10 +65,14 @@ export default function ChatBot() {
 
   return (
     <div className="page">
-      <h1>💬 Chatbot</h1>
-      <p className="page-intro">Ask about the 2024 Australian Grand Prix in your own words.</p>
+      <PageHead
+        label="2024 Australian Grand Prix"
+        title="Ask the"
+        em="race"
+        lede="Ask about the 2024 Australian Grand Prix in your own words."
+      />
 
-      <div className="chat-window">
+      <div className="a-panel chat-window" aria-live="polite">
         {messages.map((m, i) => (
           <div key={i} className={`chat-bubble ${m.role}`}>
             {m.content || (loading && i === messages.length - 1 && <span className="chat-typing" />)}
@@ -69,7 +81,22 @@ export default function ChatBot() {
         <div ref={bottomRef} />
       </div>
 
-      {error && <p className="status-text error">{error.message}</p>}
+      {messages.length === 1 && (
+        <div className="chat-suggestions">
+          {SUGGESTIONS.map((q) => (
+            <button key={q} type="button" className="a-chip chat-chip" onClick={() => ask(q)}>
+              {q}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {error && (
+        <p className="status status--error" role="alert">
+          <Icon name="circle-alert" />
+          {error.message}
+        </p>
+      )}
 
       <form className="chat-input-row" onSubmit={sendMessage}>
         <input
@@ -77,9 +104,12 @@ export default function ChatBot() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="e.g. Who won the race?"
+          aria-label="Your question"
           disabled={loading}
         />
-        <button type="submit" disabled={loading || !input.trim()}>Send</button>
+        <button type="submit" className="a-btn a-btn--primary" disabled={loading || !input.trim()}>
+          Send <Icon name="arrow-right" />
+        </button>
       </form>
     </div>
   );

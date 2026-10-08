@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAsync } from "../hooks/useAsync";
 import { getSeasonRounds } from "../api/client";
 import { humanizeSlug } from "../utils/format";
+import Field from "./Field";
 
 // A season's rounds, labeled by circuit instead of a bare number - shared by
 // any page that lets a user pick "which race" (Race Weekend, Race Predictor).
@@ -16,8 +17,7 @@ export default function RoundSelect({ year, value, onChange }) {
   }, [rounds]);
 
   return (
-    <label>
-      Race
+    <Field label="Race">
       <select value={value} onChange={(e) => onChange(Number(e.target.value))}>
         {rounds?.map((r) => (
           <option key={r.round} value={r.round}>
@@ -25,6 +25,6 @@ export default function RoundSelect({ year, value, onChange }) {
           </option>
         ))}
       </select>
-    </label>
+    </Field>
   );
 }

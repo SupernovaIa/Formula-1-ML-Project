@@ -1,0 +1,19 @@
+/* Atlas fonts, served as files from public/fonts (the source design system
+   inlines them as data URIs; a web app doesn't need to). Same families,
+   same subset (latin), same weight ranges as design/fonts.css upstream. */
+@font-face {
+  font-family: 'Geist'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url(/fonts/Geist.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono'; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url(/fonts/GeistMono.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Instrument Serif'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url(/fonts/InstrumentSerif-italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(/fonts/InstrumentSerif.woff2) format('woff2');
+}

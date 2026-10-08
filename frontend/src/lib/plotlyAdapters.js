@@ -3,13 +3,28 @@
 // read whichever handful of Plotly trace shapes each endpoint actually
 // produces (bar / scatter / scatterpolar / violin) and rebuild the same
 // information as native ECharts series.
-import { axis, CHART_MONO } from "./echartsTheme.js";
+import {
+  axis,
+  CHART_MONO,
+  clusterColor,
+  clusterSymbol,
+  dataColor,
+  rawColor,
+} from "./echartsTheme.js";
+
+// Colours the backend sends (team / driver / tyre) are data: keep their identity
+// via dataColor(), but let the theme nudge them off the page background.
+const data = (c) => (c ? dataColor(c) : undefined);
 
 function titleOf(figure) {
   const t = figure?.layout?.title;
   if (!t) return undefined;
-  return typeof t === "string" ? t : t.text;
+  const text = typeof t === "string" ? t : t.text;
+  // Plotly titles are HTML; keep <br> (EChart.jsx splits it into title + subtitle), drop other tags.
+  return text?.replace(/<(?!br\s*\/?>)[^>]+>/gi, "");
 }
+
+const axisTitle = (figure, which) => figure?.layout?.[which]?.title?.text;
 
 // Single horizontal bar trace with one color per bar (e.g. fastest laps).
 export function barOption(figure) {
@@ -19,19 +34,30 @@ export function barOption(figure) {
   const values = horizontal ? trace.x : trace.y;
   const colors = Array.isArray(trace.marker?.color) ? trace.marker.color : undefined;
 
-  const valueAxis = axis();
-  const categoryAxis = axis({ type: "category", data: categories });
+  const valueAxis = axis({ name: axisTitle(figure, horizontal ? "xaxis" : "yaxis"), nameLocation: "middle", nameGap: 28 });
+  // ECharts draws the first category at the bottom; the first row here is P1, which belongs on top.
+  const categoryAxis = axis({ type: "category", data: categories, inverse: horizontal });
 
   return {
     title: { text: titleOf(figure) },
-    grid: { top: 56, right: 24, bottom: 40, left: horizontal ? 70 : 56, containLabel: true },
+    grid: { top: 48, right: 24, bottom: 40, left: horizontal ? 70 : 56, containLabel: true },
     legend: false,
     xAxis: horizontal ? { ...valueAxis, type: "value" } : categoryAxis,
     yAxis: horizontal ? categoryAxis : { ...valueAxis, type: "value" },
     series: [
       {
         type: "bar",
-        data: values.map((v, i) => ({ value: v, itemStyle: colors ? { color: colors[i] } : undefined })),
+        barMaxWidth: 18,
+        itemStyle: { borderRadius: [0, 3, 3, 0] },
+        label: {
+          show: true,
+          position: horizontal ? "right" : "top",
+          color: "var(--ink-soft)",
+          fontFamily: CHART_MONO,
+          fontSize: 11,
+          formatter: (p) => (Number.isInteger(p.value) ? p.value : p.value.toFixed(3)),
+        },
+        data: values.map((v, i) => ({ value: v, itemStyle: colors ? { color: data(colors[i]) } : undefined })),
       },
     ],
   };
@@ -40,19 +66,19 @@ export function barOption(figure) {
 // One trace per category, each carrying a single (x, y) point and its own
 // color (e.g. mean value per cluster).
 export function categoryBarOption(figure) {
-  const data = figure.data.map((trace) => ({
+  const bars = figure.data.map((trace, i) => ({
     name: trace.name,
     value: Array.isArray(trace.y) ? trace.y[0] : trace.y,
-    itemStyle: { color: trace.marker?.color },
+    itemStyle: { color: clusterColor(i) },
   }));
 
   return {
     title: { text: titleOf(figure) },
-    grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
+    grid: { top: 48, right: 24, bottom: 40, left: 56, containLabel: true },
     legend: false,
-    xAxis: axis({ type: "category", data: data.map((d) => d.name) }),
+    xAxis: axis({ type: "category", data: bars.map((d) => d.name) }),
     yAxis: axis({ type: "value" }),
-    series: [{ type: "bar", data }],
+    series: [{ type: "bar", data: bars }],
   };
 }
 
@@ -73,36 +99,52 @@ export function multiLineOption(figure) {
     name: trace.name,
     data: isCategory ? trace.y : trace.x.map((x, i) => [x, trace.y[i]]),
     showSymbol: trace.mode?.includes("markers") ?? false,
-    symbolSize: 6,
+    symbolSize: 4,
+    emphasis: { focus: "series" },
+    labelLayout: { moveOverlap: "shiftY" }, // tied drivers end on the same point: fan their labels out
+    endLabel: {
+      show: figure.data.length > 2,
+      formatter: "{a}",
+      color: "var(--ink-soft)",
+      fontFamily: CHART_MONO,
+      fontSize: 11,
+    },
     lineStyle: {
-      color: trace.line?.color,
+      color: data(trace.line?.color),
       type: trace.line?.dash === "dash" ? "dashed" : "solid",
     },
-    itemStyle: { color: trace.line?.color },
+    itemStyle: { color: data(trace.line?.color) },
   }));
 
   return {
     title: { text: titleOf(figure) },
-    grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
-    xAxis: axis({ type: isCategory ? "category" : "value", data: categories }),
+    grid: { top: 48, right: figure.data.length > 2 ? 64 : 24, bottom: 40, left: 56, containLabel: true },
+    xAxis: axis({ type: isCategory ? "category" : "value", data: categories, boundaryGap: false }),
     yAxis: axis({ type: "value" }),
     series,
   };
 }
 
-// One scatter trace per group (circuit clusters, PCA projection).
-export function scatterGroupsOption(figure) {
-  const series = figure.data.map((trace) => ({
+// One scatter trace per group. With `clusters`, groups are circuit clusters:
+// colour and symbol come from the cluster's position, not from the backend
+// palette, so they match the badges on the Circuits page.
+export function scatterGroupsOption(figure, { clusters = false } = {}) {
+  const series = figure.data.map((trace, i) => ({
     type: "scatter",
     name: trace.name,
+    symbol: clusters ? clusterSymbol(i) : "circle",
     symbolSize: trace.marker?.size ?? 12,
-    itemStyle: { color: trace.marker?.color, borderColor: "#00000066", borderWidth: 1 },
-    data: trace.x.map((x, i) => [x, trace.y[i]]),
+    itemStyle: {
+      color: clusters ? clusterColor(i) : data(trace.marker?.color),
+      borderColor: "var(--card)@0.7",
+      borderWidth: 1,
+    },
+    data: trace.x.map((x, j) => [x, trace.y[j]]),
   }));
 
   return {
     title: { text: titleOf(figure) },
-    grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
+    grid: { top: 48, right: 24, bottom: 40, left: 56, containLabel: true },
     xAxis: axis({ type: "value", scale: true, name: figure.layout?.xaxis?.title?.text }),
     yAxis: axis({ type: "value", scale: true, name: figure.layout?.yaxis?.title?.text }),
     series,
@@ -119,17 +161,21 @@ export function radarOption(figure) {
     legend: { bottom: 0 },
     radar: {
       indicator: categories.map((name) => ({ name, max })),
-      axisName: { color: "#9a9ca6", fontFamily: CHART_MONO, fontSize: 11 },
-      splitLine: { lineStyle: { color: "rgba(255,255,255,0.12)" } },
+      axisName: { color: "var(--ink-soft)", fontFamily: CHART_MONO, fontSize: 11 },
+      axisLine: { lineStyle: { color: "var(--hairline)" } },
+      splitLine: { lineStyle: { color: "var(--hairline)" } },
       splitArea: { show: false },
     },
     series: [
       {
         type: "radar",
-        data: figure.data.map((trace) => ({
+        data: figure.data.map((trace, i) => ({
           name: trace.name,
           value: trace.r,
-          areaStyle: { opacity: trace.opacity ?? 0.25 },
+          symbol: clusterSymbol(i),
+          lineStyle: { color: clusterColor(i), width: 2 },
+          itemStyle: { color: clusterColor(i) },
+          areaStyle: { color: clusterColor(i), opacity: trace.opacity ?? 0.2 },
         })),
       },
     ],
@@ -147,7 +193,7 @@ export function trackOption(figure) {
   return {
     title: { text: titleOf(figure) },
     legend: false,
-    grid: { top: 56, right: 24, bottom: 24, left: 24, containLabel: true },
+    grid: { top: 48, right: 24, bottom: 24, left: 24, containLabel: true },
     xAxis: axis({ type: "value", scale: true, show: false }),
     yAxis: axis({ type: "value", scale: true, show: false }),
     series: [
@@ -155,23 +201,23 @@ export function trackOption(figure) {
         type: "line",
         data: track.x.map((x, i) => [x, track.y[i]]),
         showSymbol: false,
-        lineStyle: { color: "#4dd2ff", width: 3 },
+        lineStyle: { color: "var(--cat-1)", width: 3 },
       },
       finishLine && {
         type: "line",
         data: finishLine.x.map((x, i) => [x, finishLine.y[i]]),
         showSymbol: false,
-        lineStyle: { color: "#ff5a52", width: 3 },
+        lineStyle: { color: "var(--amber)", width: 3 },
       },
       {
         type: "scatter",
         symbolSize: 20,
         data: corners.map((c, i) => [c.x[0], c.y[0], i + 1]),
-        itemStyle: { color: "rgba(77, 210, 255, 0.7)" },
+        itemStyle: { color: "var(--cat-1)@0.85" },
         label: {
           show: true,
           formatter: (p) => p.data[2],
-          color: "#0b0c10",
+          color: "var(--page)",
           fontFamily: CHART_MONO,
           fontWeight: 700,
         },
@@ -190,23 +236,23 @@ export function telemetryOption(figure) {
 
   return {
     title: { text: titleOf(figure) },
-    grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
-    xAxis: axis({ type: "value", scale: true, name: "Distance" }),
-    yAxis: axis({ type: "value", scale: true }),
+    grid: { top: 48, right: 24, bottom: 40, left: 56, containLabel: true },
+    xAxis: axis({ type: "value", scale: true, name: "Distance (m)", nameLocation: "middle", nameGap: 28 }),
+    yAxis: axis({ type: "value", scale: true, name: axisTitle(figure, "yaxis") }),
     series: driverLines.map((trace, i) => ({
       type: "line",
       name: trace.name,
       showSymbol: false,
       data: trace.x.map((x, j) => [x, trace.y[j]]),
-      lineStyle: { color: trace.line?.color },
-      itemStyle: { color: trace.line?.color },
+      lineStyle: { color: data(trace.line?.color) },
+      itemStyle: { color: data(trace.line?.color) },
       markLine:
         i === 0
           ? {
               silent: true,
               symbol: "none",
-              label: { color: "#9a9ca6", fontFamily: CHART_MONO, fontSize: 10 },
-              lineStyle: { color: "rgba(255,255,255,0.15)", type: "dotted" },
+              label: { color: "var(--ink-faint)", fontFamily: CHART_MONO, fontSize: 10 },
+              lineStyle: { color: "var(--hairline-strong)", type: "dotted" },
               data: markLineData,
             }
           : undefined,
@@ -216,48 +262,58 @@ export function telemetryOption(figure) {
 
 // plot_tyre_strat(): floating horizontal bars (Plotly encodes each stint's
 // start as `base` and duration as `x`). ECharts has no floating-bar
-// primitive, so a `custom` series draws each stint as its own rectangle.
+// primitive, so a `custom` series draws each stint as its own rectangle - one
+// series per compound, which also gives the legend real entries to toggle.
 export function tyreStrategyOption(figure) {
   const drivers = [...new Set(figure.data.map((t) => t.y[0]))];
   const stints = figure.data.map((t) => ({
     driver: t.y[0],
     start: t.base,
-    duration: t.x[0],
+    end: t.base + t.x[0],
     color: t.marker?.color,
     compound: t.name,
   }));
+  const compounds = [...new Set(stints.map((s) => s.compound))];
+
+  const renderItem = (params, api) => {
+    const driverIndex = api.value(0);
+    const start = api.coord([api.value(1), driverIndex]);
+    const end = api.coord([api.value(2), driverIndex]);
+    const height = api.size([0, 1])[1] * 0.62;
+    return {
+      type: "rect",
+      shape: { x: start[0], y: start[1] - height / 2, width: Math.max(end[0] - start[0], 1), height, r: 3 },
+      style: api.style(),
+    };
+  };
 
   return {
     title: { text: titleOf(figure) },
-    legend: { bottom: 0, data: [...new Set(stints.map((s) => s.compound))] },
-    grid: { top: 56, right: 24, bottom: 48, left: 70, containLabel: true },
-    xAxis: axis({ type: "value", name: "Lap" }),
-    yAxis: axis({ type: "category", data: drivers }),
-    series: [
-      {
-        type: "custom",
-        renderItem: (params, api) => {
-          const driverIndex = api.value(0);
-          const start = api.coord([api.value(1), driverIndex]);
-          const end = api.coord([api.value(1) + api.value(2), driverIndex]);
-          const height = api.size([0, 1])[1] * 0.6;
-          return {
-            type: "rect",
-            shape: {
-              x: start[0],
-              y: start[1] - height / 2,
-              width: Math.max(end[0] - start[0], 1),
-              height,
-            },
-            style: api.style({ stroke: "#00000055" }),
-          };
-        },
-        data: stints.map((s) => ({
-          value: [drivers.indexOf(s.driver), s.start, s.duration],
-          itemStyle: { color: s.color },
+    legend: { bottom: 0, data: compounds },
+    tooltip: {
+      trigger: "item",
+      formatter: (p) => `${drivers[p.value[0]]} · ${p.seriesName}<br/>Laps ${p.value[1] + 1}–${p.value[2]}`,
+    },
+    grid: { top: 24, right: 24, bottom: 56, left: 70, containLabel: true },
+    xAxis: axis({ type: "value", name: "Lap", nameLocation: "middle", nameGap: 28 }),
+    yAxis: axis({ type: "category", data: drivers, inverse: true }),
+    series: compounds.map((compound) => ({
+      type: "custom",
+      name: compound,
+      // legend swatch = the tyre's own colour, not the palette slot
+      color: rawColor(stints.find((s) => s.compound === compound)?.color, 1),
+      renderItem,
+      // dims: [driver index, first lap, last lap] -> x spans both laps, y is the driver row
+      encode: { x: [1, 2], y: 0 },
+      data: stints
+        .filter((s) => s.compound === compound)
+        .map((s) => ({
+          value: [drivers.indexOf(s.driver), s.start, s.end],
+          // Tyre colours are the meaning (soft = red, hard = white...), so no legibility
+          // nudge; the outline keeps a white stint visible on a light page.
+          itemStyle: { color: rawColor(s.color, 1), borderColor: "var(--ink-faint)", borderWidth: 1 },
         })),
-      },
-    ],
+    })),
   };
 }
 
@@ -290,7 +346,7 @@ export function paceBoxplotOption(figure, { showPoints = false } = {}) {
       // Solid color for both fill and border made the box/whiskers/median
       // invisible against their own fill — translucent fill + solid
       // border of the same color keeps the internal structure visible.
-      itemStyle: { color: `${colors[i]}33`, borderColor: colors[i], borderWidth: 2 },
+      itemStyle: { color: rawColor(colors[i], 0.2), borderColor: data(colors[i]), borderWidth: 2 },
     })),
   };
 
@@ -300,12 +356,12 @@ export function paceBoxplotOption(figure, { showPoints = false } = {}) {
         name: `${drivers[i]} laps`,
         symbolSize: 7,
         itemStyle: {
-          color: colors[i],
+          color: data(colors[i]),
           opacity: 0.85,
-          borderColor: "rgba(255,255,255,0.7)",
+          borderColor: "var(--card)@0.8",
           borderWidth: 1,
         },
-        emphasis: { itemStyle: { opacity: 1, borderColor: "#fff", borderWidth: 1.5 } },
+        emphasis: { itemStyle: { opacity: 1, borderColor: "var(--ink)", borderWidth: 1.5 } },
         tooltip: { show: false },
         z: 4,
         // jitter around the category so overlapping laps don't stack in a line
@@ -316,7 +372,7 @@ export function paceBoxplotOption(figure, { showPoints = false } = {}) {
   return {
     title: { text: titleOf(figure) },
     legend: false,
-    grid: { top: 56, right: 24, bottom: 40, left: 56, containLabel: true },
+    grid: { top: 48, right: 24, bottom: 40, left: 56, containLabel: true },
     xAxis: axis({ type: "category", data: drivers, boundaryGap: true }),
     yAxis: axis({ type: "value", scale: true, name: "Lap time (s)" }),
     series: [boxSeries, ...pointSeries],

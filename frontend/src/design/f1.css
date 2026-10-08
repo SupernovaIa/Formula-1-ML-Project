@@ -1,0 +1,31 @@
+/* F1 extension of the Atlas tokens. Not part of Atlas itself.
+   Atlas caps the categorical scale at 6 (--cat-1..6, plus --cat-7 in use) because
+   no more hues fit the wheel at that lightness band. Circuit clusters go up to
+   12 here, so --cat-8..12 are appended. Past 7 the colour alone is NOT enough to
+   tell groups apart: every consumer must pair it with a text label and, in
+   charts, a distinct symbol shape (see lib/echartsTheme.js CLUSTER_SYMBOLS).
+   Not run through design/check_palette.py - do that before trusting 8-12 for
+   colour-blind users. */
+:root {
+  --cat-8: #a21caf;
+  --cat-9: #4d7c0f;
+  --cat-10: #b91c1c;
+  --cat-11: #0f766e;
+  --cat-12: #7c2d12;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cat-8: #c45ad1;
+    --cat-9: #84b52a;
+    --cat-10: #e5534b;
+    --cat-11: #2db3a0;
+    --cat-12: #b98456;
+  }
+}
+:root[data-theme="dark"] {
+  --cat-8: #c45ad1;
+  --cat-9: #84b52a;
+  --cat-10: #e5534b;
+  --cat-11: #2db3a0;
+  --cat-12: #b98456;
+}

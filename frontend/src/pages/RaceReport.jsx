@@ -1,9 +1,11 @@
 import { useState } from "react";
 import AsyncSection from "../components/AsyncSection";
 import EChart from "../components/EChart";
+import Field from "../components/Field";
+import PageHead from "../components/PageHead";
 import RoundSelect from "../components/RoundSelect";
 import { useAsync } from "../hooks/useAsync";
-import { humanizeHeader, humanizeSlug } from "../utils/format";
+import { formatCell, humanizeHeader, humanizeSlug } from "../utils/format";
 import {
   barOption,
   multiLineOption,
@@ -63,68 +65,73 @@ export default function RaceReport() {
 
   return (
     <div className="page">
-      <h1>{loaded ? `🏁 ${humanizeSlug(loaded.circuitId)} — Round ${loaded.round}, ${loaded.year}` : "🏁 Race Weekend"}</h1>
-      {!loaded && <p className="page-intro">Pick a season and race to explore its qualifying and race sessions.</p>}
+      {loaded ? (
+        <PageHead
+          label={`Round ${loaded.round} · ${loaded.year} · ${loaded.sessionType}`}
+          title={humanizeSlug(loaded.circuitId)}
+        />
+      ) : (
+        <PageHead
+          title="Relive a"
+          em="Grand Prix"
+          lede="Pick a season and race to explore its qualifying and race sessions."
+        />
+      )}
 
-      <div className="controls-row">
-        <label>
-          Season
+      <div className="a-panel">
+      <div className="controls">
+        <Field label="Season">
           <select value={year} onChange={(e) => setYear(Number(e.target.value))}>
             {YEARS.map((y) => (
               <option key={y} value={y}>{y}</option>
             ))}
           </select>
-        </label>
+        </Field>
 
         <RoundSelect year={year} value={roundNumber} onChange={setRoundNumber} />
 
-        <label>
-          Session
+        <Field label="Session">
           <select value={sessionType} onChange={(e) => setSessionType(e.target.value)}>
             <option value="Qualifying">Qualifying</option>
             <option value="Race">Race</option>
           </select>
-        </label>
+        </Field>
 
-        <button onClick={handleLoad}>Load</button>
+        <button className="a-btn a-btn--primary" onClick={handleLoad}>Load session</button>
       </div>
 
       {loaded && (
-        <>
-          <div className="controls-row">
-            <label>
-              View
+          <div className="controls controls--sub">
+            <Field label="View">
               <select value={vizType} onChange={(e) => setVizType(e.target.value)}>
                 {(loaded.sessionType === "Qualifying" ? QUALY_VIZ : RACE_VIZ).map((v) => (
                   <option key={v} value={v}>{v}</option>
                 ))}
               </select>
-            </label>
+            </Field>
 
             {vizType === "Compare fastest laps" && (
-              <label>
-                Mode
+              <Field label="Mode">
                 <select value={telemetryMode} onChange={(e) => setTelemetryMode(e.target.value)}>
                   <option value="Speed">Speed</option>
                   <option value="Throttle">Throttle</option>
                 </select>
-              </label>
+              </Field>
             )}
 
             {(vizType === "Driver pace") && (
-              <label>
-                Driver
+              <Field label="Driver">
                 <select value={selectedDriver} onChange={(e) => setSelectedDriver(e.target.value)}>
                   <option value="">Select a driver</option>
                   {sessionDrivers?.map((d) => (
                     <option key={d.Abbreviation} value={d.Abbreviation}>{d.FullName}</option>
                   ))}
                 </select>
-              </label>
+              </Field>
             )}
 
             {(vizType === "Driver pace" || vizType === "Pace comparison") && (
-              <label>
+              <label className="field--inline">
                 <input
                   type="checkbox"
                   checked={excludeOutliers}
@@ -136,20 +143,24 @@ export default function RaceReport() {
 
             {vizType === "Pace comparison" && (
               <>
-                <label>
-                  Group by
+                <Field label="Group by">
                   <select value={paceKind} onChange={(e) => setPaceKind(e.target.value)}>
                     <option value="driver">Driver</option>
                     <option value="compound">Tyre compound</option>
                   </select>
-                </label>
-                <label>
+                </Field>
+                <label className="field--inline">
                   <input type="checkbox" checked={showPoints} onChange={(e) => setShowPoints(e.target.checked)} />
                   Show individual laps
                 </label>
               </>
             )}
           </div>
+      )}
+      </div>
+
+      {loaded && (
+        <>
 
           {loaded.sessionType === "Qualifying" && vizType === "Results" && (
             <QualyResults loaded={loaded} />
@@ -205,21 +216,36 @@ function SingleChart({ fetcher, deps, adapter }) {
   );
 }
 
+// Numbers and lap times line up on their right edge (header too), text on the left.
+const isNumeric = (v) => typeof v === "number" || (typeof v === "string" && /^\d{1,2}:\d{2}(\.\d+)?$/.test(v));
+
 function ResultsTable({ rows }) {
   if (!rows?.length) return null;
   const columns = Object.keys(rows[0]);
   return (
-    <div className="table-wrap">
-      <table>
-        <thead>
-          <tr>{columns.map((c) => <th key={c}>{humanizeHeader(c)}</th>)}</tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr key={i}>{columns.map((c) => <td key={c}>{String(row[c] ?? "")}</td>)}</tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="a-panel table-panel">
+      <div className="a-table-wrap">
+        <table className="a-table">
+          <thead>
+            <tr>
+              {columns.map((c) => (
+                <th key={c} className={isNumeric(rows[0][c]) ? "is-num" : undefined}>{humanizeHeader(c)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr key={i}>
+                {columns.map((c) => (
+                  <td key={c} className={isNumeric(row[c]) ? "is-num" : undefined}>
+                    {formatCell(row[c])}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
